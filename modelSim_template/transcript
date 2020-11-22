@@ -55,3 +55,5 @@ do script.do
 # unknown or ambiguous subcommand "add": must be addfile, addfolder, calculateorder, close, compileall, compileorder, compileoutofdate, currentsim, delete, env, filenames, history, new, open, removefile, simargs, or startsim
 #     while executing
 # "project add"
+# Project file /home/wackoz/Documenti/modelSim/test_proj/test_project.mpf is write protected, data cannot be saved.
+# Unable to save project.

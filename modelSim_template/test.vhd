@@ -1,15 +1,23 @@
 library ieee ;
-    use ieee.std_logic_1164.all ;
-    use ieee.numeric_std.all ;
+  use ieee.std_logic_1164.all ;
+  use ieee.numeric_std.all ;
 
-entity butterfly is
+entity la_mia_butterfly is
   port (
-    clock
+  clock
   ) ;
-end butterfly ; 
+end la_mia_butterfly ; 
 
-architecture myArch of butterfly is
+architecture myArch of la_mia_butterfly is
 
 begin
 
+identifier : process( clock )
+begin
+  if( rising_edge(clock) ) then
+    
+  end if ;
+end process ; -- identifier
 end architecture ;
+
+
