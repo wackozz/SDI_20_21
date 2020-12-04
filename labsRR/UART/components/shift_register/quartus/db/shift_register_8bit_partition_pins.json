@@ -1,0 +1,25 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "s_out",
+					"strict" : false
+				},
+				{
+					"name" : "sh_en",
+					"strict" : false
+				},
+				{
+					"name" : "s_in",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,24 @@
+|shift_register_8bit
+clock => data[7].CLK
+sh_en => data[7].ENA
+ld_en => ~NO_FANOUT~
+s_in => data[7].DATAIN
+s_out <= data[7].DB_MAX_OUTPUT_PORT_TYPE
+p_in[0] => ~NO_FANOUT~
+p_in[1] => ~NO_FANOUT~
+p_in[2] => ~NO_FANOUT~
+p_in[3] => ~NO_FANOUT~
+p_in[4] => ~NO_FANOUT~
+p_in[5] => ~NO_FANOUT~
+p_in[6] => ~NO_FANOUT~
+p_in[7] => ~NO_FANOUT~
+p_out[0] => ~NO_FANOUT~
+p_out[1] => ~NO_FANOUT~
+p_out[2] => ~NO_FANOUT~
+p_out[3] => ~NO_FANOUT~
+p_out[4] => ~NO_FANOUT~
+p_out[5] => ~NO_FANOUT~
+p_out[6] => ~NO_FANOUT~
+p_out[7] => ~NO_FANOUT~
+
+

@@ -1,0 +1,77 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register
+Eshift_register
+w1607084529
+Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z4 8/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd
+Z5 F/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd
+l0
+L5 1
+V>iZgER]]cJM8^]>A@9@OU3
+!s100 ]B4cFhLUh;0O2=BdfB=UP1
+Z6 OV;C;2020.1;71
+32
+!s110 1607084536
+!i10b 1
+!s108 1607084536.000000
+Z7 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd|
+!s107 /home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd|
+!i113 1
+Z8 o-work work -2002 -explicit
+Z9 tExplicit 1 CvgOpt 0
+Eshift_register_8bit
+Z10 w1607085134
+R1
+R2
+R3
+!i122 19
+R0
+R4
+R5
+l0
+L5 1
+V=91P_?=X=AY2RSR89X3l40
+!s100 O]dPOFmHfgNA]IAPhQA551
+R6
+32
+Z11 !s110 1607085150
+!i10b 1
+Z12 !s108 1607085150.000000
+R7
+Z13 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd|
+!i113 1
+R8
+R9
+Aarch
+R1
+R2
+R3
+DEx4 work 19 shift_register_8bit 0 22 =91P_?=X=AY2RSR89X3l40
+!i122 19
+l23
+Z14 L20 18
+VK=B`:_4e451baD=bh_?S62
+Z15 !s100 >9`o?0kS:AAL@HJcjjL]02
+R6
+32
+R11
+!i10b 1
+R12
+R7
+R13
+!i113 1
+R8
+R9
