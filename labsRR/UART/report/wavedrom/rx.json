@@ -1,0 +1,17 @@
+{signal: [
+  {name: 'clock',	wave: 'P..|.|..|..|.|'},
+  	{name: 'Pin', 	wave: 'x2x|x|xx|xx|x|', data: ['D0', 'body', 'tail', 'data']},
+    {name: 'LD', 	wave: '010|.|..|..|.|'},
+    {name: 'SH', 	wave: '0..|.|10|10|.|'},
+    {name: 'F0', 	wave: '0.1|0|..|..|.|..', node:  '..a..........'},
+    {name: 'F1', 	wave: '1.0|.|..|..|1|...', node: '..b..........'},
+    {name: 'Sout', 	wave: 'xx2|.|.2|.2|.|', data: ['d0','dx','d7', 'd7', 'data']},
+  	{name: 'TxD', 	wave: '1.0|2|.2|.2|1|', data: ['d0', 'dx','d7', 'd7', 'data']},
+  	{name: 'Term_count', 	wave: 'x0........1...', data: ['139','body', 'tail', 'data']},
+  	],
+  edge: [
+	'a~>b'
+	]
+}
+
+
