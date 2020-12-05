@@ -1,0 +1,309 @@
+# Loading project shift_register
+# Compile of tb_shift_register.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+# reading /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini
+# Loading project voter
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:30:28 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_sr
+# -- Compiling architecture BEH of testbench_sr
+# ** Error: tb_voter.vhd(15): Expecting a type name, found signal "vote" instead.
+# ** Error: tb_voter.vhd(15): Bad resolution function (STD_LOGIC_VECTOR) for type (error).
+# ** Error: tb_voter.vhd(15): near ":": (vcom-1576) expecting ';' or ')'.
+# ** Note: voter_3bit.vhd(1): VHDL Compiler exiting
+# End time: 21:30:28 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:31:29 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_sr
+# -- Compiling architecture BEH of testbench_sr
+# ** Error: tb_voter.vhd(16): near ")": (vcom-1576) expecting IDENTIFIER.
+# ** Note: voter_3bit.vhd(1): VHDL Compiler exiting
+# End time: 21:31:29 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:31:41 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_sr
+# -- Compiling architecture BEH of testbench_sr
+# ** Error: tb_voter.vhd(24): near ")": syntax error
+# ** Note: tb_voter.vhd(25): VHDL Compiler exiting
+# End time: 21:31:41 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:31:52 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_sr
+# -- Compiling architecture BEH of testbench_sr
+# -- Compiling entity voter_3bit
+# ** Error: voter_3bit.vhd(9): near ")": (vcom-1576) expecting IDENTIFIER.
+# End time: 21:31:52 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:32:42 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_voter
+# -- Compiling architecture BEH of testbench_voter
+# -- Compiling entity voter_3bit
+# ** Error: voter_3bit.vhd(9): near ")": (vcom-1576) expecting IDENTIFIER.
+# End time: 21:32:42 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:32:56 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_voter
+# -- Compiling architecture BEH of testbench_voter
+# -- Compiling entity voter_3bit
+# -- Compiling architecture arch of voter_3bit
+# ** Error: voter_3bit.vhd(14): near "vote": (vcom-1576) expecting BEGIN.
+# End time: 21:32:56 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:33:04 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_voter
+# -- Compiling architecture BEH of testbench_voter
+# -- Compiling entity voter_3bit
+# -- Compiling architecture arch of voter_3bit
+# ** Error: voter_3bit.vhd(14): (vcom-1136) Unknown identifier "b".
+# ** Error: tb_voter.vhd(14): (vcom-1590) Bad expression in right operand of infix expression 'and'.
+# ** Error: tb_voter.vhd(14): (vcom-1590) Bad expression in left operand of infix expression 'or'.
+# ** Error: voter_3bit.vhd(14): Type error resolving infix expression "or" as type ieee.std_logic_1164.STD_LOGIC.
+# ** Error: voter_3bit.vhd(14): near "and": (vcom-1576) expecting ';'.
+# ** Note: voter_3bit.vhd(16): VHDL Compiler exiting
+# End time: 21:33:04 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 5, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:33:12 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_voter
+# -- Compiling architecture BEH of testbench_voter
+# -- Compiling entity voter_3bit
+# -- Compiling architecture arch of voter_3bit
+# ** Error: voter_3bit.vhd(14): near "and": (vcom-1576) expecting ';'.
+# ** Note: voter_3bit.vhd(16): VHDL Compiler exiting
+# End time: 21:33:12 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:33:54 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_voter
+# -- Compiling architecture BEH of testbench_voter
+# -- Compiling entity voter_3bit
+# -- Compiling architecture arch of voter_3bit
+# ** Error: voter_3bit.vhd(14): near "and": (vcom-1576) expecting ')'.
+# ** Note: voter_3bit.vhd(16): VHDL Compiler exiting
+# End time: 21:33:54 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:34:37 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_voter
+# -- Compiling architecture BEH of testbench_voter
+# -- Compiling entity voter_3bit
+# -- Compiling architecture arch of voter_3bit
+# ** Error: voter_3bit.vhd(14): near "or": (vcom-1576) expecting ')'.
+# ** Note: voter_3bit.vhd(16): VHDL Compiler exiting
+# End time: 21:34:37 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:34:58 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_voter
+# -- Compiling architecture BEH of testbench_voter
+# -- Compiling entity voter_3bit
+# -- Compiling architecture arch of voter_3bit
+# ** Error: voter_3bit.vhd(14): near "or": (vcom-1576) expecting ')'.
+# ** Note: voter_3bit.vhd(16): VHDL Compiler exiting
+# End time: 21:34:58 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:36:26 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_voter
+# -- Compiling architecture BEH of testbench_voter
+# -- Compiling entity voter_3bit
+# -- Compiling architecture arch of voter_3bit
+# ** Error: voter_3bit.vhd(14): near ";": (vcom-1576) expecting ')'.
+# ** Note: voter_3bit.vhd(16): VHDL Compiler exiting
+# End time: 21:36:26 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:36:39 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_voter
+# -- Compiling architecture BEH of testbench_voter
+# -- Compiling entity voter_3bit
+# -- Compiling architecture arch of voter_3bit
+# ** Error: voter_3bit.vhd(14): near ";": (vcom-1576) expecting ')'.
+# ** Note: voter_3bit.vhd(16): VHDL Compiler exiting
+# End time: 21:36:39 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:36:44 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_voter
+# -- Compiling architecture BEH of testbench_voter
+# -- Compiling entity voter_3bit
+# -- Compiling architecture arch of voter_3bit
+# ** Error: voter_3bit.vhd(14): near ";": (vcom-1576) expecting ')'.
+# ** Note: voter_3bit.vhd(16): VHDL Compiler exiting
+# End time: 21:36:44 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:36:49 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_voter
+# -- Compiling architecture BEH of testbench_voter
+# -- Compiling entity voter_3bit
+# -- Compiling architecture arch of voter_3bit
+# End time: 21:36:49 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Compile of tb_voter.vhd was successful.
+# Compile of voter_3bit.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.testbench_voter -t 10us
+# vsim work.testbench_voter -t 10us 
+# Start time: 21:37:30 on Dec 05,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.testbench_voter(beh)
+# Loading work.voter_3bit(arch)
+# WARNING: No extended dataflow license exists
+run 100 ns
+# ** UI-Msg: (vsim-168) The time value, 100 ns, is smaller than the simulator resolution so no run occurred.
+run 100 us
+vcom é*
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:39:43 on Dec 05,2020
+# vcom -reportprogress 300 é* 
+# ** Error: (vcom-7) Failed to open design unit file "é*" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 21:39:43 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 21:39:47 on Dec 05,2020
+# vcom -reportprogress 300 tb_voter.vhd voter_3bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity testbench_voter
+# -- Compiling architecture BEH of testbench_voter
+# -- Compiling entity voter_3bit
+# -- Compiling architecture arch of voter_3bit
+# End time: 21:39:47 on Dec 05,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.testbench_voter -t 10us
+# End time: 21:40:25 on Dec 05,2020, Elapsed time: 0:02:55
+# Errors: 0, Warnings: 6
+# vsim work.testbench_voter -t 10us 
+# Start time: 21:40:25 on Dec 05,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.testbench_voter(beh)
+# Loading work.voter_3bit(arch)
+# WARNING: No extended dataflow license exists
+run 100 us
+add wave *
+# End time: 21:40:59 on Dec 05,2020, Elapsed time: 0:00:34
+# Errors: 0, Warnings: 1
