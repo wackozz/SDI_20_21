@@ -27,6 +27,7 @@ Z4 OV;C;2020.1;71
 !s110 1607084536
 !i10b 1
 !s108 1607084536.000000
+<<<<<<< Updated upstream
 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd|
 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd|
 !i113 1
@@ -55,6 +56,36 @@ Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz
 !i113 1
 R5
 R6
+=======
+Z7 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd|
+Z8 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd|
+!i113 1
+Z9 o-work work -2002 -explicit
+Z10 tExplicit 1 CvgOpt 0
+Eshift_register_8bit
+Z11 w1607088428
+R1
+R2
+R3
+!i122 20
+Z12 dC:/Users/franc/OneDrive/Documents/GitHub/SDI_20_21/labsRR/UART/components/shift_register
+8C:/Users/franc/OneDrive/Documents/GitHub/SDI_20_21/labsRR/UART/components/shift_register/shift_register_8bit.vhd
+FC:/Users/franc/OneDrive/Documents/GitHub/SDI_20_21/labsRR/UART/components/shift_register/shift_register_8bit.vhd
+l0
+L5 1
+Vb6V6S]_RROgZkKM;f5^D_0
+!s100 8R2i?6@DQOB?UR:6M@k0;3
+R6
+32
+Z13 !s110 1607088906
+!i10b 1
+Z14 !s108 1607088906.000000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/franc/OneDrive/Documents/GitHub/SDI_20_21/labsRR/UART/components/shift_register/shift_register_8bit.vhd|
+!s107 C:/Users/franc/OneDrive/Documents/GitHub/SDI_20_21/labsRR/UART/components/shift_register/shift_register_8bit.vhd|
+!i113 1
+R9
+R10
+>>>>>>> Stashed changes
 Aarch
 R1
 R2
@@ -62,6 +93,7 @@ R3
 DEx4 work 19 shift_register_8bit 0 22 <_U[?ZiF;T8[oo_k]iJ5?2
 !i122 91
 l23
+<<<<<<< Updated upstream
 L20 24
 VNZI^[BWFbMGI0_oFfT`6S3
 !s100 `73S_6lcdM1K_>KBFRnDb2
@@ -74,6 +106,11 @@ R12
 Z13 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register_8bit.vhd|
 !i113 1
 R5
+=======
+L20 18
+VK=B`:_4e451baD=bh_?S62
+!s100 >9`o?0kS:AAL@HJcjjL]02
+>>>>>>> Stashed changes
 R6
 Etestbench_sr
 Z14 w1607198598
@@ -90,6 +127,7 @@ VIiJ4BQRF6S=R=9OReX?4e0
 !s100 >`QU;`]ZBMEn<mRgnY:]j3
 R4
 32
+<<<<<<< Updated upstream
 R10
 !i10b 1
 R11
@@ -118,3 +156,39 @@ R18
 !i113 1
 R5
 R6
+=======
+!s110 1607085150
+!i10b 1
+!s108 1607085150.000000
+R7
+R8
+!i113 1
+R9
+R10
+R0
+R5
+R4
+Etestbench_sr
+R11
+R1
+R2
+R3
+!i122 21
+R12
+8C:/Users/franc/OneDrive/Documents/GitHub/SDI_20_21/labsRR/UART/components/shift_register/tb_shift_register.vhd
+FC:/Users/franc/OneDrive/Documents/GitHub/SDI_20_21/labsRR/UART/components/shift_register/tb_shift_register.vhd
+l0
+L5 1
+VIiJ4BQRF6S=R=9OReX?4e0
+!s100 >`QU;`]ZBMEn<mRgnY:]j3
+R6
+32
+R13
+!i10b 1
+R14
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/franc/OneDrive/Documents/GitHub/SDI_20_21/labsRR/UART/components/shift_register/tb_shift_register.vhd|
+!s107 C:/Users/franc/OneDrive/Documents/GitHub/SDI_20_21/labsRR/UART/components/shift_register/tb_shift_register.vhd|
+!i113 1
+R9
+R10
+>>>>>>> Stashed changes
