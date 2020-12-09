@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 # Loading project shifter
+=======
+<<<<<<< Updated upstream
+# Loading project shift_register
+# Compile of tb_shift_register.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+>>>>>>> 40e7c8f0ab2bc74e8b18468883fc63385de25215
 # reading /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini
 # Loading project counter
 vcom *.vhd
@@ -571,6 +579,7 @@ vsim -t 10ns work.counter_nbit_tb
 # Loading work.counter_nbit(arch)
 # WARNING: No extended dataflow license exists
 add wave *
+<<<<<<< HEAD
 run 1000 ns
 vcom *.vhd
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -665,3 +674,20 @@ restart
 # Loading work.counter_nbit_tb(arch)
 # Loading work.counter_nbit(arch)
 run 1000 ns
+=======
+# End time: 21:40:59 on Dec 05,2020, Elapsed time: 0:00:34
+# Errors: 0, Warnings: 1
+=======
+# Error opening C:/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd
+# Path name 'C:/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd' doesn't exist.
+# Error opening C:/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd
+# Path name 'C:/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd' doesn't exist.
+# Error opening C:/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd
+# Path name 'C:/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd' doesn't exist.
+# Error opening C:/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd
+# Path name 'C:/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register.vhd' doesn't exist.
+# Compile of shift_register_8bit.vhd failed with 1 errors.
+# Compile of tb_shift_register.vhd failed with 2 errors.
+# 2 compiles, 2 failed with 3 errors.
+>>>>>>> Stashed changes
+>>>>>>> 40e7c8f0ab2bc74e8b18468883fc63385de25215
