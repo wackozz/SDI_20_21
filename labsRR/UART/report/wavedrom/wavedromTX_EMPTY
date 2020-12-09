@@ -1,0 +1,17 @@
+{signal: [
+  {name: 'clk', wave: "0.1.0.1.0.1.0.1.0.1.0." , period:0.5},
+  {name: 'Tx_Empty', wave: 'x.2.x..x...', data: ['001'] ,node:'..a...', period:1},
+  {name: 'CLR_ATN', wave:'x.......2.x' , data:['010'],node:'........f.g.'},
+  {name: 'ADD', wave:'x.2.x.2.x..', data:['10','11']},
+  {name: 'R/Wn', wave:'x.1.x.0.x..'},
+  {name: 'CS', wave:'0.1.0.1.0..'},
+  {name: 'En_STATUS', wave:'0.1.0......'},
+  {name: 'Dout', wave:'xxxx2.x....', data:['001'],node:'....b...' },
+  {name: 'Din', wave:'x.....2.x..', data:['010'], node:'......e...'},
+  {name: 'ATN', wave:'0.1.......0', node:'..........h'},
+  {name: 'En_CTRL', wave:'0.....1.0..'}
+],
+  edge: [
+   'a~>b t1' , 'e~>f t2', 'g~>h t3'
+  ]
+}

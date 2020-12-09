@@ -1,0 +1,94 @@
+LIBRARY ieee; 
+USE ieee.std_logic_1164.all; 
+  
+ENTITY ControlUnit_bus IS 
+PORT (RESET,CLOCK,CS_cu,R/Wn_cu: IN STD_LOGIC; 
+                       
+                              ADD_cu: IN STD_LOGIC_VECTOR (2 DOWNTO 0); 
+                               SEL_mux,ATN_cu: OUT STD_LOGIC                             
+                               RX_DATA,TX_DATA : OUT STD_LOGIC_VECTOR (7 DOWNTO 0); 
+                              RX_FULL,TX_EMPTY,CLRatn,ERROR,TX_EN,RX_EN: OUT STD_LOGIC_VECTOR(7 DOWNTO 0)); 
+END ControlUnit_bus; 
+
+
+ARCHITECTURE behav OF ControlUnit_bus IS
+
+
+TYPE stato IS (IDLE,STATUS_state,DATA_RX_state,CTRL_state,DATA_TX_state,DONE);
+
+SIGNAL state: stato;
+
+
+PROCESS (CLOCK,state,RESET) 
+BEGIN  
+ IF (RESET = '1') THEN 
+   state<=IDLE; 
+    
+                ELSIF (Clk'EVENT AND Clk = '1') THEN
+                               CASE state IS 
+                               WHEN IDLE => 
+                                IF ( CS = '1') THEN 
+                                IF (R/Wn=’1’) THEN – LETTURA
+                                IF(ADD=’001) THEN
+
+                                     state <= STATUS_state; 
+                                               
+                                       ATN<=’0’;
+                                END IF 
+                                
+								WHEN STATUS_state=>  
+                                IF (ADD = '010') THEN 
+                             
+                                          state<= DATA_RX_state;
+										  
+                                               TX_EMPTY<=”00000001”;
+                                               RX_FULL<= “00000000”;
+                                               ERROR<=”00000010”;
+                                                ATN<=’1’;
+                                
+                               END IF; 
+                                 
+                                               WHEN DATA_RX_state => 
+                
+                                              State<=DONE;
+
+                                             --Dout_cu<=RX_DATA;
+                                          
+										  END IF;
+                                              
+
+                                    ELSE IF (R/Wn=’0’) THEN –SCRITTURA
+                                             IF(ADD=”011”) THEN
+                                           
+										   State<= CTRL_state;
+                                     
+									 END IF;
+
+                                              WHEN CTRL_state => 
+                                               
+											   IF(ADD=”000”) THEN
+                                               State<= DATA_TX_state;
+                                               TX_EN<= “00000001”;
+                                                RX_EN<=”00000000”;
+                                                CLR_atn <= “00000010”;
+                                                ATN<=’0’;
+
+                                                 END IF
+                                              
+                                                WHEN DATA_TX_state  => 
+                                                      State<=DONE;
+                                              
+                                                
+                                                
+                                               WHEN DONE => 
+                                                 state<= IDLE; 
+                                                               
+                                               END IF; 
+                                                
+                                              
+                                                
+                               END CASE;           
+                 END IF; 
+END PROCESS; 
+END behav; 
+
