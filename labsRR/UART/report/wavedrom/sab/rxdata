@@ -4,7 +4,7 @@
   {name: 'SH1', 	wave: '0..|..10.|..10.....|10......', phase:0.5},
   {name: 'out_voter', 	wave: 'x|..|.2.x|.2.x',data: ['d0', 'd1', 'tail', 'data'], period:2},
   {name: 'en_VOTERreg', 	wave: '1..|.....|.....0.1.|.....0.1',  phase:0.5},
-  {name: 'out_VOTERreg', wave:'x|..|..2.|..2.', data:['d0','D1'], period:2},
+  {name: 'out_VOTERreg', wave:'x|..|..2.|..2.', data:['d0','d1'], period:2},
   {name: 'SH2', 	wave: '0..|.....|....10...|....10...', phase:0.5},
   {name: 'timer_out136', wave:'0|..|.10.|.10.',period:2},
   {name:'START', wave:'1|..|....|....', period:2},
