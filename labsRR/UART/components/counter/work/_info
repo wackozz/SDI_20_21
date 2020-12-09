@@ -1,0 +1,161 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register
+Ecounter_nbit
+Z0 w1607471613
+Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 36
+Z4 d/home/wackoz/github/SDI_20_21/labsRR/UART/components/counter
+Z5 8counter_nbit.vhd
+Z6 Fcounter_nbit.vhd
+l0
+L28 1
+V9=b4Z1>08c=9nUfQ6[A^?0
+!s100 M[ND0AI?P>Qfj4GAThHR?2
+Z7 OV;C;2020.1;71
+32
+Z8 !s110 1607471618
+!i10b 1
+Z9 !s108 1607471618.000000
+Z10 !s90 -reportprogress|300|counter_nbit.vhd|counter_nbit_tb.vhd|tb_counter_nbit.vhd|
+Z11 !s107 tb_counter_nbit.vhd|counter_nbit_tb.vhd|counter_nbit.vhd|
+!i113 1
+Z12 tExplicit 1 CvgOpt 0
+Aarch
+R1
+R2
+R3
+Z13 DEx4 work 12 counter_nbit 0 22 9=b4Z1>08c=9nUfQ6[A^?0
+!i122 36
+l47
+L44 23
+VJm6iIW=9bJ5gT7UaJkOGZ3
+!s100 XYMhHL`HdVENT6i[UQH9G2
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+Ecounter_nbit_tb
+Z14 w1607471399
+R2
+R3
+!i122 36
+R4
+Z15 8counter_nbit_tb.vhd
+Z16 Fcounter_nbit_tb.vhd
+l0
+L27 1
+V?klN24bOX9Vg99[?Egmf>0
+!s100 na5=IQo@24a4_1`FE=5n63
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+Aarch
+R1
+R13
+R2
+R3
+Z17 DEx4 work 15 counter_nbit_tb 0 22 ?klN24bOX9Vg99[?Egmf>0
+!i122 36
+l46
+Z18 L33 50
+Z19 VI0MCHKBA4;>V@0QJRESaO0
+Z20 !s100 Bhg0W=];7JZ7AEe:k88H>0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+Ccounter_nbit_tb_arch_cfg
+ecounter_nbit_tb
+aarch
+R13
+R1
+DAx4 work 15 counter_nbit_tb 4 arch 22 I0MCHKBA4;>V@0QJRESaO0
+R2
+R3
+R17
+!i122 36
+R14
+R4
+R15
+R16
+l0
+L86 1
+VZ4G<gT:M]PoLaJ=zX<AC82
+!s100 6]_9>SHZHMX2<2IBB:@6O1
+R7
+32
+R8
+!i10b 0
+R9
+R10
+R11
+!i113 1
+R12
+Etb_counter_nbit
+Z21 w1607469404
+R1
+R2
+R3
+!i122 16
+R4
+Z22 8tb_counter_nbit.vhd
+Z23 Ftb_counter_nbit.vhd
+l0
+L24 1
+VR[BC^h;dKZI144lT=MQ4C1
+!s100 2<cAF4KMXI=HAeb[MGRQa3
+R7
+32
+Z24 !s110 1607469406
+!i10b 1
+Z25 !s108 1607469406.000000
+Z26 !s90 -reportprogress|300|tb_counter_nbit.vhd|
+Z27 !s107 tb_counter_nbit.vhd|
+!i113 1
+R12
+Aarch
+R1
+R2
+R3
+DEx4 work 15 tb_counter_nbit 0 22 R[BC^h;dKZI144lT=MQ4C1
+!i122 16
+l48
+L30 25
+Vlz:f@3giSM<7>9ln;BW`S1
+!s100 Q<zI^OWG1nAH96?O2A;Go1
+R7
+32
+R24
+!i10b 1
+R25
+R26
+R27
+!i113 1
+R12

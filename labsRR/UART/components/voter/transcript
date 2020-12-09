@@ -1,0 +1,109 @@
+# Loading project voter
+# reading /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini
+# Loading project shifter
+# Compile of shift_register_8bit.vhd was successful.
+# Compile of tb_shift_register.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vcom *.vhdù
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:03:28 on Dec 06,2020
+# vcom -reportprogress 300 *.vhdù 
+# ** Error: (vcom-7) Failed to open design unit file "*.vhdù" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 17:03:28 on Dec 06,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/vcom failed.
+vcom *.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:03:30 on Dec 06,2020
+# vcom -reportprogress 300 shift_register_8bit.vhd tb_shift_register.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shift_register_8bit
+# -- Compiling architecture arch of shift_register_8bit
+# -- Compiling entity testbench_sr
+# -- Compiling architecture BEH of testbench_sr
+# End time: 17:03:31 on Dec 06,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vsim work.testbench_sr -t ns
+# vsim work.testbench_sr -t ns 
+# Start time: 17:04:03 on Dec 06,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.testbench_sr(beh)
+# Loading work.shift_register_8bit(arch)
+# WARNING: No extended dataflow license exists
+add wave *
+run 100 ns
+run 100 ns
+run 50 ns
+quit -sim
+# End time: 17:06:39 on Dec 06,2020, Elapsed time: 0:02:36
+# Errors: 0, Warnings: 5
+# Compile of shift_register_8bit.vhd was successful.
+# Compile of tb_shift_register.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -t ns work.testbench_sr
+# vsim -t ns work.testbench_sr 
+# Start time: 17:07:09 on Dec 06,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.testbench_sr(beh)
+# Loading work.shift_register_8bit(arch)
+# WARNING: No extended dataflow license exists
+add wave *
+run 1000 ns
+vcom *vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:08:15 on Dec 06,2020
+# vcom -reportprogress 300 shift_register_8bit.vhd tb_shift_register.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity shift_register_8bit
+# -- Compiling architecture arch of shift_register_8bit
+# -- Compiling entity testbench_sr
+# -- Compiling architecture BEH of testbench_sr
+# End time: 17:08:15 on Dec 06,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+do script.do
+# End time: 17:08:43 on Dec 06,2020, Elapsed time: 0:01:34
+# Errors: 0, Warnings: 2
+# vsim work.testbench_sr 
+# Start time: 17:08:43 on Dec 06,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.testbench_sr(beh)
+# Loading work.shift_register_8bit(arch)
+# WARNING: No extended dataflow license exists
+add dataflow sim:/testbench_sr/*
+add dataflow sim:/testbench_sr/inst1/*
+add dataflow sim:/testbench_sr/*
+add dataflow /testbench_sr/sh_en
+add dataflow sim:/testbench_sr/inst1/*
+add dataflow -r sim:/testbench_sr/*
+add wave  \
+sim:/testbench_sr/ld_en
+add dataflow  \
+sim:/testbench_sr/clock \
+sim:/testbench_sr/sh_en \
+sim:/testbench_sr/ld_en \
+sim:/testbench_sr/s_in \
+sim:/testbench_sr/s_out \
+sim:/testbench_sr/p_in \
+sim:/testbench_sr/p_out
+# No drivers or ports for clock
+# No drivers or ports for sh_en
+# No drivers or ports for ld_en
+# No drivers or ports for s_in
+# No drivers or ports for s_out
+# No drivers or ports for p_in

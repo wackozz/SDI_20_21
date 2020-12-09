@@ -1,0 +1,4 @@
+v 4
+file "/home/wackoz/github/SDI_20_21/labsRR/UART/components/counter/" "counter_nbit.vhd" "b376ce10c61a63ec2edd52b265a6c718c4c2fa8f" "20201208234411.384":
+  entity counter_nbit at 24( 1135) + 0 on 4;
+  architecture arch of counter_nbit at 43( 1540) + 0 on 4;
