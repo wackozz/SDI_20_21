@@ -57,7 +57,7 @@ BEGIN
                                               present_state<=DONE;
         
                                          
-							         END IF;
+		                     END IF;
                                               
 
                                  ELSE IF (R_Wn_cu='0') THEN --SCRITTURA

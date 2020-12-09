@@ -8,7 +8,8 @@ PORT (RESET,CLOCK,CS_cu,R_Wn_cu,ATNack_cu: IN STD_LOGIC;
                                SEL_mux,ATN_cu,EN_regSTATUS,EN_regCTRL,EN_regDATARX,EN_regDATATX: OUT STD_LOGIC;                           
                                TX_DATA : OUT STD_LOGIC_VECTOR (7 DOWNTO 0); 
                                RX_DATA: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
-                              RX_FULL,TX_EMPTY,CLRatn,ERROR,TX_EN,RX_EN: OUT STD_LOGIC_VECTOR(7 DOWNTO 0)); 
+                              CLRatn,TX_EN,RX_EN: OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
+                               RX_FULL,TX_EMPTY,ERROR: IN STD_LOGIC_VECTOR(7 DOWNTO 0); 
 END ControlUnit_bus; 
 
 
@@ -131,4 +132,3 @@ END CASE;
 END PROCESS;							 
 
 END behav; 
-
