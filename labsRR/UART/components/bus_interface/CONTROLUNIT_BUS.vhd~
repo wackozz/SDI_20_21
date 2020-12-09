@@ -2,93 +2,133 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
   
 ENTITY ControlUnit_bus IS 
-PORT (RESET,CLOCK,CS_cu,R/Wn_cu: IN STD_LOGIC; 
+PORT (RESET,CLOCK,CS_cu,R_Wn_cu,ATNack_cu: IN STD_LOGIC; 
                        
                               ADD_cu: IN STD_LOGIC_VECTOR (2 DOWNTO 0); 
-                               SEL_mux,ATN_cu: OUT STD_LOGIC                             
-                               RX_DATA,TX_DATA : OUT STD_LOGIC_VECTOR (7 DOWNTO 0); 
-                              RX_FULL,TX_EMPTY,CLRatn,ERROR,TX_EN,RX_EN: OUT STD_LOGIC_VECTOR(7 DOWNTO 0)); 
+                               SEL_mux,ATN_cu,EN_regSTATUS,EN_regCTRL,EN_regDATARX,EN_regDATATX: OUT STD_LOGIC;                           
+                               TX_DATA : OUT STD_LOGIC_VECTOR (7 DOWNTO 0); 
+                               RX_DATA: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+                              CLRatn,TX_EN,RX_EN: OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
+                               RX_FULL,TX_EMPTY,ERROR: IN STD_LOGIC_VECTOR(7 DOWNTO 0); 
 END ControlUnit_bus; 
 
 
 ARCHITECTURE behav OF ControlUnit_bus IS
 
 
-TYPE stato IS (IDLE,STATUS_state,DATA_RX_state,CTRL_state,DATA_TX_state,DONE);
+TYPE state_type IS (IDLE,STATUS_state,ATNack_state,DATA_RX_state,CTRL_state,DATA_TX_state,DONE);
 
-SIGNAL state: stato;
+SIGNAL present_state: state_type;
 
-
-PROCESS (CLOCK,state,RESET) 
+BEGIN
+state_update: process(CLOCK,RESET)
 BEGIN  
- IF (RESET = '1') THEN 
-   state<=IDLE; 
+ IF (RESET = '0') THEN 
+   present_state<=IDLE; 
     
-                ELSIF (Clk'EVENT AND Clk = '1') THEN
-                               CASE state IS 
+         ELSIF (CLOCK'EVENT AND CLOCK = '1') THEN
+                               
+           CASE present_state IS 
                                WHEN IDLE => 
-                                IF ( CS = '1') THEN 
-                                IF (R/Wn=’1’) THEN – LETTURA
-                                IF(ADD=’001) THEN
+                                
+							IF ( CS_cu = '1') THEN 
+                                
+								IF (R_Wn_cu='1') THEN -- LETTURA
+                               
+       							   IF(ADD_cu="001") THEN  --INDIRIZZO REGISTRO STATI
 
-                                     state <= STATUS_state; 
+                                     present_state <= STATUS_state; 
                                                
-                                       ATN<=’0’;
-                                END IF 
+                                   END IF ;
                                 
-								WHEN STATUS_state=>  
-                                IF (ADD = '010') THEN 
+								     WHEN STATUS_state=>  
+                                
+								      IF (ADD_cu = "010") THEN 
                              
-                                          state<= DATA_RX_state;
-										  
-                                               TX_EMPTY<=”00000001”;
-                                               RX_FULL<= “00000000”;
-                                               ERROR<=”00000010”;
-                                                ATN<=’1’;
-                                
-                               END IF; 
+                                          present_state<= ATNack_state;										  										 
+                                             
                                  
-                                               WHEN DATA_RX_state => 
+                                    END IF; 
+									 
+									 WHEN ATNack_state =>
+									 present_state<= DATA_RX_state;
+                                 
+                                     WHEN DATA_RX_state => 
                 
-                                              State<=DONE;
-
-                                             --Dout_cu<=RX_DATA;
-                                          
-										  END IF;
+                                              present_state<=DONE;
+        
+                                         
+		                     END IF;
                                               
 
-                                    ELSE IF (R/Wn=’0’) THEN –SCRITTURA
-                                             IF(ADD=”011”) THEN
+                                 ELSE IF (R_Wn_cu='0') THEN --SCRITTURA
+                                             IF(ADD_cu="011") THEN
                                            
-										   State<= CTRL_state;
+										   present_state<= CTRL_state;
                                      
 									 END IF;
 
-                                              WHEN CTRL_state => 
+                                    WHEN CTRL_state => 
                                                
-											   IF(ADD=”000”) THEN
-                                               State<= DATA_TX_state;
-                                               TX_EN<= “00000001”;
-                                                RX_EN<=”00000000”;
-                                                CLR_atn <= “00000010”;
-                                                ATN<=’0’;
+								     IF(ADD_cu="000") THEN
+                                               present_state<= DATA_TX_state;
+                                              
 
-                                                 END IF
+                                      END IF;
                                               
-                                                WHEN DATA_TX_state  => 
-                                                      State<=DONE;
+                                    WHEN DATA_TX_state  => 
+                                         present_state<=DONE;
                                               
                                                 
                                                 
-                                               WHEN DONE => 
-                                                 state<= IDLE; 
+                                    WHEN DONE => 
+                                     present_state<= IDLE; 
                                                                
-                                               END IF; 
+                                END IF; 
                                                 
                                               
                                                 
-                               END CASE;           
+                      END CASE;           
                  END IF; 
 END PROCESS; 
-END behav; 
 
+FSM_cu: process(present_state)
+BEGIN
+
+
+CASE present_state IS
+
+                              WHEN IDLE =>
+							  RESET<='1';
+							  ATN<='0';
+							  
+							  
+							  WHEN STATUS_state =>
+							   TX_EMPTY<="00000001";
+                               RX_FULL<= "00000000";
+                               ERROR<= "00000010";
+                               ATN<= '1';
+							   EN_regSTATUS <= '1';
+							   
+							 WHEN ATNack_state =>
+							 ATN<='1';
+							 
+							 WHEN DATA_RX_state =>
+							  EN_regDATARX <= '1';
+							 
+							 WHEN CTRL_state =>
+							 EN_regCTRL <= '1';
+							 TX_EN<= "00000001"; 
+                             RX_EN<="00000000";
+                             CLR_atn <= "00000010";
+                             ATN<= '0';
+							 
+							 WHEN DATA_TX_state =>
+							 EN_regDATATX <= '1';
+							 
+							 WHEN DONE =>
+							 RESET<= '1';
+END CASE;
+END PROCESS;							 
+
+END behav; 

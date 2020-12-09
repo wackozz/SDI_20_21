@@ -1,13 +1,24 @@
 {signal: [
-  {name: 'clock',	wave: 'P|.|.|..|.|', period:2},
-  {name: 'RxD', 	wave: '10.|...|...|.....|...|...|', data: ['D0', 'body', 'tail', 'data'], phase:0.5},
-  {name: 'SH1', 	wave: '0..|10.|10.|10...|...|', phase:0.5},
-  {name: 'START', 	wave: '0..|...|...|..10.|', },
-  {name: 'count_reset', 	wave: '0..|...|...|..10.|', node:  '...a...1.......', },
+  {name: 'clock',	wave: 'P|..|..|....|.', period:2},
+  {name: 'RxD', 	wave: '10.|.....|.....|........2|...', data: ['D0', 'body', 'tail', 'data'], phase:0.5},
+  {name: 'SH1', 	wave: '0..|10...|10...|10.......|10.', phase:0.5},
+  {name: 'start_en', wave:'1|..|..|...0|.', period:2},
+  {name: 'START_comb', 	wave: '0|..|..|.1.x|.', period:2 },
+  {name: 'START_reg', 	wave: '0|..|..|.1..|.', period:2 },
+  {name: 'count_out136', 	wave: '0|..|..|.1.0|.', period:2  },
+  {name: 'durata', 	wave: 'x2x.2x.2xxx.2x', data: ['15Tclk', '15Tclk', '66Tclk', '15Tclk'], period:2},
+  
+  
+  
   	],
   edge: [
 	'a~>t', 'b~>t', 's~>t', '1~>2', '3~>4', '5~>6', '7~>9', '8~>9'
-	]
+],
+ 
+foot:{
+   text:'Start detection',
+   tock:0
+ },
 }
 
 
