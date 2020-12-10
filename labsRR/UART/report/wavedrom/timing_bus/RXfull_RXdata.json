@@ -1,0 +1,22 @@
+{signal: [
+  {name: 'clk', wave: "P..|...." , period:2},
+  {name: 'status_reg', wave: 'x.2.x..|x.....', data: ['000'] ,node:'..a...', period:1},
+  {name: 'Rx_Data', wave:'x.......|2.x..' , data:['DatoRx'],node:'.........g.'},
+  {name: 'ADD', wave:'x.2.x...|2.x..', data:['10','01']},
+  {name: 'R/Wn', wave:'x.1.x..|.0.x..'},
+  {name: 'CS', wave:'0.1.0..|.1.0..'},
+  {name: 'En_STATUS', wave:'0...1.0|......'},
+  {name: 'En_Rx_Data', wave: '0.....1|0.....'},
+  {name: 'Dout', wave:'xxxx..2.x|.2.x', data:['000','DatoRx'],node:'......b.....h' },
+  {name: 'ATN', wave:'0.1.....0|....', },
+  {name: 'ATNACK', wave:'0.....1.0|....'}
+],
+ foot: {text:
+  ['tspan', '           (attivazione enable ricevitore)'],
+
+ },
+ 
+  edge: [
+   'a~>b t1' , 'e~>f t2', 'g~>h t3'
+  ]
+}
