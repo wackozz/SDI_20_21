@@ -2,15 +2,12 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity ControlUnit_bus is
-  port (RESET, CLOCK, CS_cu, R_Wn_cu, ATNack_cu : in std_logic;
+  port (RESET, CLOCK, CS_cu, R/Wn_cu, ATNack_cu : in std_logic;
 
         ADD_cu                                                                : in  std_logic_vector (2 downto 0);
-        SEL_mux, ATN_cu, EN_regSTATUS, EN_regCTRL, EN_regDATARX, EN_regDATATX : out std_logic;
-        TX_DATA                                                               : out std_logic_vector (7 downto 0);
-        RX_DATA                                                               : in  std_logic_vector (7 downto 0);
-        CLRatn, TX_EN, RX_EN                                                  : out std_logic_vector(7 downto 0);
-        RX_FULL, TX_EMPTY, error : in std_logic_vector(7 downto 0)
-        );
+        SEL_mux, ATN_cu, EN_regSTATUS, EN_regCTRL, EN_regDATARX, EN_regDATATX : out std_logic
+        RX_DATA, TX_DATA                                                      : out std_logic_vector (7 downto 0);
+        RX_FULL, TX_EMPTY, CLRatn, error, TX_EN, RX_EN                        : out std_logic_vector(7 downto 0));
 end ControlUnit_bus;
 
 
@@ -21,70 +18,70 @@ architecture behav of ControlUnit_bus is
 
   signal present_state : state_type;
 
-begin
+
   state_update : process(CLOCK, RESET)
   begin
     if (RESET = '0') then
-      present_state <= IDLE;
+      state <= IDLE;
 
-    elsif (CLOCK'event and CLOCK = '1') then
+    elsif (Clk'event and Clk = '1') then
 
-      case present_state is
+      case state is
         when IDLE =>
 
           if (CS_cu = '1') then
 
-            if (R_Wn_cu = '1') then     -- LETTURA
+            if (R/Wn_cu = '1') then     -- LETTURA
 
               if(ADD_cu = "001") then   --INDIRIZZO REGISTRO STATI
 
-                present_state <= STATUS_state;
+                state <= STATUS_state;
 
-              end if;
+              end if
 
-              when STATUS_state =>
+                when STATUS_state =>
 
               if (ADD_cu = "010") then
 
-                present_state <= ATNack_state;
+                state <= ATNack_state;
 
 
               end if;
 
               when ATNack_state =>
-              present_state <= DATA_RX_state;
+              state <= DATA_RX_state;
 
               when DATA_RX_state =>
 
-              present_state <= DONE;
+              State <= DONE;
 
 
             end if;
 
 
           else
-            if (R_Wn_cu = '0') then     --SCRITTURA
+            if (R/Wn_cu = '0') then     --SCRITTURA
               if(ADD_cu = "011") then
 
-                present_state <= CTRL_state;
+                State <= CTRL_state;
 
               end if;
 
               when CTRL_state =>
 
               if(ADD_cu = "000") then
-                present_state <= DATA_TX_state;
+                State <= DATA_TX_state;
 
 
-              end if;
+              end if
 
-              when DATA_TX_state =>
-              present_state <= DONE;
+                when DATA_TX_state =>
+              State <= DONE;
 
 
 
               when DONE =>
-              present_state <= IDLE;
+              state <= IDLE;
 
             end if;
 
@@ -134,3 +131,4 @@ begin
       end process;
 
     end behav;
+
