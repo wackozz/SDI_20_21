@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2020-12-09
+-- Last update: 2020-12-11
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -48,15 +48,15 @@ architecture str of tx_cu is
   -- Internal signal declarations
   -----------------------------------------------------------------------------
 
-  type State_type is (idle, idle_start, force_1, force_0, load, shift);
+  type State_type is (idle, idle_start, force_0, load, shift);
   signal present_state, next_state : State_type;
 
 begin  -- architecture str
 
   state_update : process (clock, reset) is
   begin  -- process state_update
-    if reset = '0' then                     -- asynchronous reset (active low)
-      present_state <= load;
+    if reset = '1' then                     -- asynchronous reset (active high)
+      present_state <= idle_start;
     elsif clock'event and clock = '1' then  -- rising clock edge
       present_state <= next_state;
     end if;
@@ -74,18 +74,7 @@ begin  -- architecture str
         end if;
 
       when load =>
-        next_state <= force_1;
-
-      when force_1 =>
-        if term_count = '1' then
-          if tx_empty = '1' then
-            next_state <= load;
-          else
-            next_state <= force_0;
-          end if;
-        else
-          next_state <= force_1;
-        end if;
+        next_state <= force_0;
 
       when force_0 =>
         if term_count = '1' then
@@ -103,7 +92,7 @@ begin  -- architecture str
 
       when shift =>
         if tx_empty = '1' then
-          next_state <= force_1;
+          next_state <= idle_start;
         else
           next_state <= idle;
         end if;
@@ -116,24 +105,25 @@ begin  -- architecture str
   --idle, idle_start, force_1, force_0, load, shift
   output_decode : process (present_state) is
   begin  -- process output_decode
+    ld_en      <= '0';
+    sh_en      <= '0';
+    force_one  <= '0';
+    force_zero <= '0';
+    count_en   <= '0';
     case present_state is
+      when idle_start =>
+        force_one <= '1';
       when load =>
         ld_en <= '1';
-      when force_1 =>
-        force_one <= '1';
+      when idle =>
         count_en <= '1';
+        sh_en    <= '0';
       when force_0 =>
         force_zero <= '1';
-        count_en <= '1';
+        count_en   <= '1';
       when shift =>
-        sh_en  <= '1';
+        sh_en    <= '1';
         count_en <= '1';
-      when others =>
-        ld_en <= '0';
-        sh_en <= '0';
-        force_one <= '0';
-        force_zero <= '0';
-        count_en <= '0';
     end case;
   end process output_decode;
 

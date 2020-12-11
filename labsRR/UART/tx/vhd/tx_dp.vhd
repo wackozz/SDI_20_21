@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2020-12-09
+-- Last update: 2020-12-11
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -30,6 +30,7 @@ entity tx_dp is
     reset      : in  std_logic;
     force_one  : in  std_logic;
     force_zero : in  std_logic;
+    tx_empty_ack: in std_logic;
     --counter
     count_en   : in  std_logic;
     tx_empty   : out std_logic;
@@ -47,14 +48,14 @@ architecture arch of tx_dp is
   --signal declaration
 
   --counter
-  constant N            : integer := 3;
-  signal ld             : std_logic;  --parallel load for counter                   
+  constant N            : integer := 8;
+  signal ld             : std_logic := '0';  --parallel load for counter                   
   signal term_count_bus : std_logic;
   signal d              : std_logic_vector(N-1 downto 0);
   signal q_txempty      : std_logic_vector(N-1 downto 0);
   signal q_c_shift      : std_logic_vector(N-1 downto 0);
   --register
-  signal s_in           : std_logic;
+  signal s_in           : std_logic := '1';
   signal s_out          : std_logic;
   signal p_out          : std_logic_vector(7 downto 0);
 
@@ -67,6 +68,7 @@ architecture arch of tx_dp is
     port (
       clock : in  std_logic;
       clear : in  std_logic;
+      tc  : in  std_logic_vector(N-1 downto 0);
       en    : in  std_logic;
       ld    : in  std_logic;
       d     : in  std_logic_vector(N-1 downto 0);
@@ -80,8 +82,8 @@ architecture arch of tx_dp is
       sh_en : in  std_logic;
       s_in  : in  std_logic;
       s_out : out std_logic;
-      p_in  : in  std_logic_vector(7 downto 0);
-      p_out : out std_logic_vector(7 downto 0));
+      p_in  : in  std_logic_vector(N-1 downto 0);
+      p_out : out std_logic_vector(N-1 downto 0));
   end component shift_register_8bit;
 
 begin  -- architecture arch
@@ -105,6 +107,7 @@ begin  -- architecture arch
     port map (
       clock => clock,
       clear => reset,
+      tc    => std_logic_vector(to_unsigned(139,N)),
       en    => count_en,
       ld    => ld,
       d     => d,
@@ -116,6 +119,7 @@ begin  -- architecture arch
     port map (
       clock => clock,
       clear => reset,
+      tc    => std_logic_vector(to_unsigned(7,N)),
       en    => term_count_bus,
       ld    => ld,
       d     => d,
@@ -128,13 +132,15 @@ begin  -- architecture arch
 
     if reset = '1' then
       tx_empty   <= '1';  -- important to set tx_empty to 1 during idle stage
-      term_count <= '0';
+      term_count_bus <= '0';
     elsif clock'event and clock = '1' then  -- rising clock edge
-
+      if tx_empty_ack = '1' then
+	tx_empty <= '0';
+       end if;
       if(unsigned(q_c_shift) = 139) then
-        term_count <= '1';
+        term_count_bus <= '1';
       else
-        term_count <= '0';
+        term_count_bus <= '0';
       end if;
 
       if unsigned(q_txempty) = 7 then
@@ -145,7 +151,7 @@ begin  -- architecture arch
     end if;
   end process terminal_counter;
 
-  TxD        <= ((s_out and not(force_zero)) and force_one);
+  --TxD        <= s_out and not(force_zero) and force_one;
+  TxD        <= (force_one and not(force_zero)) or (s_out and force_zero);
   term_count <= term_count_bus;
 end architecture arch;
-

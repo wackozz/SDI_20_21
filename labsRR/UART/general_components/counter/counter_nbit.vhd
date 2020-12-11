@@ -32,6 +32,7 @@ entity counter_nbit is
     );                                  --
 
   port (
+    tc    : in std_logic_vector(N-1 downto 0); --terminal counter
     clock : in  std_logic;
     clear : in  std_logic;
     en    : in  std_logic;
@@ -48,17 +49,19 @@ begin
   counter_pro : process (clock) is
   begin  -- process counter
     if clock'event and clock = '1' then  -- rising clock edge
-    if clear = '1' then                     -- sync clear (active high)
-      data <= (others => '0');
-     else     
-    if en = '1' then
-        data <= data+1;
-      end if;
-      if ld = '1' then
+    	if clear = '1' then                     -- sync clear (active high)
+      	data <= (others => '0');
+     	
+	elsif en = '1' then
+		if unsigned(data) = unsigned(tc) then
+		data <= (others => '0');
+		else
+        	data <= data+1;
+      		end if;
+      	elsif ld = '1' then
         data <= unsigned(d);
-      end if;
+      	end if;
     end if;
-end if;
   end process counter_pro;
 
   q <= std_logic_vector(data);
