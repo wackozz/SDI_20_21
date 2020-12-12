@@ -123,7 +123,7 @@ begin  -- architecture str
         count_en   <= '1';
       when shift =>
         sh_en    <= '1';
-        count_en <= '0';
+        count_en <= '1';
     end case;
   end process output_decode;
 

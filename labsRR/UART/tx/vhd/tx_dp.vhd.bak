@@ -127,7 +127,6 @@ begin  -- architecture arch
       tc    => std_logic_vector(to_unsigned(7,3)),
       en    => tc_flag_sh,
       ld    => ld,
-      tc_flag => tc_flag_txempty,
       d     => d_txempty,
       q     => q_txempty
       );

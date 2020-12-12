@@ -90,7 +90,7 @@ begin
     force_zero   => force_zero,
     count_en     => count_en,
     tx_empty     => tx_empty,
-    tx_empty_ack => tx_empty_ack,
+    tx_empty_ack => tx_empty,
     term_count   => term_count,
     p_in         => p_in,
     ld_en        => ld_en,

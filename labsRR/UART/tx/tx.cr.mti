@@ -1,4 +1,38 @@
-/home/wackoz/github/SDI_20_21/labsRR/UART/components/counter/counter_nbit.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/components/counter/counter_nbit.vhd
+/home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx_dp.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx_dp.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tx_dp
+-- Compiling architecture arch of tx_dp
+
+} {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx_cu.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx_cu.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tx_cu
+-- Compiling architecture str of tx_cu
+
+} {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity shift_register_8bit
+-- Compiling architecture arch of shift_register_8bit
+
+} {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tx
+-- Compiling architecture str of tx
+
+} {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/components/counter/counter_nbit.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/components/counter/counter_nbit.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -6,6 +40,27 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package NUMERIC_STD
 -- Compiling entity counter_nbit
 -- Compiling architecture arch of counter_nbit
+
+} {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity counter_nbit
+-- Compiling architecture arch of counter_nbit
+
+} {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx_tb.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tx_tb
+-- Compiling architecture arch of tx_tb
+-- Loading entity tx
+-- Compiling configuration tx_tb_arch_cfg
+-- Loading entity tx_tb
+-- Loading architecture arch of tx_tb
 
 } {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register_8bit.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/components/shift_register/shift_register_8bit.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
