@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2020-12-11
+-- Last update: 2020-12-15
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -26,20 +26,21 @@ use ieee.numeric_std.all;
 entity tx_dp is
 
   port (
-    clock      : in  std_logic;
-    reset      : in  std_logic;
-    force_one  : in  std_logic;
-    force_zero : in  std_logic;
-    tx_empty_ack: in std_logic;
+    clock            : in  std_logic;
+    reset            : in  std_logic;
+    force_one        : in  std_logic;
+    force_zero       : in  std_logic;
+    tx_empty_ack     : in  std_logic;
     --counter
-    count_en   : in  std_logic;
-    tx_empty   : out std_logic;
-    term_count : out std_logic;
+    count_en_tc      : in  std_logic;
+    count_en_txempty : in  std_logic;
+    tx_empty         : out std_logic;
+    term_count       : out std_logic;
     --shift r
-    p_in       : in  std_logic_vector(7 downto 0);  --input (SR)
-    ld_en      : in  std_logic;                     -- paraellel load shift reg
-    sh_en      : in  std_logic;                     -- shift reg shift en
-    TxD        : out std_logic                      --output
+    p_in             : in  std_logic_vector(7 downto 0);  --input (SR)
+    ld_en            : in  std_logic;   -- paraellel load shift reg
+    sh_en            : in  std_logic;   -- shift reg shift en
+    TxD              : out std_logic    --output
     );
 
 end entity tx_dp;
@@ -48,19 +49,19 @@ architecture arch of tx_dp is
   --signal declaration
 
   --counters
-  constant N            : integer := 8;
-  signal ld             : std_logic := '0';  --parallel load for counter                   
-  signal tc_flag_sh     : std_logic := '0';
-  signal tc_flag_txempty: std_logic := '0';
-  signal d              : std_logic_vector(N-1 downto 0); --unused
-  signal d_txempty      : std_logic_vector(2 downto 0); --unused
-  signal q_txempty      : std_logic_vector(2 downto 0);
-  signal q_c_shift      : std_logic_vector(N-1 downto 0);
+  constant N             : integer   := 8;
+  signal ld              : std_logic := '0';  --parallel load for counter                   
+  signal tc_flag_sh      : std_logic := '0';
+  signal tc_flag_txempty : std_logic := '0';
+  signal d               : std_logic_vector(N-1 downto 0);  --unused
+  signal d_txempty       : std_logic_vector(2 downto 0);    --unused
+  signal q_txempty       : std_logic_vector(2 downto 0);
+  signal q_c_shift       : std_logic_vector(N-1 downto 0);
 
   --register
-  signal s_in           : std_logic := '1';
-  signal s_out          : std_logic;
-  signal p_out          : std_logic_vector(7 downto 0);
+  signal s_in  : std_logic := '1';
+  signal s_out : std_logic;
+  signal p_out : std_logic_vector(7 downto 0);
 
 
   -- component inst
@@ -69,14 +70,14 @@ architecture arch of tx_dp is
     generic (
       N : integer);
     port (
-      clock : in  std_logic;
-      clear : in  std_logic;
-      tc  : in  std_logic_vector(N-1 downto 0);
+      clock   : in  std_logic;
+      clear   : in  std_logic;
+      tc      : in  std_logic_vector(N-1 downto 0);
       tc_flag : out std_logic;
-      en    : in  std_logic;
-      ld    : in  std_logic;
-      d     : in  std_logic_vector(N-1 downto 0);
-      q     : out std_logic_vector(N-1 downto 0));
+      en      : in  std_logic;
+      ld      : in  std_logic;
+      d       : in  std_logic_vector(N-1 downto 0);
+      q       : out std_logic_vector(N-1 downto 0));
   end component counter_nbit;
 
   component shift_register_8bit is
@@ -109,31 +110,31 @@ begin  -- architecture arch
   counter_shift : counter_nbit
     generic map (N => N)
     port map (
-      clock => clock,
-      clear => reset,
-      tc    => std_logic_vector(to_unsigned(139,N)),
+      clock   => clock,
+      clear   => reset,
+      tc      => std_logic_vector(to_unsigned(137, N)),
       tc_flag => tc_flag_sh,
-      en    => count_en,
-      ld    => ld,
-      d     => d,
-      q     => q_c_shift
+      en      => count_en_tc,
+      ld      => ld,
+      d       => d,
+      q       => q_c_shift
       );
 
   counter_txempty : counter_nbit
     generic map (N => 3)
     port map (
-      clock => clock,
-      clear => reset,
-      tc    => std_logic_vector(to_unsigned(7,3)),
-      en    => tc_flag_sh,
-      ld    => ld,
+      clock   => clock,
+      clear   => reset,
+      tc      => std_logic_vector(to_unsigned(7, 3)),
+      en      => count_en_txempty,
+      ld      => ld,
       tc_flag => tc_flag_txempty,
-      d     => d_txempty,
-      q     => q_txempty
+      d       => d_txempty,
+      q       => q_txempty
       );
 
-  tx_empty <= tc_flag_txempty;
+  tx_empty   <= tc_flag_txempty;
   term_count <= tc_flag_sh;
-  
-  TxD  <= not(force_zero) and (s_out or force_one);
+
+  TxD <= not(force_zero) and (s_out or force_one);
 end architecture arch;

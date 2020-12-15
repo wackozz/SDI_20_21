@@ -1,5 +1,3 @@
-project compileall
-vsim work.tx_tb -t 10ns
 onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate -color {Cornflower Blue} -height 30 /tx_tb/clock
@@ -43,4 +41,3 @@ configure wave -timeline 0
 configure wave -timelineunits ns
 update
 WaveRestoreZoom {19540 ns} {20400 ns}
-run 100 us;

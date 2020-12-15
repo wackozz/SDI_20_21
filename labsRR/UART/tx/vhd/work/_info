@@ -1,0 +1,130 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd
+Etx
+Z1 w1608050591
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 7
+R0
+Z4 8tx.vhd
+Z5 Ftx.vhd
+l0
+L27 1
+VNXHKNRB^:Ym:h_b32QR:12
+!s100 3i[EI@ljclLX?6Hc4M1BO0
+Z6 OV;C;2020.1;71
+32
+Z7 !s110 1608050601
+!i10b 1
+Z8 !s108 1608050601.000000
+Z9 !s90 tx.vhd|
+Z10 !s107 tx.vhd|
+!i113 1
+Z11 tExplicit 1 CvgOpt 0
+Astr
+R2
+R3
+Z12 DEx4 work 2 tx 0 22 NXHKNRB^:Ym:h_b32QR:12
+!i122 7
+l87
+Z13 L41 77
+Z14 V7B?CGG4ZIih<lBZk^6Ug81
+Z15 !s100 8RhHEO^^X1]2<Q1E=DO[22
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+Etx_cu
+Z16 w1608049809
+R2
+R3
+!i122 3
+R0
+Z17 8tx_cu.vhd
+Z18 Ftx_cu.vhd
+l0
+L28 1
+V^Xld:F2TJ1S]0XZJ9DU:f2
+!s100 GjDRl<e^<L`F73RU0ChdT0
+R6
+32
+Z19 !s110 1608049812
+!i10b 1
+Z20 !s108 1608049812.000000
+Z21 !s90 tx_cu.vhd|
+Z22 !s107 tx_cu.vhd|
+!i113 1
+R11
+Astr
+R2
+R3
+DEx4 work 5 tx_cu 0 22 ^Xld:F2TJ1S]0XZJ9DU:f2
+!i122 3
+l55
+L46 94
+VkjJi;=H]Z13Ghf=UZmY8N3
+!s100 G=8Bj1VLa8afhPd:X9PI?3
+R6
+32
+R19
+!i10b 1
+R20
+R21
+R22
+!i113 1
+R11
+Etx_dp
+Z23 w1608050135
+Z24 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R2
+R3
+!i122 5
+R0
+Z25 8tx_dp.vhd
+Z26 Ftx_dp.vhd
+l0
+L26 1
+V4?WMhdaYQNEQJA;Ol2<J33
+!s100 WJ@DELCGH_X@05le;Uc;J0
+R6
+32
+Z27 !s110 1608050138
+!i10b 1
+Z28 !s108 1608050138.000000
+Z29 !s90 tx_dp.vhd|
+Z30 !s107 tx_dp.vhd|
+!i113 1
+R11
+Aarch
+R24
+R2
+R3
+DEx4 work 5 tx_dp 0 22 4?WMhdaYQNEQJA;Ol2<J33
+!i122 5
+l94
+L48 93
+V9`XNE:i0WciHF4_hGQokU3
+!s100 =9<a7D9NUo:anX`I9VMS^3
+R6
+32
+R27
+!i10b 1
+R28
+R29
+R30
+!i113 1
+R11

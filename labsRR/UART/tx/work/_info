@@ -14,7 +14,7 @@ Z0 w1607733129
 Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 306
+!i122 367
 Z4 d/home/wackoz/github/SDI_20_21/labsRR/UART/tx
 Z5 8/home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd
 Z6 F/home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd
@@ -24,9 +24,9 @@ V[D[gN7gMmchbje<HY]me<0
 !s100 ];zbMCCIi0VPi8494CWem2
 Z7 OV;C;2020.1;71
 32
-Z8 !s110 1607734621
+Z8 !s110 1608051585
 !i10b 1
-Z9 !s108 1607734621.000000
+Z9 !s108 1608051585.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd|
 Z11 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd|
 !i113 1
@@ -37,7 +37,7 @@ R1
 R2
 R3
 DEx4 work 12 counter_nbit 0 22 [D[gN7gMmchbje<HY]me<0
-!i122 306
+!i122 367
 l50
 L47 26
 VZ;Eo`TFfz>D_`Xa9F;i<Q2
@@ -57,7 +57,7 @@ Z14 w1607699713
 R1
 R2
 R3
-!i122 307
+!i122 368
 R4
 Z15 8/home/wackoz/github/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd
 Z16 F/home/wackoz/github/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd
@@ -80,7 +80,7 @@ R1
 R2
 R3
 Z20 DEx4 work 19 shift_register_8bit 0 22 @2acFN3L0iBEF4^OQGUJ]2
-!i122 307
+!i122 368
 l45
 Z21 L42 24
 Z22 V;Ilmm`]jT0K>BOc26W?kZ3
@@ -96,10 +96,10 @@ R19
 R12
 R13
 Etx
-Z24 w1607733693
+Z24 w1608050591
 R2
 R3
-!i122 302
+!i122 363
 R4
 Z25 8/home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx.vhd
 Z26 F/home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx.vhd
@@ -121,11 +121,11 @@ Astr
 R2
 R3
 Z29 DEx4 work 2 tx 0 22 FDoBl85VDWazV74XFbgDF0
-!i122 302
-l84
-L41 73
-VJA=A`VDKXRaaL2hVncA]@1
-!s100 5TCh3I>kaQjOd<iJ^V0RN0
+!i122 363
+l87
+L41 77
+V1fJD1H2Q2NFm0`^6V9WSJ0
+!s100 8RhHEO^^X1]2<Q1E=DO[22
 R7
 32
 R8
@@ -137,17 +137,17 @@ R28
 R12
 R13
 Etx_cu
-Z30 w1607732169
+Z30 w1608051577
 R2
 R3
-!i122 303
+!i122 364
 R4
 Z31 8/home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx_cu.vhd
 Z32 F/home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx_cu.vhd
 l0
-R17
-Ve]MnGzC@K3O32V9[;YJNL1
-!s100 5O_OzVhogEeMg]3JLUOW]0
+L28 1
+VS>8TUWl14IQASASJ<4hcf1
+!s100 GjDRl<e^<L`F73RU0ChdT0
 R7
 32
 R8
@@ -161,12 +161,12 @@ R13
 Astr
 R2
 R3
-DEx4 work 5 tx_cu 0 22 e]MnGzC@K3O32V9[;YJNL1
-!i122 303
-l54
-L45 86
-Vj7Fna[?l:1T49:=NLi:Rl0
-!s100 VoRa>Kd>H<:`gSUD[_S8:2
+DEx4 work 5 tx_cu 0 22 S>8TUWl14IQASASJ<4hcf1
+!i122 364
+l55
+L46 92
+VzY;I9LJTFcJjD?W;::lgR1
+!s100 ;`^=5?9m@edXoMgH?41WT2
 R7
 32
 R8
@@ -178,18 +178,18 @@ R34
 R12
 R13
 Etx_dp
-Z35 w1607734612
+Z35 w1608050135
 R1
 R2
 R3
-!i122 304
+!i122 365
 R4
 Z36 8/home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx_dp.vhd
 Z37 F/home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx_dp.vhd
 l0
 L26 1
-V8`VQK?f]fjJ65]XD[zmUk3
-!s100 TQPokI@dBHYCGgUI<l6Zo3
+V4[8DkUKhBigXhb3m7>SPP0
+!s100 WJ@DELCGH_X@05le;Uc;J0
 R7
 32
 R8
@@ -204,12 +204,12 @@ Aarch
 R1
 R2
 R3
-DEx4 work 5 tx_dp 0 22 8`VQK?f]fjJ65]XD[zmUk3
-!i122 304
-l93
-L47 93
-VaDVSnT5[zUl>Eh5C50IIC1
-!s100 YUk]J=BTbP4Y?QZ^`Sn7J0
+DEx4 work 5 tx_dp 0 22 4[8DkUKhBigXhb3m7>SPP0
+!i122 365
+l94
+L48 93
+V89UTao5JO8I@N9QnmH=KD2
+!s100 =9<a7D9NUo:anX`I9VMS^3
 R7
 32
 R8
@@ -224,7 +224,7 @@ Etx_tb
 R14
 R2
 R3
-!i122 305
+!i122 366
 R4
 Z40 8/home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx_tb.vhd
 Z41 F/home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd/tx_tb.vhd
@@ -247,7 +247,7 @@ R29
 R2
 R3
 Z44 DEx4 work 5 tx_tb 0 22 8711@lL3IQ@FkUSL1BL`70
-!i122 305
+!i122 366
 l44
 L33 40
 VGRjF1`W8Jzmml87TDE?a=2
@@ -270,7 +270,7 @@ DAx4 work 5 tx_tb 4 arch 22 GRjF1`W8Jzmml87TDE?a=2
 R2
 R3
 R44
-!i122 305
+!i122 366
 R14
 R4
 R40
