@@ -43,9 +43,9 @@ begin
     elsif clock'event and clock = '1' then  -- rising clock edge
       if start_det_en = '1' then
         if d = "00001111" then
-	start <= '1';
+	start = '1';
 	else 
-	start <= '0';
+	start = '0';
 	end if ;
       end if;
     end if;

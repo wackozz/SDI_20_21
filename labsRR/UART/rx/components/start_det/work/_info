@@ -1,0 +1,125 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Sabina/Documents
+Estart_detector
+Z0 w1608060431
+Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 22
+Z4 dC:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det
+Z5 8C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd
+Z6 FC:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd
+l0
+L26 1
+VBNf7]zRc5@jLQ3;4hjHnC0
+!s100 JcGR2bAaJNWbMf=]YLP3]1
+Z7 OV;C;2020.1;71
+32
+Z8 !s110 1608060623
+!i10b 1
+Z9 !s108 1608060623.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd|
+Z11 !s107 C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Aarch
+R1
+R2
+R3
+Z14 DEx4 work 14 start_detector 0 22 BNf7]zRc5@jLQ3;4hjHnC0
+!i122 22
+l38
+L36 21
+V<AKM<fdef:<4naY1F2Wg^3
+!s100 f5c3PzOO]YzcOWgRHliC72
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Estart_detector_tb
+Z15 w1608060615
+R2
+R3
+!i122 23
+R4
+Z16 8C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector_tb.vhd
+Z17 FC:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector_tb.vhd
+l0
+L27 1
+VhjnXR9hMUnlOnjXHPB>DV3
+!s100 5[]V7QVkbSMlCfNRIF3`Y3
+R7
+32
+R8
+!i10b 1
+R9
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector_tb.vhd|
+Z19 !s107 C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector_tb.vhd|
+!i113 1
+R12
+R13
+Aarch
+R1
+R14
+R2
+R3
+Z20 DEx4 work 17 start_detector_tb 0 22 hjnXR9hMUnlOnjXHPB>DV3
+!i122 23
+l43
+L33 37
+VHGi6@ZOKHQe=OK3M?Nk_o3
+!s100 EW_g^1X408Ue=Z17W@Foj3
+R7
+32
+R8
+!i10b 1
+R9
+R18
+R19
+!i113 1
+R12
+R13
+Cstart_detector_tb_arch_cfg
+estart_detector_tb
+aarch
+R14
+R1
+DAx4 work 17 start_detector_tb 4 arch 22 HGi6@ZOKHQe=OK3M?Nk_o3
+R2
+R3
+R20
+!i122 23
+R15
+R4
+R16
+R17
+l0
+L73 1
+VXB[:NL^EaYBl6?`3khP9>0
+!s100 EZ@G5gbDjb3zC9P:Dh1ja0
+R7
+32
+R8
+!i10b 0
+R9
+R18
+R19
+!i113 1
+R12
+R13
