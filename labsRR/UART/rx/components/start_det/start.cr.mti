@@ -1,0 +1,26 @@
+C:/Users/Sabina/Desktop/università/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd {0 {vcom -work work -2002 -explicit -stats=none C:/Users/Sabina/Desktop/università/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+init_dbinfo() DATABASE ERROR: (sqlite3_open C:/Users/Sabina/Desktop/università/polito/SDI_20_21/labsRR/UART/rx/components/start_det/work/_lib.qdb): unable to open database file
+mtilibWrite(): INTERNAL ERROR: Unexpected null object encountered
+** Fatal: (vcom-9) Problem while writing token file "C:/Users/Sabina/Desktop/università/polito/SDI_20_21/labsRR/UART/rx/components/start_det/work/_temp/vcom5aazsb".
+** Note: C:/Users/Sabina/Desktop/università/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd(22): VHDL Compiler exiting
+
+} {} {}} C:/Users/Sabina/Desktop/università/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector_tb.vhd {0 {vcom -work work -2002 -explicit -stats=none C:/Users/Sabina/Desktop/università/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector_tb.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+init_dbinfo() DATABASE ERROR: (sqlite3_open C:/Users/Sabina/Desktop/università/polito/SDI_20_21/labsRR/UART/rx/components/start_det/work/_lib.qdb): unable to open database file
+mtilibWrite(): INTERNAL ERROR: Unexpected null object encountered
+** Fatal: (vcom-9) Problem while writing token file "C:/Users/Sabina/Desktop/università/polito/SDI_20_21/labsRR/UART/rx/components/start_det/work/_temp/vcom7sg5v7".
+** Note: C:/Users/Sabina/Desktop/università/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector_tb.vhd(22): VHDL Compiler exiting
+
+} {} {}} C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity start_detector
+-- Compiling architecture arch of start_detector
+
+} {} {}}
