@@ -1,0 +1,230 @@
+# Loading project tx
+# Compile of shift_register_8bit.vhd was successful.
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+# Load canceled
+vsim work.tx_tb -t 10ns
+# vsim work.tx_tb -t 10ns 
+# Start time: 15:28:29 on Dec 15,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tx_tb(arch)
+# ** Warning: (vsim-3479) Time unit 'ns' is less than the simulator resolution (10ns).
+#    Time: 0 ns  Iteration: 0  Root: /
+# Loading work.tx(str)
+# Loading ieee.numeric_std(body)
+# Loading work.tx_dp(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.tx_cu(str)
+# WARNING: No extended dataflow license exists
+add wave *
+run 10000 ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+add wave -position insertpoint  \
+sim:/tx_tb/DUT/datapath/ld_en
+add wave -position insertpoint  \
+sim:/tx_tb/DUT/datapath/p_in
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+do sim.do
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+# End time: 15:40:02 on Dec 15,2020, Elapsed time: 0:11:33
+# Errors: 0, Warnings: 4
+# vsim work.tx_tb -t 10ns 
+# Start time: 15:40:02 on Dec 15,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tx_tb(arch)
+# ** Warning: (vsim-3479) Time unit 'ns' is less than the simulator resolution (10ns).
+#    Time: 0 ns  Iteration: 0  Root: /
+# Loading work.tx(str)
+# Loading ieee.numeric_std(body)
+# Loading work.tx_dp(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.tx_cu(str)
+# WARNING: No extended dataflow license exists
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+run 10000 ns
+run 5000 ns
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/wackoz/github/SDI_20_21/labsRR/UART/tx/wave.do
+do sim.do
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+# End time: 17:01:26 on Dec 15,2020, Elapsed time: 1:21:24
+# Errors: 0, Warnings: 5
+# vsim work.tx_tb -t 10ns 
+# Start time: 17:01:26 on Dec 15,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tx_tb(arch)
+# ** Warning: (vsim-3479) Time unit 'ns' is less than the simulator resolution (10ns).
+#    Time: 0 ns  Iteration: 0  Root: /
+# Loading work.tx(str)
+# Loading ieee.numeric_std(body)
+# Loading work.tx_dp(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.tx_cu(str)
+# WARNING: No extended dataflow license exists
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+do sim.do
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+# End time: 17:43:45 on Dec 15,2020, Elapsed time: 0:42:19
+# Errors: 0, Warnings: 6
+# vsim work.tx_tb -t 10ns 
+# Start time: 17:43:45 on Dec 15,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tx_tb(arch)
+# ** Warning: (vsim-3479) Time unit 'ns' is less than the simulator resolution (10ns).
+#    Time: 0 ns  Iteration: 0  Root: /
+# Loading work.tx(str)
+# Loading ieee.numeric_std(body)
+# Loading work.tx_dp(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.tx_cu(str)
+# WARNING: No extended dataflow license exists
+# ** UI-Msg: (vish-4014) No objects found matching '/tx_tb/DUT/datapath/count_en'.
+# Executing ONERROR command at macro ./sim.do line 14
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+project compileall
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+do sim.do
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+# End time: 17:52:51 on Dec 15,2020, Elapsed time: 0:09:06
+# Errors: 0, Warnings: 6
+# vsim work.tx_tb -t 10ns 
+# Start time: 17:52:51 on Dec 15,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tx_tb(arch)
+# ** Warning: (vsim-3479) Time unit 'ns' is less than the simulator resolution (10ns).
+#    Time: 0 ns  Iteration: 0  Root: /
+# Loading work.tx(str)
+# Loading ieee.numeric_std(body)
+# Loading work.tx_dp(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.tx_cu(str)
+# WARNING: No extended dataflow license exists
+# ** UI-Msg: (vish-4014) No objects found matching '/tx_tb/DUT/datapath/count_en'.
+# Executing ONERROR command at macro ./sim.do line 14
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+project compileall
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd failed with 1 errors.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 1 failed with 1 error.
+project compileall
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+do sim.do
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+# End time: 17:59:46 on Dec 15,2020, Elapsed time: 0:06:55
+# Errors: 0, Warnings: 7
+# vsim work.tx_tb -t 10ns 
+# Start time: 17:59:46 on Dec 15,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tx_tb(arch)
+# ** Warning: (vsim-3479) Time unit 'ns' is less than the simulator resolution (10ns).
+#    Time: 0 ns  Iteration: 0  Root: /
+# Loading work.tx(str)
+# Loading ieee.numeric_std(body)
+# Loading work.tx_dp(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.tx_cu(str)
+# WARNING: No extended dataflow license exists
+# ** UI-Msg: (vish-4014) No objects found matching '/tx_tb/DUT/datapath/count_en'.
+# Executing ONERROR command at macro ./sim.do line 14
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+# End time: 18:38:15 on Dec 15,2020, Elapsed time: 0:38:29
+# Errors: 0, Warnings: 4
