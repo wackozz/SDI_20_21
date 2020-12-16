@@ -6,8 +6,6 @@ PORT        (
                   RESET,CLOCK: IN STD_LOGIC;                      
                             CS_cu,R_Wn_cu: IN STD_LOGIC;                     
                               ADD_cu: IN STD_LOGIC_VECTOR (2 DOWNTO 0); 
-							  RX_DATA_IN: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
-							  TX_DATA_OUT : OUT STD_LOGIC_VECTOR ( 7 DOWNTO 0);
                                SEL_mux,ATN_cu,EN_regSTATUS,EN_regCTRL,EN_regDATARX,EN_regDATATX: OUT STD_LOGIC;                                                       
                               CLRatn_cu,TX_EN_cu,RX_EN_cu,TX_ack_cu,RX_ack_cu: OUT STD_LOGIC;
                                RX_FULL_cu,TX_EMPTY_cu,ERROR_cu: IN STD_LOGIC);
@@ -141,7 +139,7 @@ CASE present_state IS
 							  TX_ack_cu <= '1';
 							 
 							 WHEN READ_RXdata =>
-                                                         SEL_mux <= '1'; 
+                             SEL_mux <= '1'; 
 							 EN_regDATARX <= '1';
 							 RX_ack_cu <= '1';
 							  

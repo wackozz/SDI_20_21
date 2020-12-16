@@ -74,7 +74,7 @@ mux:mux_2_to_1 port map (x1 => Q_out_s3, y1=> Q_out_s4, s=> SEL_mux_s, m_out => 
 
 reg_TX_Data: bus_reg port map (R=> Din, Q=> TX_out, RESET=> RESET,CLOCK=>CLOCK, Enable=> ENABLE_regTX);
 reg_CTRL :bus_reg port map (R=> Din, Q=>CTRL_REGout,RESET=> RESET,CLOCK=>CLOCK, Enable=>ENABLE_regCTRL);
-reg_Rx_Data: bus_reg port map (R=>  RX_in , Q=>Q_out_s3, RESET=> RESET,CLOCK=>CLOCK, Enable=>ENABLE_regRX);
+reg_Rx_Data: bus_reg port map (R=>  RX_out , Q=>Q_out_s3, RESET=> RESET,CLOCK=>CLOCK, Enable=>ENABLE_regRX);
 reg_STATUS : bus_reg port map (R=> STATUS_out,Q=>Q_out_s4,RESET=> RESET,CLOCK=>CLOCK, Enable=>ENABLE_regSTATUS);
 
 control: CONTROLUnit_bus port map (ADD_cu => ADD,CS_cu => CS, R_Wn_cu=> R_Wn,SEL_mux => SEL_mux_s, RESET=> RESET,CLOCK=>CLOCK,
