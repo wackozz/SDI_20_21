@@ -1,0 +1,87 @@
+# ERROR: No extended dataflow license exists
+# vsim wok.stop_detector_tb.vhd 10 ns 
+# Start time: 13:02:35 on Dec 16,2020
+# ** Error (suppressible): (vsim-19) Failed to access library 'wok.stop_detector_tb' at "wok.stop_detector_tb".
+# No such file or directory. (errno = ENOENT)
+# Error loading design
+# End time: 13:02:35 on Dec 16,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Break key hit
+# Break key hit
+# Break key hit
+# Break key hit
+uit
+# invalid command name "uit"
+# Loading project stop_det
+# Compile of stop_detector.vhd was successful.
+# Compile of stop_detector.vhd was successful.
+# Compile of stop_detector_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.stop_detector_tb.vhd -t 10 ns
+# ** Error: (vsim-3000) Invalid resolution limit (-t 10).
+# Use the -help option for complete vsim usage.
+# vsim work.stop_detector_tb.vhd -t 10 ns 
+# Error loading design
+# Errors: 1, Warnings: 3
+vsim work.stop_detector_tb.vhd -t 10 ns
+# ** Error: (vsim-3000) Invalid resolution limit (-t 10).
+# Use the -help option for complete vsim usage.
+# vsim work.stop_detector_tb.vhd -t 10 ns 
+# Error loading design
+# Errors: 1, Warnings: 1
+vsim work.stop_detector_tb.vhd -t 10ns
+# vsim work.stop_detector_tb.vhd -t 10ns 
+# Start time: 13:05:00 on Dec 16,2020
+# ** Error (suppressible): (vsim-19) Failed to access library 'work.stop_detector_tb' at "work.stop_detector_tb".
+# No such file or directory. (errno = ENOENT)
+# Error loading design
+# End time: 13:05:00 on Dec 16,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+vsim work.stop_detector_tb.vhd -t 10
+# ** Error: (vsim-3000) Invalid resolution limit (-t 10).
+# Use the -help option for complete vsim usage.
+# vsim work.stop_detector_tb.vhd -t 10 
+# Error loading design
+# Errors: 1, Warnings: 1
+vsim work.stop_detector_tb.vhd -t 100
+# ** Error: (vsim-3000) Invalid resolution limit (-t 100).
+# Use the -help option for complete vsim usage.
+# vsim work.stop_detector_tb.vhd -t 100 
+# Error loading design
+# Errors: 1, Warnings: 1
+vsim work.stop_detector_tb.vhd -t 10n
+# ** Error: (vsim-3000) Invalid resolution limit (-t 10n).
+# Use the -help option for complete vsim usage.
+# vsim work.stop_detector_tb.vhd -t 10n 
+# Error loading design
+# Errors: 1, Warnings: 1
+vsim work.stop_detector_tb.vhd -t 10 n
+# ** Error: (vsim-3000) Invalid resolution limit (-t 10).
+# Use the -help option for complete vsim usage.
+# vsim work.stop_detector_tb.vhd -t 10 n 
+# Error loading design
+# Errors: 1, Warnings: 1
+# Load canceled
+vsim work.stop_detector_tb.vhd -t 10ns
+# vsim work.stop_detector_tb.vhd -t 10ns 
+# Start time: 13:05:32 on Dec 16,2020
+# ** Error (suppressible): (vsim-19) Failed to access library 'work.stop_detector_tb' at "work.stop_detector_tb".
+# No such file or directory. (errno = ENOENT)
+# Error loading design
+# End time: 13:05:33 on Dec 16,2020, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 1
+vsim work.stop_detector_tb -t 10ns
+# vsim work.stop_detector_tb -t 10ns 
+# Start time: 13:05:59 on Dec 16,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.stop_detector_tb(arch)
+# ** Warning: (vsim-3479) Time unit 'ns' is less than the simulator resolution (10ns).
+#    Time: 0 ns  Iteration: 0  Root: /
+# Loading work.stop_detector(arch)
+add wave *
+run 100 ns
+# End time: 13:36:18 on Dec 16,2020, Elapsed time: 0:30:19
+# Errors: 0, Warnings: 2

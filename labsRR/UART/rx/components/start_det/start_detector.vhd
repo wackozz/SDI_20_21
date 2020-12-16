@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-11
--- Last update: 2020-12-11
+-- Last update: 2020-12-16
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -35,16 +35,14 @@ end start_detector;
 
 architecture arch of start_detector is
 begin
-  start : process (clock, reset) is
+f
+  start_p      : process (clock, reset) is
   begin  -- process vote
     if reset = '1' then                     -- asynchronous reset (active high)
       start <= '0';
     elsif clock'event and clock = '1' then  -- rising clock edge
-      if start_det_en = '1' then
-        start <= d and "00001111";
-      end if;
+      start <= d(0) and d(1) and d(2) and d(3) and d(4) and d(5) and d(6) and d(7);
     end if;
-  end process start;
-
+  end process start_p;
 
 end architecture;
