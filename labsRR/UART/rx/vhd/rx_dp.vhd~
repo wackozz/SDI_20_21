@@ -28,7 +28,7 @@ use ieee.std_logic_1164.all;
 entity rx_dp is
   port (
     clock             : in  std_logic;
-    reset             : in  std_logic; -- active high
+    reset             : in  std_logic;  -- active high
     clr_start         : in  std_logic;
     clear_c_shift     : in  std_logic;
     clear_c_rxfull    : in  std_logic;
@@ -40,8 +40,6 @@ entity rx_dp is
     voter_en          : in  std_logic;  -- enable for voter
     sh_en_samples     : in  std_logic;  -- shift enable for samples
     sh_en_data        : in  std_logic;  -- shift enable for sr data
-    ld_en_samples     : in  std_logic;
-    ld_en_data        : in  std_logic;
     start_en          : in  std_logic;
     start             : out std_logic;
     stop_en           : in  std_logic;
@@ -69,6 +67,8 @@ architecture str of rx_dp is
   signal s_out         : std_logic;                     -- unused
   signal p_in          : std_logic_vector(7 downto 0);  -- unused
   signal voter_d       : std_logic_vector(2 downto 0);
+  signal ld_en : std_logic;
+ 
 
   -----------------------------------------------------------------------------
   -- COMPONENT DECLARATION
@@ -164,7 +164,7 @@ begin  -- architecture str
   shift_reg_samples : shift_register_8bit
     port map (
       clock => clock,
-      ld_en => ld_en_samples,
+      ld_en => ld_en,
       sh_en => sh_en_samples,
       s_in  => rxd,
       s_out => s_out,
@@ -189,7 +189,7 @@ begin  -- architecture str
   shift_reg_data : shift_register_8bit
     port map (
       clock => clock,
-      ld_en => ld_en_data,
+      ld_en => ld_en,
       sh_en => sh_en_data,
       s_in  => vote,
       s_out => s_out,
@@ -215,7 +215,14 @@ begin  -- architecture str
   -----------------------------------------------------------------------------
   -- SIGNAL ASSIGNMENT
   -----------------------------------------------------------------------------
-
+  shift_r_init : process (reset) is
+  begin  -- process shift_r_init
+    if reset = '1' then
+      ld_en <= '1';
+    else
+      ld_en <= '0';
+    end if;
+  end process shift_r_init;
   flag_shift_sample <= '1' when
                        unsigned(q_c_shift) = (to_unsigned(16, 8)) or
                        unsigned(q_c_shift) = (to_unsigned(33, 8)) or
@@ -230,6 +237,6 @@ begin  -- architecture str
   voter_d <= p_out_samples(3)&p_out_samples(4)&p_out_samples(5);
 --flag for counter sh out, high when 4*Tbaud/. Used to sync from start
 --detention to first frame  
-
+  p_in    <= "11111111";
 
 end architecture str;

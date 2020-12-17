@@ -315,3 +315,85 @@ run 10000ns
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 #    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath/counter_shift
 # WARNING: No extended dataflow license exists
+project compileall
+# Compile of rx.vhd was successful.
+# Compile of rx_cu.vhd was successful.
+# Compile of rx_dp.vhd was successful.
+# Compile of rx_tb.vhd was successful.
+# Compile of start_detector.vhd was successful.
+# Compile of stop_detector.vhd was successful.
+# Compile of voter_3bit.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.rx_tb(arch)
+# Loading work.rx(str)
+# Loading work.rx_dp(str)
+# Loading work.voter_3bit(arch)
+# Loading work.start_detector(arch)
+# Loading work.stop_detector(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.rx_cu(str)
+run 10000ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath/counter_rxfull
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath/counter_shift
+project compileall
+# Compile of rx.vhd was successful.
+# Compile of rx_cu.vhd was successful.
+# Compile of rx_dp.vhd was successful.
+# Compile of rx_tb.vhd was successful.
+# Compile of start_detector.vhd was successful.
+# Compile of stop_detector.vhd was successful.
+# Compile of voter_3bit.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.rx_tb(arch)
+# Loading work.rx(str)
+# Loading work.rx_dp(str)
+# Loading work.voter_3bit(arch)
+# Loading work.start_detector(arch)
+# Loading work.stop_detector(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.rx_cu(str)
+run 10000ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath/counter_rxfull
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath/counter_shift

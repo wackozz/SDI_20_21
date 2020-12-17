@@ -95,8 +95,8 @@ begin  -- architecture str
           end if;
         elsif flag_shift_sample = '1' then
           next_state <= sh_sample;
-        elsif flag_68 = '1' then
-          if start = '1' then
+        elsif start = '1' then
+          if flag_68 = '1' then
             next_state <= res_cnt;
           else
             next_state <= idle;
@@ -150,6 +150,7 @@ begin  -- architecture str
     sh_en_data      <= '0';
     sh_en_samples   <= '0';
     flag_error      <= '0';
+    clr_start       <= '0';
     
     case present_state is
       when reset_s =>

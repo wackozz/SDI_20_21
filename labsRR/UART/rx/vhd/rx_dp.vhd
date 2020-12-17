@@ -68,7 +68,9 @@ architecture str of rx_dp is
   signal p_in          : std_logic_vector(7 downto 0);  -- unused
   signal voter_d       : std_logic_vector(2 downto 0);
   signal ld_en : std_logic;
- 
+  signal clear_sh_tmp : std_logic;
+  signal clear_rxfull_tmp : std_logic;
+  
 
   -----------------------------------------------------------------------------
   -- COMPONENT DECLARATION
@@ -177,7 +179,7 @@ begin  -- architecture str
     generic map (N => 8)
     port map (
       clock   => clock,
-      clear   => reset,
+      clear   => clear_sh_tmp,
       tc      => std_logic_vector(to_unsigned(136, 8)),
       tc_flag => flag_shift_data,
       en      => count_en_sh,
@@ -202,7 +204,7 @@ begin  -- architecture str
     generic map (N => 3)
     port map (
       clock   => clock,
-      clear   => reset,
+      clear   => clear_rxfull_tmp,
       tc      => std_logic_vector(to_unsigned(7, 3)),
       tc_flag => flag_rxfull,
       en      => count_en_rxfull,
@@ -238,5 +240,7 @@ begin  -- architecture str
 --flag for counter sh out, high when 4*Tbaud/. Used to sync from start
 --detention to first frame  
   p_in    <= "11111111";
+  clear_rxfull_tmp <= reset or clear_c_rxfull;
+  clear_sh_tmp <= reset or clear_c_shift;
 
 end architecture str;
