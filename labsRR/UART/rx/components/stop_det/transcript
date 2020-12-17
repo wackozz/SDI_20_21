@@ -115,3 +115,5 @@ run 10000 ns
 #    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath/counter_rxfull
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 #    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath/counter_shift
+# End time: 17:19:14 on Dec 17,2020, Elapsed time: 1:31:12
+# Errors: 0, Warnings: 10

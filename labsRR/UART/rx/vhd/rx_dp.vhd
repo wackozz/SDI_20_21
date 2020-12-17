@@ -28,7 +28,7 @@ use ieee.std_logic_1164.all;
 entity rx_dp is
   port (
     clock             : in  std_logic;
-    reset             : in  std_logic;
+    reset             : in  std_logic; -- active high
     clr_start         : in  std_logic;
     clear_c_shift     : in  std_logic;
     clear_c_rxfull    : in  std_logic;
