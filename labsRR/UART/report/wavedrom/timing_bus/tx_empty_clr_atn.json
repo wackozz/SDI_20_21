@@ -1,13 +1,12 @@
 {signal: [
   {name: 'clk', wave: "P......" , period:2},
-  {name: 'reg_status', wave: 'x.2.x..x......', data: ['010'] ,node:'..a...', phase:0.5},
+  {name: 'flip_flop_in', wave: 'x.2.x..x......', data: ['010'] ,node:'..a...', phase:0.5},
   {name: 'reg_CTRL', wave:'x..........2.x' , data:['100'],node:'...........f.g.',phase:0.5},
   {name: 'ADD', wave:'x.2.x...2.x...', data:['10','11'],phase:0.5},
   {name: 'R/Wn', wave:'x.1.x...0.x...',phase:0.5},
   {name: 'CS', wave:'0.1.0...1.0...',phase:0.5},
-  {name: 'En_STATUS', wave:'0...1.0.......',phase:0.5},
   {name: 'en_CTRL', wave:'0.........1.0.',phase:0.5},
-  {name: 'Dout', wave:'xxxx..2.x.....', data:['010'],node:'......b...',phase:0.5 },
+  {name: 'Dout', wave:'xxxx2.x.......', data:['010'],node:'....b...',phase:0.5 },
   {name: 'Din', wave:'x.........2.x.', data:['100'], node:'..........e...',phase:0.5},
   {name: 'ATN', wave:'0...1........0', node:'.............h',phase:0.5},
   {name: 'En_CTRL', wave:'0.........1.0.',phase:0.5}
