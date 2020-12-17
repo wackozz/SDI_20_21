@@ -1,0 +1,53 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "TxD",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "p_in[7]",
+					"strict" : false
+				},
+				{
+					"name" : "p_in[6]",
+					"strict" : false
+				},
+				{
+					"name" : "p_in[5]",
+					"strict" : false
+				},
+				{
+					"name" : "p_in[4]",
+					"strict" : false
+				},
+				{
+					"name" : "p_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "p_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "p_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "p_in[0]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-11
--- Last update: 2020-12-11
+-- Last update: 2020-12-16
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -34,17 +34,17 @@ entity stop_detector is
 end stop_detector;
 
 architecture arch of stop_detector is
+
 begin
-  stop : process (clock, reset) is
-  begin  -- process stop
+  stop_p : process (clock, reset) is
+  begin  -- process vote
     if reset = '1' then                     -- asynchronous reset (active high)
       stop <= '0';
     elsif clock'event and clock = '1' then  -- rising clock edge
       if stop_det_en = '1' then
-        stop <= d and "11111111";
+          stop <= d(0) and d(1) and d(2) and d(3) and d(4) and d(5) and d(6) and d(7);
+        end if;
       end if;
-    end if;
-  end process stop;
-
+  end process stop_p;
 
 end architecture;

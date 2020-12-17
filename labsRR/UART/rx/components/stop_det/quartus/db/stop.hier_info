@@ -1,0 +1,15 @@
+|stop_detector
+clock => stop~reg0.CLK
+reset => stop~reg0.ACLR
+stop_det_en => stop~reg0.ENA
+d[0] => stop.IN0
+d[1] => stop.IN1
+d[2] => stop.IN1
+d[3] => stop.IN1
+d[4] => stop.IN1
+d[5] => stop.IN1
+d[6] => stop.IN1
+d[7] => stop.IN1
+stop <= stop~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

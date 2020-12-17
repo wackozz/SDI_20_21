@@ -35,7 +35,7 @@ end voter_3bit;
 
 architecture arch of voter_3bit is
 begin
-  vote : process (clock, reset) is
+  vote_l : process (clock, reset) is
   begin  -- process vote
     if reset = '1' then                     -- asynchronous reset (active high)
       vote <= '0';
@@ -44,7 +44,7 @@ begin
         vote <= ((d(0) and (d(1) or d(2))) or ((d(1) and d(2))));
       end if;
     end if;
-  end process vote;
+  end process vote_l;
 
 
 end architecture;
