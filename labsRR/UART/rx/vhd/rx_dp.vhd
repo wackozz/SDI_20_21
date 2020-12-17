@@ -29,6 +29,7 @@ entity rx_dp is
   port (
     clock             : in  std_logic;
     reset             : in  std_logic;
+    clr_start         : in  std_logic;
     clear_c_shift     : in  std_logic;
     clear_c_rxfull    : in  std_logic;
     flag_rxfull       : out std_logic;
@@ -58,16 +59,16 @@ architecture str of rx_dp is
   -----------------------------------------------------------------------------
   -- INTERNAL SIGNAL DECLARATION
   -----------------------------------------------------------------------------
-  signal p_out_samples   : std_logic_vector(7 downto 0);  --out for samples sr
-  signal d_c_shift       : std_logic_vector(7 downto 0);  --unused
-  signal d_c_rxfull      : std_logic_vector(2 downto 0);  --unused
-  signal q_c_shift       : std_logic_vector(7 downto 0);
-  signal q_c_rxfull      : std_logic_vector(2 downto 0);
-  signal ld              : std_logic;                     -- unusued
-  signal vote            : std_logic;
-  signal s_out           : std_logic;                     -- unused
-  signal p_in            : std_logic_vector(7 downto 0);  -- unused
-  signal voter_d : std_logic_vector(2 downto 0);
+  signal p_out_samples : std_logic_vector(7 downto 0);  --out for samples sr
+  signal d_c_shift     : std_logic_vector(7 downto 0);  --unused
+  signal d_c_rxfull    : std_logic_vector(2 downto 0);  --unused
+  signal q_c_shift     : std_logic_vector(7 downto 0);
+  signal q_c_rxfull    : std_logic_vector(2 downto 0);
+  signal ld            : std_logic;                     -- unusued
+  signal vote          : std_logic;
+  signal s_out         : std_logic;                     -- unused
+  signal p_in          : std_logic_vector(7 downto 0);  -- unused
+  signal voter_d       : std_logic_vector(2 downto 0);
 
   -----------------------------------------------------------------------------
   -- COMPONENT DECLARATION
@@ -119,6 +120,7 @@ architecture str of rx_dp is
     port (
       clock        : in  std_logic;
       reset        : in  std_logic;
+      clear        : in  std_logic;
       start_det_en : in  std_logic;
       d            : in  std_logic_vector(7 downto 0);
       start        : out std_logic);
@@ -144,6 +146,7 @@ begin  -- architecture str
     port map(
       clock        => clock,
       reset        => reset,
+      clear        => clr_start,
       start_det_en => start_en,
       d            => p_out_samples,
       start        => start
@@ -214,17 +217,17 @@ begin  -- architecture str
   -----------------------------------------------------------------------------
 
   flag_shift_sample <= '1' when
-                       unsigned(q_c_shift) = (to_unsigned(16,8)) or
-                       unsigned(q_c_shift) = (to_unsigned(33,8)) or
-                       unsigned(q_c_shift) = (to_unsigned(50,8)) or
-                       unsigned(q_c_shift) = (to_unsigned(84,8)) or
-                       unsigned(q_c_shift) = (to_unsigned(101,8)) or
-                       unsigned(q_c_shift) = (to_unsigned(118,8))
+                       unsigned(q_c_shift) = (to_unsigned(16, 8)) or
+                       unsigned(q_c_shift) = (to_unsigned(33, 8)) or
+                       unsigned(q_c_shift) = (to_unsigned(50, 8)) or
+                       unsigned(q_c_shift) = (to_unsigned(84, 8)) or
+                       unsigned(q_c_shift) = (to_unsigned(101, 8)) or
+                       unsigned(q_c_shift) = (to_unsigned(118, 8))
                        else '0';
 
-  flag_68 <= '1' when unsigned(q_c_shift) = (to_unsigned(68,8)) else '0';
+  flag_68 <= '1' when unsigned(q_c_shift) = (to_unsigned(68, 8)) else '0';
 
-  voter_d <=  p_out_samples(3)&p_out_samples(4)&p_out_samples(5);
+  voter_d <= p_out_samples(3)&p_out_samples(4)&p_out_samples(5);
 --flag for counter sh out, high when 4*Tbaud/. Used to sync from start
 --detention to first frame  
 
