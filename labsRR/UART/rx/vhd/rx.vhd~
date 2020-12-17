@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- Title      : rx
--- Project    : 
+-- Project    : UART
 -------------------------------------------------------------------------------
 -- File       : rx.vhd
 -- Author     : wackoz  <wackoz@wT14s>
@@ -10,43 +10,161 @@
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
--- Description: 
+-- Description: Receiver for UART
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author  Description
--- 2020-12-17  1.0      wackoz	Created
+-- 2020-12-17  1.0      wackoz  Created
 -------------------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 -------------------------------------------------------------------------------
 
 entity rx is
 
-  generic (
-    );
-
   port (
-    );
+    clock : in  std_logic;
+    reset : in  std_logic;
+    rxd   : in  std_logic;
+    Pout  : out std_logic_vector(7 downto 0));
 
 end entity rx;
 
 -------------------------------------------------------------------------------
 
 architecture str of rx is
+  -------------------------------------------------------------------------------
+  -- SIGNAL DECLARATION
+  -------------------------------------------------------------------------------
+  signal clr_start         : std_logic;
+  signal clear_c_shift     : std_logic;
+  signal clear_c_rxfull    : std_logic;
+  signal flag_error        : std_logic;
+  signal flag_rxfull       : std_logic;
+  signal flag_shift_data   : std_logic;
+  signal flag_shift_sample : std_logic;
+  signal flag_68           : std_logic;
+  signal voter_en          : std_logic;
+  signal sh_en_samples     : std_logic;
+  signal sh_en_data        : std_logic;
+  signal ld_en_samples     : std_logic;
+  signal ld_en_data        : std_logic;
+  signal start_en          : std_logic;
+  signal start             : std_logic;
+  signal stop_en           : std_logic;
+  signal stop              : std_logic;
+  signal count_en_sh       : std_logic;
+  signal count_en_rxfull   : std_logic;
 
   -----------------------------------------------------------------------------
-  -- Internal signal declarations
+  -- COMPONENT DECLARATION
   -----------------------------------------------------------------------------
+  component rx_cu is
+    port (
+      clock             : in  std_logic;
+      reset             : in  std_logic;
+      clr_start         : out std_logic;
+      flag_error        : out std_logic;
+      clear_c_shift     : out std_logic;
+      clear_c_rxfull    : out std_logic;
+      flag_rxfull       : in  std_logic;
+      flag_shift_data   : in  std_logic;
+      flag_shift_sample : in  std_logic;
+      flag_68           : in  std_logic;
+      sh_en_samples     : out std_logic;
+      sh_en_data        : out std_logic;
+      start_en          : out std_logic;
+      start             : in  std_logic;
+      stop_en           : out std_logic;
+      stop              : in  std_logic;
+      count_en_sh       : out std_logic;
+      count_en_rxfull   : out std_logic);
+  end component rx_cu;
+
+  component rx_dp is
+    port (
+      clock             : in  std_logic;
+      reset             : in  std_logic;
+      clr_start         : in  std_logic;
+      clear_c_shift     : in  std_logic;
+      clear_c_rxfull    : in  std_logic;
+      flag_rxfull       : out std_logic;
+      flag_shift_data   : out std_logic;
+      flag_shift_sample : out std_logic;
+      flag_68           : out std_logic;
+      rxd               : in  std_logic;
+      voter_en          : in  std_logic;
+      sh_en_samples     : in  std_logic;
+      sh_en_data        : in  std_logic;
+      ld_en_samples     : in  std_logic;
+      ld_en_data        : in  std_logic;
+      start_en          : in  std_logic;
+      start             : out std_logic;
+      stop_en           : in  std_logic;
+      stop              : out std_logic;
+      count_en_sh       : in  std_logic;
+      count_en_rxfull   : in  std_logic;
+      Pout              : out std_logic_vector(7 downto 0));
+  end component rx_dp;
 
 begin  -- architecture str
 
   -----------------------------------------------------------------------------
   -- Component instantiations
   -----------------------------------------------------------------------------
+
+  -- instance "datapath"
+  datapath : rx_dp
+    port map (
+      clock             => clock,
+      reset             => reset,
+      clr_start         => clr_start,
+      clear_c_shift     => clear_c_shift,
+      clear_c_rxfull    => clear_c_rxfull,
+      flag_rxfull       => flag_rxfull,
+      flag_shift_data   => flag_shift_data,
+      flag_shift_sample => flag_shift_sample,
+      flag_68           => flag_68,
+      rxd               => rxd,
+      voter_en          => voter_en,
+      sh_en_samples     => sh_en_samples,
+      sh_en_data        => sh_en_data,
+      ld_en_samples     => ld_en_samples,
+      ld_en_data        => ld_en_data,
+      start_en          => start_en,
+      start             => start,
+      stop_en           => stop_en,
+      stop              => stop,
+      count_en_sh       => count_en_sh,
+      count_en_rxfull   => count_en_rxfull,
+      Pout              => Pout);
+
+  -- instance "control unit"
+  control_unit : rx_cu
+    port map (
+      clock             => clock,
+      reset             => reset,
+      clr_start         => clr_start,
+      flag_error        => flag_error,
+      clear_c_shift     => clear_c_shift,
+      clear_c_rxfull    => clear_c_rxfull,
+      flag_rxfull       => flag_rxfull,
+      flag_shift_data   => flag_shift_data,
+      flag_shift_sample => flag_shift_sample,
+      flag_68           => flag_68,
+      sh_en_samples     => sh_en_samples,
+      sh_en_data        => sh_en_data,
+      start_en          => start_en,
+      start             => start,
+      stop_en           => stop_en,
+      stop              => stop,
+      count_en_sh       => count_en_sh,
+      count_en_rxfull   => count_en_rxfull);
 
 end architecture str;
 

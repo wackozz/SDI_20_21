@@ -52,6 +52,8 @@ architecture str of rx is
   signal voter_en          : std_logic;
   signal sh_en_samples     : std_logic;
   signal sh_en_data        : std_logic;
+  signal ld_en_samples     : std_logic;
+  signal ld_en_data        : std_logic;
   signal start_en          : std_logic;
   signal start             : std_logic;
   signal stop_en           : std_logic;
@@ -99,6 +101,8 @@ architecture str of rx is
       voter_en          : in  std_logic;
       sh_en_samples     : in  std_logic;
       sh_en_data        : in  std_logic;
+      ld_en_samples     : in  std_logic;
+      ld_en_data        : in  std_logic;
       start_en          : in  std_logic;
       start             : out std_logic;
       stop_en           : in  std_logic;
@@ -130,6 +134,8 @@ begin  -- architecture str
       voter_en          => voter_en,
       sh_en_samples     => sh_en_samples,
       sh_en_data        => sh_en_data,
+      ld_en_samples     => ld_en_samples,
+      ld_en_data        => ld_en_data,
       start_en          => start_en,
       start             => start,
       stop_en           => stop_en,
@@ -157,7 +163,8 @@ begin  -- architecture str
       start             => start,
       stop_en           => stop_en,
       stop              => stop,
-      count_en_sh       => count_en_sh);
+      count_en_sh       => count_en_sh
+      count_en_rxfull   => count_en_rxfull);
 
 end architecture str;
 

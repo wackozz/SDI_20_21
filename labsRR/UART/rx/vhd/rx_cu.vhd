@@ -150,10 +150,10 @@ begin  -- architecture str
     sh_en_data      <= '0';
     sh_en_samples   <= '0';
     flag_error      <= '0';
-
+    
     case present_state is
       when reset_s =>
-        start_en_tmp   <= '1';
+        start_en_tmp       <= '1';
         flag_error     <= '0';
         clear_c_rxfull <= '1';
         clear_c_shift  <= '1';
@@ -170,9 +170,9 @@ begin  -- architecture str
       when start_off =>
         clear_c_shift  <= '0';
         clear_c_rxfull <= '0';
-        start_en_tmp   <= '0';
+        start_en_tmp       <= '0';
       when stop_on =>
-        stop_en_tmp     <= '1';
+        stop_en_tmp         <= '1';
         count_en_rxfull <= '0';
       when res_cnt =>
         clr_start     <= '0';
