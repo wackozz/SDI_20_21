@@ -10,32 +10,52 @@ z2
 cModel Technology
 Z0 d/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd
 Erx_dp
-Z1 w1608129450
-Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z1 w1608205724
+Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 0
+Z4 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+!i122 9
 R0
 Z5 8rx_dp.vhd
 Z6 Frx_dp.vhd
 l0
-L26 1
-VG]nCGm`b263>2GoJe3zb^3
-!s100 >JIcLX:UFk5QJ907V]fDi1
+L28 1
+VL4PH0;7mMM8<3[fW8NzA?0
+!s100 A9NLU<KUC01O;MRcLfVoz0
 Z7 OV;C;2020.1;71
 31
-Z8 !s110 1608129450
+Z8 !s110 1608205735
 !i10b 1
-Z9 !s108 1608129450.000000
+Z9 !s108 1608205734.000000
 Z10 !s90 -93|-work|work|rx_dp.vhd|
-!s107 rx_dp.vhd|
+Z11 !s107 rx_dp.vhd|
 !i113 1
-Z11 o-93 -work work
-Z12 tExplicit 1 CvgOpt 0
-Aarch
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Astr
 R2
 R3
 R4
+DEx4 work 5 rx_dp 0 22 L4PH0;7mMM8<3[fW8NzA?0
+!i122 9
+l128
+L56 177
+V4XY^4FPS98n259zTCaC2J2
+!s100 ^oX9LJZezPQLAK89^Ym8e1
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Aarch
+R4
+R3
+R2
 DEx4 work 5 rx_dp 0 22 G]nCGm`b263>2GoJe3zb^3
 !i122 0
 l92
@@ -44,11 +64,12 @@ VhnG6HF8fD7LhJWYEfEWaA3
 !s100 >2O8_oMJF:MQNDPbQWe8G1
 R7
 31
-R8
+!s110 1608129450
 !i10b 1
-R9
+!s108 1608129450.000000
 R10
-Z13 !s107 rx_dp.vhd|
-!i113 1
 R11
+!i113 1
 R12
+R13
+w1608129450

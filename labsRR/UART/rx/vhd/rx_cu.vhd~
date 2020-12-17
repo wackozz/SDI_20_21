@@ -1,32 +1,31 @@
 -------------------------------------------------------------------------------
--- Title      : rx_cu
+-- Title      : tx_cu
 -- Project    : UART
 -------------------------------------------------------------------------------
--- File       : rx_cu.vhd
+-- File       : tx_cu.vhd
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
--- Created    : 2020-12-16
--- Last update: 2020-12-16
+-- Created    : 2020-12-09
+-- Last update: 2020-12-15
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
--- Description: CU for UART Receiver
+-- Description: control unit for tx
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
 -- Revisions  :
--- Date        Version  Author  Description
--- 2020-12-16  1.0      wackoz	Created
+-- Date         Version  Author  Description
+-- 2020-12-09   1.0      wackoz  Created
+-- 2020-15-12   1.1      sabi    bug correction
 -------------------------------------------------------------------------------
-
-
 
 library ieee;
 use ieee.std_logic_1164.all;
 
 -------------------------------------------------------------------------------
 
-entity rx_cu is
+entity tx_cu is
 
   port (
     clock            : in  std_logic;
@@ -40,9 +39,9 @@ entity rx_cu is
     clear            : out std_logic;   -- clear for counters
     force_one        : out std_logic;
     force_zero       : out std_logic);
-end entity rx_cu;
+end entity tx_cu;
 
-------------------------------------------------  -------------------------------
+-------------------------------------------------------------------------------
 
 architecture str of tx_cu is
 

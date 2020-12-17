@@ -6,7 +6,7 @@
 -- Author     :   <Sabina@DESKTOP-IN9UA4D>
 -- Company    : 
 -- Created    : 2020-12-15
--- Last update: 2020-12-16
+-- Last update: 2020-12-17
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -27,25 +27,27 @@ use ieee.std_logic_1164.all;
 
 entity rx_dp is
   port (
-    clock           : in  std_logic;
-    reset           : in  std_logic;
-    clear_c_samples : in  std_logic;
-    clear_c_rxfull  : in  std_logic;
-    flag_rxfull     : out std_logic;
-    flag_sh         : out std_logic;
-    rxd             : in  std_logic;    -- input
-    voter_en        : in  std_logic;    -- enable for voter
-    sh_en_samples   : in  std_logic;    -- shift enable for samples
-    sh_en_data      : in  std_logic;    -- shift enable for sr data
-    ld_en_samples   : in  std_logic;
-    ld_en_data      : in  std_logic;
-    start_en        : in  std_logic;
-    start           : out std_logic;
-    stop_en         : in  std_logic;
-    stop            : out std_logic;
-    count_en_sh     : in  std_logic;
-    count_en_rxfull : in  std_logic;
-    Pout            : out std_logic_vector(7 downto 0));  -- output
+    clock             : in  std_logic;
+    reset             : in  std_logic;
+    clear_c_shift     : in  std_logic;
+    clear_c_rxfull    : in  std_logic;
+    flag_rxfull       : out std_logic;
+    flag_shift_data   : out std_logic;
+    flag_shift_sample : out std_logic;
+    flag_68           : out std_logic;
+    rxd               : in  std_logic;  -- input
+    voter_en          : in  std_logic;  -- enable for voter
+    sh_en_samples     : in  std_logic;  -- shift enable for samples
+    sh_en_data        : in  std_logic;  -- shift enable for sr data
+    ld_en_samples     : in  std_logic;
+    ld_en_data        : in  std_logic;
+    start_en          : in  std_logic;
+    start             : out std_logic;
+    stop_en           : in  std_logic;
+    stop              : out std_logic;
+    count_en_sh       : in  std_logic;
+    count_en_rxfull   : in  std_logic;
+    Pout              : out std_logic_vector(7 downto 0));  -- output
 
 end entity rx_dp;
 
@@ -53,21 +55,23 @@ end entity rx_dp;
 
 architecture str of rx_dp is
 
-  signal voter_en     : std_logic;
-  signal start_det_en : std_logic;
-  signal stop_det_en  : std_logic;
-  signal ld_en        : std_logic;
-  signal sh_en        : std_logic;
-  signal p_out        : std_logic_vector(7 downto 0);
-  signal en           : std_logic;
-  signal q            : std_logic_vector(135 downto 0);;
-  signal q_c_shift    : std_logic;
-  signal ld           : std_logic;
-  signal s_in         : std_logic;
-  signal s_out        : std_logic;
-  signal tc_flag      : std_logic;
-  signal vote         : std_logic;
+  -----------------------------------------------------------------------------
+  -- INTERNAL SIGNAL DECLARATION
+  -----------------------------------------------------------------------------
+  signal p_out_samples   : std_logic_vector(7 downto 0);  --out for samples sr
+  signal d_c_shift       : std_logic_vector(7 downto 0);  --unused
+  signal d_c_rxfull      : std_logic_vector(2 downto 0);  --unused
+  signal q_c_shift       : std_logic_vector(7 downto 0);
+  signal q_c_rxfull      : std_logic_vector(2 downto 0);
+  signal ld              : std_logic;                     -- unusued
+  signal vote            : std_logic;
+  signal s_out           : std_logic;                     -- unused
+  signal p_in            : std_logic_vector(7 downto 0);  -- unused
+  signal voter_d : std_logic_vector(2 downto 0);
 
+  -----------------------------------------------------------------------------
+  -- COMPONENT DECLARATION
+  -----------------------------------------------------------------------------
   component counter_nbit is
     generic (
       N : integer);
@@ -120,22 +124,23 @@ architecture str of rx_dp is
       start        : out std_logic);
   end component start_detector;
 
-  -----------------------------------------------------------------------------
-  -- Internal signal declarations
-  -----------------------------------------------------------------------------
 
 begin  -- architecture str
 
-  voter_3bit : voter_3bit
+  -----------------------------------------------------------------------------
+  -- PORT MAPPING
+  -----------------------------------------------------------------------------
+
+  voter : voter_3bit
     port map (
       clock    => clock,
       reset    => reset,
       voter_en => voter_en,
-      d        => p_out_samples(3)&p_out_samples(4)&p_out_samples(5),
+      d        => voter_d,
       vote     => vote
       );
 
-  start_detector : start_detector
+  start_det : start_detector
     port map(
       clock        => clock,
       reset        => reset,
@@ -144,7 +149,7 @@ begin  -- architecture str
       start        => start
       );
 
-  stop_detector : stop_detector
+  stop_det : stop_detector
     port map(
       clock       => clock,
       reset       => reset,
@@ -171,10 +176,10 @@ begin  -- architecture str
       clock   => clock,
       clear   => reset,
       tc      => std_logic_vector(to_unsigned(136, 8)),
-      tc_flag => tc_flag_sh,
+      tc_flag => flag_shift_data,
       en      => count_en_sh,
       ld      => ld,
-      d       => d,
+      d       => d_c_shift,
       q       => q_c_shift
       );
 
@@ -186,7 +191,7 @@ begin  -- architecture str
       s_in  => vote,
       s_out => s_out,
       p_in  => p_in,
-      p_out => p_out_data
+      p_out => Pout
       );
   -- port map: counter
 
@@ -196,23 +201,32 @@ begin  -- architecture str
       clock   => clock,
       clear   => reset,
       tc      => std_logic_vector(to_unsigned(7, 3)),
-      tc_flag => tc_flag_rxfull,
+      tc_flag => flag_rxfull,
       en      => count_en_rxfull,
       ld      => ld,
-      d       => d,
+      d       => d_c_rxfull,
       q       => q_c_rxfull
       );
 
 
+  -----------------------------------------------------------------------------
+  -- SIGNAL ASSIGNMENT
+  -----------------------------------------------------------------------------
 
-  flag_sh        <= tc_flag_sh;
-  flag_rxfull    <= tc_flag_rxfull;
-  tc_flag_sh     <= '1' when unsigned(q_c_shift) = (unsigned(17)) or unsigned(q_c_shift) = (unsigned(34)) or unsigned(q_c_shift) = (unsigned(51)) or unsigned(q_c_shift) = (unsigned(85)) or unsigned(q_c_shift) = (unsigned(102)) or unsigned(q_c_shift) = (unsigned(119)) else '0';
-  tc_flag_68     <= '1' when unsigned(q_c_shift) = (unsigned(68))                                                                                                                                                                                                           else '0';
-  tc_flag_rxfull <= '1' when unsigned(q_c_rxfull) = (unsigned(7))                                                                                                                                                                                                           else '0';  --useless
+  flag_shift_sample <= '1' when
+                       unsigned(q_c_shift) = (to_unsigned(16,8)) or
+                       unsigned(q_c_shift) = (to_unsigned(33,8)) or
+                       unsigned(q_c_shift) = (to_unsigned(50,8)) or
+                       unsigned(q_c_shift) = (to_unsigned(84,8)) or
+                       unsigned(q_c_shift) = (to_unsigned(101,8)) or
+                       unsigned(q_c_shift) = (to_unsigned(118,8))
+                       else '0';
 
+  flag_68 <= '1' when unsigned(q_c_shift) = (to_unsigned(68,8)) else '0';
+
+  voter_d <=  p_out_samples(3)&p_out_samples(4)&p_out_samples(5);
+--flag for counter sh out, high when 4*Tbaud/. Used to sync from start
+--detention to first frame  
 
 
 end architecture str;
-
--------------------------------------------------------------------------------
