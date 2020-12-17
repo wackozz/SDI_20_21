@@ -1,4 +1,13 @@
-/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd
+/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity rx_dp
+-- Compiling architecture str of rx_dp
+
+} {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -15,24 +24,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity shift_register_8bit
 -- Compiling architecture arch of shift_register_8bit
 
-} {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity rx
--- Compiling architecture str of rx
-
-} {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity counter_nbit
--- Compiling architecture arch of counter_nbit
-
 } {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_tb.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
@@ -46,14 +37,23 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading entity rx_tb
 -- Loading architecture arch of rx_tb
 
-} {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd
+} {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity voter_3bit
--- Compiling architecture arch of voter_3bit
+-- Compiling entity counter_nbit
+-- Compiling architecture arch of counter_nbit
+
+} {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity start_detector
+-- Compiling architecture arch of start_detector
 
 } {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -64,13 +64,13 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity stop_detector
 -- Compiling architecture arch of stop_detector
 
-} {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd
+} {} {}} /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity start_detector
--- Compiling architecture arch of start_detector
+-- Compiling entity voter_3bit
+-- Compiling architecture arch of voter_3bit
 
 } {} {}}

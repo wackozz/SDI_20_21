@@ -1,0 +1,30 @@
+# Loading project rx
+# Compile of rx.vhd was successful.
+# Compile of rx_cu.vhd was successful.
+# Compile of rx_dp.vhd was successful.
+# Compile of rx_tb.vhd was successful.
+# Compile of start_detector.vhd was successful.
+# Compile of stop_detector.vhd was successful.
+# Compile of voter_3bit.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+vsim work.rx_tb -t ns
+# vsim work.rx_tb -t ns 
+# Start time: 18:26:23 on Dec 17,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.rx_tb(arch)
+# Loading work.rx(str)
+# Loading work.rx_dp(str)
+# Loading work.voter_3bit(arch)
+# Loading work.start_detector(arch)
+# Loading work.stop_detector(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.rx_cu(str)
+# WARNING: No extended dataflow license exists
+# End time: 18:27:16 on Dec 17,2020, Elapsed time: 0:00:53
+# Errors: 0, Warnings: 2

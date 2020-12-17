@@ -43,9 +43,12 @@ begin
         start <= '0';
       elsif clock'event and clock = '1' then  -- rising clock edge
         if clear = '0' then
+		  if start_det_en = '1' then 
         start <= d(0) and d(1) and d(2) and d(3) and d(4) and d(5) and d(6) and d(7);          
         end if;
-        start <= '0';
+		  else 
+		  start <= '0';
+		  end if;
       end if;
     end process start_p;
 

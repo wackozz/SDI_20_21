@@ -163,7 +163,8 @@ begin  -- architecture str
       start             => start,
       stop_en           => stop_en,
       stop              => stop,
-      count_en_sh       => count_en_sh);
+      count_en_sh       => count_en_sh
+      count_en_rxfull   => count_en_rxfull);
 
 end architecture str;
 
