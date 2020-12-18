@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-17
--- Last update: 2020-12-17
+-- Last update: 2020-12-18
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -157,7 +157,8 @@ begin  -- architecture str
       start             => start,
       stop_en           => stop_en,
       stop              => stop,
-      count_en_sh       => count_en_sh);
+      count_en_sh       => count_en_sh,
+      count_en_rxfull   => count_en_rxfull);
 
 end architecture str;
 

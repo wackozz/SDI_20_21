@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-16
--- Last update: 2020-12-17
+-- Last update: 2020-12-18
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -74,8 +74,8 @@ begin  -- architecture str
   end process state_update;
 
   next_state_gen : process (flag_68, flag_rxfull, flag_shift_data,
-                            flag_shift_sample, present_state, start, start_en_tmp,
-                            stop, stop_en_tmp) is
+                            flag_shift_sample, present_state, start,
+                            start_en_tmp, stop) is
   begin  -- process next_state_gen
     case present_state is
 
@@ -95,16 +95,20 @@ begin  -- architecture str
           end if;
         elsif flag_shift_sample = '1' then
           next_state <= sh_sample;
-        elsif start = '1' then
-          if flag_68 = '1' then
+        elsif flag_68 = '1' then
+          if start = '1' then
             next_state <= res_cnt;
+          else
+            next_state <= sh_sample;
+          end if;
+        elsif start_en_tmp = '1' then
+          if start = '1' then
+            next_state <= start_off;
           else
             next_state <= idle;
           end if;
-        else
-          next_state <= idle;
         end if;
-
+        
       when error_s =>
         next_state <= reset_s;
 
@@ -112,18 +116,10 @@ begin  -- architecture str
         next_state <= idle;
 
       when sh_sample =>
-        if start_en_tmp = '1' then
-          if start = '1' then
-            next_state <= start_off;
-          else
-            next_state <= idle;
-          end if;
+        if flag_rxfull = '1' then
+          next_state <= stop_on;
         else
-          if flag_rxfull = '1' then
-            next_state <= stop_on;
-          else
-            next_state <= idle;
-          end if;
+          next_state <= idle;
         end if;
 
       when start_off =>
@@ -151,10 +147,12 @@ begin  -- architecture str
     sh_en_samples   <= '0';
     flag_error      <= '0';
     clr_start       <= '0';
+   
     
     case present_state is
       when reset_s =>
-        start_en_tmp       <= '1';
+        stop_en_tmp     <= '0';
+        start_en_tmp   <= '1';
         flag_error     <= '0';
         clear_c_rxfull <= '1';
         clear_c_shift  <= '1';
@@ -169,16 +167,14 @@ begin  -- architecture str
       when sh_sample =>
         sh_en_samples <= '1';
       when start_off =>
-        clear_c_shift  <= '0';
-        clear_c_rxfull <= '0';
-        start_en_tmp       <= '0';
+        clear_c_shift <= '1';
+        start_en_tmp  <= '0';
       when stop_on =>
-        stop_en_tmp         <= '1';
+        stop_en_tmp     <= '1';
         count_en_rxfull <= '0';
       when res_cnt =>
-        clr_start     <= '0';
         clear_c_shift <= '1';
-
+        clr_start     <= '1';
       when others => null;
     end case;
 

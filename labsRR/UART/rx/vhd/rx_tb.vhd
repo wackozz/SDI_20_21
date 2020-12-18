@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-17
--- Last update: 2020-12-17
+-- Last update: 2020-12-18
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -59,8 +59,9 @@ begin  -- architecture arch
     wait for 20 ns;
     reset <= '0';
     wait for 50 ns;
-    rxd <= '0';
+    rxd <= '0';                         --
     wait for 1390 ns;
+    
     rxd <= '1';                         -- D0
     wait for 1390 ns;
     rxd <= '0';                         -- D1

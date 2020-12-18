@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rx
-Thu Dec 17 17:59:38 2020
+Fri Dec 18 00:21:46 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -14,8 +14,8 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |rx|rx_cu:control_unit|present_state
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
  11. General Register Statistics
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
  13. Parameter Settings for User Entity Instance: rx_dp:datapath|counter_nbit:counter_shift
@@ -54,13 +54,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Dec 17 17:59:38 2020       ;
+; Analysis & Synthesis Status     ; Successful - Fri Dec 18 00:21:46 2020       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; rx                                          ;
 ; Top-level Entity Name           ; rx                                          ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 0                                           ;
+; Total registers                 ; 32                                          ;
 ; Total pins                      ; 11                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -170,10 +170,12 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -193,40 +195,47 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+---------------------------------------------+----------------+
-; Resource                                    ; Usage          ;
-+---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 0              ;
-;                                             ;                ;
-; Combinational ALUT usage for logic          ; 0              ;
-;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 0              ;
-;     -- 5 input functions                    ; 0              ;
-;     -- 4 input functions                    ; 0              ;
-;     -- <=3 input functions                  ; 0              ;
-;                                             ;                ;
-; Dedicated logic registers                   ; 0              ;
-;                                             ;                ;
-; I/O pins                                    ; 11             ;
-;                                             ;                ;
-; Total DSP Blocks                            ; 0              ;
-;                                             ;                ;
-; Maximum fan-out node                        ; Pout[0]~output ;
-; Maximum fan-out                             ; 1              ;
-; Total fan-out                               ; 11             ;
-; Average fan-out                             ; 0.50           ;
-+---------------------------------------------+----------------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 34          ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 61          ;
+;     -- 7 input functions                    ; 0           ;
+;     -- 6 input functions                    ; 7           ;
+;     -- 5 input functions                    ; 9           ;
+;     -- 4 input functions                    ; 9           ;
+;     -- <=3 input functions                  ; 36          ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 32          ;
+;                                             ;             ;
+; I/O pins                                    ; 11          ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clock~input ;
+; Maximum fan-out                             ; 32          ;
+; Total fan-out                               ; 324         ;
+; Average fan-out                             ; 2.82        ;
++---------------------------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |rx                        ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 11   ; 0            ; |rx                 ; rx          ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                    ;
++-----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                      ; Entity Name         ; Library Name ;
++-----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------+---------------------+--------------+
+; |rx                                           ; 61 (0)              ; 32 (0)                    ; 0                 ; 0          ; 11   ; 0            ; |rx                                                      ; rx                  ; work         ;
+;    |rx_cu:control_unit|                       ; 26 (26)             ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_cu:control_unit                                   ; rx_cu               ; work         ;
+;    |rx_dp:datapath|                           ; 35 (2)              ; 26 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath                                       ; rx_dp               ; work         ;
+;       |counter_nbit:counter_shift|            ; 11 (11)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath|counter_nbit:counter_shift            ; counter_nbit        ; work         ;
+;       |shift_register_8bit:shift_reg_data|    ; 9 (9)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath|shift_register_8bit:shift_reg_data    ; shift_register_8bit ; work         ;
+;       |shift_register_8bit:shift_reg_samples| ; 9 (9)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath|shift_register_8bit:shift_reg_samples ; shift_register_8bit ; work         ;
+;       |start_detector:start_det|              ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath|start_detector:start_det              ; start_detector      ; work         ;
+;       |stop_detector:stop_det|                ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath|stop_detector:stop_det                ; stop_detector       ; work         ;
++-----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -247,63 +256,34 @@ Encoding Type:  One-Hot
 +-------------------------+-----------------------+-----------------------+-----------------------+-------------------------+-------------------------+-----------------------+--------------------+-----------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                            ;
-+-----------------------------------------------------------------+---------------------------------------------+
-; Register name                                                   ; Reason for Removal                          ;
-+-----------------------------------------------------------------+---------------------------------------------+
-; rx_dp:datapath|start_detector:start_det|start                   ; Stuck at GND due to stuck port data_in      ;
-; rx_dp:datapath|counter_nbit:counter_rxfull|data[0..2]           ; Stuck at GND due to stuck port data_in      ;
-; rx_dp:datapath|voter_3bit:voter|vote                            ; Stuck at GND due to stuck port clock_enable ;
-; rx_dp:datapath|shift_register_8bit:shift_reg_data|data[0..7]    ; Stuck at GND due to stuck port data_in      ;
-; rx_cu:control_unit|present_state.stop_on                        ; Lost fanout                                 ;
-; rx_cu:control_unit|present_state.res_cnt                        ; Lost fanout                                 ;
-; rx_cu:control_unit|present_state.reset_s                        ; Lost fanout                                 ;
-; rx_cu:control_unit|present_state.start_off                      ; Lost fanout                                 ;
-; rx_cu:control_unit|present_state.sh_data                        ; Lost fanout                                 ;
-; rx_dp:datapath|stop_detector:stop_det|stop                      ; Lost fanout                                 ;
-; rx_dp:datapath|shift_register_8bit:shift_reg_samples|data[0..7] ; Lost fanout                                 ;
-; rx_cu:control_unit|present_state.error_s                        ; Stuck at GND due to stuck port data_in      ;
-; rx_cu:control_unit|present_state.sh_sample                      ; Lost fanout                                 ;
-; rx_dp:datapath|counter_nbit:counter_shift|data[0..7]            ; Lost fanout                                 ;
-; rx_cu:control_unit|present_state.idle                           ; Lost fanout                                 ;
-; Total Number of Removed Registers = 38                          ;                                             ;
-+-----------------------------------------------------------------+---------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                 ;
++----------------------------------------------------+---------------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal                   ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------------------------+------------------------+
+; rx_cu:control_unit|next_state.sh_data_248          ; rx_cu:control_unit|next_state.error_s ; yes                    ;
+; rx_cu:control_unit|start_en_tmp                    ; rx_cu:control_unit|WideOr3            ; yes                    ;
+; rx_cu:control_unit|next_state.idle_278             ; rx_cu:control_unit|Selector5          ; yes                    ;
+; rx_cu:control_unit|next_state.reset_s_263          ; rx_cu:control_unit|Selector5          ; yes                    ;
+; rx_cu:control_unit|next_state.start_off_226        ; rx_cu:control_unit|start_en_tmp       ; yes                    ;
+; rx_cu:control_unit|next_state.res_cnt_200          ; rx_cu:control_unit|next_state.error_s ; yes                    ;
+; rx_cu:control_unit|next_state.sh_sample_237        ; rx_cu:control_unit|next_state.error_s ; yes                    ;
+; Number of user-specified and inferred latches = 7  ;                                       ;                        ;
++----------------------------------------------------+---------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                               ;
-+------------------------------------------+--------------------------------+---------------------------------------------------------------+
-; Register name                            ; Reason for Removal             ; Registers Removed due to This Register                        ;
-+------------------------------------------+--------------------------------+---------------------------------------------------------------+
-; rx_dp:datapath|voter_3bit:voter|vote     ; Stuck at GND                   ; rx_dp:datapath|shift_register_8bit:shift_reg_data|data[0],    ;
-;                                          ; due to stuck port clock_enable ; rx_dp:datapath|shift_register_8bit:shift_reg_data|data[1],    ;
-;                                          ;                                ; rx_dp:datapath|shift_register_8bit:shift_reg_data|data[2],    ;
-;                                          ;                                ; rx_dp:datapath|shift_register_8bit:shift_reg_data|data[3],    ;
-;                                          ;                                ; rx_dp:datapath|shift_register_8bit:shift_reg_data|data[4],    ;
-;                                          ;                                ; rx_dp:datapath|shift_register_8bit:shift_reg_data|data[5],    ;
-;                                          ;                                ; rx_dp:datapath|shift_register_8bit:shift_reg_data|data[6],    ;
-;                                          ;                                ; rx_dp:datapath|shift_register_8bit:shift_reg_data|data[7],    ;
-;                                          ;                                ; rx_dp:datapath|shift_register_8bit:shift_reg_samples|data[5], ;
-;                                          ;                                ; rx_dp:datapath|shift_register_8bit:shift_reg_samples|data[4], ;
-;                                          ;                                ; rx_dp:datapath|shift_register_8bit:shift_reg_samples|data[3]  ;
-; rx_cu:control_unit|present_state.reset_s ; Lost Fanouts                   ; rx_dp:datapath|stop_detector:stop_det|stop,                   ;
-;                                          ;                                ; rx_dp:datapath|shift_register_8bit:shift_reg_samples|data[7], ;
-;                                          ;                                ; rx_dp:datapath|shift_register_8bit:shift_reg_samples|data[6], ;
-;                                          ;                                ; rx_dp:datapath|shift_register_8bit:shift_reg_samples|data[2], ;
-;                                          ;                                ; rx_dp:datapath|shift_register_8bit:shift_reg_samples|data[1], ;
-;                                          ;                                ; rx_dp:datapath|shift_register_8bit:shift_reg_samples|data[0], ;
-;                                          ;                                ; rx_dp:datapath|counter_nbit:counter_shift|data[3],            ;
-;                                          ;                                ; rx_dp:datapath|counter_nbit:counter_shift|data[0],            ;
-;                                          ;                                ; rx_cu:control_unit|present_state.idle                         ;
-; rx_cu:control_unit|present_state.error_s ; Stuck at GND                   ; rx_cu:control_unit|present_state.sh_sample,                   ;
-;                                          ; due to stuck port data_in      ; rx_dp:datapath|counter_nbit:counter_shift|data[6],            ;
-;                                          ;                                ; rx_dp:datapath|counter_nbit:counter_shift|data[5],            ;
-;                                          ;                                ; rx_dp:datapath|counter_nbit:counter_shift|data[4],            ;
-;                                          ;                                ; rx_dp:datapath|counter_nbit:counter_shift|data[2]             ;
-; rx_cu:control_unit|present_state.sh_data ; Lost Fanouts                   ; rx_dp:datapath|counter_nbit:counter_shift|data[7],            ;
-;                                          ;                                ; rx_dp:datapath|counter_nbit:counter_shift|data[1]             ;
-+------------------------------------------+--------------------------------+---------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                  ;
++-------------------------------------------------------+---------------------------------------------+
+; Register name                                         ; Reason for Removal                          ;
++-------------------------------------------------------+---------------------------------------------+
+; rx_dp:datapath|counter_nbit:counter_rxfull|data[0..2] ; Stuck at GND due to stuck port data_in      ;
+; rx_dp:datapath|voter_3bit:voter|vote                  ; Stuck at GND due to stuck port clock_enable ;
+; rx_cu:control_unit|present_state.stop_on              ; Lost fanout                                 ;
+; rx_cu:control_unit|present_state.error_s              ; Lost fanout                                 ;
+; Total Number of Removed Registers = 6                 ;                                             ;
++-------------------------------------------------------+---------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -311,25 +291,27 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 32    ;
+; Number of registers using Synchronous Clear  ; 8     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 8     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 16    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |rx|rx_dp:datapath|counter_nbit:counter_shift|data[3]  ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |rx|rx_dp:datapath|counter_nbit:counter_rxfull|data[0] ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |rx|rx_cu:control_unit|next_state.error_s              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |rx|rx_dp:datapath|shift_register_8bit:shift_reg_data|data[1]    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |rx|rx_dp:datapath|shift_register_8bit:shift_reg_samples|data[7] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |rx|rx_dp:datapath|counter_nbit:counter_shift|data[2]            ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |rx|rx_dp:datapath|counter_nbit:counter_rxfull|data[2]           ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |rx|rx_cu:control_unit|next_state.error_s                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------+
@@ -378,6 +360,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port  ; Type   ; Severity ; Details                                                                             ;
 +-------+--------+----------+-------------------------------------------------------------------------------------+
 ; s_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; p_in  ; Input  ; Info     ; Stuck at VCC                                                                        ;
 +-------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -386,10 +369,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+-------+----------+-----------------------------------------+
 ; Port     ; Type  ; Severity ; Details                                 ;
 +----------+-------+----------+-----------------------------------------+
-; tc[6..4] ; Input ; Info     ; Stuck at GND                            ;
-; tc[2..0] ; Input ; Info     ; Stuck at GND                            ;
+; tc[6..2] ; Input ; Info     ; Stuck at GND                            ;
 ; tc[7]    ; Input ; Info     ; Stuck at VCC                            ;
-; tc[3]    ; Input ; Info     ; Stuck at VCC                            ;
+; tc[1]    ; Input ; Info     ; Stuck at VCC                            ;
+; tc[0]    ; Input ; Info     ; Stuck at GND                            ;
 +----------+-------+----------+-----------------------------------------+
 
 
@@ -399,6 +382,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port  ; Type   ; Severity ; Details                                                                             ;
 +-------+--------+----------+-------------------------------------------------------------------------------------+
 ; s_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; p_in  ; Input  ; Info     ; Stuck at VCC                                                                        ;
 +-------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -407,13 +391,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
+; arriav_ff             ; 32                          ;
+;     CLR               ; 8                           ;
+;     ENA               ; 16                          ;
+;     SCLR              ; 8                           ;
+; arriav_lcell_comb     ; 61                          ;
+;     arith             ; 8                           ;
+;         1 data inputs ; 8                           ;
+;     normal            ; 53                          ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 17                          ;
+;         4 data inputs ; 9                           ;
+;         5 data inputs ; 9                           ;
+;         6 data inputs ; 7                           ;
 ; boundary_port         ; 11                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.02                        ;
 +-----------------------+-----------------------------+
 
 
@@ -432,7 +427,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu Dec 17 17:59:29 2020
+    Info: Processing started: Fri Dec 18 00:21:39 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rx -c rx
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -449,10 +444,10 @@ Info (12021): Found 2 design units, including 1 entities, in source file /home/w
     Info (12022): Found design unit 1: stop_detector-arch File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd Line: 36
     Info (12023): Found entity 1: stop_detector File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd Line: 26
 Info (12021): Found 2 design units, including 1 entities, in source file /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd
-    Info (12022): Found design unit 1: start_detector-arch File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd Line: 37
-    Info (12023): Found entity 1: start_detector File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd Line: 26
+    Info (12022): Found design unit 1: start_detector-arch File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd Line: 36
+    Info (12023): Found entity 1: start_detector File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd
-    Info (12022): Found design unit 1: rx_dp-str File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 57
+    Info (12022): Found design unit 1: rx_dp-str File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 55
     Info (12023): Found entity 1: rx_dp File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 28
 Info (12021): Found 2 design units, including 1 entities, in source file /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd
     Info (12022): Found design unit 1: rx_cu-str File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 55
@@ -463,52 +458,60 @@ Info (12021): Found 2 design units, including 1 entities, in source file /home/w
 Info (12127): Elaborating entity "rx" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at rx.vhd(47): object "flag_error" assigned a value but never read File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 47
 Warning (10541): VHDL Signal Declaration warning at rx.vhd(52): used implicit default value for signal "voter_en" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 52
-Warning (10541): VHDL Signal Declaration warning at rx.vhd(55): used implicit default value for signal "ld_en_samples" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 55
-Warning (10541): VHDL Signal Declaration warning at rx.vhd(56): used implicit default value for signal "ld_en_data" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 56
-Warning (10541): VHDL Signal Declaration warning at rx.vhd(62): used implicit default value for signal "count_en_rxfull" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 62
-Info (12128): Elaborating entity "rx_dp" for hierarchy "rx_dp:datapath" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 122
-Warning (10541): VHDL Signal Declaration warning at rx_dp.vhd(63): used implicit default value for signal "d_c_shift" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 63
-Warning (10541): VHDL Signal Declaration warning at rx_dp.vhd(64): used implicit default value for signal "d_c_rxfull" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 64
-Warning (10036): Verilog HDL or VHDL warning at rx_dp.vhd(66): object "q_c_rxfull" assigned a value but never read File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 66
-Warning (10541): VHDL Signal Declaration warning at rx_dp.vhd(67): used implicit default value for signal "ld" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 67
-Warning (10036): Verilog HDL or VHDL warning at rx_dp.vhd(69): object "s_out" assigned a value but never read File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 69
-Warning (10541): VHDL Signal Declaration warning at rx_dp.vhd(70): used implicit default value for signal "p_in" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 70
-Info (12128): Elaborating entity "voter_3bit" for hierarchy "rx_dp:datapath|voter_3bit:voter" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 136
-Info (12128): Elaborating entity "start_detector" for hierarchy "rx_dp:datapath|start_detector:start_det" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 145
-Info (12128): Elaborating entity "stop_detector" for hierarchy "rx_dp:datapath|stop_detector:stop_det" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 155
-Info (12128): Elaborating entity "shift_register_8bit" for hierarchy "rx_dp:datapath|shift_register_8bit:shift_reg_samples" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 164
-Info (12128): Elaborating entity "counter_nbit" for hierarchy "rx_dp:datapath|counter_nbit:counter_shift" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 176
-Info (12128): Elaborating entity "counter_nbit" for hierarchy "rx_dp:datapath|counter_nbit:counter_rxfull" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 201
-Info (12128): Elaborating entity "rx_cu" for hierarchy "rx_cu:control_unit" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 148
-Warning (10631): VHDL Process Statement warning at rx_cu.vhd(144): inferring latch(es) for signal or variable "start_en_tmp", which holds its previous value in one or more paths through the process File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 144
-Warning (10631): VHDL Process Statement warning at rx_cu.vhd(144): inferring latch(es) for signal or variable "stop_en_tmp", which holds its previous value in one or more paths through the process File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 144
-Warning (10631): VHDL Process Statement warning at rx_cu.vhd(144): inferring latch(es) for signal or variable "clr_start", which holds its previous value in one or more paths through the process File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 144
-Info (10041): Inferred latch for "clr_start" at rx_cu.vhd(144) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 144
-Info (10041): Inferred latch for "stop_en_tmp" at rx_cu.vhd(144) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 144
-Info (10041): Inferred latch for "start_en_tmp" at rx_cu.vhd(144) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 144
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "Pout[0]" is stuck at GND File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 34
-    Warning (13410): Pin "Pout[1]" is stuck at GND File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 34
-    Warning (13410): Pin "Pout[2]" is stuck at GND File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 34
-    Warning (13410): Pin "Pout[3]" is stuck at GND File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 34
-    Warning (13410): Pin "Pout[4]" is stuck at GND File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 34
-    Warning (13410): Pin "Pout[5]" is stuck at GND File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 34
-    Warning (13410): Pin "Pout[6]" is stuck at GND File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 34
-    Warning (13410): Pin "Pout[7]" is stuck at GND File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 34
-Info (17049): 24 registers lost all their fanouts during netlist optimizations.
+Warning (10541): VHDL Signal Declaration warning at rx.vhd(60): used implicit default value for signal "count_en_rxfull" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 60
+Info (12128): Elaborating entity "rx_dp" for hierarchy "rx_dp:datapath" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 118
+Warning (10540): VHDL Signal Declaration warning at rx_dp.vhd(60): used explicit default value for signal "SL" because signal was never assigned a value File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 60
+Warning (10541): VHDL Signal Declaration warning at rx_dp.vhd(62): used implicit default value for signal "d_c_shift" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 62
+Warning (10541): VHDL Signal Declaration warning at rx_dp.vhd(63): used implicit default value for signal "d_c_rxfull" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 63
+Warning (10036): Verilog HDL or VHDL warning at rx_dp.vhd(65): object "q_c_rxfull" assigned a value but never read File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 65
+Warning (10541): VHDL Signal Declaration warning at rx_dp.vhd(66): used implicit default value for signal "ld" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 66
+Warning (10036): Verilog HDL or VHDL warning at rx_dp.vhd(68): object "s_out" assigned a value but never read File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 68
+Info (12128): Elaborating entity "voter_3bit" for hierarchy "rx_dp:datapath|voter_3bit:voter" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 139
+Info (12128): Elaborating entity "start_detector" for hierarchy "rx_dp:datapath|start_detector:start_det" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 148
+Info (12128): Elaborating entity "stop_detector" for hierarchy "rx_dp:datapath|stop_detector:stop_det" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 158
+Info (12128): Elaborating entity "shift_register_8bit" for hierarchy "rx_dp:datapath|shift_register_8bit:shift_reg_samples" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 167
+Info (12128): Elaborating entity "counter_nbit" for hierarchy "rx_dp:datapath|counter_nbit:counter_shift" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 179
+Info (12128): Elaborating entity "counter_nbit" for hierarchy "rx_dp:datapath|counter_nbit:counter_rxfull" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 204
+Info (12128): Elaborating entity "rx_cu" for hierarchy "rx_cu:control_unit" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 142
+Warning (10631): VHDL Process Statement warning at rx_cu.vhd(76): inferring latch(es) for signal or variable "next_state", which holds its previous value in one or more paths through the process File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+Warning (10631): VHDL Process Statement warning at rx_cu.vhd(140): inferring latch(es) for signal or variable "start_en_tmp", which holds its previous value in one or more paths through the process File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 140
+Warning (10631): VHDL Process Statement warning at rx_cu.vhd(140): inferring latch(es) for signal or variable "stop_en_tmp", which holds its previous value in one or more paths through the process File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 140
+Info (10041): Inferred latch for "stop_en_tmp" at rx_cu.vhd(140) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 140
+Info (10041): Inferred latch for "start_en_tmp" at rx_cu.vhd(140) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 140
+Info (10041): Inferred latch for "next_state.error_s" at rx_cu.vhd(76) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+Info (10041): Inferred latch for "next_state.res_cnt" at rx_cu.vhd(76) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+Info (10041): Inferred latch for "next_state.stop_on" at rx_cu.vhd(76) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+Info (10041): Inferred latch for "next_state.start_off" at rx_cu.vhd(76) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+Info (10041): Inferred latch for "next_state.sh_sample" at rx_cu.vhd(76) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+Info (10041): Inferred latch for "next_state.sh_data" at rx_cu.vhd(76) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+Info (10041): Inferred latch for "next_state.reset_s" at rx_cu.vhd(76) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+Info (10041): Inferred latch for "next_state.idle" at rx_cu.vhd(76) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+Warning (13012): Latch rx_cu:control_unit|next_state.sh_data_248 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_dp:datapath|counter_nbit:counter_shift|data[2] File: /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd Line: 53
+Warning (13012): Latch rx_cu:control_unit|start_en_tmp has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 140
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_cu:control_unit|present_state.start_off File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 63
+Warning (13012): Latch rx_cu:control_unit|next_state.idle_278 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_cu:control_unit|present_state.idle File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 63
+Warning (13012): Latch rx_cu:control_unit|next_state.reset_s_263 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_cu:control_unit|present_state.idle File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 63
+Warning (13012): Latch rx_cu:control_unit|next_state.res_cnt_200 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_dp:datapath|counter_nbit:counter_shift|data[2] File: /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd Line: 53
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal rx_dp:datapath|counter_nbit:counter_shift|data[2] File: /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd Line: 53
+Warning (13012): Latch rx_cu:control_unit|next_state.sh_sample_237 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_dp:datapath|counter_nbit:counter_shift|data[2] File: /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd Line: 53
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal rx_dp:datapath|counter_nbit:counter_shift|data[2] File: /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd Line: 53
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clock" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 31
-    Warning (15610): No output dependent on input pin "reset" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 32
-    Warning (15610): No output dependent on input pin "rxd" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 33
-Info (21057): Implemented 11 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 77 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 8 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 28 warnings
-    Info: Peak virtual memory: 482 megabytes
-    Info: Processing ended: Thu Dec 17 17:59:38 2020
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:23
+    Info (21061): Implemented 66 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 27 warnings
+    Info: Peak virtual memory: 506 megabytes
+    Info: Processing ended: Fri Dec 18 00:21:46 2020
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:18
 
 

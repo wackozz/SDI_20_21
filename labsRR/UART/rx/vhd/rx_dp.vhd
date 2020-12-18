@@ -6,7 +6,7 @@
 -- Author     :   <Sabina@DESKTOP-IN9UA4D>
 -- Company    : 
 -- Created    : 2020-12-15
--- Last update: 2020-12-17
+-- Last update: 2020-12-18
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -57,11 +57,12 @@ architecture str of rx_dp is
   -----------------------------------------------------------------------------
   -- INTERNAL SIGNAL DECLARATION
   -----------------------------------------------------------------------------
+  signal SL : integer := 17;  -- sample length
   signal p_out_samples : std_logic_vector(7 downto 0);  --out for samples sr
   signal d_c_shift     : std_logic_vector(7 downto 0);  --unused
-  signal d_c_rxfull    : std_logic_vector(2 downto 0);  --unused
+  signal d_c_rxfull    : std_logic_vector(3 downto 0);  --unused
   signal q_c_shift     : std_logic_vector(7 downto 0);
-  signal q_c_rxfull    : std_logic_vector(2 downto 0);
+  signal q_c_rxfull    : std_logic_vector(3 downto 0);
   signal ld            : std_logic;                     -- unusued
   signal vote          : std_logic;
   signal s_out         : std_logic;                     -- unused
@@ -139,7 +140,7 @@ begin  -- architecture str
     port map (
       clock    => clock,
       reset    => reset,
-      voter_en => voter_en,
+      voter_en => '1',
       d        => voter_d,
       vote     => vote
       );
@@ -180,7 +181,7 @@ begin  -- architecture str
     port map (
       clock   => clock,
       clear   => clear_sh_tmp,
-      tc      => std_logic_vector(to_unsigned(136, 8)),
+      tc      => std_logic_vector(to_unsigned(130, 8)),
       tc_flag => flag_shift_data,
       en      => count_en_sh,
       ld      => ld,
@@ -201,11 +202,11 @@ begin  -- architecture str
   -- port map: counter
 
   counter_rxfull : counter_nbit
-    generic map (N => 3)
+    generic map (N => 4)
     port map (
       clock   => clock,
       clear   => clear_rxfull_tmp,
-      tc      => std_logic_vector(to_unsigned(7, 3)),
+      tc      => std_logic_vector(to_unsigned(8, 4)),
       tc_flag => flag_rxfull,
       en      => count_en_rxfull,
       ld      => ld,
@@ -226,15 +227,15 @@ begin  -- architecture str
     end if;
   end process shift_r_init;
   flag_shift_sample <= '1' when
-                       unsigned(q_c_shift) = (to_unsigned(16, 8)) or
-                       unsigned(q_c_shift) = (to_unsigned(33, 8)) or
-                       unsigned(q_c_shift) = (to_unsigned(50, 8)) or
-                       unsigned(q_c_shift) = (to_unsigned(84, 8)) or
-                       unsigned(q_c_shift) = (to_unsigned(101, 8)) or
-                       unsigned(q_c_shift) = (to_unsigned(118, 8))
+                       unsigned(q_c_shift) = (to_unsigned(SL-3, 8)) or
+                       unsigned(q_c_shift) = (to_unsigned(SL*2-3, 8)) or
+                       unsigned(q_c_shift) = (to_unsigned(SL*3-3, 8)) or                      
+                       unsigned(q_c_shift) = (to_unsigned(SL*5-3, 8)) or
+                       unsigned(q_c_shift) = (to_unsigned(SL*6-3, 8)) or
+                       unsigned(q_c_shift) = (to_unsigned(SL*7-3, 8))
                        else '0';
 
-  flag_68 <= '1' when unsigned(q_c_shift) = (to_unsigned(68, 8)) else '0';
+  flag_68 <= '1' when unsigned(q_c_shift) = (to_unsigned(SL*4-3, 8)) else '0';
 
   voter_d <= p_out_samples(3)&p_out_samples(4)&p_out_samples(5);
 --flag for counter sh out, high when 4*Tbaud/. Used to sync from start

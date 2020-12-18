@@ -2,4 +2,180 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1100mV 85C Model Setup 'rx_cu:control_unit|start_en_tmp'
+Slack : -7.543
+TNS   : -40.041
+
+Type  : Slow 1100mV 85C Model Setup 'rx_cu:control_unit|present_state.reset_s'
+Slack : -4.040
+TNS   : -4.040
+
+Type  : Slow 1100mV 85C Model Setup 'clock'
+Slack : -3.825
+TNS   : -76.734
+
+Type  : Slow 1100mV 85C Model Hold 'clock'
+Slack : -2.584
+TNS   : -4.864
+
+Type  : Slow 1100mV 85C Model Hold 'rx_cu:control_unit|present_state.reset_s'
+Slack : 2.906
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'rx_cu:control_unit|start_en_tmp'
+Slack : 3.992
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'rx_cu:control_unit|start_en_tmp'
+Slack : -7.258
+TNS   : -26.162
+
+Type  : Slow 1100mV 85C Model Removal 'rx_cu:control_unit|start_en_tmp'
+Slack : 3.744
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clock'
+Slack : -0.724
+TNS   : -35.529
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'rx_cu:control_unit|start_en_tmp'
+Slack : 0.337
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'rx_cu:control_unit|present_state.reset_s'
+Slack : 0.380
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'rx_cu:control_unit|start_en_tmp'
+Slack : -7.720
+TNS   : -40.553
+
+Type  : Slow 1100mV 0C Model Setup 'rx_cu:control_unit|present_state.reset_s'
+Slack : -4.072
+TNS   : -4.072
+
+Type  : Slow 1100mV 0C Model Setup 'clock'
+Slack : -3.738
+TNS   : -72.793
+
+Type  : Slow 1100mV 0C Model Hold 'clock'
+Slack : -2.604
+TNS   : -4.918
+
+Type  : Slow 1100mV 0C Model Hold 'rx_cu:control_unit|present_state.reset_s'
+Slack : 2.917
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'rx_cu:control_unit|start_en_tmp'
+Slack : 3.945
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'rx_cu:control_unit|start_en_tmp'
+Slack : -7.460
+TNS   : -26.666
+
+Type  : Slow 1100mV 0C Model Removal 'rx_cu:control_unit|start_en_tmp'
+Slack : 3.719
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clock'
+Slack : -0.724
+TNS   : -35.922
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'rx_cu:control_unit|start_en_tmp'
+Slack : 0.269
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'rx_cu:control_unit|present_state.reset_s'
+Slack : 0.347
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'rx_cu:control_unit|start_en_tmp'
+Slack : -2.822
+TNS   : -14.673
+
+Type  : Fast 1100mV 85C Model Setup 'clock'
+Slack : -1.700
+TNS   : -21.765
+
+Type  : Fast 1100mV 85C Model Setup 'rx_cu:control_unit|present_state.reset_s'
+Slack : -1.072
+TNS   : -1.072
+
+Type  : Fast 1100mV 85C Model Hold 'clock'
+Slack : -0.852
+TNS   : -1.551
+
+Type  : Fast 1100mV 85C Model Hold 'rx_cu:control_unit|present_state.reset_s'
+Slack : 1.303
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'rx_cu:control_unit|start_en_tmp'
+Slack : 1.954
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'rx_cu:control_unit|start_en_tmp'
+Slack : -2.595
+TNS   : -9.247
+
+Type  : Fast 1100mV 85C Model Removal 'rx_cu:control_unit|start_en_tmp'
+Slack : 1.875
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clock'
+Slack : -0.085
+TNS   : -2.602
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'rx_cu:control_unit|start_en_tmp'
+Slack : 0.412
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'rx_cu:control_unit|present_state.reset_s'
+Slack : 0.469
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'rx_cu:control_unit|start_en_tmp'
+Slack : -2.638
+TNS   : -13.810
+
+Type  : Fast 1100mV 0C Model Setup 'clock'
+Slack : -1.306
+TNS   : -15.868
+
+Type  : Fast 1100mV 0C Model Setup 'rx_cu:control_unit|present_state.reset_s'
+Slack : -0.987
+TNS   : -0.987
+
+Type  : Fast 1100mV 0C Model Hold 'clock'
+Slack : -0.831
+TNS   : -1.522
+
+Type  : Fast 1100mV 0C Model Hold 'rx_cu:control_unit|present_state.reset_s'
+Slack : 1.258
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'rx_cu:control_unit|start_en_tmp'
+Slack : 1.916
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'rx_cu:control_unit|start_en_tmp'
+Slack : -2.453
+TNS   : -8.753
+
+Type  : Fast 1100mV 0C Model Removal 'rx_cu:control_unit|start_en_tmp'
+Slack : 1.835
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clock'
+Slack : -0.084
+TNS   : -2.591
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'rx_cu:control_unit|start_en_tmp'
+Slack : 0.430
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'rx_cu:control_unit|present_state.reset_s'
+Slack : 0.477
+TNS   : 0.000
+
 ------------------------------------------------------------
