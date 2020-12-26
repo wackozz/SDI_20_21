@@ -220,10 +220,10 @@ Resolution = ps
 UserTimeUnit = default
 
 ; Default run length
-RunLength = 100 ns
+RunLength = 0 ps
 
 ; Maximum iterations that can be run without advancing simulation time
-IterationLimit = 5000
+IterationLimit = 10000000
 
 ; Directive to license manager:
 ; vhdl          Immediately reserve a VHDL license
@@ -238,7 +238,7 @@ IterationLimit = 5000
 
 ; Stop the simulator after a VHDL/Verilog assertion message
 ; 0 = Note  1 = Warning  2 = Error  3 = Failure  4 = Fatal
-BreakOnAssertion = 3
+BreakOnAssertion = 4
 
 ; Assertion Message Format
 ; %S - Severity Level 
@@ -377,6 +377,7 @@ ConcurrentFileLimit = 40
 ; Default is on, uncomment to turn off.
 ; NoAutoSDFCompile = 1
 
+DelayFileOpen = 1
 [lmc]
 
 [msg_system]

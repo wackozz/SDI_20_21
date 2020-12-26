@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rx
-Fri Dec 18 00:21:46 2020
+Mon Dec 21 10:46:17 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -15,16 +15,16 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |rx|rx_cu:control_unit|present_state
   9. User-Specified and Inferred Latches
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: rx_dp:datapath|counter_nbit:counter_shift
- 14. Parameter Settings for User Entity Instance: rx_dp:datapath|counter_nbit:counter_rxfull
- 15. Port Connectivity Checks: "rx_cu:control_unit"
- 16. Port Connectivity Checks: "rx_dp:datapath|counter_nbit:counter_rxfull"
- 17. Port Connectivity Checks: "rx_dp:datapath|shift_register_8bit:shift_reg_data"
- 18. Port Connectivity Checks: "rx_dp:datapath|counter_nbit:counter_shift"
- 19. Port Connectivity Checks: "rx_dp:datapath|shift_register_8bit:shift_reg_samples"
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: rx_dp:datapath|counter_nbit:counter_shift
+ 13. Parameter Settings for User Entity Instance: rx_dp:datapath|counter_nbit:counter_rxfull
+ 14. Port Connectivity Checks: "rx_cu:control_unit"
+ 15. Port Connectivity Checks: "rx_dp:datapath|counter_nbit:counter_rxfull"
+ 16. Port Connectivity Checks: "rx_dp:datapath|shift_register_8bit:shift_reg_data"
+ 17. Port Connectivity Checks: "rx_dp:datapath|counter_nbit:counter_shift"
+ 18. Port Connectivity Checks: "rx_dp:datapath|shift_register_8bit:shift_reg_samples"
+ 19. Port Connectivity Checks: "rx_dp:datapath|voter_3bit:voter"
  20. Post-Synthesis Netlist Statistics for Top Partition
  21. Elapsed Time Per Partition
  22. Analysis & Synthesis Messages
@@ -54,13 +54,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Dec 18 00:21:46 2020       ;
+; Analysis & Synthesis Status     ; Successful - Mon Dec 21 10:46:17 2020       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; rx                                          ;
 ; Top-level Entity Name           ; rx                                          ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 32                                          ;
+; Total registers                 ; 39                                          ;
 ; Total pins                      ; 11                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -200,25 +200,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 34          ;
+; Estimate of Logic utilization (ALMs needed) ; 43          ;
 ;                                             ;             ;
-; Combinational ALUT usage for logic          ; 61          ;
-;     -- 7 input functions                    ; 0           ;
-;     -- 6 input functions                    ; 7           ;
-;     -- 5 input functions                    ; 9           ;
-;     -- 4 input functions                    ; 9           ;
-;     -- <=3 input functions                  ; 36          ;
+; Combinational ALUT usage for logic          ; 75          ;
+;     -- 7 input functions                    ; 1           ;
+;     -- 6 input functions                    ; 9           ;
+;     -- 5 input functions                    ; 12          ;
+;     -- 4 input functions                    ; 12          ;
+;     -- <=3 input functions                  ; 41          ;
 ;                                             ;             ;
-; Dedicated logic registers                   ; 32          ;
+; Dedicated logic registers                   ; 39          ;
 ;                                             ;             ;
 ; I/O pins                                    ; 11          ;
 ;                                             ;             ;
 ; Total DSP Blocks                            ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 32          ;
-; Total fan-out                               ; 324         ;
-; Average fan-out                             ; 2.82        ;
+; Maximum fan-out                             ; 39          ;
+; Total fan-out                               ; 399         ;
+; Average fan-out                             ; 2.93        ;
 +---------------------------------------------+-------------+
 
 
@@ -227,14 +227,16 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                      ; Entity Name         ; Library Name ;
 +-----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------+---------------------+--------------+
-; |rx                                           ; 61 (0)              ; 32 (0)                    ; 0                 ; 0          ; 11   ; 0            ; |rx                                                      ; rx                  ; work         ;
-;    |rx_cu:control_unit|                       ; 26 (26)             ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_cu:control_unit                                   ; rx_cu               ; work         ;
-;    |rx_dp:datapath|                           ; 35 (2)              ; 26 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath                                       ; rx_dp               ; work         ;
+; |rx                                           ; 75 (0)              ; 39 (0)                    ; 0                 ; 0          ; 11   ; 0            ; |rx                                                      ; rx                  ; work         ;
+;    |rx_cu:control_unit|                       ; 34 (34)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_cu:control_unit                                   ; rx_cu               ; work         ;
+;    |rx_dp:datapath|                           ; 41 (2)              ; 31 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath                                       ; rx_dp               ; work         ;
+;       |counter_nbit:counter_rxfull|           ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath|counter_nbit:counter_rxfull           ; counter_nbit        ; work         ;
 ;       |counter_nbit:counter_shift|            ; 11 (11)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath|counter_nbit:counter_shift            ; counter_nbit        ; work         ;
 ;       |shift_register_8bit:shift_reg_data|    ; 9 (9)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath|shift_register_8bit:shift_reg_data    ; shift_register_8bit ; work         ;
 ;       |shift_register_8bit:shift_reg_samples| ; 9 (9)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath|shift_register_8bit:shift_reg_samples ; shift_register_8bit ; work         ;
 ;       |start_detector:start_det|              ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath|start_detector:start_det              ; start_detector      ; work         ;
-;       |stop_detector:stop_det|                ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath|stop_detector:stop_det                ; stop_detector       ; work         ;
+;       |stop_detector:stop_det|                ; 3 (3)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath|stop_detector:stop_det                ; stop_detector       ; work         ;
+;       |voter_3bit:voter|                      ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |rx|rx_dp:datapath|voter_3bit:voter                      ; voter_3bit          ; work         ;
 +-----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -256,34 +258,24 @@ Encoding Type:  One-Hot
 +-------------------------+-----------------------+-----------------------+-----------------------+-------------------------+-------------------------+-----------------------+--------------------+-----------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                                 ;
-+----------------------------------------------------+---------------------------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal                   ; Free of Timing Hazards ;
-+----------------------------------------------------+---------------------------------------+------------------------+
-; rx_cu:control_unit|next_state.sh_data_248          ; rx_cu:control_unit|next_state.error_s ; yes                    ;
-; rx_cu:control_unit|start_en_tmp                    ; rx_cu:control_unit|WideOr3            ; yes                    ;
-; rx_cu:control_unit|next_state.idle_278             ; rx_cu:control_unit|Selector5          ; yes                    ;
-; rx_cu:control_unit|next_state.reset_s_263          ; rx_cu:control_unit|Selector5          ; yes                    ;
-; rx_cu:control_unit|next_state.start_off_226        ; rx_cu:control_unit|start_en_tmp       ; yes                    ;
-; rx_cu:control_unit|next_state.res_cnt_200          ; rx_cu:control_unit|next_state.error_s ; yes                    ;
-; rx_cu:control_unit|next_state.sh_sample_237        ; rx_cu:control_unit|next_state.error_s ; yes                    ;
-; Number of user-specified and inferred latches = 7  ;                                       ;                        ;
-+----------------------------------------------------+---------------------------------------+------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                  ;
++-----------------------------------------------------+---------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                   ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------------------------+------------------------+
+; rx_cu:control_unit|next_state.sh_data_253           ; rx_cu:control_unit|next_state.error_s ; yes                    ;
+; rx_cu:control_unit|start_en_tmp                     ; rx_cu:control_unit|WideOr4            ; yes                    ;
+; rx_cu:control_unit|next_state.sh_sample_242         ; rx_cu:control_unit|next_state.error_s ; yes                    ;
+; rx_cu:control_unit|stop_en_tmp                      ; rx_cu:control_unit|WideOr3            ; yes                    ;
+; rx_cu:control_unit|next_state.idle_283              ; rx_cu:control_unit|Selector7          ; yes                    ;
+; rx_cu:control_unit|next_state.reset_s_268           ; rx_cu:control_unit|Selector7          ; yes                    ;
+; rx_cu:control_unit|next_state.start_off_231         ; rx_cu:control_unit|start_en_tmp       ; yes                    ;
+; rx_cu:control_unit|next_state.res_cnt_205           ; rx_cu:control_unit|next_state.error_s ; yes                    ;
+; rx_cu:control_unit|next_state.stop_on_220           ; rx_cu:control_unit|Selector7          ; yes                    ;
+; rx_cu:control_unit|next_state.error_s_194           ; rx_cu:control_unit|next_state.error_s ; yes                    ;
+; Number of user-specified and inferred latches = 10  ;                                       ;                        ;
++-----------------------------------------------------+---------------------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
-+-----------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                  ;
-+-------------------------------------------------------+---------------------------------------------+
-; Register name                                         ; Reason for Removal                          ;
-+-------------------------------------------------------+---------------------------------------------+
-; rx_dp:datapath|counter_nbit:counter_rxfull|data[0..2] ; Stuck at GND due to stuck port data_in      ;
-; rx_dp:datapath|voter_3bit:voter|vote                  ; Stuck at GND due to stuck port clock_enable ;
-; rx_cu:control_unit|present_state.stop_on              ; Lost fanout                                 ;
-; rx_cu:control_unit|present_state.error_s              ; Lost fanout                                 ;
-; Total Number of Removed Registers = 6                 ;                                             ;
-+-------------------------------------------------------+---------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -291,10 +283,10 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 32    ;
+; Total registers                              ; 39    ;
 ; Number of registers using Synchronous Clear  ; 8     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 8     ;
+; Number of registers using Asynchronous Clear ; 11    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 16    ;
 ; Number of registers using Preset             ; 0     ;
@@ -309,7 +301,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |rx|rx_dp:datapath|shift_register_8bit:shift_reg_data|data[1]    ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |rx|rx_dp:datapath|shift_register_8bit:shift_reg_samples|data[7] ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |rx|rx_dp:datapath|counter_nbit:counter_shift|data[2]            ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |rx|rx_dp:datapath|counter_nbit:counter_rxfull|data[2]           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |rx|rx_dp:datapath|counter_nbit:counter_rxfull|data[3]           ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |rx|rx_cu:control_unit|next_state.error_s                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
 
@@ -329,29 +321,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+----------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                           ;
 +----------------+-------+----------------------------------------------------------------+
-; n              ; 3     ; Signed Integer                                                 ;
+; n              ; 4     ; Signed Integer                                                 ;
 +----------------+-------+----------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "rx_cu:control_unit"                                                                            ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port            ; Type   ; Severity ; Details                                                                             ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; flag_error      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; count_en_rxfull ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "rx_cu:control_unit"                                                                       ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; flag_error ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "rx_dp:datapath|counter_nbit:counter_rxfull"                                         ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; tc   ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "rx_dp:datapath|counter_nbit:counter_rxfull"                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; tc[2..0] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; tc[3]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; q        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------+
@@ -386,29 +378,41 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++-------------------------------------------------------------+
+; Port Connectivity Checks: "rx_dp:datapath|voter_3bit:voter" ;
++----------+-------+----------+-------------------------------+
+; Port     ; Type  ; Severity ; Details                       ;
++----------+-------+----------+-------------------------------+
+; voter_en ; Input ; Info     ; Stuck at VCC                  ;
++----------+-------+----------+-------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 32                          ;
-;     CLR               ; 8                           ;
+; arriav_ff             ; 39                          ;
+;     CLR               ; 11                          ;
 ;     ENA               ; 16                          ;
 ;     SCLR              ; 8                           ;
-; arriav_lcell_comb     ; 61                          ;
+;     plain             ; 4                           ;
+; arriav_lcell_comb     ; 75                          ;
 ;     arith             ; 8                           ;
 ;         1 data inputs ; 8                           ;
-;     normal            ; 53                          ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 9                           ;
-;         3 data inputs ; 17                          ;
-;         4 data inputs ; 9                           ;
-;         5 data inputs ; 9                           ;
-;         6 data inputs ; 7                           ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 66                          ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 14                          ;
+;         3 data inputs ; 18                          ;
+;         4 data inputs ; 12                          ;
+;         5 data inputs ; 12                          ;
+;         6 data inputs ; 9                           ;
 ; boundary_port         ; 11                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.02                        ;
+; Average LUT depth     ; 2.06                        ;
 +-----------------------+-----------------------------+
 
 
@@ -427,7 +431,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Dec 18 00:21:39 2020
+    Info: Processing started: Mon Dec 21 10:46:07 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rx -c rx
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -458,7 +462,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file /home/w
 Info (12127): Elaborating entity "rx" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at rx.vhd(47): object "flag_error" assigned a value but never read File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 47
 Warning (10541): VHDL Signal Declaration warning at rx.vhd(52): used implicit default value for signal "voter_en" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 52
-Warning (10541): VHDL Signal Declaration warning at rx.vhd(60): used implicit default value for signal "count_en_rxfull" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 60
 Info (12128): Elaborating entity "rx_dp" for hierarchy "rx_dp:datapath" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 118
 Warning (10540): VHDL Signal Declaration warning at rx_dp.vhd(60): used explicit default value for signal "SL" because signal was never assigned a value File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 60
 Warning (10541): VHDL Signal Declaration warning at rx_dp.vhd(62): used implicit default value for signal "d_c_shift" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 62
@@ -474,10 +477,10 @@ Info (12128): Elaborating entity "counter_nbit" for hierarchy "rx_dp:datapath|co
 Info (12128): Elaborating entity "counter_nbit" for hierarchy "rx_dp:datapath|counter_nbit:counter_rxfull" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd Line: 204
 Info (12128): Elaborating entity "rx_cu" for hierarchy "rx_cu:control_unit" File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd Line: 142
 Warning (10631): VHDL Process Statement warning at rx_cu.vhd(76): inferring latch(es) for signal or variable "next_state", which holds its previous value in one or more paths through the process File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
-Warning (10631): VHDL Process Statement warning at rx_cu.vhd(140): inferring latch(es) for signal or variable "start_en_tmp", which holds its previous value in one or more paths through the process File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 140
 Warning (10631): VHDL Process Statement warning at rx_cu.vhd(140): inferring latch(es) for signal or variable "stop_en_tmp", which holds its previous value in one or more paths through the process File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 140
-Info (10041): Inferred latch for "stop_en_tmp" at rx_cu.vhd(140) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 140
+Warning (10631): VHDL Process Statement warning at rx_cu.vhd(140): inferring latch(es) for signal or variable "start_en_tmp", which holds its previous value in one or more paths through the process File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 140
 Info (10041): Inferred latch for "start_en_tmp" at rx_cu.vhd(140) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 140
+Info (10041): Inferred latch for "stop_en_tmp" at rx_cu.vhd(140) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 140
 Info (10041): Inferred latch for "next_state.error_s" at rx_cu.vhd(76) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
 Info (10041): Inferred latch for "next_state.res_cnt" at rx_cu.vhd(76) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
 Info (10041): Inferred latch for "next_state.stop_on" at rx_cu.vhd(76) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
@@ -486,32 +489,35 @@ Info (10041): Inferred latch for "next_state.sh_sample" at rx_cu.vhd(76) File: /
 Info (10041): Inferred latch for "next_state.sh_data" at rx_cu.vhd(76) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
 Info (10041): Inferred latch for "next_state.reset_s" at rx_cu.vhd(76) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
 Info (10041): Inferred latch for "next_state.idle" at rx_cu.vhd(76) File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
-Warning (13012): Latch rx_cu:control_unit|next_state.sh_data_248 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+Warning (13012): Latch rx_cu:control_unit|next_state.sh_data_253 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
     Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_dp:datapath|counter_nbit:counter_shift|data[2] File: /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd Line: 53
 Warning (13012): Latch rx_cu:control_unit|start_en_tmp has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 140
     Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_cu:control_unit|present_state.start_off File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 63
-Warning (13012): Latch rx_cu:control_unit|next_state.idle_278 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_cu:control_unit|present_state.idle File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 63
-Warning (13012): Latch rx_cu:control_unit|next_state.reset_s_263 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_cu:control_unit|present_state.idle File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 63
-Warning (13012): Latch rx_cu:control_unit|next_state.res_cnt_200 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_dp:datapath|counter_nbit:counter_shift|data[2] File: /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd Line: 53
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal rx_dp:datapath|counter_nbit:counter_shift|data[2] File: /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd Line: 53
-Warning (13012): Latch rx_cu:control_unit|next_state.sh_sample_237 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+Warning (13012): Latch rx_cu:control_unit|next_state.sh_sample_242 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
     Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_dp:datapath|counter_nbit:counter_shift|data[2] File: /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd Line: 53
     Warning (13013): Ports ENA and PRE on the latch are fed by the same signal rx_dp:datapath|counter_nbit:counter_shift|data[2] File: /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd Line: 53
+Warning (13012): Latch rx_cu:control_unit|stop_en_tmp has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 140
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_cu:control_unit|present_state.stop_on File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 63
+Warning (13012): Latch rx_cu:control_unit|next_state.idle_283 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_cu:control_unit|present_state.idle File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 63
+Warning (13012): Latch rx_cu:control_unit|next_state.reset_s_268 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_cu:control_unit|present_state.idle File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 63
+Warning (13012): Latch rx_cu:control_unit|next_state.res_cnt_205 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_dp:datapath|counter_nbit:counter_shift|data[2] File: /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd Line: 53
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal rx_dp:datapath|counter_nbit:counter_shift|data[2] File: /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd Line: 53
+Warning (13012): Latch rx_cu:control_unit|next_state.error_s_194 has unsafe behavior File: /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd Line: 76
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal rx_dp:datapath|counter_nbit:counter_shift|data[2] File: /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd Line: 53
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 77 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 93 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 66 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 27 warnings
-    Info: Peak virtual memory: 506 megabytes
-    Info: Processing ended: Fri Dec 18 00:21:46 2020
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:18
+    Info (21061): Implemented 82 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 30 warnings
+    Info: Peak virtual memory: 504 megabytes
+    Info: Processing ended: Mon Dec 21 10:46:17 2020
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:26
 
 

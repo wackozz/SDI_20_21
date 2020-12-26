@@ -1,0 +1,120 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/wackoz/github/SDI_20_21/butterfly/vhd
+Eadder
+Z1 w1608995922
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 7
+R0
+Z5 8adder.vhd
+Z6 Fadder.vhd
+l0
+L27 1
+VQ]gX9Ul4K9Pj0gKGgn4zW1
+!s100 <Uieo^7TV9VTGZ4EJ8PXL2
+Z7 OV;C;2020.1;71
+31
+Z8 !s110 1609009778
+!i10b 1
+Z9 !s108 1609009778.000000
+Z10 !s90 -93|-work|work|adder.vhd|
+Z11 !s107 adder.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Astr
+R2
+R3
+R4
+DEx4 work 5 adder 0 22 Q]gX9Ul4K9Pj0gKGgn4zW1
+!i122 7
+l44
+L42 6
+Vn5lBQa1WCGa2lTZRY=dM@2
+!s100 8<LBLDnXGJFNl_8B=n`A82
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ebutterfly_dp
+w1609010688
+R2
+R3
+R4
+!i122 10
+R0
+8butterfly_dp.vhd
+Fbutterfly_dp.vhd
+l0
+L29 1
+V2<B:hWDPBY[=X2171f4Nl0
+!s100 kBk4?m6fBI;REj3N@[;=L1
+R7
+31
+!s110 1609010832
+!i10b 1
+!s108 1609010832.000000
+!s90 -93|-work|work|butterfly_dp.vhd|
+!s107 butterfly_dp.vhd|
+!i113 1
+R12
+R13
+Empy_sh
+Z14 w1608996451
+R4
+R3
+R2
+!i122 6
+R0
+Z15 8mpy_sh.vhd
+Z16 Fmpy_sh.vhd
+l0
+L28 1
+VDMWFc6@Hzd7<hD<U44;h[3
+!s100 686=<?OHCKoZ?l4aSf9k_0
+R7
+31
+Z17 !s110 1609009772
+!i10b 1
+Z18 !s108 1609009772.000000
+Z19 !s90 -93|-work|work|mpy_sh.vhd|
+Z20 !s107 mpy_sh.vhd|
+!i113 1
+R12
+R13
+Astr
+R4
+R3
+R2
+DEx4 work 6 mpy_sh 0 22 DMWFc6@Hzd7<hD<U44;h[3
+!i122 6
+l50
+L46 15
+V2Fmf31U0<mnMl<35`H`JE0
+!s100 PjJTe>lF>0>Uk0OL]OMXJ0
+R7
+31
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R12
+R13

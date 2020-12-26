@@ -14,7 +14,7 @@ Z0 w1607733129
 Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 358
+!i122 367
 Z4 d/home/wackoz/github/SDI_20_21/labsRR/UART/rx
 Z5 8/home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd
 Z6 F/home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd
@@ -24,9 +24,9 @@ V[D[gN7gMmchbje<HY]me<0
 !s100 ];zbMCCIi0VPi8494CWem2
 Z8 OV;C;2020.1;71
 32
-Z9 !s110 1608300230
+Z9 !s110 1608544350
 !i10b 1
-Z10 !s108 1608300230.000000
+Z10 !s108 1608544350.000000
 Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd|
 Z12 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd|
 !i113 1
@@ -37,7 +37,7 @@ R1
 R2
 R3
 DEx4 work 12 counter_nbit 0 22 [D[gN7gMmchbje<HY]me<0
-!i122 358
+!i122 367
 l50
 L47 26
 VZ;Eo`TFfz>D_`Xa9F;i<Q2
@@ -57,7 +57,7 @@ Z15 w1608247556
 R1
 R2
 R3
-!i122 351
+!i122 360
 R4
 Z16 8/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd
 Z17 F/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd
@@ -67,11 +67,11 @@ Vdm4BD8LdiEG8zRANH`Sh30
 !s100 :WeSlWHg?>=PKcz_J?fMG2
 R8
 32
-R9
+Z19 !s110 1608544349
 !i10b 1
-R10
-Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd|
-Z20 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd|
+Z20 !s108 1608544349.000000
+Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd|
+Z22 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd|
 !i113 1
 R13
 R14
@@ -79,41 +79,41 @@ Astr
 R1
 R2
 R3
-Z21 DEx4 work 2 rx 0 22 dm4BD8LdiEG8zRANH`Sh30
-!i122 351
+Z23 DEx4 work 2 rx 0 22 dm4BD8LdiEG8zRANH`Sh30
+!i122 360
 l111
 L40 124
 VDgmHTaiXK[iM007a:cbdY2
 !s100 g=?dE5l]QjM0<4C:@O[XQ0
 R8
 32
-R9
-!i10b 1
-R10
 R19
+!i10b 1
 R20
+R21
+R22
 !i113 1
 R13
 R14
 Erx_cu
-Z22 w1608248305
+Z24 w1608248305
 R2
 R3
-!i122 352
+!i122 361
 R4
-Z23 8/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd
-Z24 F/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd
+Z25 8/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd
+Z26 F/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd
 l0
 R7
 VV2J=T[llmB0VQ01bNh_Fh1
 !s100 fe>E]H6[UUAkZVUhhIiSM0
 R8
 32
-R9
+R19
 !i10b 1
-R10
-Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd|
-Z26 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd|
+R20
+Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd|
+Z28 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd|
 !i113 1
 R13
 R14
@@ -121,41 +121,41 @@ Astr
 R2
 R3
 DEx4 work 5 rx_cu 0 22 V2J=T[llmB0VQ01bNh_Fh1
-!i122 352
+!i122 361
 l65
 L55 131
 VEWGWn1dzIl;K5PAXleL7J1
 !s100 M<>bJT5Z`OT=oN=JbFEeU1
 R8
 32
-R9
+R19
 !i10b 1
-R10
-R25
-R26
+R20
+R27
+R28
 !i113 1
 R13
 R14
 Erx_dp
-Z27 w1608300223
+Z29 w1608300223
 R3
 R2
 R1
-!i122 353
+!i122 362
 R4
-Z28 8/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd
-Z29 F/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd
+Z30 8/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd
+Z31 F/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd
 l0
 R18
 VY;4L5ENVzIV5h22`_ZRnz1
 !s100 G6HamGc:YW?V[N@eO7_iG1
 R8
 32
-R9
+R19
 !i10b 1
-R10
-Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd|
-Z31 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd|
+R20
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd|
+Z33 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd|
 !i113 1
 R13
 R14
@@ -164,112 +164,112 @@ R3
 R2
 R1
 DEx4 work 5 rx_dp 0 22 Y;4L5ENVzIV5h22`_ZRnz1
-!i122 353
+!i122 362
 l133
 L55 193
 V9FNhZjGHjQciFZEo?hiC91
 !s100 KdRn3j84f7`DbH4WBbKM_2
 R8
 32
-R9
+R19
 !i10b 1
-R10
-R30
-R31
+R20
+R32
+R33
 !i113 1
 R13
 R14
 Erx_tb
-Z32 w1608294442
+Z34 w1608294442
 R2
 R3
-!i122 354
+!i122 363
 R4
-Z33 8/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_tb.vhd
-Z34 F/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_tb.vhd
+Z35 8/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_tb.vhd
+Z36 F/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_tb.vhd
 l0
-Z35 L27 1
+Z37 L27 1
 VfO8k1eik9IEV2L6L??_630
 !s100 z`5bj?]PVN=9j9e?`O]4X0
 R8
 32
-R9
+R19
 !i10b 1
-R10
-Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_tb.vhd|
-Z37 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_tb.vhd|
+R20
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_tb.vhd|
+Z39 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd/rx_tb.vhd|
 !i113 1
 R13
 R14
 Aarch
 R1
-R21
+R23
 R2
 R3
-Z38 DEx4 work 5 rx_tb 0 22 fO8k1eik9IEV2L6L??_630
-!i122 354
+Z40 DEx4 work 5 rx_tb 0 22 fO8k1eik9IEV2L6L??_630
+!i122 363
 l41
 L33 55
 V8PK?[2:Ho9N8gZz8<KDf_2
 !s100 3HD?n<7Q?i6=9db0Y4BYL2
 R8
 32
-R9
+R19
 !i10b 1
-R10
-R36
-R37
+R20
+R38
+R39
 !i113 1
 R13
 R14
 Crx_tb_arch_cfg
 erx_tb
 aarch
-R21
+R23
 R1
 DAx4 work 5 rx_tb 4 arch 22 8PK?[2:Ho9N8gZz8<KDf_2
 R2
 R3
-R38
-!i122 354
-R32
-R4
-R33
+R40
+!i122 363
 R34
+R4
+R35
+R36
 l0
 L91 1
 VXo8ain`GViC9=gifS@@`A1
 !s100 1OJ5fQ@[;M1R]]n?69<<91
 R8
 32
-R9
+R19
 !i10b 0
-R10
-R36
-R37
+R20
+R38
+R39
 !i113 1
 R13
 R14
 Eshift_register_8bit
-Z39 w1607699713
+Z41 w1607699713
 R1
 R2
 R3
-!i122 359
+!i122 368
 R4
-Z40 8/home/wackoz/github/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd
-Z41 F/home/wackoz/github/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd
+Z42 8/home/wackoz/github/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd
+Z43 F/home/wackoz/github/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd
 l0
-R35
+R37
 V@2acFN3L0iBEF4^OQGUJ]2
 !s100 :]Lh>oQiL7TZU_bmolFjG2
 R8
 32
-Z42 !s110 1608300231
+R9
 !i10b 1
 R10
-Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd|
-Z44 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd|
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd|
+Z45 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd|
 !i113 1
 R13
 R14
@@ -277,30 +277,30 @@ Aarch
 R1
 R2
 R3
-Z45 DEx4 work 19 shift_register_8bit 0 22 @2acFN3L0iBEF4^OQGUJ]2
-!i122 359
+Z46 DEx4 work 19 shift_register_8bit 0 22 @2acFN3L0iBEF4^OQGUJ]2
+!i122 368
 l45
-Z46 L42 24
-Z47 V;Ilmm`]jT0K>BOc26W?kZ3
-Z48 !s100 TnJn6T=jYKZN2AVROm[j:0
+Z47 L42 24
+Z48 V;Ilmm`]jT0K>BOc26W?kZ3
+Z49 !s100 TnJn6T=jYKZN2AVROm[j:0
 R8
 32
-R42
+R9
 !i10b 1
 R10
-R43
 R44
+R45
 !i113 1
 R13
 R14
 Estart_detector
-Z49 w1608240177
+Z50 w1608240177
 R2
 R3
-!i122 355
+!i122 364
 R4
-Z50 8/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd
-Z51 F/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd
+Z51 8/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd
+Z52 F/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd
 l0
 L25 1
 VUR>LGi=`aCeC91b<ST4na1
@@ -309,9 +309,9 @@ R8
 32
 R9
 !i10b 1
-R10
-Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd|
-Z53 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd|
+R20
+Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd|
+Z54 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd|
 !i113 1
 R13
 R14
@@ -319,7 +319,7 @@ Aarch
 R2
 R3
 DEx4 work 14 start_detector 0 22 UR>LGi=`aCeC91b<ST4na1
-!i122 355
+!i122 364
 l38
 L36 19
 V=3E[;1oNlWi5;iIYG1f7C3
@@ -328,23 +328,23 @@ R8
 32
 R9
 !i10b 1
-R10
-R52
+R20
 R53
+R54
 !i113 1
 R13
 R14
 Estop_detector
-Z54 w1608119344
+Z55 w1608119344
 R1
 R2
 R3
-!i122 356
+!i122 365
 R4
-Z55 8/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd
-Z56 F/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd
+Z56 8/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd
+Z57 F/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd
 l0
-Z57 L26 1
+Z58 L26 1
 VG`c>G?kaN3^Y6=Kzb>gXm0
 !s100 DAUEbYaI[QA=[]4bHceP32
 R8
@@ -352,8 +352,8 @@ R8
 R9
 !i10b 1
 R10
-Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd|
-Z59 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd|
+Z59 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd|
+Z60 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd|
 !i113 1
 R13
 R14
@@ -362,9 +362,9 @@ R1
 R2
 R3
 DEx4 work 13 stop_detector 0 22 G`c>G?kaN3^Y6=Kzb>gXm0
-!i122 356
+!i122 365
 l38
-Z60 L36 15
+Z61 L36 15
 VBGkfc7ZnzFz]5YoCccZIz1
 !s100 hC@P8n;]FPE=ef_C1WNnQ0
 R8
@@ -372,22 +372,22 @@ R8
 R9
 !i10b 1
 R10
-R58
 R59
+R60
 !i113 1
 R13
 R14
 Evoter_3bit
-Z61 w1608119662
+Z62 w1608119662
 R1
 R2
 R3
-!i122 357
+!i122 366
 R4
-Z62 8/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd
-Z63 F/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd
+Z63 8/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd
+Z64 F/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd
 l0
-R57
+R58
 V21@:GO?j7TgdM]=YfK6o00
 !s100 K=:DWKCbg3N=D=MAF^j0o1
 R8
@@ -395,8 +395,8 @@ R8
 R9
 !i10b 1
 R10
-Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd|
-Z65 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd|
+Z65 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd|
+Z66 !s107 /home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd|
 !i113 1
 R13
 R14
@@ -405,9 +405,9 @@ R1
 R2
 R3
 DEx4 work 10 voter_3bit 0 22 21@:GO?j7TgdM]=YfK6o00
-!i122 357
+!i122 366
 l37
-R60
+R61
 VHho^kU:imW<fzLLo84ICj2
 !s100 Z=R^c=9nDn>o00R4aJjM`1
 R8
@@ -415,8 +415,8 @@ R8
 R9
 !i10b 1
 R10
-R64
 R65
+R66
 !i113 1
 R13
 R14
