@@ -1,0 +1,11 @@
+
+State Machine - |rx|rx_cu:control_unit|present_state
+Name present_state.error_s present_state.res_cnt present_state.stop_on present_state.start_off present_state.sh_sample present_state.sh_data present_state.idle present_state.reset_s 
+present_state.reset_s 0 0 0 0 0 0 0 0 
+present_state.idle 0 0 0 0 0 0 1 1 
+present_state.sh_data 0 0 0 0 0 1 0 1 
+present_state.sh_sample 0 0 0 0 1 0 0 1 
+present_state.start_off 0 0 0 1 0 0 0 1 
+present_state.stop_on 0 0 1 0 0 0 0 1 
+present_state.res_cnt 0 1 0 0 0 0 0 1 
+present_state.error_s 1 0 0 0 0 0 0 1 

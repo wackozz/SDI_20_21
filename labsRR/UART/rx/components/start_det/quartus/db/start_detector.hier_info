@@ -1,0 +1,16 @@
+|start_detector
+clock => start~reg0.CLK
+reset => start~reg0.ACLR
+clear => start.OUTPUTSELECT
+start_det_en => start.OUTPUTSELECT
+d[0] => start.IN0
+d[1] => start.IN1
+d[2] => start.IN1
+d[3] => start.IN1
+d[4] => start.IN1
+d[5] => start.IN1
+d[6] => start.IN1
+d[7] => start.IN1
+start <= start~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
