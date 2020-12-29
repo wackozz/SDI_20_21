@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Dec 18 18:02:23 2020
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : bus_interfaceDP
+Top-level Entity Name : bus_interfaceDP
+Family : Cyclone 10 LP
+Total logic elements : 46
+    Total combinational functions : 24
+    Dedicated logic registers : 29
+Total registers : 29
+Total pins : 55
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
