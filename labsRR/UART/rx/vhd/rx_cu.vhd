@@ -64,20 +64,23 @@ architecture str of rx_cu is
 
 begin  -- architecture str
 
-  state_update : process (clock, reset) is
-  begin  -- process state_update
-    if reset = '1' then                     -- asynchronous reset (active high)
-      present_state <= reset_s;
-    elsif clock'event and clock = '1' then  -- rising clock edge
-      present_state <= next_state;
-    end if;
-  end process state_update;
+  -- state_update : process (clock, reset) is
+  -- begin  -- process state_update
+    -- if reset = '1' then                     -- asynchronous reset (active high)
+      -- present_state <= reset_s;
+    -- elsif (clock'event and clock = '1') then  -- rising clock edge
+      -- present_state <= next_state;
+    -- end if;
+  -- end process state_update;
+  
+  
 
-  next_state_gen : process (flag_68, flag_rxfull, flag_shift_data,
-                            flag_shift_sample, present_state, start,
-                            start_en_tmp, stop) is
-  begin  -- process next_state_gen
-    case present_state is
+  next_state_gen : process(clock, reset)
+	begin 
+		if reset = '1' then 
+			next_state <= idle; 
+			elsif (clock'event and clock = '1') then
+    case next_state is
 
       when reset_s =>
         next_state <= idle;
@@ -131,8 +134,10 @@ begin  -- architecture str
       when stop_on =>
         next_state <= idle;
 
-      when others => null;
+      when others => 
+		next_state <= idle;
     end case;
+	end if;
   end process next_state_gen;
 
 
@@ -175,7 +180,8 @@ begin  -- architecture str
       when res_cnt =>
         clear_c_shift <= '1';
         clr_start     <= '1';
-      when others => null;
+      when others => 
+		next_state <= idle;
     end case;
 
   end process output_decode;
@@ -183,4 +189,3 @@ begin  -- architecture str
   start_en <= start_en_tmp;
   stop_en  <= stop_en_tmp;
 end architecture str;
-
