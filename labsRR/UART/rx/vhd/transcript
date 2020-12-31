@@ -1,0 +1,28 @@
+# Loading project rx_test
+# Compile of rx.vhd was successful.
+# Compile of rx_cu.vhd was successful.
+# Compile of rx_dp.vhd was successful.
+# Compile of rx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# Compile of start_detector.vhd was successful.
+# Compile of stop_detector.vhd was successful.
+# Compile of voter_3bit.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+# Compile of rx.vhd was successful.
+# Compile of rx_cu.vhd was successful.
+# Compile of rx_dp.vhd was successful.
+# Compile of rx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# Compile of start_detector.vhd was successful.
+# Compile of stop_detector.vhd was successful.
+# Compile of voter_3bit.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+# reading C:/intelFPGA/20.1/modelsim_ase/win32aloem/../modelsim.ini
+# Loading project uart
+# Compile of uart.vhd failed with 4 errors.
+# Compile of uart.vhd failed with 3 errors.
+# Compile of uart.vhd failed with 5 errors.
+# Compile of uart.vhd failed with 3 errors.
+# Compile of uart.vhd was successful.
