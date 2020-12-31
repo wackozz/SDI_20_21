@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2020-12-15
+-- Last update: 2020-12-31
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -28,13 +28,14 @@ entity tx_dp is
   port (
     clock            : in  std_logic;
     reset            : in  std_logic;
+    clear            : in  std_logic;
     force_one        : in  std_logic;
     force_zero       : in  std_logic;
     tx_empty_ack     : in  std_logic;
     --counter
     count_en_tc      : in  std_logic;
     count_en_txempty : in  std_logic;
-    tx_empty         : out std_logic;
+    tx_empty_dp      : out std_logic;
     term_count       : out std_logic;
     --shift r
     p_in             : in  std_logic_vector(7 downto 0);  --input (SR)
@@ -49,19 +50,21 @@ architecture arch of tx_dp is
   --signal declaration
 
   --counters
-  constant N             : integer   := 8;
-  signal ld              : std_logic := '0';  --parallel load for counter                   
-  signal tc_flag_sh      : std_logic := '0';
-  signal tc_flag_txempty : std_logic := '0';
-  signal d               : std_logic_vector(N-1 downto 0);  --unused
-  signal d_txempty       : std_logic_vector(2 downto 0);    --unused
-  signal q_txempty       : std_logic_vector(2 downto 0);
-  signal q_c_shift       : std_logic_vector(N-1 downto 0);
-
+  signal clear_sh_tmp      : std_logic;
+  signal clear_txempty_tmp : std_logic;
+  constant N               : integer                        := 8;
+  signal ld                : std_logic                      := '0';  --parallel load for counter                   
+  signal tc_flag_sh        : std_logic                      := '0';
+  signal tc_flag_txempty   : std_logic                      := '0';
+  signal d                 : std_logic_vector(N-1 downto 0) := (others => '0');  --unused
+  signal d_txempty         : std_logic_vector(2 downto 0)   := (others => '0');  --unused
+  signal q_txempty         : std_logic_vector(2 downto 0);
+  signal q_c_shift         : std_logic_vector(N-1 downto 0);
+  signal reset_tmp         : std_logic;
   --register
-  signal s_in  : std_logic := '1';
-  signal s_out : std_logic;
-  signal p_out : std_logic_vector(7 downto 0);
+  signal s_in              : std_logic                      := '1';
+  signal s_out             : std_logic;
+  signal p_out             : std_logic_vector(7 downto 0);
 
 
   -- component inst
@@ -111,7 +114,7 @@ begin  -- architecture arch
     generic map (N => N)
     port map (
       clock   => clock,
-      clear   => reset,
+      clear   => reset_tmp,
       tc      => std_logic_vector(to_unsigned(137, N)),
       tc_flag => tc_flag_sh,
       en      => count_en_tc,
@@ -124,7 +127,7 @@ begin  -- architecture arch
     generic map (N => 3)
     port map (
       clock   => clock,
-      clear   => reset,
+      clear   => reset_tmp,
       tc      => std_logic_vector(to_unsigned(7, 3)),
       en      => count_en_txempty,
       ld      => ld,
@@ -133,8 +136,12 @@ begin  -- architecture arch
       q       => q_txempty
       );
 
-  tx_empty   <= tc_flag_txempty;
+  tx_empty_dp   <= tc_flag_txempty;
   term_count <= tc_flag_sh;
 
   TxD <= not(force_zero) and (s_out or force_one);
+
+  reset_tmp <= not(reset);
+
+
 end architecture arch;

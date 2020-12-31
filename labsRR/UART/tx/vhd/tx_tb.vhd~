@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 -- Title      : Testbench for design "tx"
--- Project    : 
+-- Project    : UART
 -------------------------------------------------------------------------------
 -- File       : tx_tb.vhd
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2020-12-09
+-- Last update: 2020-12-30
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -16,7 +16,7 @@
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author  Description
--- 2020-12-09  1.0      wackoz	Created
+-- 2020-12-09  1.0      wackoz  Created
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -33,41 +33,41 @@ end entity tx_tb;
 architecture arch of tx_tb is
 
   -- component ports
-  signal clock : std_logic := '1';
-  signal reset : std_logic := '0';
-  signal p_in  : std_logic_vector(7 downto 0);
-  signal TxD       : std_logic;
-  signal tx_empty_ack   : std_logic;
+  signal clock        : std_logic := '1';
+  signal reset        : std_logic := '1';
+  signal p_in         : std_logic_vector(7 downto 0);
+  signal TxD          : std_logic;
+  signal tx_empty_ack : std_logic;
   -- clock
-  signal Clk : std_logic := '1';
+  signal Clk          : std_logic := '1';
 
 begin  -- architecture arch
 
   -- component instantiation
-  DUT: entity work.tx
+  DUT : entity work.tx
     port map (
-      clock => clock,
-      reset => reset,
+      clock        => clock,
+      reset        => reset,
       tx_empty_ack => tx_empty_ack,
-      p_in  => p_in,
-      TxD   => TxD);
+      p_in         => p_in,
+      TxD          => TxD);
 
   -- clock generation
   clock <= not clock after 10 ns;
   rst : process is
-begin  
-reset <= '0';
-tx_empty_ack <= '1';
-wait for 10 ns;
-reset <= '1';
-wait for 30 ns;
-reset <= '0';
-wait for 50 ns;
-tx_empty_ack <= '0';
-wait;
-end process;  
+  begin
+    reset        <= '1';
+    tx_empty_ack <= '1';
+    wait for 10 ns;
+    reset        <= '0';
+    wait for 30 ns;
+    reset        <= '1';
+    wait for 50 ns;
+    tx_empty_ack <= '0';
+    wait;
+  end process;
 
-p_in <= "10010001";
+  p_in <= "10010001";
 
 end architecture arch;
 

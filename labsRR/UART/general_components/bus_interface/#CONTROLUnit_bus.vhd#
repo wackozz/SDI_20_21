@@ -2,22 +2,29 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity ControlUnit_bus is
-  port (RESET, CLOCK, CS_cu, R_Wn_cu, ATNack_cu : in std_logic;
-
-        ADD_cu                                                                : in  std_logic_vector (2 downto 0);
-        SEL_mux, ATN_cu, EN_regSTATUS, EN_regCTRL, EN_regDATARX, EN_regDATATX : out std_logic;
-        TX_DATA                                                               : out std_logic_vector (7 downto 0);
-        RX_DATA                                                               : in  std_logic_vector (7 downto 0);
-        CLRatn, TX_EN, RX_EN                                                  : out std_logic_vector(7 downto 0);
-        RX_FULL, TX_EMPTY, error                                              : in  std_logic_vector(7 downto 0)
-        );
+  port (
+    RESET, CLOCK                                               : in     std_logic;
+    CS_cu, R_Wn_cu                                             : in     std_logic;
+    EN_STATE                                                   : out    std_logic_vector (2 downto 0);
+    ADD_cu                                                     : in     std_logic_vector (2 downto 0);
+    SEL_mux_cu, ATN_cu, EN_regCTRL, EN_regDATARX, EN_regDATATX : out    std_logic;
+    TX_ack_cu, EN_RX_cu, EN_TX_cu                              : out    std_logic;
+    CLRatn_cu                                                  : buffer std_logic;
+    RX_FULL_cu, TX_EMPTY_cu, ERROR_cu, ATNack_cu               : in     std_logic);
 end ControlUnit_bus;
 
 
 architecture behav of ControlUnit_bus is
 
 
-  type state_type is (IDLE, STATUS_state, ATNack_state, DATA_RX_state, CTRL_state, DATA_TX_state, DONE);
+  type state_type is (IDLE,
+                      WRITE_CTRL,
+                      READ_STATUS,
+                      WRITE_TXdata,
+                      READ_RXdata,
+                      NEXT_STATE,
+                      ATNack_STATE
+                      );
 
   signal present_state : state_type;
 
@@ -26,111 +33,160 @@ begin
   begin
     if (RESET = '0') then
       present_state <= IDLE;
+
     elsif (CLOCK'event and CLOCK = '1') then
 
       case present_state is
+
         when IDLE =>
+          if (CS_cu = '1') then
+            if (R_Wn_cu = '0') then
+              if (ADD_cu(0) = '1') then
+
+                present_state <= WRITE_CTRL;
+              else
+                present_state <= IDLE;
+              end if;
+            end if;
+          end if;
+
+
+
+        when WRITE_CTRL =>
 
           if (CS_cu = '1') then
+            if (R_Wn_cu = '1') then
+              if(ADD_cu(0) = '0') then
 
-            if (R_Wn_cu = '1') then     -- LETTURA
+                present_state <= READ_STATUS;
 
-              if(ADD_cu = "001") then   --INDIRIZZO REGISTRO STATI
-
-                present_state <= STATUS_state;
-
+              else
+                present_state <= IDLE;
               end if;
-            
+            end if;
+          end if;
 
-        when STATUS_state =>
+        when READ_STATUS =>
 
-          if (ADD_cu = "010") then
-
-            present_state <= ATNack_state;
-
+          if (TX_EMPTY_cu = '1'and CS_cu = '1' and R_Wn_cu = '0'
+              and ADD_cu (0) = '0') then
+            present_state <= WRITE_TXdata;
 
           end if;
 
-        when ATNack_state =>
-          present_state <= DATA_RX_state;
-
-        when DATA_RX_state =>
-
-          present_state <= DONE;
+          if (RX_FULL_cu = '1'and CS_cu = '1'
+              and R_Wn_cu = '1' and ADD_cu(0) = '1') then
+            present_state <= READ_RXdata;
+          end if;
 
 
-      end if;
 
 
-    else
-      if (R_Wn_cu = '0') then           --SCRITTURA
-        if(ADD_cu = "011") then
+        when WRITE_TXdata =>
+          present_state <= NEXT_STATE;
 
-          present_state <= CTRL_state;
 
+        when READ_RXdata =>
+          present_state <= NEXT_STATE;
+
+        when NEXT_STATE =>
+          if (CLRatn_cu = '1') then  -- ATN DISATTIVATO INUTILE MANDARE ATNack
+            present_state <= IDLE;
+          else
+            present_state <= ATNack_STATE;  -- VADO NELLO STATO DI ATTESA DELL'ATNack
+          end if;
+
+        when ATNack_STATE =>
+          if(ATNack_cu = '1') then
+            present_state <= IDLE;
+          end if;
+          if (TX_EMPTY_cu = '1') then  --controllo che nel frattempo non siano arrivati
+                                       -- nuovi segnali senza che ci sia risposta dall'esterno
+            present_state <= WRITE_TXdata;
+          else
+            present_state <= IDLE;
+          end if;
+
+          if (RX_FULL_cu = '1') then
+            present_state <= READ_RXdata;
+          else
+            present_state <= IDLE;
+          end if;
+
+        when others =>
+          present_state <= IDLE;
+      end case;
+    end if;
+  end process;
+
+
+  FSM_cu : process(present_state)
+  begin
+
+
+
+    --default values
+
+    SEL_mux_cu   <= '0';
+    EN_regCTRL   <= '0';
+    EN_regDATARX <= '0';
+    EN_regDATATX <= '0';
+    TX_ack_cu    <= '0';
+    EN_STATE(0)  <= '0';
+    EN_STATE(1)  <= '0';
+    EN_STATE(2)  <= '1';
+    ATN_cu       <= '0';
+
+    case present_state is
+      when IDLE =>
+        if(ERROR_cu = '1') then
+          EN_STATE(2) <= '0';
         end if;
 
-        when CTRL_state =>
+      when WRITE_CTRL =>
+        EN_regCTRL  <= '1';
+        EN_STATE(2) <= '1';
 
-        if(ADD_cu = "000") then
-          present_state <= DATA_TX_state;
+      when READ_STATUS =>
+        EN_STATE(0) <= '1';
+        EN_STATE(1) <= '1';
+        EN_STATE(2) <= '1';
+        Tx_ack_cu   <= '0';
+        SEL_MUX_CU  <= '1';
 
 
+      when READ_RXdata =>               -- LEGGO RX_DATA
+        SEL_mux_cu   <= '1';
+        EN_regDATARX <= '1';
+        ATN_cu       <= '1';            --MANDO ATN
+        EN_STATE(2)  <= '1';
+        TX_ack_cu    <= '0';
+
+      when WRITE_TXdata =>              -- SCRIVO SU TX_DATA
+        EN_regDATATX <= '1';
+        ATN_cu       <= '1';            --MANDO ATN
+        EN_STATE(2)  <= '1';
+        TX_ack_cu    <= '1';
+
+      when NEXT_STATE =>
+        if(CLRatn_cu = '1') then
+          ATN_cu      <= '0';
+          EN_STATE(2) <= '1';
         end if;
 
-        when DATA_TX_state =>
-        present_state <= DONE;
+      when ATNack_STATE =>
+        if(ATNack_cu = '1') then
+          ATN_cu <= '0';
+        else
+          EN_STATE(0)  <= '1';
+          EN_STATE(1)  <= '1';
+          EN_STATE (2) <= '1';
+        end if;
 
-
-
-        when DONE =>
-        present_state <= IDLE;
-
-      end if;
 
 
 
     end case;
-  end if;
-end process;
-
-FSM_cu : process(present_state)
-begin
-
-
-  case present_state is
-
-    when IDLE =>
-      RESET <= '1';
-      ATN   <= '0';
-
-
-    when STATUS_state =>
-      TX_EMPTY     <= "00000001";
-      RX_FULL      <= "00000000";
-      error        <= "00000010";
-      ATN          <= '1';
-      EN_regSTATUS <= '1';
-
-    when ATNack_state =>
-      ATN <= '1';
-
-    when DATA_RX_state =>
-      EN_regDATARX <= '1';
-
-    when CTRL_state =>
-      EN_regCTRL <= '1';
-      TX_EN      <= "00000001";
-      RX_EN      <= "00000000";
-      CLR_atn    <= "00000010";
-      ATN        <= '0';
-
-    when DATA_TX_state =>
-      EN_regDATATX <= '1';
-
-    when DONE =>
-      RESET <= '1';
-  end case;
-end process;
+  end process;
 
 end behav;

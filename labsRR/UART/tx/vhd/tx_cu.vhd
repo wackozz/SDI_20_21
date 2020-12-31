@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2020-12-15
+-- Last update: 2020-12-31
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -31,7 +31,8 @@ entity tx_cu is
     clock            : in  std_logic;
     reset            : in  std_logic;
     term_count       : in  std_logic;   -- HIGH if counter output shift  == 139
-    tx_empty         : in  std_logic;   -- HIGH if counter output txempty == 7
+    tx_empty         : out  std_logic;   -- HIGH if counter output txempty == 7
+    tx_empty_dp      : in std_logic;
     ld_en            : out std_logic;
     sh_en            : out std_logic;   -- enable for sr
     count_en_tc      : out std_logic;   -- enable for counter tc
@@ -56,19 +57,19 @@ begin  -- architecture str
 
   state_update : process (clock, reset) is
   begin  -- process state_update
-    if reset = '1' then                     -- asynchronous reset (active high)
+    if reset = '0' then                     -- asynchronous reset (active low)
       present_state <= idle_start;
     elsif clock'event and clock = '1' then  -- rising clock edge
       present_state <= next_state;
     end if;
   end process state_update;
 
-  next_state_gen : process (present_state, term_count, tx_empty) is
+  next_state_gen : process (present_state, term_count, tx_empty_dp) is
   begin  -- process next_state_gen
     case present_state is
 
       when idle_start =>
-        if tx_empty = '1' then
+        if tx_empty_dp = '1' then
           next_state <= idle_start;
         else
           next_state <= load;
@@ -88,7 +89,7 @@ begin  -- architecture str
         next_state <= idle;
 
       when idle =>
-        if tx_empty = '1' then
+        if tx_empty_dp = '1' then
           next_state <= idle_start;
         elsif term_count = '1' then
           next_state <= shift;
@@ -113,6 +114,7 @@ begin  -- architecture str
     force_zero       <= '0';
     count_en_tc      <= '0';
     count_en_txempty <= '0';
+
     case present_state is
       when idle_start =>
         force_one <= '1';
@@ -133,6 +135,8 @@ begin  -- architecture str
         count_en_tc      <= '0';
     end case;
   end process output_decode;
+
+  tx_empty <= tx_empty_dp;
 
 end architecture str;
 

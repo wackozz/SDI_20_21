@@ -43,7 +43,7 @@ begin
     elsif clock'event and clock = '1' then  -- rising clock edge
       if clear = '0' then
         if start_det_en = '1' then
-          start <= d(0) and d(1) and d(2) and d(3) and d(4) and d(5) and d(6) and d(7);
+          start <= not(d(0)) and not(d(1)) and not(d(2)) and not(d(3)) and d(4) and d(5) and d(6) and d(7);
         end if;
       else
         start <= '0';

@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-17
--- Last update: 2020-12-17
+-- Last update: 2020-12-30
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -33,13 +33,10 @@ end entity rx_tb;
 architecture arch of rx_tb is
 
   -- component ports
-  signal clock : std_logic;
+  signal clock : std_logic := '1';
   signal reset : std_logic;
   signal rxd   : std_logic;
   signal Pout  : std_logic_vector(7 downto 0);
-
-  -- clock
-  signal Clk : std_logic := '1';
 
 begin  -- architecture arch
 
@@ -52,17 +49,40 @@ begin  -- architecture arch
       Pout  => Pout);
 
   -- clock generation
-  Clk <= not Clk after 10 ns;
+  clock <= not clock after 5 ns;
 
   -- waveform generation
   WaveGen_Proc: process
   begin
-    -- insert signal assignments here
-
-    wait until Clk = '1';
+    reset <=  '0';
+    rxd <= '1';
+    wait for 20 ns;
+    reset <= '1';
+    wait for 50 ns;
+    rxd <= '0';                         --
+    wait for 2780 ns;
+    
+    rxd <= '1';                         -- D0
+    wait for 2780 ns;
+    rxd <= '0';                         -- D1
+    wait for 2780 ns;
+    rxd <= '0';                         --D2
+    wait for 2780 ns;
+    rxd <= '1';                         --D3
+    wait for 2780 ns;
+    rxd <= '0';                         --D4
+    wait for 2780 ns;
+    rxd <= '1';                         --D5
+    wait for 2780 ns;
+    rxd <= '0';                         --D6
+    wait for 2780 ns;
+    rxd <= '0';                         --D7
+    wait for 2780 ns;
+    rxd <= '1';                         --end
+    wait for 2780 ns;
+    wait;
   end process WaveGen_Proc;
 
-  
 
 end architecture arch;
 

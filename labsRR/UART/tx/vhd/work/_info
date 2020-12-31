@@ -8,123 +8,198 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd
+d/home/wackoz/github/SDI_20_21/labsRR/UART/tx/vhd
 Etx
-Z1 w1608050591
-Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 7
-R0
+Z0 w1609408123
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 10
+Z3 dc:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/tx/vhd
 Z4 8tx.vhd
 Z5 Ftx.vhd
 l0
-L27 1
-VNXHKNRB^:Ym:h_b32QR:12
-!s100 3i[EI@ljclLX?6Hc4M1BO0
-Z6 OV;C;2020.1;71
-32
-Z7 !s110 1608050601
+Z6 L27 1
+VmKSdUBSG[maa:i53VKz]h0
+!s100 hf4RGfei<mJ9hcL<WR<PY1
+Z7 OV;C;2020.1;71
+31
+Z8 !s110 1609408126
 !i10b 1
-Z8 !s108 1608050601.000000
-Z9 !s90 tx.vhd|
-Z10 !s107 tx.vhd|
+Z9 !s108 1609408126.000000
+Z10 !s90 -93|-work|work|tx.vhd|
+Z11 !s107 tx.vhd|
 !i113 1
-Z11 tExplicit 1 CvgOpt 0
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
 Astr
+R1
 R2
-R3
-Z12 DEx4 work 2 tx 0 22 NXHKNRB^:Ym:h_b32QR:12
-!i122 7
-l87
-Z13 L41 77
-Z14 V7B?CGG4ZIih<lBZk^6Ug81
-Z15 !s100 8RhHEO^^X1]2<Q1E=DO[22
-R6
-32
+Z14 DEx4 work 2 tx 0 22 mKSdUBSG[maa:i53VKz]h0
+!i122 10
+l92
+L42 84
+V;STZY1GBmE_hXA9fBAb^U2
+!s100 nn7ISB?oi0_BEQ4j`ENgf1
 R7
-!i10b 1
+31
 R8
+!i10b 1
 R9
 R10
-!i113 1
 R11
+!i113 1
+R12
+R13
 Etx_cu
-Z16 w1608049809
+Z15 w1609408420
+R1
 R2
+!i122 12
 R3
-!i122 3
-R0
-Z17 8tx_cu.vhd
-Z18 Ftx_cu.vhd
+Z16 8tx_cu.vhd
+Z17 Ftx_cu.vhd
 l0
 L28 1
-V^Xld:F2TJ1S]0XZJ9DU:f2
-!s100 GjDRl<e^<L`F73RU0ChdT0
-R6
-32
-Z19 !s110 1608049812
+VWCCj12kT9IWUZ>IgS`FZ70
+!s100 QShD<GVc4H;i<f8WYFNGk1
+R7
+31
+Z18 !s110 1609408422
 !i10b 1
-Z20 !s108 1608049812.000000
-Z21 !s90 tx_cu.vhd|
-Z22 !s107 tx_cu.vhd|
+Z19 !s108 1609408422.000000
+Z20 !s90 -93|-work|work|tx_cu.vhd|
+Z21 !s107 tx_cu.vhd|
 !i113 1
-R11
+R12
+R13
 Astr
+R1
 R2
-R3
-DEx4 work 5 tx_cu 0 22 ^Xld:F2TJ1S]0XZJ9DU:f2
-!i122 3
-l55
-L46 94
-VkjJi;=H]Z13Ghf=UZmY8N3
-!s100 G=8Bj1VLa8afhPd:X9PI?3
-R6
-32
-R19
+DEx4 work 5 tx_cu 0 22 WCCj12kT9IWUZ>IgS`FZ70
+!i122 12
+l56
+L47 95
+V5h4LhaI3330_<@k`9U]Le3
+!s100 6Gf9eSi:OG0o??YBTK4mQ3
+R7
+31
+R18
 !i10b 1
+R19
 R20
 R21
-R22
 !i113 1
-R11
+R12
+R13
 Etx_dp
-Z23 w1608050135
-Z24 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z22 w1609408500
+Z23 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R1
 R2
+!i122 13
 R3
-!i122 5
-R0
-Z25 8tx_dp.vhd
-Z26 Ftx_dp.vhd
+Z24 8tx_dp.vhd
+Z25 Ftx_dp.vhd
 l0
 L26 1
-V4?WMhdaYQNEQJA;Ol2<J33
-!s100 WJ@DELCGH_X@05le;Uc;J0
-R6
-32
-Z27 !s110 1608050138
+V896j<j:>iCBDKfADC8<Ck2
+!s100 XUeNI@Gi@07Wn]B`Szd>;3
+R7
+31
+Z26 !s110 1609408503
 !i10b 1
-Z28 !s108 1608050138.000000
-Z29 !s90 tx_dp.vhd|
-Z30 !s107 tx_dp.vhd|
+Z27 !s108 1609408503.000000
+Z28 !s90 -93|-work|work|tx_dp.vhd|
+Z29 !s107 tx_dp.vhd|
 !i113 1
-R11
+R12
+R13
 Aarch
-R24
+R23
+R1
 R2
-R3
-DEx4 work 5 tx_dp 0 22 4?WMhdaYQNEQJA;Ol2<J33
-!i122 5
-l94
-L48 93
-V9`XNE:i0WciHF4_hGQokU3
-!s100 =9<a7D9NUo:anX`I9VMS^3
-R6
-32
-R27
+DEx4 work 5 tx_dp 0 22 896j<j:>iCBDKfADC8<Ck2
+!i122 13
+l97
+L49 99
+V^Az@a4_C@ne_:FZngb>;;1
+!s100 ZUeQSg6BZNPI:XGBP22;92
+R7
+31
+R26
 !i10b 1
+R27
 R28
 R29
-R30
 !i113 1
-R11
+R12
+R13
+Etx_tb
+Z30 w1609408601
+R1
+R2
+!i122 14
+R3
+Z31 8tx_tb.vhd
+Z32 Ftx_tb.vhd
+l0
+R6
+VVUGn_1hd8:lI7^l4j_GC_0
+!s100 IOYPZ67OVg9;gf^IAJ6dQ2
+R7
+31
+Z33 !s110 1609408607
+!i10b 1
+Z34 !s108 1609408607.000000
+Z35 !s90 -93|-work|work|tx_tb.vhd|
+!s107 tx_tb.vhd|
+!i113 1
+R12
+R13
+Aarch
+R14
+R1
+R2
+Z36 DEx4 work 5 tx_tb 0 22 VUGn_1hd8:lI7^l4j_GC_0
+!i122 14
+l45
+L33 42
+VYQm3Y8kH9Oo:KNzHh^KgR1
+!s100 lVN5@7J6NB0cQleE0kUjc1
+R7
+31
+R33
+!i10b 1
+R34
+R35
+Z37 !s107 tx_tb.vhd|
+!i113 1
+R12
+R13
+Ctx_tb_arch_cfg
+etx_tb
+aarch
+R14
+DAx4 work 5 tx_tb 4 arch 22 YQm3Y8kH9Oo:KNzHh^KgR1
+R1
+R2
+R36
+!i122 14
+R30
+R3
+R31
+R32
+l0
+L78 1
+VUQIb>J2YccHKSHcf0P<eT2
+!s100 `K17`i:G5nR[@mf<L@XGn3
+R7
+31
+R33
+!i10b 0
+R34
+R35
+R37
+!i113 1
+R12
+R13

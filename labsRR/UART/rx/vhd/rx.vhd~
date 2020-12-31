@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-17
--- Last update: 2020-12-17
+-- Last update: 2020-12-30
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -49,11 +49,8 @@ architecture str of rx is
   signal flag_shift_data   : std_logic;
   signal flag_shift_sample : std_logic;
   signal flag_68           : std_logic;
-  signal voter_en          : std_logic;
   signal sh_en_samples     : std_logic;
   signal sh_en_data        : std_logic;
-  signal ld_en_samples     : std_logic;
-  signal ld_en_data        : std_logic;
   signal start_en          : std_logic;
   signal start             : std_logic;
   signal stop_en           : std_logic;
@@ -98,11 +95,8 @@ architecture str of rx is
       flag_shift_sample : out std_logic;
       flag_68           : out std_logic;
       rxd               : in  std_logic;
-      voter_en          : in  std_logic;
       sh_en_samples     : in  std_logic;
       sh_en_data        : in  std_logic;
-      ld_en_samples     : in  std_logic;
-      ld_en_data        : in  std_logic;
       start_en          : in  std_logic;
       start             : out std_logic;
       stop_en           : in  std_logic;
@@ -131,11 +125,8 @@ begin  -- architecture str
       flag_shift_sample => flag_shift_sample,
       flag_68           => flag_68,
       rxd               => rxd,
-      voter_en          => voter_en,
       sh_en_samples     => sh_en_samples,
       sh_en_data        => sh_en_data,
-      ld_en_samples     => ld_en_samples,
-      ld_en_data        => ld_en_data,
       start_en          => start_en,
       start             => start,
       stop_en           => stop_en,

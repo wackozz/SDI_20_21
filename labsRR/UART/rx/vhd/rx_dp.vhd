@@ -6,7 +6,7 @@
 -- Author     :   <Sabina@DESKTOP-IN9UA4D>
 -- Company    : 
 -- Created    : 2020-12-15
--- Last update: 2020-12-18
+-- Last update: 2020-12-30
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ use ieee.std_logic_1164.all;
 entity rx_dp is
   port (
     clock             : in  std_logic;
-    reset             : in  std_logic;  -- active high
+    reset             : in  std_logic;  -- active low
     clr_start         : in  std_logic;
     clear_c_shift     : in  std_logic;
     clear_c_rxfull    : in  std_logic;
@@ -37,7 +37,6 @@ entity rx_dp is
     flag_shift_sample : out std_logic;
     flag_68           : out std_logic;
     rxd               : in  std_logic;  -- input
-    voter_en          : in  std_logic;  -- enable for voter
     sh_en_samples     : in  std_logic;  -- shift enable for samples
     sh_en_data        : in  std_logic;  -- shift enable for sr data
     start_en          : in  std_logic;
@@ -195,7 +194,7 @@ begin  -- architecture str
       ld_en => ld_en,
       sh_en => sh_en_data,
       s_in  => vote,
-      s_out => s_out,
+      s_out => s_out, 
       p_in  => p_in,
       p_out => Pout
       );
@@ -220,7 +219,7 @@ begin  -- architecture str
   -----------------------------------------------------------------------------
   shift_r_init : process (reset) is
   begin  -- process shift_r_init
-    if reset = '1' then
+    if reset = '0' then
       ld_en <= '1';
     else
       ld_en <= '0';
@@ -241,7 +240,7 @@ begin  -- architecture str
 --flag for counter sh out, high when 4*Tbaud/. Used to sync from start
 --detention to first frame  
   p_in    <= "11111111";
-  clear_rxfull_tmp <= reset or clear_c_rxfull;
-  clear_sh_tmp <= reset or clear_c_shift;
+  clear_rxfull_tmp <=  clear_c_rxfull;
+  clear_sh_tmp <=  clear_c_shift;
 
 end architecture str;

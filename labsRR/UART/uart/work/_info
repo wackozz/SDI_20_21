@@ -1,0 +1,52 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd
+Euart
+Z0 w1609411579
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 5
+Z3 dc:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/uart
+Z4 8uart.vhd
+Z5 Fuart.vhd
+l0
+L13 1
+VoMQ8WlB`2K8:YmbUK9THk3
+!s100 30S=_G`O3e<Q>67T5KRDa0
+Z6 OV;C;2020.1;71
+31
+Z7 !s110 1609411635
+!i10b 1
+Z8 !s108 1609411635.000000
+Z9 !s90 -93|-work|work|uart.vhd|
+!s107 uart.vhd|
+!i113 1
+Z10 o-93 -work work
+Z11 tExplicit 1 CvgOpt 0
+Astr
+R1
+R2
+DEx4 work 4 uart 0 22 oMQ8WlB`2K8:YmbUK9THk3
+!i122 5
+l103
+Z12 L33 113
+VcaLNO3D]0>JlaaAgXaLMm0
+Z13 !s100 >BfSMW3@JbC2IY9PN=YdX3
+R6
+31
+R7
+!i10b 1
+R8
+R9
+Z14 !s107 uart.vhd|
+!i113 1
+R10
+R11

@@ -9,133 +9,176 @@ z2
 !i10f 100
 cModel Technology
 Z0 d/home/wackoz/github/SDI_20_21/labsRR/UART/rx/vhd
-Erx
-Z1 w1608247556
+Ecounter_nbit
+Z1 w1609328901
 Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 43
-R0
-Z5 8rx.vhd
-Z6 Frx.vhd
+!i122 118
+Z5 dC:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd
+Z6 8C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd
+Z7 FC:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd
 l0
-Z7 L28 1
-V?oCkBnAb<1NZR4hmj[g<c1
-!s100 :WeSlWHg?>=PKcz_J?fMG2
-Z8 OV;C;2020.1;71
-31
-Z9 !s110 1608247558
+Z8 L29 1
+V[D[gN7gMmchbje<HY]me<0
+!s100 ];zbMCCIi0VPi8494CWem2
+Z9 OV;C;2020.1;71
+32
+Z10 !s110 1609411177
 !i10b 1
-Z10 !s108 1608247558.000000
-Z11 !s90 -93|-work|work|rx.vhd|
-Z12 !s107 rx.vhd|
+Z11 !s108 1609411176.000000
+Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd|
+Z13 !s107 C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/general_components/counter/counter_nbit.vhd|
 !i113 1
-Z13 o-93 -work work
-Z14 tExplicit 1 CvgOpt 0
+Z14 o-work work -2002 -explicit
+Z15 tExplicit 1 CvgOpt 0
+Aarch
+R2
+R3
+R4
+DEx4 work 12 counter_nbit 0 22 [D[gN7gMmchbje<HY]me<0
+!i122 118
+l50
+L47 26
+VZ;Eo`TFfz>D_`Xa9F;i<Q2
+!s100 R8ngLV2jPET19AMFLVnE_3
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 1
+R14
+R15
+Erx
+Z16 w1609408706
+R2
+R3
+R4
+!i122 114
+R5
+Z17 8C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd
+Z18 FC:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd
+l0
+Z19 L28 1
+VVKUDSzIk^@n_4^chB=JMa2
+!s100 R8fGU6abYHHa=SDozP01j1
+R9
+32
+Z20 !s110 1609411176
+!i10b 1
+R11
+Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd|
+Z22 !s107 C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx.vhd|
+!i113 1
+R14
+R15
 Astr
 R2
 R3
 R4
-Z15 DEx4 work 2 rx 0 22 ?oCkBnAb<1NZR4hmj[g<c1
-!i122 43
+Z23 DEx4 work 2 rx 0 22 VKUDSzIk^@n_4^chB=JMa2
+!i122 114
 l111
-L40 124
-VL6KZA1MoNQSLJ`?990TiA1
-!s100 g=?dE5l]QjM0<4C:@O[XQ0
-R8
-31
+L42 122
+V6m0:f?0:I4=3n0jhae83@2
+!s100 dU143bn??GANblE2MaO?J1
 R9
-!i10b 1
-R10
-R11
-R12
-!i113 1
-R13
-R14
-Erx_cu
-Z16 w1608215721
-R3
-R4
-!i122 30
-R0
-Z17 8rx_cu.vhd
-Z18 Frx_cu.vhd
-l0
-L29 1
-VaVAehQi=dY7IaF>8XEgH?1
-!s100 fe>E]H6[UUAkZVUhhIiSM0
-R8
-31
-Z19 !s110 1608215724
-!i10b 1
-Z20 !s108 1608215724.000000
-Z21 !s90 -93|-work|work|rx_cu.vhd|
-Z22 !s107 rx_cu.vhd|
-!i113 1
-R13
-R14
-Astr
-R3
-R4
-DEx4 work 5 rx_cu 0 22 aVAehQi=dY7IaF>8XEgH?1
-!i122 30
-l65
-L55 134
-V`]RaI<:k[Nc1HZP6;^SMz1
-!s100 QG=MUBb3Jb_MRScazZ9P73
-R8
-31
-R19
-!i10b 1
+32
 R20
+!i10b 1
+R11
 R21
 R22
 !i113 1
-R13
 R14
+R15
+Erx_cu
+Z24 w1609407497
+R3
+R4
+!i122 115
+R5
+Z25 8C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd
+Z26 FC:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd
+l0
+R8
+VX50F>_iB8OHW7`eeT6<M20
+!s100 `JYU1lgm<T`d?IF@2?OZz0
+R9
+32
+R20
+!i10b 1
+R11
+Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd|
+Z28 !s107 C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx_cu.vhd|
+!i113 1
+R14
+R15
+Astr
+R3
+R4
+DEx4 work 5 rx_cu 0 22 X50F>_iB8OHW7`eeT6<M20
+!i122 115
+l66
+L56 130
+VMgfLI_0ac4O4`O_bP5Vgn0
+!s100 XVTCe2gAiM<0lZhUh@_]m3
+R9
+32
+R20
+!i10b 1
+R11
+R27
+R28
+!i113 1
+R14
+R15
 Erx_dp
-Z23 w1608245334
+Z29 w1609344412
 R4
 R3
 R2
-!i122 41
-R0
-Z24 8rx_dp.vhd
-Z25 Frx_dp.vhd
+!i122 116
+R5
+Z30 8C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd
+Z31 FC:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd
 l0
-R7
-VfYGf64W@KCX]b[n:_Hc5^1
-!s100 G6HamGc:YW?V[N@eO7_iG1
-R8
-31
-Z26 !s110 1608245336
+R19
+V^;KzG=gmTeHFkZ0WjV8do1
+!s100 B^0cI`6]^ZRbLV8DYQQ332
+R9
+32
+R20
 !i10b 1
-Z27 !s108 1608245336.000000
-Z28 !s90 -93|-work|work|rx_dp.vhd|
-Z29 !s107 rx_dp.vhd|
+R11
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd|
+Z33 !s107 C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx_dp.vhd|
 !i113 1
-R13
 R14
+R15
 Astr
 R4
 R3
 R2
-DEx4 work 5 rx_dp 0 22 fYGf64W@KCX]b[n:_Hc5^1
-!i122 41
-l133
-L55 193
-VS_Xo[CaQiHS[lg:odU;KV2
-!s100 =Ke[MHAUjmm^d4m7amXGI3
-R8
-31
-R26
+DEx4 work 5 rx_dp 0 22 ^;KzG=gmTeHFkZ0WjV8do1
+!i122 116
+l132
+L54 193
+VO9>LBVRn3TN[5L`d;W^FF1
+!s100 g[M]2dAEho8NQ9PK4<kMT1
+R9
+32
+R20
 !i10b 1
-R27
-R28
-R29
+R11
+R32
+R33
 !i113 1
-R13
 R14
+R15
 Aarch
 R2
 R3
@@ -146,85 +189,258 @@ l92
 L46 53
 VhnG6HF8fD7LhJWYEfEWaA3
 !s100 >2O8_oMJF:MQNDPbQWe8G1
-R8
+R9
 31
 !s110 1608129450
 !i10b 1
 !s108 1608129450.000000
-R28
-R29
+!s90 -93|-work|work|rx_dp.vhd|
+!s107 rx_dp.vhd|
 !i113 1
-R13
-R14
+o-93 -work work
+R15
 w1608129450
+R0
+Frx_dp.vhd
+8rx_dp.vhd
 Erx_tb
-Z30 w1608216222
+Z34 w1609408808
 R3
 R4
-!i122 32
-R0
-Z31 8rx_tb.vhd
-Z32 Frx_tb.vhd
+!i122 117
+R5
+Z35 8C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx_tb.vhd
+Z36 FC:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx_tb.vhd
 l0
-L27 1
-V1nnWJjK68z5MlaUh>TTMm2
+Z37 L27 1
+VfO8k1eik9IEV2L6L??_630
 !s100 z`5bj?]PVN=9j9e?`O]4X0
-R8
-31
-Z33 !s110 1608216228
+R9
+32
+R20
 !i10b 1
-Z34 !s108 1608216228.000000
-Z35 !s90 -93|-work|work|rx_tb.vhd|
-Z36 !s107 rx_tb.vhd|
+R11
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx_tb.vhd|
+Z39 !s107 C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/vhd/rx_tb.vhd|
 !i113 1
-R13
 R14
+R15
 Aarch
 R2
-R15
+R23
 R3
 R4
-Z37 DEx4 work 5 rx_tb 0 22 1nnWJjK68z5MlaUh>TTMm2
-!i122 32
-l41
-L33 54
-V8]5j1nG6@_8<cO_7F0LNl1
-!s100 <O91N;m^QQ^fecg5:nfTN1
-R8
-31
-R33
+Z40 DEx4 work 5 rx_tb 0 22 fO8k1eik9IEV2L6L??_630
+!i122 117
+l43
+L33 59
+VXh4;`2l100nl^nbM07Tk40
+!s100 2YQEoLTcbmYcRl;nSUohb3
+R9
+32
+R20
 !i10b 1
-R34
-R35
-R36
+R11
+R38
+R39
 !i113 1
-R13
 R14
+R15
 Crx_tb_arch_cfg
 erx_tb
 aarch
-R15
+R23
 R2
-DAx4 work 5 rx_tb 4 arch 22 8]5j1nG6@_8<cO_7F0LNl1
+DAx4 work 5 rx_tb 4 arch 22 Xh4;`2l100nl^nbM07Tk40
 R3
 R4
-R37
-!i122 32
-R30
-R0
-R31
-R32
-l0
-L90 1
-Vh@k?N8AldHjdc?WFHbh=o0
-!s100 _3W>9ffWEcRd_=h<kJSPe1
-R8
-31
-R33
-!i10b 0
+R40
+!i122 117
 R34
+R5
 R35
 R36
+l0
+L95 1
+VWDChLKEWT1[iKoX9fm^`52
+!s100 OZRZ]>T2YadlG3zVBbIjH2
+R9
+32
+R20
+!i10b 0
+R11
+R38
+R39
 !i113 1
-R13
 R14
+R15
+Eshift_register_8bit
+Z41 w1609328902
+R2
+R3
+R4
+!i122 119
+R5
+Z42 8C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd
+Z43 FC:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd
+l0
+R37
+V@2acFN3L0iBEF4^OQGUJ]2
+!s100 :]Lh>oQiL7TZU_bmolFjG2
+R9
+32
+R10
+!i10b 1
+Z44 !s108 1609411177.000000
+Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd|
+Z46 !s107 C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/general_components/shift_register/vhd/shift_register_8bit.vhd|
+!i113 1
+R14
+R15
+Aarch
+R2
+R3
+R4
+DEx4 work 19 shift_register_8bit 0 22 @2acFN3L0iBEF4^OQGUJ]2
+!i122 119
+l45
+L42 24
+V;Ilmm`]jT0K>BOc26W?kZ3
+!s100 TnJn6T=jYKZN2AVROm[j:0
+R9
+32
+R10
+!i10b 1
+R44
+R45
+R46
+!i113 1
+R14
+R15
+Estart_detector
+Z47 w1609344097
+R3
+R4
+!i122 120
+R5
+Z48 8C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd
+Z49 FC:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd
+l0
+L25 1
+VUR>LGi=`aCeC91b<ST4na1
+!s100 NGZ=eTi^J6zj<28clFPE:3
+R9
+32
+R10
+!i10b 1
+R44
+Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd|
+Z51 !s107 C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/start_det/start_detector.vhd|
+!i113 1
+R14
+R15
+Aarch
+R3
+R4
+DEx4 work 14 start_detector 0 22 UR>LGi=`aCeC91b<ST4na1
+!i122 120
+l38
+L36 19
+Vol7S9KBANQ;V7C_QEl>8N1
+!s100 fc:=O[E3m:2KH`3eZ543I1
+R9
+32
+R10
+!i10b 1
+R44
+R50
+R51
+!i113 1
+R14
+R15
+Estop_detector
+Z52 w1609344310
+R2
+R3
+R4
+!i122 121
+R5
+Z53 8C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd
+Z54 FC:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd
+l0
+Z55 L26 1
+VG`c>G?kaN3^Y6=Kzb>gXm0
+!s100 DAUEbYaI[QA=[]4bHceP32
+R9
+32
+R10
+!i10b 1
+R44
+Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd|
+Z57 !s107 C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/stop_det/stop_detector.vhd|
+!i113 1
+R14
+R15
+Aarch
+R2
+R3
+R4
+DEx4 work 13 stop_detector 0 22 G`c>G?kaN3^Y6=Kzb>gXm0
+!i122 121
+l38
+Z58 L36 15
+VWGHJAaIN3k8WAVTh6`S?:3
+!s100 ;Ij8ZBWbLCm]@f8TLcRY_2
+R9
+32
+R10
+!i10b 1
+R44
+R56
+R57
+!i113 1
+R14
+R15
+Evoter_3bit
+Z59 w1609342409
+R2
+R3
+R4
+!i122 122
+R5
+Z60 8C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd
+Z61 FC:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd
+l0
+R55
+V21@:GO?j7TgdM]=YfK6o00
+!s100 K=:DWKCbg3N=D=MAF^j0o1
+R9
+32
+Z62 !s110 1609411178
+!i10b 1
+Z63 !s108 1609411178.000000
+Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd|
+Z65 !s107 C:/Users/Sabina/Desktop/universita/polito/SDI_20_21/labsRR/UART/rx/components/voter/voter_3bit.vhd|
+!i113 1
+R14
+R15
+Aarch
+R2
+R3
+R4
+Z66 DEx4 work 10 voter_3bit 0 22 21@:GO?j7TgdM]=YfK6o00
+!i122 122
+l37
+R58
+Z67 VSzY:zRZ1HeUERRnk4HAn[3
+Z68 !s100 ?5fj`Yb;cA9C;8oGMnEL83
+R9
+32
+R62
+!i10b 1
+R63
+R64
+R65
+!i113 1
+R14
+R15

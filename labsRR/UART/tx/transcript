@@ -1,74 +1,108 @@
-# Loading project tx
-# reading /home/wackoz/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini
-# Loading project stop_det
-# Compile of stop_detector.vhd failed with 4 errors.
-# Compile of stop_detector_tb.vhd was successful.
-# 2 compiles, 1 failed with 4 errors.
-project compileall
+# Loading project test_tx
+# reading C:/intelFPGA/20.1/modelsim_ase/win32aloem/../modelsim.ini
+# Loading project rx_test
+# Compile of rx.vhd was successful.
+# Compile of rx_cu.vhd was successful.
+# Compile of rx_dp.vhd was successful.
+# Compile of rx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# Compile of start_detector.vhd was successful.
 # Compile of stop_detector.vhd was successful.
-# Compile of stop_detector_tb.vhd was successful.
-# 2 compiles, 0 failed with no errors.
-vsim work.stop_detector_tb -t 10ns
-# vsim work.stop_detector_tb -t 10ns 
-# Start time: 12:03:54 on Dec 16,2020
+# Compile of voter_3bit.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+vsim work.rx_tb -t 10ns
+# vsim work.rx_tb -t 10ns 
+# Start time: 15:54:21 on Dec 30,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
-# Loading work.stop_detector_tb(arch)
+# Loading work.rx_tb(arch)
 # ** Warning: (vsim-3479) Time unit 'ns' is less than the simulator resolution (10ns).
 #    Time: 0 ns  Iteration: 0  Root: /
+# Loading work.rx(str)
+# Loading work.rx_dp(str)
+# Loading work.voter_3bit(arch)
+# Loading work.start_detector(arch)
 # Loading work.stop_detector(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.rx_cu(str)
 # WARNING: No extended dataflow license exists
-add wave *
-run 10000 ns
+add wave -position insertpoint sim:/rx_tb/DUT/control_unit/*
+add wave -position insertpoint sim:/rx_tb/DUT/datapath/*
+run 24000ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath/counter_rxfull
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath/counter_shift
 restart
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-run 100 ns
-project compileall
+# Compile of rx.vhd failed with 2 errors.
+# Compile of rx_cu.vhd was successful.
+# Compile of rx_dp.vhd was successful.
+# Compile of rx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# Compile of start_detector.vhd was successful.
 # Compile of stop_detector.vhd was successful.
-# Compile of stop_detector_tb.vhd was successful.
-# 2 compiles, 0 failed with no errors.
+# Compile of voter_3bit.vhd was successful.
+# 9 compiles, 1 failed with 2 errors.
+project compileall
+# Compile of rx.vhd was successful.
+# Compile of rx_cu.vhd was successful.
+# Compile of rx_dp.vhd was successful.
+# Compile of rx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# Compile of start_detector.vhd was successful.
+# Compile of stop_detector.vhd was successful.
+# Compile of voter_3bit.vhd was successful.
+# 9 compiles, 0 failed with no errors.
 restart
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.stop_detector_tb(arch)
+# Loading work.rx_tb(arch)
+# Loading work.rx(str)
+# Loading work.rx_dp(str)
+# Loading work.voter_3bit(arch)
+# Loading work.start_detector(arch)
 # Loading work.stop_detector(arch)
-run 100 ns
-project compileall
-# Compile of stop_detector.vhd was successful.
-# Compile of stop_detector_tb.vhd failed with 1 errors.
-# 2 compiles, 1 failed with 1 error.
-project compileall
-# Compile of stop_detector.vhd was successful.
-# Compile of stop_detector_tb.vhd was successful.
-# 2 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.stop_detector_tb(arch)
-# Loading work.stop_detector(arch)
-project compileall
-# Compile of stop_detector.vhd was successful.
-# Compile of stop_detector_tb.vhd was successful.
-# 2 compiles, 0 failed with no errors.
-run 100 ns
-project compileall
-# Compile of stop_detector.vhd was successful.
-# Compile of stop_detector_tb.vhd was successful.
-# 2 compiles, 0 failed with no errors.
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.stop_detector_tb(arch)
-# Loading work.stop_detector(arch)
-project compileall
-# Compile of stop_detector.vhd was successful.
-# Compile of stop_detector_tb.vhd was successful.
-# 2 compiles, 0 failed with no errors.
-run 100 ns
-# Break key hit
-add dataflow sim:/stop_detector_tb/DUT/*
-add dataflow sim:/stop_detector_tb/*
-add dataflow sim:/stop_detector_tb/DUT/*
-add dataflow sim:/standard/*
-add dataflow sim:/stop_detector_tb/line__56/*
-# End time: 12:11:00 on Dec 16,2020, Elapsed time: 0:07:06
-# Errors: 0, Warnings: 3
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.rx_cu(str)
+# Warning in wave window restart: (vish-4014) No objects found matching '/rx_tb/DUT/datapath/voter_en'. 
+run 24000ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath/counter_rxfull
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /rx_tb/DUT/datapath/counter_shift
+run 2000ns

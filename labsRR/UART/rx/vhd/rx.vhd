@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-17
--- Last update: 2020-12-18
+-- Last update: 2020-12-31
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -28,10 +28,12 @@ use ieee.numeric_std.all;
 entity rx is
 
   port (
-    clock : in  std_logic;
-    reset : in  std_logic;
-    rxd   : in  std_logic;
-    Pout  : out std_logic_vector(7 downto 0));
+    clock   : in  std_logic;
+    reset   : in  std_logic;
+    rxd     : in  std_logic;
+    Pout    : out std_logic_vector(7 downto 0);
+    flag_error : out std_logic;
+    rx_full : out std_logic);
 
 end entity rx;
 
@@ -44,12 +46,10 @@ architecture str of rx is
   signal clr_start         : std_logic;
   signal clear_c_shift     : std_logic;
   signal clear_c_rxfull    : std_logic;
-  signal flag_error        : std_logic;
-  signal flag_rxfull       : std_logic;
   signal flag_shift_data   : std_logic;
   signal flag_shift_sample : std_logic;
   signal flag_68           : std_logic;
-  signal voter_en          : std_logic;
+  signal flag_rxfull       : std_logic;
   signal sh_en_samples     : std_logic;
   signal sh_en_data        : std_logic;
   signal start_en          : std_logic;
@@ -71,6 +71,7 @@ architecture str of rx is
       clear_c_shift     : out std_logic;
       clear_c_rxfull    : out std_logic;
       flag_rxfull       : in  std_logic;
+      rx_full           : out std_logic;
       flag_shift_data   : in  std_logic;
       flag_shift_sample : in  std_logic;
       flag_68           : in  std_logic;
@@ -96,7 +97,6 @@ architecture str of rx is
       flag_shift_sample : out std_logic;
       flag_68           : out std_logic;
       rxd               : in  std_logic;
-      voter_en          : in  std_logic;
       sh_en_samples     : in  std_logic;
       sh_en_data        : in  std_logic;
       start_en          : in  std_logic;
@@ -127,7 +127,6 @@ begin  -- architecture str
       flag_shift_sample => flag_shift_sample,
       flag_68           => flag_68,
       rxd               => rxd,
-      voter_en          => voter_en,
       sh_en_samples     => sh_en_samples,
       sh_en_data        => sh_en_data,
       start_en          => start_en,
@@ -148,6 +147,7 @@ begin  -- architecture str
       clear_c_shift     => clear_c_shift,
       clear_c_rxfull    => clear_c_rxfull,
       flag_rxfull       => flag_rxfull,
+      rx_full           => rx_full,
       flag_shift_data   => flag_shift_data,
       flag_shift_sample => flag_shift_sample,
       flag_68           => flag_68,

@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-11
--- Last update: 2020-12-16
+-- Last update: 2020-12-30
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ architecture arch of stop_detector is
 begin
   stop_p : process (clock, reset) is
   begin  -- process vote
-    if reset = '1' then                     -- asynchronous reset (active high)
+    if reset = '0' then                     -- asynchronous reset (active low)
       stop <= '0';
     elsif clock'event and clock = '1' then  -- rising clock edge
       if stop_det_en = '1' then

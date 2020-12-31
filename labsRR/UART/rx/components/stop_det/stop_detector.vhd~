@@ -1,16 +1,16 @@
 -------------------------------------------------------------------------------
--- Title      : voter
+-- Title      : stop detector
 -- Project    : UART
 -------------------------------------------------------------------------------
--- File       : voter_3bit.vhd
+-- File       : stop_detector.vhd
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-11
--- Last update: 2020-12-11
+-- Last update: 2020-12-16
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
--- Description: Voter for UART
+-- Description: Stop detector for UART RX
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
@@ -23,28 +23,28 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity voter_3bit is
+entity stop_detector is
   port (
-    clock    : in  std_logic;                     --clock
-    reset    : in  std_logic;                     -- reset
-    voter_en : in  std_logic;                     --enable for voter reg
-    d        : in  std_logic_vector(2 downto 0);  -- input
-    vote     : out std_logic                      --output
+    clock       : in  std_logic;                     --clock
+    reset       : in  std_logic;                     -- reset
+    stop_det_en : in  std_logic;                     --enable for voter reg
+    d           : in  std_logic_vector(7 downto 0);  -- input
+    stop        : out std_logic                      --output
     );
-end voter_3bit;
+end stop_detector;
 
-architecture arch of voter_3bit is
+architecture arch of stop_detector is
+
 begin
-  vote : process (clock, reset) is
+  stop_p : process (clock, reset) is
   begin  -- process vote
     if reset = '1' then                     -- asynchronous reset (active high)
-      vote <= '0';
+      stop <= '0';
     elsif clock'event and clock = '1' then  -- rising clock edge
-      if voter_en = '1' then
-        vote <= ((d(0) and (d(1) or d(2))) or ((d(1) and d(2))));
+      if stop_det_en = '1' then
+          stop <= d(0) and d(1) and d(2) and d(3) and d(4) and d(5) and d(6) and d(7);
+        end if;
       end if;
-    end if;
-  end process vote;
-
+  end process stop_p;
 
 end architecture;
