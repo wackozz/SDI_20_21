@@ -36,7 +36,7 @@ entity rx_cu is
     clear_c_shift     : out std_logic;
     clear_c_rxfull    : out std_logic;
     flag_rxfull       : in  std_logic;
-    rx_full : out std_logic;
+    rx_full           : out std_logic;
     flag_shift_data   : in  std_logic;
     flag_shift_sample : in  std_logic;
     flag_68           : in  std_logic;
@@ -65,28 +65,9 @@ architecture str of rx_cu is
 
 begin  -- architecture str
 
-<<<<<<< Updated upstream
-  -- state_update : process (clock, reset) is
-  -- begin  -- process state_update
-    -- if reset = '1' then                     -- asynchronous reset (active high)
-      -- present_state <= reset_s;
-    -- elsif (clock'event and clock = '1') then  -- rising clock edge
-      -- present_state <= next_state;
-    -- end if;
-  -- end process state_update;
-  
-  
-
-  next_state_gen : process(clock, reset)
-	begin 
-		if reset = '1' then 
-			next_state <= idle; 
-			elsif (clock'event and clock = '1') then
-    case next_state is
-=======
   state_update : process (clock, reset) is
   begin  -- process state_update
-    if reset = '0' then                     -- asynchronous reset (active high)
+    if reset = '1' then                     -- asynchronous reset (active high)
       present_state <= reset_s;
     elsif clock'event and clock = '1' then  -- rising clock edge
       present_state <= next_state;
@@ -98,7 +79,6 @@ begin  -- architecture str
                             start_en_tmp, stop) is
   begin  -- process next_state_gen
     case present_state is
->>>>>>> Stashed changes
 
       when reset_s =>
         next_state <= idle;
@@ -129,7 +109,7 @@ begin  -- architecture str
             next_state <= idle;
           end if;
         end if;
-
+        
       when error_s =>
         next_state <= reset_s;
 
@@ -152,10 +132,8 @@ begin  -- architecture str
       when stop_on =>
         next_state <= idle;
 
-      when others => 
-		next_state <= idle;
+      when others => null;
     end case;
-	end if;
   end process next_state_gen;
 
 
@@ -170,10 +148,11 @@ begin  -- architecture str
     sh_en_samples   <= '0';
     flag_error      <= '0';
     clr_start       <= '0';
-
+   
+    
     case present_state is
       when reset_s =>
-        stop_en_tmp    <= '0';
+        stop_en_tmp     <= '0';
         start_en_tmp   <= '1';
         flag_error     <= '0';
         clear_c_rxfull <= '1';
@@ -197,11 +176,11 @@ begin  -- architecture str
       when res_cnt =>
         clear_c_shift <= '1';
         clr_start     <= '1';
-      when others => 
-		next_state <= idle;
+      when others => null;
     end case;
 
   end process output_decode;
+
   rx_full <= flag_rxfull;
   start_en <= start_en_tmp;
   stop_en  <= stop_en_tmp;
