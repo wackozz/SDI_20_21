@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-23
--- Last update: 2020-12-26
+-- Last update: 2020-12-29
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -32,6 +32,8 @@ entity mpy_sh is
 
   port (
     --I/O
+    clock  : in  std_logic;
+    reset  : in  std_logic;
     A      : in  std_logic_vector(N-1 downto 0);  -- ingresso per le operazioni di shift
     B      : in  std_logic_vector(N-1 downto 0);  -- secondo ingresso
     Y      : out std_logic_vector(2*N-1 downto 0);  -- uscita
@@ -44,18 +46,21 @@ end entity mpy_sh;
 -------------------------------------------------------------------------------
 
 architecture str of mpy_sh is
-  -----------------------------------------------------------------------------
-  -- Internal signal declarations
-  -----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+-- Internal signal declarations
+-----------------------------------------------------------------------------
 begin  -- architecture str
-  sh_mpy_pro : process(sh_mpy) is
+  sh_mpy_pro : process(clock, reset, sh_mpy) is
   begin  -- process sh_mpy_pro
-    if sh_mpy = '1' then
-      Y <= std_logic_vector(signed(A)*signed(B));       --A*B (mpy)
-    else
-      Y <= std_logic_vector(resize(shift_left(signed(A), 1),Y'length));  --A*2 (sh)
+    if reset = '0' then
+      Y <= (others => '0');
+    elsif clock'event and clock = '1' then
+      if sh_mpy = '1' then
+        Y <= std_logic_vector(signed(A)*signed(B));  --A*B (mpy)
+      else
+        Y <= std_logic_vector(resize(shift_left(signed(A), 1), Y'length));  --A*2 (sh)
+      end if;
     end if;
-
   end process sh_mpy_pro;
 end architecture str;
 

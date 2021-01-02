@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Wed Dec 23 15:27:43 2020
+Analysis & Synthesis Status : Successful - Tue Dec 29 17:13:08 2020
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : mpy_sh
 Top-level Entity Name : mpy_sh
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 0
-Total pins : 81
+Total registers : 6
+Total pins : 15
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 1

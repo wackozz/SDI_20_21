@@ -1,13 +1,13 @@
-Fitter Status : Successful - Wed Dec 23 15:28:09 2020
+Fitter Status : Successful - Tue Dec 29 17:13:36 2020
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : mpy_sh
 Top-level Entity Name : mpy_sh
 Family : Cyclone V
 Device : 5CGXFC7C7F23C8
 Timing Models : Final
-Logic utilization (in ALMs) : 21 / 56,480 ( < 1 % )
-Total registers : 0
-Total pins : 81 / 268 ( 30 % )
+Logic utilization (in ALMs) : 4 / 56,480 ( < 1 % )
+Total registers : 6
+Total pins : 15 / 268 ( 6 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 7,024,640 ( 0 % )
 Total RAM Blocks : 0 / 686 ( 0 % )

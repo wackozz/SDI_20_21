@@ -4,14 +4,14 @@ clock => rx_cu:control_unit.clock
 reset => rx_dp:datapath.reset
 reset => rx_cu:control_unit.reset
 rxd => rx_dp:datapath.rxd
-Pout[0] <= rx_dp:datapath.Pout[0]
-Pout[1] <= rx_dp:datapath.Pout[1]
-Pout[2] <= rx_dp:datapath.Pout[2]
-Pout[3] <= rx_dp:datapath.Pout[3]
-Pout[4] <= rx_dp:datapath.Pout[4]
-Pout[5] <= rx_dp:datapath.Pout[5]
-Pout[6] <= rx_dp:datapath.Pout[6]
-Pout[7] <= rx_dp:datapath.Pout[7]
+Pout[0] << rx_dp:datapath.Pout[0]
+Pout[1] << rx_dp:datapath.Pout[1]
+Pout[2] << rx_dp:datapath.Pout[2]
+Pout[3] << rx_dp:datapath.Pout[3]
+Pout[4] << rx_dp:datapath.Pout[4]
+Pout[5] << rx_dp:datapath.Pout[5]
+Pout[6] << rx_dp:datapath.Pout[6]
+Pout[7] << rx_dp:datapath.Pout[7]
 
 
 |rx|rx_dp:datapath
