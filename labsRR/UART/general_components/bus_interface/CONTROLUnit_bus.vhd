@@ -2,14 +2,13 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
   
 ENTITY ControlUnit_bus IS 
-PORT        (  
-                  RESET,CLOCK: IN STD_LOGIC;                      
+PORT        (               RESET,CLOCK: IN STD_LOGIC;                      
                             CS_cu,R_Wn_cu: IN STD_LOGIC; 
                             EN_STATE: OUT STD_LOGIC_VECTOR (2 DOWNTO 0);									 
                               ADD_cu: IN STD_LOGIC_VECTOR (2 DOWNTO 0); 
                            SEL_mux_cu,ATN_cu,EN_regCTRL,EN_regDATARX,EN_regDATATX: OUT STD_LOGIC;                                                       
-                             TX_ack_cu,EN_RX_cu,EN_TX_cu: OUT STD_LOGIC;
-									  CLRatn_cu : BUFFER STD_LOGIC;
+                             TX_ack_cu: OUT STD_LOGIC;
+									  CLRatn_cu : in STD_LOGIC;
                                RX_FULL_cu,TX_EMPTY_cu,ERROR_cu,ATNack_cu: IN STD_LOGIC);
 END ControlUnit_bus; 
 
@@ -17,8 +16,8 @@ END ControlUnit_bus;
 ARCHITECTURE behav OF ControlUnit_bus IS
 
 
-TYPE state_type IS (  IDLE,
-                      WRITE_CTRL,
+TYPE state_type IS (                      IDLE,
+                                          WRITE_CTRL,
 					  READ_STATUS,					  
 					  WRITE_TXdata,                					  
 					  READ_RXdata,
@@ -44,8 +43,8 @@ BEGIN
                                IF (ADD_cu(0) = '1') THEN
                                                             
 													present_state <= WRITE_CTRL; 
-                                ELSE
-                                       present_state <= IDLE;										  
+                                else
+                                   present_state <= IDLE;										  
 				                    END IF;
                             END IF;
                           END IF;         
@@ -71,13 +70,15 @@ BEGIN
 								  IF (TX_EMPTY_cu = '1'AND CS_cu= '1' AND R_Wn_cu = '0' 
 								           AND ADD_cu (0) = '0') THEN
                                  present_state <= WRITE_TXdata;
-
-                          END IF;
+                          
+                          end if;
 								  
-                          IF (RX_FULL_cu = '1'AND CS_cu = '1' 
+                           IF (RX_FULL_cu = '1'AND CS_cu = '1' 
 								          AND R_Wn_cu = '1' AND ADD_cu(0)= '1') THEN
                                  present_state<= READ_RXdata;
-								  END IF;
+									
+										end if;	
+									
 
 
                       
@@ -97,17 +98,15 @@ BEGIN
 								END IF;
 								
 								WHEN ATNack_STATE =>
+								
 								IF(ATNack_cu = '1') THEN
 								  present_state <= IDLE;
-								 END IF;
-								 IF ( TX_EMPTY_cu = '1') THEN --controllo che nel frattempo non siano arrivati
-								                                  -- nuovi segnali senza che ci sia risposta dall'esterno
-								  present_state <= WRITE_TXdata;
-								 ELSE 
-								  present_state <= IDLE;
-								END IF;
 								 
-								 IF ( RX_FULL_cu = '1') THEN
+								 ELSIF ( TX_EMPTY_cu = '1') THEN --controllo che nel frattempo non siano arrivati
+								                                  -- nuovi segnali senza che ci sia stata risposta dall'esterno
+								  present_state <= WRITE_TXdata;
+								
+								ELSIF ( RX_FULL_cu = '1') THEN
 								  present_state <= READ_RXdata;
 								ELSE 
 								  present_state <= IDLE;
@@ -127,20 +126,20 @@ BEGIN
 
   --default values
  
-   SEL_mux_cu <= '0';
+   SEL_mux_cu <= '0'; --LO LASCIO DI DEFAULT A ZERO COSI DA POTER MANDARE SEMPRE L'ERRORE SU DOUT
 	EN_regCTRL <= '0';
 	EN_regDATARX <= '0';
 	EN_regDATATX <= '0';
 	TX_ack_cu  <= '0';
 	EN_STATE(0) <= '0';
 	EN_STATE(1) <= '0';
-	EN_STATE(2) <= '1';
+	EN_STATE(2) <= '1';--LO LASCIO SEMPRE ALTO COSI DA POTER SEMPRE SENTIRE L'ERRORE
 	ATN_cu <= '0';
     
 CASE present_state IS
                        WHEN IDLE =>
 							  IF(ERROR_cu ='1') THEN
-							  EN_STATE(2) <= '0';
+							  EN_STATE(2) <= '1'; 
 							  END IF;
 							  
 							  WHEN WRITE_CTRL =>
@@ -148,11 +147,21 @@ CASE present_state IS
 							  EN_STATE(2) <= '1';
 							  
 							  WHEN READ_STATUS => 
-							  EN_STATE(0) <= '1';
+							  SEL_MUX_cu <= '0';
+							  IF (TX_EMPTY_cu ='1') THEN							  
 							  EN_STATE(1) <= '1';
 							  EN_STATE(2) <= '1';
 							  Tx_ack_cu <= '0';
-							  SEL_MUX_CU <='1';
+							  ATN_cu <= '1';
+							  END IF;
+							  
+							   IF (RX_FULL_cu = '1') THEN							  
+							  EN_STATE(0) <= '1';
+							  EN_STATE(2) <= '1';
+							  Tx_ack_cu <= '0';
+							  ATN_cu <= '1';
+							  END IF;
+							  
 							
 							  							 
 							  WHEN READ_RXdata => -- LEGGO RX_DATA
@@ -172,17 +181,21 @@ CASE present_state IS
 							  IF(CLRatn_cu = '1') THEN
 							  ATN_cu <= '0';
 							  EN_STATE(2) <= '1';
+							  ELSE
+							  ATN_cu <= '1';
 							  END IF;
 							  
 							  WHEN ATNack_STATE =>
-							  IF(ATNack_cu = '1') THEN
-							  ATN_cu <= '0';
-							  ELSE
+							  ATN_cu <= '1';
+							  SEL_MUX_cu <= '0';-- lo lascio in modalità lettura dello stato
+							  EN_STATE(2) <= '1';
+							  EN_STATE (1) <= '1';--ABILITO ENABLE DI RX FULL E TX EMPTY COSI DA POTERLI
+							                      --MENTRE SONO NELLO STATO ATNack
 							  EN_STATE(0) <= '1';
-							  EN_STATE(1) <= '1';
-							  EN_STATE (2) <= '1';
+							  IF(ATNack_cu = '1') THEN
+							  ATN_cu <= '0'; --DISABILITO ATN
+                                                          
 							  END IF;
-							  
 							  
 							 
 							 

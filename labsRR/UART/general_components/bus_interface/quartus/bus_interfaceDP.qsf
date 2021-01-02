@@ -39,17 +39,17 @@
 
 set_global_assignment -name FAMILY "Cyclone 10 LP"
 set_global_assignment -name DEVICE auto
-set_global_assignment -name TOP_LEVEL_ENTITY bus_interfaceDP
+set_global_assignment -name TOP_LEVEL_ENTITY bus_interface
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:08:21  DECEMBER 16, 2020"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VHDL_FILE ../BUS_INTERFACE_TB.vhd
+set_global_assignment -name VHDL_FILE bus_interface.vhd
 set_global_assignment -name VHDL_FILE ../bus_interfaceDP.vhd
 set_global_assignment -name VHDL_FILE ../MUX2TO1.vhd
 set_global_assignment -name VHDL_FILE ../CONTROLUNIT_BUS.vhd
 set_global_assignment -name VHDL_FILE ../BUS_REG.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

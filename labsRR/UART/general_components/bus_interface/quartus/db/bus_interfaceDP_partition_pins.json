@@ -68,14 +68,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "ATN",
-					"strict" : false
-				},
-				{
-					"name" : "TX_ACK",
-					"strict" : false
-				},
-				{
 					"name" : "RX_ENABLE",
 					"strict" : false
 				},
@@ -84,51 +76,23 @@
 					"strict" : false
 				},
 				{
-					"name" : "CLRatn",
+					"name" : "ATN",
 					"strict" : false
 				},
 				{
-					"name" : "ENABLE_FF[0]",
+					"name" : "TX_ACK",
 					"strict" : false
 				},
 				{
-					"name" : "ENABLE_FF[1]",
+					"name" : "FF_IN_B[0]",
 					"strict" : false
 				},
 				{
-					"name" : "ENABLE_FF[2]",
-					"strict" : false
-				},
-				{
-					"name" : "FF_OUT[0]",
-					"strict" : false
-				},
-				{
-					"name" : "FF_OUT[1]",
-					"strict" : false
-				},
-				{
-					"name" : "FF_OUT[2]",
-					"strict" : false
-				},
-				{
-					"name" : "FF_IN[0]",
-					"strict" : false
-				},
-				{
-					"name" : "FF_IN[1]",
-					"strict" : false
-				},
-				{
-					"name" : "FF_IN[2]",
+					"name" : "FF_IN_B[1]",
 					"strict" : false
 				},
 				{
 					"name" : "ATNack",
-					"strict" : false
-				},
-				{
-					"name" : "RX_in[0]",
 					"strict" : false
 				},
 				{
@@ -140,11 +104,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "R_Wn",
+					"name" : "RX_in[0]",
 					"strict" : false
 				},
 				{
-					"name" : "CS",
+					"name" : "R_Wn",
 					"strict" : false
 				},
 				{
@@ -152,7 +116,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "CS",
+					"strict" : false
+				},
+				{
 					"name" : "RX_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "FF_IN_B[2]",
 					"strict" : false
 				},
 				{
