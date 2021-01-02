@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-16
--- Last update: 2020-12-31
+-- Last update: 2021-01-01
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -58,87 +58,85 @@ architecture str of rx_cu is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
-  signal start_en_tmp              : std_logic;
-  signal stop_en_tmp               : std_logic;
+  signal start_en_tmp : std_logic;
+  signal stop_en_tmp  : std_logic;
   type State_type is (idle, reset_s, sh_data, sh_sample, start_off, stop_on, res_cnt, error_s);
-  signal present_state, next_state : State_type;
+  signal next_state   : State_type;
 
 begin  -- architecture str
 
-  state_update : process (clock, reset) is
-  begin  -- process state_update
-    if reset = '1' then                     -- asynchronous reset (active high)
-      present_state <= reset_s;
-    elsif clock'event and clock = '1' then  -- rising clock edge
-      present_state <= next_state;
-    end if;
-  end process state_update;
 
-  next_state_gen : process (flag_68, flag_rxfull, flag_shift_data,
-                            flag_shift_sample, present_state, start,
+  next_state_gen : process (clock, reset, flag_68, flag_rxfull, flag_shift_data,
+                            flag_shift_sample, start,
                             start_en_tmp, stop) is
   begin  -- process next_state_gen
-    case present_state is
 
-      when reset_s =>
-        next_state <= idle;
+    if reset = '0' then                     -- asynchronous reset (active low)
+      next_state <= reset_s;
+    elsif clock'event and clock = '1' then  -- rising clock edge
 
-      when idle =>
-        if flag_shift_data = '1' then
-          if stop = '1' then
-            next_state <= reset_s;
-          else
-            if flag_rxfull = '1' then
-              next_state <= error_s;
+      case next_state is
+
+        when reset_s =>
+          next_state <= idle;
+
+        when idle =>
+          if flag_shift_data = '1' then
+            if stop = '1' then
+              next_state <= reset_s;
             else
-              next_state <= sh_data;
+              if flag_rxfull = '1' then
+                next_state <= error_s;
+              else
+                next_state <= sh_data;
+              end if;
+            end if;
+          elsif flag_shift_sample = '1' then
+            next_state <= sh_sample;
+          elsif flag_68 = '1' then
+            if start = '1' then
+              next_state <= res_cnt;
+            else
+              next_state <= sh_sample;
+            end if;
+          elsif start_en_tmp = '1' then
+            if start = '1' then
+              next_state <= start_off;
+            else
+              next_state <= idle;
             end if;
           end if;
-        elsif flag_shift_sample = '1' then
-          next_state <= sh_sample;
-        elsif flag_68 = '1' then
-          if start = '1' then
-            next_state <= res_cnt;
-          else
-            next_state <= sh_sample;
-          end if;
-        elsif start_en_tmp = '1' then
-          if start = '1' then
-            next_state <= start_off;
+
+        when error_s =>
+          next_state <= reset_s;
+
+        when sh_data =>
+          next_state <= idle;
+
+        when sh_sample =>
+          if flag_rxfull = '1' then
+            next_state <= stop_on;
           else
             next_state <= idle;
           end if;
-        end if;
-        
-      when error_s =>
-        next_state <= reset_s;
 
-      when sh_data =>
-        next_state <= idle;
-
-      when sh_sample =>
-        if flag_rxfull = '1' then
-          next_state <= stop_on;
-        else
+        when start_off =>
           next_state <= idle;
-        end if;
 
-      when start_off =>
-        next_state <= idle;
+        when res_cnt =>
+          next_state <= idle;
 
-      when res_cnt =>
-        next_state <= idle;
+        when stop_on =>
+          next_state <= idle;
 
-      when stop_on =>
-        next_state <= idle;
-
-      when others => null;
-    end case;
+        when others => null;
+      end case;
+    end if;
   end process next_state_gen;
 
 
 --idle, idle_start, force_'1', force_0, load, shift
-  output_decode : process (present_state) is
+  output_decode : process (next_state) is
   begin  -- process output_decode
     count_en_sh     <= '0';
     count_en_rxfull <= '0';
@@ -148,11 +146,11 @@ begin  -- architecture str
     sh_en_samples   <= '0';
     flag_error      <= '0';
     clr_start       <= '0';
-   
-    
-    case present_state is
+
+
+    case next_state is
       when reset_s =>
-        stop_en_tmp     <= '0';
+        stop_en_tmp    <= '0';
         start_en_tmp   <= '1';
         flag_error     <= '0';
         clear_c_rxfull <= '1';
@@ -181,7 +179,7 @@ begin  -- architecture str
 
   end process output_decode;
 
-  rx_full <= flag_rxfull;
+  rx_full  <= flag_rxfull;
   start_en <= start_en_tmp;
   stop_en  <= stop_en_tmp;
 end architecture str;
