@@ -4,28 +4,28 @@ use ieee.std_logic_1164.all;
 
 -------------------------------------------------------------------------------
 
-entity bus_interfaceDP_tb is
+entity bus_interface_tb is
 
-end entity bus_interfaceDP_tb;
+end entity bus_interface_tb;
 
 -------------------------------------------------------------------------------
 
-architecture arch of bus_interfaceDP_tb is
+architecture arch of bus_interface_tb is
 
   -- component ports
   signal Dout, TX_out                            : std_logic_vector (7 downto 0);
   signal RX_in, Din                          : std_logic_vector (7 downto 0);
-  signal ADD , FF_IN,FF_OUT ,ENABLE_FF                              : std_logic_vector (2 downto 0);
+  signal ADD , FF_IN_B                              : std_logic_vector (2 downto 0);
   signal R_Wn, CS, ATNack, RESET      : std_logic;
-  signal ATN, RX_ENABLE, TX_ENABLE, CLRatn, TX_ACK : std_logic;
-  
+  signal ATN, TX_ACK                 :std_logic;
+  signal tx_enable,rx_enable           : std_logic;
   -- clock
   signal clock : std_logic := '1';
 
 begin  -- architecture arch
 
   -- component instantiation
-  DUT : entity work.bus_interfaceDP
+  DUT : entity work.bus_interface
     port map (
       Dout       => Dout,
       TX_out     => TX_out,
@@ -36,15 +36,13 @@ begin  -- architecture arch
       CS         => CS,
       ATNack     => ATNack,
       RESET      => RESET,
-      CLOCK      => CLOCK,
-      ATN        => ATN,
-      RX_ENABLE  => RX_ENABLE,
-      TX_ENABLE  => TX_ENABLE,
-      CLRatn     => CLRatn,
+      CLOCK      => CLOCK,        
+      FF_IN_B      => FF_IN_B,
+      ATN       => ATN,
       TX_ACK     => TX_ACK,
-      FF_IN      => FF_IN,
-      FF_OUT     => FF_OUT,
-		ENABLE_FF  => ENABLE_FF);
+      tx_enable   => tx_enable,
+      rx_enable  =>  rx_enable
+     );
 
   -- clock generation
   clock <= not clock after 10 ns;
@@ -64,10 +62,10 @@ wait for 50 ns;
 ADD <= "010";
 R_Wn <= '1';
 CS <= '1';
-FF_IN <= "000";
+FF_IN_B <= "010";
 RX_in <= "00000000";
 wait for 50 ns;
-FF_IN <= "010";
+FF_IN_B <= "010";
 RX_in <= "00000000";
 din <= "00000111";
 ADD <= "000";
@@ -76,8 +74,7 @@ CS <= '1';
 RX_in <= "00000000";
 ATNack <= '0';
 wait for 50 ns;
-FF_IN <= "100";
-ATNack<='1';
+FF_IN_B <= "001";
 wait;
   end process WaveGen_Proc;
 

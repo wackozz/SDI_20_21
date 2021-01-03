@@ -1,5 +1,5 @@
 Analysis & Synthesis report for bus_interfaceDP
-Fri Dec 18 18:02:23 2020
+Sat Jan 02 22:03:03 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -13,17 +13,16 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |bus_interfaceDP|ControlUnit_bus:control|present_state
+  8. State Machine - |BUS_INTERFACE|ControlUnit_bus:CONTROLUNIT|present_state
   9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: bus_reg:reg_TX_Data
- 11. Parameter Settings for User Entity Instance: bus_reg:reg_CTRL
- 12. Parameter Settings for User Entity Instance: bus_reg:reg_Rx_Data
- 13. Port Connectivity Checks: "ControlUnit_bus:control"
- 14. Port Connectivity Checks: "bus_reg:reg_CTRL"
- 15. Port Connectivity Checks: "mux_2_to_1:mux"
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
+ 10. Parameter Settings for User Entity Instance: bus_interfaceDP:DATAPATH|bus_reg:reg_TX_Data
+ 11. Parameter Settings for User Entity Instance: bus_interfaceDP:DATAPATH|bus_reg:reg_CTRL
+ 12. Parameter Settings for User Entity Instance: bus_interfaceDP:DATAPATH|bus_reg:reg_Rx_Data
+ 13. Port Connectivity Checks: "bus_interfaceDP:DATAPATH|bus_reg:reg_CTRL"
+ 14. Port Connectivity Checks: "bus_interfaceDP:DATAPATH|mux_2_to_1:mux"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -50,16 +49,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Dec 18 18:02:23 2020       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jan 02 22:03:03 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; bus_interfaceDP                             ;
-; Top-level Entity Name              ; bus_interfaceDP                             ;
+; Top-level Entity Name              ; BUS_INTERFACE                               ;
 ; Family                             ; Cyclone 10 LP                               ;
-; Total logic elements               ; 46                                          ;
-;     Total combinational functions  ; 24                                          ;
+; Total logic elements               ; 48                                          ;
+;     Total combinational functions  ; 28                                          ;
 ;     Dedicated logic registers      ; 29                                          ;
 ; Total registers                    ; 29                                          ;
-; Total pins                         ; 55                                          ;
+; Total pins                         ; 47                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -72,7 +71,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
-; Top-level entity name                                            ; bus_interfaceDP    ; bus_interfaceDP    ;
+; Top-level entity name                                            ; bus_interface      ; bus_interfaceDP    ;
 ; Family name                                                      ; Cyclone 10 LP      ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -169,16 +168,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                                                  ; Library ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; ../bus_interfaceDP.vhd           ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd ;         ;
-; ../MUX2TO1.vhd                   ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/MUX2TO1.vhd         ;         ;
-; ../CONTROLUNIT_BUS.vhd           ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/CONTROLUNIT_BUS.vhd ;         ;
-; ../BUS_REG.vhd                   ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/BUS_REG.vhd         ;         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                               ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                                                        ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; bus_interface.vhd                ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/quartus/bus_interface.vhd ;         ;
+; ../bus_interfaceDP.vhd           ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd       ;         ;
+; ../MUX2TO1.vhd                   ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/MUX2TO1.vhd               ;         ;
+; ../CONTROLUNIT_BUS.vhd           ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/CONTROLUNIT_BUS.vhd       ;         ;
+; ../BUS_REG.vhd                   ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/BUS_REG.vhd               ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -186,51 +186,52 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 46          ;
+; Estimated Total logic elements              ; 48          ;
 ;                                             ;             ;
-; Total combinational functions               ; 24          ;
+; Total combinational functions               ; 28          ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 13          ;
-;     -- 3 input functions                    ; 8           ;
-;     -- <=2 input functions                  ; 3           ;
+;     -- 4 input functions                    ; 15          ;
+;     -- 3 input functions                    ; 5           ;
+;     -- <=2 input functions                  ; 8           ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 24          ;
+;     -- normal mode                          ; 28          ;
 ;     -- arithmetic mode                      ; 0           ;
 ;                                             ;             ;
 ; Total registers                             ; 29          ;
 ;     -- Dedicated logic registers            ; 29          ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
-; I/O pins                                    ; 55          ;
+; I/O pins                                    ; 47          ;
 ;                                             ;             ;
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; CLOCK~input ;
 ; Maximum fan-out                             ; 29          ;
-; Total fan-out                               ; 272         ;
-; Average fan-out                             ; 1.67        ;
+; Total fan-out                               ; 264         ;
+; Average fan-out                             ; 1.75        ;
 +---------------------------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                 ;
-+------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+-----------------+--------------+
-; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                      ; Entity Name     ; Library Name ;
-+------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+-----------------+--------------+
-; |bus_interfaceDP             ; 24 (1)              ; 29 (3)                    ; 0           ; 0            ; 0       ; 0         ; 55   ; 0            ; |bus_interfaceDP                         ; bus_interfaceDP ; work         ;
-;    |ControlUnit_bus:control| ; 15 (15)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bus_interfaceDP|ControlUnit_bus:control ; ControlUnit_bus ; work         ;
-;    |bus_reg:reg_CTRL|        ; 0 (0)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bus_interfaceDP|bus_reg:reg_CTRL        ; bus_reg         ; work         ;
-;    |bus_reg:reg_Rx_Data|     ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bus_interfaceDP|bus_reg:reg_Rx_Data     ; bus_reg         ; work         ;
-;    |bus_reg:reg_TX_Data|     ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bus_interfaceDP|bus_reg:reg_TX_Data     ; bus_reg         ; work         ;
-;    |mux_2_to_1:mux|          ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bus_interfaceDP|mux_2_to_1:mux          ; mux_2_to_1      ; work         ;
-+------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+-----------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                        ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                         ; Entity Name     ; Library Name ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------+-----------------+--------------+
+; |BUS_INTERFACE                   ; 28 (0)              ; 29 (0)                    ; 0           ; 0            ; 0       ; 0         ; 47   ; 0            ; |BUS_INTERFACE                                              ; BUS_INTERFACE   ; work         ;
+;    |ControlUnit_bus:CONTROLUNIT| ; 18 (18)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BUS_INTERFACE|ControlUnit_bus:CONTROLUNIT                  ; ControlUnit_bus ; work         ;
+;    |bus_interfaceDP:DATAPATH|    ; 10 (2)              ; 22 (3)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BUS_INTERFACE|bus_interfaceDP:DATAPATH                     ; bus_interfaceDP ; work         ;
+;       |bus_reg:reg_CTRL|         ; 0 (0)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BUS_INTERFACE|bus_interfaceDP:DATAPATH|bus_reg:reg_CTRL    ; bus_reg         ; work         ;
+;       |bus_reg:reg_Rx_Data|      ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BUS_INTERFACE|bus_interfaceDP:DATAPATH|bus_reg:reg_Rx_Data ; bus_reg         ; work         ;
+;       |bus_reg:reg_TX_Data|      ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BUS_INTERFACE|bus_interfaceDP:DATAPATH|bus_reg:reg_TX_Data ; bus_reg         ; work         ;
+;       |mux_2_to_1:mux|           ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BUS_INTERFACE|bus_interfaceDP:DATAPATH|mux_2_to_1:mux      ; mux_2_to_1      ; work         ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |bus_interfaceDP|ControlUnit_bus:control|present_state                                                                                                                                                  ;
+; State Machine - |BUS_INTERFACE|ControlUnit_bus:CONTROLUNIT|present_state                                                                                                                                                ;
 +----------------------------+----------------------------+--------------------------+---------------------------+----------------------------+---------------------------+--------------------------+--------------------+
 ; Name                       ; present_state.ATNack_STATE ; present_state.NEXT_STATE ; present_state.READ_RXdata ; present_state.WRITE_TXdata ; present_state.READ_STATUS ; present_state.WRITE_CTRL ; present_state.IDLE ;
 +----------------------------+----------------------------+--------------------------+---------------------------+----------------------------+---------------------------+--------------------------+--------------------+
@@ -254,54 +255,43 @@ Encoding Type:  One-Hot
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 29    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 21    ;
+; Number of registers using Clock Enable       ; 19    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: bus_reg:reg_TX_Data ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; n              ; 8     ; Signed Integer                          ;
-+----------------+-------+-----------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bus_interfaceDP:DATAPATH|bus_reg:reg_TX_Data ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: bus_reg:reg_CTRL ;
-+----------------+-------+--------------------------------------+
-; Parameter Name ; Value ; Type                                 ;
-+----------------+-------+--------------------------------------+
-; n              ; 8     ; Signed Integer                       ;
-+----------------+-------+--------------------------------------+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bus_interfaceDP:DATAPATH|bus_reg:reg_CTRL ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: bus_reg:reg_Rx_Data ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; n              ; 8     ; Signed Integer                          ;
-+----------------+-------+-----------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bus_interfaceDP:DATAPATH|bus_reg:reg_Rx_Data ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ControlUnit_bus:control"                                                                 ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; en_rx_cu  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; en_tx_cu  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; clratn_cu ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "bus_reg:reg_CTRL"                                                                      ;
+; Port Connectivity Checks: "bus_interfaceDP:DATAPATH|bus_reg:reg_CTRL"                                             ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port    ; Type   ; Severity ; Details                                                                             ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
@@ -309,13 +299,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------+
-; Port Connectivity Checks: "mux_2_to_1:mux" ;
-+----------+-------+----------+--------------+
-; Port     ; Type  ; Severity ; Details      ;
-+----------+-------+----------+--------------+
-; y1[7..3] ; Input ; Info     ; Stuck at GND ;
-+----------+-------+----------+--------------+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "bus_interfaceDP:DATAPATH|mux_2_to_1:mux" ;
++----------+-------+----------+---------------------------------------+
+; Port     ; Type  ; Severity ; Details                               ;
++----------+-------+----------+---------------------------------------+
+; y1[7..3] ; Input ; Info     ; Stuck at GND                          ;
++----------+-------+----------+---------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -323,19 +313,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 55                          ;
+; boundary_port         ; 47                          ;
 ; cycloneiii_ff         ; 29                          ;
-;     CLR               ; 8                           ;
-;     ENA CLR           ; 21                          ;
-; cycloneiii_lcell_comb ; 25                          ;
-;     normal            ; 25                          ;
-;         0 data inputs ; 1                           ;
-;         2 data inputs ; 3                           ;
-;         3 data inputs ; 8                           ;
-;         4 data inputs ; 13                          ;
+;     CLR               ; 10                          ;
+;     ENA CLR           ; 19                          ;
+; cycloneiii_lcell_comb ; 28                          ;
+;     normal            ; 28                          ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 5                           ;
+;         4 data inputs ; 15                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 1.08                        ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.04                        ;
 +-----------------------+-----------------------------+
 
 
@@ -354,13 +343,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Dec 18 18:02:06 2020
+    Info: Processing started: Sat Jan 02 22:02:45 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bus_interface -c bus_interfaceDP
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file /users/user/dropbox/il mio pc (laptop-ald2iqr5)/documents/github/sdi_20_21/labsrr/uart/general_components/bus_interface/bus_interface_tb.vhd
-    Info (12022): Found design unit 1: bus_interfaceDP_tb-arch File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/BUS_INTERFACE_TB.vhd Line: 13
-    Info (12023): Found entity 1: bus_interfaceDP_tb File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/BUS_INTERFACE_TB.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file bus_interface.vhd
+    Info (12022): Found design unit 1: BUS_INTERFACE-STR File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/quartus/bus_interface.vhd Line: 17
+    Info (12023): Found entity 1: BUS_INTERFACE File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/quartus/bus_interface.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file /users/user/dropbox/il mio pc (laptop-ald2iqr5)/documents/github/sdi_20_21/labsrr/uart/general_components/bus_interface/bus_interfacedp.vhd
     Info (12022): Found design unit 1: bus_interfaceDP-behav File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd Line: 18
     Info (12023): Found entity 1: bus_interfaceDP File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd Line: 4
@@ -373,36 +362,30 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
 Info (12021): Found 2 design units, including 1 entities, in source file /users/user/dropbox/il mio pc (laptop-ald2iqr5)/documents/github/sdi_20_21/labsrr/uart/general_components/bus_interface/bus_reg.vhd
     Info (12022): Found design unit 1: bus_reg-behav File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/BUS_REG.vhd Line: 23
     Info (12023): Found entity 1: bus_reg File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/BUS_REG.vhd Line: 9
-Info (12127): Elaborating entity "bus_interfaceDP" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at bus_interfaceDP.vhd(54): object "RX_ENABLE_S" assigned a value but never read File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd Line: 54
-Warning (10036): Verilog HDL or VHDL warning at bus_interfaceDP.vhd(54): object "TX_ENABLE_S" assigned a value but never read File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd Line: 54
-Warning (10036): Verilog HDL or VHDL warning at bus_interfaceDP.vhd(54): object "CLRatn_S" assigned a value but never read File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd Line: 54
-Warning (10034): Output port "SEL_MUX" at bus_interfaceDP.vhd(11) has no driver File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd Line: 11
-Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:mux" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd Line: 128
-Info (12128): Elaborating entity "bus_reg" for hierarchy "bus_reg:reg_TX_Data" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd Line: 131
-Info (12128): Elaborating entity "ControlUnit_bus" for hierarchy "ControlUnit_bus:control" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd Line: 138
-Warning (10541): VHDL Signal Declaration warning at CONTROLUNIT_BUS.vhd(11): used implicit default value for signal "EN_RX_cu" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/CONTROLUNIT_BUS.vhd Line: 11
-Warning (10541): VHDL Signal Declaration warning at CONTROLUNIT_BUS.vhd(11): used implicit default value for signal "EN_TX_cu" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/CONTROLUNIT_BUS.vhd Line: 11
+Info (12127): Elaborating entity "bus_interface" for the top level hierarchy
+Info (12128): Elaborating entity "bus_interfaceDP" for hierarchy "bus_interfaceDP:DATAPATH" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/quartus/bus_interface.vhd Line: 55
+Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "bus_interfaceDP:DATAPATH|mux_2_to_1:mux" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd Line: 109
+Info (12128): Elaborating entity "bus_reg" for hierarchy "bus_interfaceDP:DATAPATH|bus_reg:reg_TX_Data" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd Line: 112
+Info (12128): Elaborating entity "ControlUnit_bus" for hierarchy "ControlUnit_bus:CONTROLUNIT" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/quartus/bus_interface.vhd Line: 63
 Warning (10492): VHDL Process Statement warning at CONTROLUNIT_BUS.vhd(142): signal "ERROR_cu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/CONTROLUNIT_BUS.vhd Line: 142
-Warning (10492): VHDL Process Statement warning at CONTROLUNIT_BUS.vhd(172): signal "CLRatn_cu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/CONTROLUNIT_BUS.vhd Line: 172
-Warning (10492): VHDL Process Statement warning at CONTROLUNIT_BUS.vhd(178): signal "ATNack_cu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/CONTROLUNIT_BUS.vhd Line: 178
-Warning (10030): Net "CLRatn_cu" at CONTROLUNIT_BUS.vhd(12) has no driver or initial value, using a default initial value '0' File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/CONTROLUNIT_BUS.vhd Line: 12
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "SEL_MUX" is stuck at GND File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd Line: 11
+Warning (10492): VHDL Process Statement warning at CONTROLUNIT_BUS.vhd(152): signal "TX_EMPTY_cu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/CONTROLUNIT_BUS.vhd Line: 152
+Warning (10492): VHDL Process Statement warning at CONTROLUNIT_BUS.vhd(159): signal "RX_FULL_cu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/CONTROLUNIT_BUS.vhd Line: 159
+Warning (10492): VHDL Process Statement warning at CONTROLUNIT_BUS.vhd(182): signal "CLRatn_cu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/CONTROLUNIT_BUS.vhd Line: 182
+Warning (10492): VHDL Process Statement warning at CONTROLUNIT_BUS.vhd(196): signal "ATNack_cu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/CONTROLUNIT_BUS.vhd Line: 196
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "ADD[1]" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd Line: 8
-    Warning (15610): No output dependent on input pin "ADD[2]" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/bus_interfaceDP.vhd Line: 8
-Info (21057): Implemented 102 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "ADD[1]" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/quartus/bus_interface.vhd Line: 13
+    Warning (15610): No output dependent on input pin "ADD[2]" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/labsRR/UART/general_components/bus_interface/quartus/bus_interface.vhd Line: 13
+Info (21057): Implemented 97 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 27 input pins
-    Info (21059): Implemented 28 output pins
-    Info (21061): Implemented 47 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info (21059): Implemented 20 output pins
+    Info (21061): Implemented 50 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
     Info: Peak virtual memory: 4784 megabytes
-    Info: Processing ended: Fri Dec 18 18:02:23 2020
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:33
+    Info: Processing ended: Sat Jan 02 22:03:03 2021
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:32
 
 

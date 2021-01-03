@@ -1,5 +1,5 @@
 
-State Machine - |bus_interfaceDP|ControlUnit_bus:control|present_state
+State Machine - |BUS_INTERFACE|ControlUnit_bus:CONTROLUNIT|present_state
 Name present_state.ATNack_STATE present_state.NEXT_STATE present_state.READ_RXdata present_state.WRITE_TXdata present_state.READ_STATUS present_state.WRITE_CTRL present_state.IDLE 
 present_state.IDLE 0 0 0 0 0 0 0 
 present_state.WRITE_CTRL 0 0 0 0 0 1 1 
