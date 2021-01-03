@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2020-12-31
+-- Last update: 2021-01-03
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -58,7 +58,6 @@ architecture str of tx is
   component tx_dp is
     port (
       clock            : in  std_logic;
-      tx_empty_ack     : in  std_logic;
       reset            : in  std_logic;
       clear            : in  std_logic;
       force_one        : in  std_logic;
@@ -83,6 +82,7 @@ architecture str of tx is
       count_en_tc      : out std_logic;
       count_en_txempty : out std_logic;
       term_count       : in  std_logic;
+      tx_empty_ack     : in  std_logic;
       tx_empty_dp      : in  std_logic;
       tx_empty         : out std_logic;
       force_one        : out std_logic;
@@ -100,12 +100,12 @@ begin
     count_en_txempty => count_en_txempty,
     count_en_tc      => count_en_tc,
     tx_empty_dp      => tx_empty_dp,
-    tx_empty_ack     => tx_empty_ack,
-    term_count       => term_count,
-    p_in             => p_in,
-    ld_en            => ld_en,
-    sh_en            => sh_en,
-    TxD              => TxD);
+
+    term_count => term_count,
+    p_in       => p_in,
+    ld_en      => ld_en,
+    sh_en      => sh_en,
+    TxD        => TxD);
 
   controlunit : tx_cu port map (
     clock            => clock,
@@ -119,6 +119,7 @@ begin
     tx_empty_dp      => tx_empty_dp,
     term_count       => term_count,
     ld_en            => ld_en,
+    tx_empty_ack     => tx_empty_ack,
     sh_en            => sh_en);
 
 

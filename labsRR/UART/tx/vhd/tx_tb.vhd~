@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2020-12-30
+-- Last update: 2020-12-31
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -37,6 +37,7 @@ architecture arch of tx_tb is
   signal reset        : std_logic := '1';
   signal p_in         : std_logic_vector(7 downto 0);
   signal TxD          : std_logic;
+  signal tx_empty     : std_logic;
   signal tx_empty_ack : std_logic;
   -- clock
   signal Clk          : std_logic := '1';
@@ -49,6 +50,7 @@ begin  -- architecture arch
       clock        => clock,
       reset        => reset,
       tx_empty_ack => tx_empty_ack,
+      tx_empty     => tx_empty,
       p_in         => p_in,
       TxD          => TxD);
 

@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2020-12-31
+-- Last update: 2021-01-03
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -55,16 +55,20 @@ begin  -- architecture arch
       TxD          => TxD);
 
   -- clock generation
-  clock <= not clock after 10 ns;
+  clock <= not clock after 31.25 ns;
   rst : process is
   begin
     reset        <= '1';
     tx_empty_ack <= '1';
-    wait for 10 ns;
+    wait for 40 ns;
     reset        <= '0';
-    wait for 30 ns;
-    reset        <= '1';
     wait for 50 ns;
+    reset        <= '1';
+    wait for 70 ns;
+    tx_empty_ack <= '0';
+    wait for 100 us;
+    tx_empty_ack <= '1';
+    wait for 100 ns;
     tx_empty_ack <= '0';
     wait;
   end process;

@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2020-12-31
+-- Last update: 2021-01-03
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -31,12 +31,11 @@ entity tx_dp is
     clear            : in  std_logic;
     force_one        : in  std_logic;
     force_zero       : in  std_logic;
-    tx_empty_ack     : in  std_logic;
     --counter
     count_en_tc      : in  std_logic;
     count_en_txempty : in  std_logic;
-    tx_empty_dp      : out std_logic;
     term_count       : out std_logic;
+    tx_empty_dp   : out std_logic;
     --shift r
     p_in             : in  std_logic_vector(7 downto 0);  --input (SR)
     ld_en            : in  std_logic;   -- paraellel load shift reg
@@ -57,8 +56,8 @@ architecture arch of tx_dp is
   signal tc_flag_sh        : std_logic                      := '0';
   signal tc_flag_txempty   : std_logic                      := '0';
   signal d                 : std_logic_vector(N-1 downto 0) := (others => '0');  --unused
-  signal d_txempty         : std_logic_vector(2 downto 0)   := (others => '0');  --unused
-  signal q_txempty         : std_logic_vector(2 downto 0);
+  signal d_txempty         : std_logic_vector(3 downto 0)   := (others => '0');  --unused
+  signal q_txempty         : std_logic_vector(3 downto 0);
   signal q_c_shift         : std_logic_vector(N-1 downto 0);
   signal reset_tmp         : std_logic;
   --register
@@ -124,11 +123,11 @@ begin  -- architecture arch
       );
 
   counter_txempty : counter_nbit
-    generic map (N => 3)
+    generic map (N => 4)
     port map (
       clock   => clock,
       clear   => reset_tmp,
-      tc      => std_logic_vector(to_unsigned(7, 3)),
+      tc      => std_logic_vector(to_unsigned(8, 4)),
       en      => count_en_txempty,
       ld      => ld,
       tc_flag => tc_flag_txempty,
@@ -136,12 +135,12 @@ begin  -- architecture arch
       q       => q_txempty
       );
 
-  tx_empty_dp   <= tc_flag_txempty;
+  tx_empty_dp <=tc_flag_txempty;
   term_count <= tc_flag_sh;
 
   TxD <= not(force_zero) and (s_out or force_one);
 
-  reset_tmp <= not(reset);
+  reset_tmp <= not(reset) or clear;
 
 
 end architecture arch;

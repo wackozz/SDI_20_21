@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2020-12-31
+-- Last update: 2021-01-03
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -31,8 +31,9 @@ entity tx_cu is
     clock            : in  std_logic;
     reset            : in  std_logic;
     term_count       : in  std_logic;   -- HIGH if counter output shift  == 139
-    tx_empty         : out  std_logic;   -- HIGH if counter output txempty == 7
-    tx_empty_dp      : in std_logic;
+    tx_empty         : out std_logic;   -- HIGH if counter output txempty == 7
+    tx_empty_ack     : in  std_logic;
+    tx_empty_dp      : in  std_logic;
     ld_en            : out std_logic;
     sh_en            : out std_logic;   -- enable for sr
     count_en_tc      : out std_logic;   -- enable for counter tc
@@ -64,15 +65,16 @@ begin  -- architecture str
     end if;
   end process state_update;
 
-  next_state_gen : process (present_state, term_count, tx_empty_dp) is
+  next_state_gen : process (present_state, term_count, tx_empty_ack,
+                            tx_empty_dp) is
   begin  -- process next_state_gen
     case present_state is
 
       when idle_start =>
-        if tx_empty_dp = '1' then
-          next_state <= idle_start;
-        else
+        if tx_empty_ack = '1' then
           next_state <= load;
+        else
+          next_state <= idle_start;
         end if;
 
       when load =>
@@ -98,7 +100,7 @@ begin  -- architecture str
         end if;
 
       when shift =>
-          next_state <= idle;
+        next_state <= idle;
 
       when others => null;
     end case;
@@ -114,11 +116,13 @@ begin  -- architecture str
     force_zero       <= '0';
     count_en_tc      <= '0';
     count_en_txempty <= '0';
+    clear            <= '0';
 
     case present_state is
       when idle_start =>
         force_one <= '1';
       when load =>
+        clear     <= '1';
         ld_en     <= '1';
         force_one <= '1';
       when res_cnt =>

@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2020-12-30
+-- Last update: 2020-12-31
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -35,7 +35,7 @@ entity tx_dp is
     --counter
     count_en_tc      : in  std_logic;
     count_en_txempty : in  std_logic;
-    tx_empty         : out std_logic;
+    tx_empty_dp      : out std_logic;
     term_count       : out std_logic;
     --shift r
     p_in             : in  std_logic_vector(7 downto 0);  --input (SR)
@@ -136,7 +136,7 @@ begin  -- architecture arch
       q       => q_txempty
       );
 
-  tx_empty   <= tc_flag_txempty;
+  tx_empty_dp   <= tc_flag_txempty;
   term_count <= tc_flag_sh;
 
   TxD <= not(force_zero) and (s_out or force_one);
