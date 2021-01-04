@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2021-01-03
+-- Last update: 2021-01-04
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -34,6 +34,7 @@ entity tx_cu is
     tx_empty         : out std_logic;   -- HIGH if counter output txempty == 7
     tx_empty_ack     : in  std_logic;
     tx_empty_dp      : in  std_logic;
+     tc_flag_txempty : in std_logic;
     ld_en            : out std_logic;
     sh_en            : out std_logic;   -- enable for sr
     count_en_tc      : out std_logic;   -- enable for counter tc
@@ -140,8 +141,7 @@ begin  -- architecture str
     end case;
   end process output_decode;
 
-  tx_empty <= tx_empty_dp;
-
+  tx_empty <=  tc_flag_txempty;
 end architecture str;
 
 -------------------------------------------------------------------------------

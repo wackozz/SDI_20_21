@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2021-01-03
+-- Last update: 2021-01-04
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -52,6 +52,7 @@ architecture str of tx is
   signal count_en_txempty : std_logic;
   signal term_count       : std_logic;
   signal tx_empty_dp      : std_logic;
+  signal  tc_flag_txempty : std_logic;
   signal force_one        : std_logic;
   signal force_zero       : std_logic;
 
@@ -65,6 +66,7 @@ architecture str of tx is
       count_en_tc      : in  std_logic;
       count_en_txempty : in  std_logic;
       tx_empty_dp      : out std_logic;
+       tc_flag_txempty : out std_logic;
       term_count       : out std_logic;
       p_in             : in  std_logic_vector(7 downto 0);
       ld_en            : in  std_logic;
@@ -85,6 +87,7 @@ architecture str of tx is
       tx_empty_ack     : in  std_logic;
       tx_empty_dp      : in  std_logic;
       tx_empty         : out std_logic;
+       tc_flag_txempty : in std_logic;
       force_one        : out std_logic;
       force_zero       : out std_logic);
   end component tx_cu;
@@ -100,7 +103,7 @@ begin
     count_en_txempty => count_en_txempty,
     count_en_tc      => count_en_tc,
     tx_empty_dp      => tx_empty_dp,
-
+     tc_flag_txempty =>  tc_flag_txempty,
     term_count => term_count,
     p_in       => p_in,
     ld_en      => ld_en,
@@ -116,6 +119,7 @@ begin
     count_en_tc      => count_en_tc,
     count_en_txempty => count_en_txempty,
     tx_empty         => tx_empty,
+     tc_flag_txempty =>  tc_flag_txempty,
     tx_empty_dp      => tx_empty_dp,
     term_count       => term_count,
     ld_en            => ld_en,

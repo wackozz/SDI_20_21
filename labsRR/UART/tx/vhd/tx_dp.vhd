@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2021-01-03
+-- Last update: 2021-01-04
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -36,6 +36,7 @@ entity tx_dp is
     count_en_txempty : in  std_logic;
     term_count       : out std_logic;
     tx_empty_dp   : out std_logic;
+    tc_flag_txempty : out std_logic;
     --shift r
     p_in             : in  std_logic_vector(7 downto 0);  --input (SR)
     ld_en            : in  std_logic;   -- paraellel load shift reg
@@ -54,10 +55,10 @@ architecture arch of tx_dp is
   constant N               : integer                        := 8;
   signal ld                : std_logic                      := '0';  --parallel load for counter                   
   signal tc_flag_sh        : std_logic                      := '0';
-  signal tc_flag_txempty   : std_logic                      := '0';
+
   signal d                 : std_logic_vector(N-1 downto 0) := (others => '0');  --unused
-  signal d_txempty         : std_logic_vector(3 downto 0)   := (others => '0');  --unused
-  signal q_txempty         : std_logic_vector(3 downto 0);
+  signal d_txempty         : std_logic_vector(4 downto 0)   := (others => '0');  --unused
+  signal q_txempty         : std_logic_vector(4 downto 0);
   signal q_c_shift         : std_logic_vector(N-1 downto 0);
   signal reset_tmp         : std_logic;
   --register
@@ -123,11 +124,11 @@ begin  -- architecture arch
       );
 
   counter_txempty : counter_nbit
-    generic map (N => 4)
+    generic map (N => 5)
     port map (
       clock   => clock,
       clear   => reset_tmp,
-      tc      => std_logic_vector(to_unsigned(8, 4)),
+      tc      => std_logic_vector(to_unsigned(9, 5)),
       en      => count_en_txempty,
       ld      => ld,
       tc_flag => tc_flag_txempty,
@@ -135,7 +136,10 @@ begin  -- architecture arch
       q       => q_txempty
       );
 
-  tx_empty_dp <=tc_flag_txempty;
+  tx_empty_dp <= '1' when
+                 unsigned(q_txempty) = (to_unsigned(8, 5))
+                 else '0';
+  
   term_count <= tc_flag_sh;
 
   TxD <= not(force_zero) and (s_out or force_one);
