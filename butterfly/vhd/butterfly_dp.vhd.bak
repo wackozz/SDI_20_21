@@ -51,21 +51,7 @@ entity butterfly_dp is
     s_mux_B_add : in  std_logic_vector(1 downto 0);
 -- ADD/MPY CTRL
     add_sub     : in  std_logic;
-    sh_mpy      : in  std_logic;
-	 
-	 -- EN
-   Wr_enable     :in std_logic;
-   Wj_enable     :in std_logic;
-   Br_enable     :in std_logic;
-   Bj_enable     :in std_logic;
-   Ar_enable     :in std_logic;
-   Aj_enable     :in std_logic;
-   Br_out_enable :in std_logic;
-   Bj_out_enable :in std_logic;
-   Ar_out_enable :in std_logic;
-   Aj_out_enable :in std_logic;
-	
-	done : out std_logic);
+    sh_mpy      : in  std_logic);
 end entity butterfly_dp;
 
 -------------------------------------------------------------------------------
@@ -90,7 +76,17 @@ architecture str of butterfly_dp is
   signal Wj_Q : std_logic_vector(N-1 downto 0);
   signal Wr_Q : std_logic_vector(N-1 downto 0);
 
-
+  -- EN
+  signal Wr_enable     : std_logic;
+  signal Wj_enable     : std_logic;
+  signal Br_enable     : std_logic;
+  signal Bj_enable     : std_logic;
+  signal Ar_enable     : std_logic;
+  signal Aj_enable     : std_logic;
+  signal Br_out_enable : std_logic;
+  signal Bj_out_enable : std_logic;
+  signal Ar_out_enable : std_logic;
+  signal Aj_out_enable : std_logic;
 --MUX
   signal temp_D1       : std_logic_vector(2*N+2 downto 0);
   signal temp_D2       : std_logic_vector(2*N+2 downto 0);
