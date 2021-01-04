@@ -89,3 +89,179 @@ run 200 us
 #    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
 #    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tx_tb(arch)
+# Loading work.tx(str)
+# Loading work.tx_dp(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.tx_cu(str)
+run 200us
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tx_tb(arch)
+# Loading work.tx(str)
+# Loading work.tx_dp(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.tx_cu(str)
+run 200us
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tx_tb(arch)
+# Loading work.tx(str)
+# Loading work.tx_dp(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.tx_cu(str)
+run 200us
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tx_tb(arch)
+# Loading work.tx(str)
+# Loading work.tx_dp(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.tx_cu(str)
+run 200us
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tx_tb(arch)
+# Loading work.tx(str)
+# Loading work.tx_dp(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.tx_cu(str)
+run 200us
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tx_tb(arch)
+# Loading work.tx(str)
+# Loading work.tx_dp(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.tx_cu(str)
+run 200us
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tx_tb(arch)
+# Loading work.tx(str)
+# Loading work.tx_dp(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.tx_cu(str)
+run 200us
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift
+# Compile of tx.vhd was successful.
+# Compile of tx_cu.vhd was successful.
+# Compile of tx_dp.vhd was successful.
+# Compile of tx_tb.vhd was successful.
+# Compile of counter_nbit.vhd was successful.
+# Compile of shift_register_8bit.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tx_tb(arch)
+# Loading work.tx(str)
+# Loading work.tx_dp(arch)
+# Loading work.shift_register_8bit(arch)
+# Loading work.counter_nbit(arch)
+# Loading work.tx_cu(str)
+run 200us
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_txempty
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tx_tb/DUT/datapath/counter_shift

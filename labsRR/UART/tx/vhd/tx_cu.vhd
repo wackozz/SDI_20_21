@@ -52,7 +52,7 @@ architecture str of tx_cu is
   -- Internal signal declarations
   -----------------------------------------------------------------------------
 
-  type State_type is (idle, res_cnt, idle_start, force_0, load, shift);
+  type State_type is (idle, res_cnt, idle_start, force_0, load, shift,shift_stop,  stop);
   signal present_state, next_state : State_type;
 
 begin  -- architecture str
@@ -66,8 +66,8 @@ begin  -- architecture str
     end if;
   end process state_update;
 
-  next_state_gen : process (present_state, term_count, tx_empty_ack,
-                            tx_empty_dp) is
+  next_state_gen : process (present_state, tc_flag_txempty, term_count,
+                            tx_empty_ack, tx_empty_dp) is
   begin  -- process next_state_gen
     case present_state is
 
@@ -93,7 +93,7 @@ begin  -- architecture str
 
       when idle =>
         if tx_empty_dp = '1' then
-          next_state <= idle_start;
+          next_state <= stop;
         elsif term_count = '1' then
           next_state <= shift;
         else
@@ -102,6 +102,19 @@ begin  -- architecture str
 
       when shift =>
         next_state <= idle;
+
+      when stop =>
+        if tc_flag_txempty='1' then
+          next_state <= idle_start;
+        elsif term_count = '1' then
+          next_state <= shift_stop;
+        else
+          next_state <= stop;
+        end if;
+        
+      when shift_stop =>
+        next_state <= stop;
+        
 
       when others => null;
     end case;
@@ -138,6 +151,14 @@ begin  -- architecture str
         count_en_txempty <= '1';
         sh_en            <= '1';
         count_en_tc      <= '0';
+      when stop =>
+        force_one <= '1';
+        count_en_tc <= '1';
+      when shift_stop =>
+        count_en_txempty <= '1';
+        count_en_tc      <= '0';
+        force_one <= '1';
+ 
     end case;
   end process output_decode;
 
