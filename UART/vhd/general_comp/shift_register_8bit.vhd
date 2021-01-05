@@ -18,7 +18,6 @@
 -- Date        Version  Author  Description
 -- 2020-12-11  1.0      wackoz  Created
 -------------------------------------------------------------------------------
-c
 
   library ieee;
 use ieee.std_logic_1164.all;

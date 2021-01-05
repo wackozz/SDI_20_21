@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-16
--- Last update: 2021-01-01
+-- Last update: 2021-01-05
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -62,13 +62,10 @@ architecture str of rx_cu is
   signal stop_en_tmp  : std_logic;
   type State_type is (idle, reset_s, sh_data, sh_sample, start_off, stop_on, res_cnt, error_s);
   signal next_state   : State_type;
-
 begin  -- architecture str
 
 
-  next_state_gen : process (clock, reset, flag_68, flag_rxfull, flag_shift_data,
-                            flag_shift_sample, start,
-                            start_en_tmp, stop) is
+  next_state_gen : process (clock, reset) is
   begin  -- process next_state_gen
 
     if reset = '0' then                     -- asynchronous reset (active low)
