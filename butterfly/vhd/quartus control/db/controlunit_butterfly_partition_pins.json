@@ -78,6 +78,10 @@
 				{
 					"name" : "datapath_commands[18]",
 					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
 				}
 			]
 		}
