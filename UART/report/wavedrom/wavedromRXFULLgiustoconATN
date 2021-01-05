@@ -1,0 +1,16 @@
+{signal: [
+  {name: 'clk', wave: "0.1.0.1.0.1.0.1.0.1.0." , period:0.5},
+  {name: 'RX_Full', wave: 'x.2.x..x...', data: ['000'] ,node:'..a...', period:1},
+  {name: 'Rx_Data', wave:'x.....2.x..' , data:['DatoRx'],node:'......f.g.'},
+  {name: 'ADD', wave:'x.2.x.2.x..', data:['10','01']},
+  {name: 'R/Wn', wave:'x.1.x.0.x..'},
+  {name: 'CS', wave:'0.1.0.1.0..'},
+  {name: 'En_STATUS', wave:'0.1.0......'},
+  {name: 'Dout', wave:'xxxx2.x.2.x', data:['000','DatoRx'],node:'....b.....h' },
+  {name: 'ATN', wave:'0.1.....0..', },
+  {name: 'ATNACK', wave:'0.....1.0..'}
+],
+  edge: [
+   'a~>b t1' , 'e~>f t2', 'g~>h t3'
+  ]
+}

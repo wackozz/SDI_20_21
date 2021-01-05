@@ -1,0 +1,13 @@
+{signal: [
+  {name: 'clk', wave: "0.1.0.1.0.1.0." , period:0.5},
+  {name: 'Rx_en', wave: 'x...2.x', data: ['010'], node:'....a...' ,period:1},
+  {name: 'ADD', wave:'x.2.x..', data:['11','00']},
+  {name: 'R/Wn', wave:'x.0.x.-'},
+  {name: 'CS', wave:'0.1.0..'},
+  {name: 'En_CTRL', wave:'0.1.0..'},
+  {name: 'Din', wave:'x.2.x..', data:['010'], node:'..b...'}
+],
+  edge: [
+   'b~>a t1' 
+  ]
+}
