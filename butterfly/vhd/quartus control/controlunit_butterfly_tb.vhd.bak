@@ -12,19 +12,19 @@ end entity controlunit_butterfly_tb;
 architecture arch of controlunit_butterfly_tb is
 
   -- component ports
-  signal Datapath_commands                           : std_logic_vector (33 downto 0);
-  signal status                         : std_logic_vector (1 downto 0);
-
+ signal status:  std_logic_vector ( 1 downto 0);
+ signal	datapath_commands :  std_logic_vector ( 18 downto 0);
   -- clock
   signal clock : std_logic := '1';
 
 begin  -- architecture arch
 
   -- component instantiation
-  DUT : entity work.controlunit_butterfly_tb
+  DUT : entity work.controlunit_butterfly
     port map (
-       datapth_commands =>> datapath_commands,
-		 status => status
+	 clock => clock,
+     status => status,
+		datapath_commands => datapath_commands
      );
 
   -- clock generation
@@ -34,11 +34,21 @@ begin  -- architecture arch
   WaveGen_Proc : process
   begin
     -- insert signal assignments here
-status => "00";
-wait 50 ns;
-status => "00";
-wait 50 ns;
-status => "10";
+
+
+status <= "00";
+wait for 50 ns;
+status <= "00";
+
+
+wait for 50 ns;
+status <= "10";
+wait for 50 ns;
+status <= "10";
+wait for 50 ns;
+
+status <= "00";
+
 wait;
   end process WaveGen_Proc;
 
