@@ -1,0 +1,246 @@
+-------------------------------------------------------------------------------
+-- Title      : rx_dp
+-- Project    : 
+-------------------------------------------------------------------------------
+-- File       : rx_dp.vhd
+-- Author     :   <Sabina@DESKTOP-IN9UA4D>
+-- Company    : 
+-- Created    : 2020-12-15
+-- Last update: 2020-12-30
+-- Platform   : 
+-- Standard   : VHDL'93/02
+-------------------------------------------------------------------------------
+-- Description: datapath for rx
+-------------------------------------------------------------------------------
+-- Copyright (c) 2020 
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author  Description
+-- 2020-12-15  1.0      Sabina  Created
+-------------------------------------------------------------------------------
+
+library ieee;
+use ieee.numeric_std.all;
+use ieee.std_logic_1164.all;
+
+-------------------------------------------------------------------------------
+
+entity rx_dp is
+  port (
+    clock             : in  std_logic;
+    reset             : in  std_logic;  -- active low
+    clr_start         : in  std_logic;
+    clear_c_shift     : in  std_logic;
+    clear_c_rxfull    : in  std_logic;
+    flag_rxfull       : out std_logic;
+    flag_shift_data   : out std_logic;
+    flag_shift_sample : out std_logic;
+    flag_68           : out std_logic;
+    rxd               : in  std_logic;  -- input
+    sh_en_samples     : in  std_logic;  -- shift enable for samples
+    sh_en_data        : in  std_logic;  -- shift enable for sr data
+    start_en          : in  std_logic;
+    start             : out std_logic;
+    stop_en           : in  std_logic;
+    stop              : out std_logic;
+    count_en_sh       : in  std_logic;
+    count_en_rxfull   : in  std_logic;
+    Pout              : out std_logic_vector(7 downto 0));  -- output
+
+end entity rx_dp;
+
+-------------------------------------------------------------------------------
+
+architecture str of rx_dp is
+
+  -----------------------------------------------------------------------------
+  -- INTERNAL SIGNAL DECLARATION
+  -----------------------------------------------------------------------------
+  signal SL : integer := 17;  -- sample length
+  signal p_out_samples : std_logic_vector(7 downto 0);  --out for samples sr
+  signal d_c_shift     : std_logic_vector(7 downto 0);  --unused
+  signal d_c_rxfull    : std_logic_vector(3 downto 0);  --unused
+  signal q_c_shift     : std_logic_vector(7 downto 0);
+  signal q_c_rxfull    : std_logic_vector(3 downto 0);
+  signal ld            : std_logic;                     -- unusued
+  signal vote          : std_logic;
+  signal s_out         : std_logic;                     -- unused
+  signal p_in          : std_logic_vector(7 downto 0);  -- unused
+  signal voter_d       : std_logic_vector(2 downto 0);
+  signal ld_en : std_logic;
+  signal clear_sh_tmp : std_logic;
+  signal clear_rxfull_tmp : std_logic;
+  
+
+  -----------------------------------------------------------------------------
+  -- COMPONENT DECLARATION
+  -----------------------------------------------------------------------------
+  component counter_nbit is
+    generic (
+      N : integer);
+    port (
+      clock   : in  std_logic;
+      clear   : in  std_logic;
+      en      : in  std_logic;
+      ld      : in  std_logic;
+      tc      : in  std_logic_vector(N-1 downto 0);
+      d       : in  std_logic_vector(N-1 downto 0);
+      q       : out std_logic_vector(N-1 downto 0);
+      tc_flag : out std_logic);
+  end component counter_nbit;
+
+  component shift_register_8bit is
+    port (
+      clock : in  std_logic;
+      sh_en : in  std_logic;
+      ld_en : in  std_logic;
+      s_in  : in  std_logic;
+      s_out : out std_logic;
+      p_in  : in  std_logic_vector(7 downto 0);
+      p_out : out std_logic_vector(7 downto 0));
+  end component shift_register_8bit;
+
+  component voter_3bit is
+    port (
+      clock    : in  std_logic;
+      reset    : in  std_logic;
+      voter_en : in  std_logic;
+      d        : in  std_logic_vector(2 downto 0);
+      vote     : out std_logic);
+  end component voter_3bit;
+
+  component stop_detector is
+    port (
+      clock       : in  std_logic;
+      reset       : in  std_logic;
+      stop_det_en : in  std_logic;
+      d           : in  std_logic_vector(7 downto 0);
+      stop        : out std_logic);
+  end component stop_detector;
+
+  component start_detector is
+    port (
+      clock        : in  std_logic;
+      reset        : in  std_logic;
+      clear        : in  std_logic;
+      start_det_en : in  std_logic;
+      d            : in  std_logic_vector(7 downto 0);
+      start        : out std_logic);
+  end component start_detector;
+
+
+begin  -- architecture str
+
+  -----------------------------------------------------------------------------
+  -- PORT MAPPING
+  -----------------------------------------------------------------------------
+
+  voter : voter_3bit
+    port map (
+      clock    => clock,
+      reset    => reset,
+      voter_en => '1',
+      d        => voter_d,
+      vote     => vote
+      );
+
+  start_det : start_detector
+    port map(
+      clock        => clock,
+      reset        => reset,
+      clear        => clr_start,
+      start_det_en => start_en,
+      d            => p_out_samples,
+      start        => start
+      );
+
+  stop_det : stop_detector
+    port map(
+      clock       => clock,
+      reset       => reset,
+      stop_det_en => stop_en,
+      d           => p_out_samples,
+      stop        => stop
+      );
+
+  shift_reg_samples : shift_register_8bit
+    port map (
+      clock => clock,
+      ld_en => ld_en,
+      sh_en => sh_en_samples,
+      s_in  => rxd,
+      s_out => s_out,
+      p_in  => p_in,
+      p_out => p_out_samples
+      );
+  -- port map: counter
+
+  counter_shift : counter_nbit
+    generic map (N => 8)
+    port map (
+      clock   => clock,
+      clear   => clear_sh_tmp,
+      tc      => std_logic_vector(to_unsigned(130, 8)),
+      tc_flag => flag_shift_data,
+      en      => count_en_sh,
+      ld      => ld,
+      d       => d_c_shift,
+      q       => q_c_shift
+      );
+
+  shift_reg_data : shift_register_8bit
+    port map (
+      clock => clock,
+      ld_en => ld_en,
+      sh_en => sh_en_data,
+      s_in  => vote,
+      s_out => s_out, 
+      p_in  => p_in,
+      p_out => Pout
+      );
+  -- port map: counter
+
+  counter_rxfull : counter_nbit
+    generic map (N => 4)
+    port map (
+      clock   => clock,
+      clear   => clear_rxfull_tmp,
+      tc      => std_logic_vector(to_unsigned(8, 4)),
+      tc_flag => flag_rxfull,
+      en      => count_en_rxfull,
+      ld      => ld,
+      d       => d_c_rxfull,
+      q       => q_c_rxfull
+      );
+
+
+  -----------------------------------------------------------------------------
+  -- SIGNAL ASSIGNMENT
+  -----------------------------------------------------------------------------
+  shift_r_init : process (reset) is
+  begin  -- process shift_r_init
+    if reset = '0' then
+      ld_en <= '1';
+    else
+      ld_en <= '0';
+    end if;
+  end process shift_r_init;
+  flag_shift_sample <= '1' when
+                       unsigned(q_c_shift) = (to_unsigned(SL-3, 8)) or
+                       unsigned(q_c_shift) = (to_unsigned(SL*2-3, 8)) or
+                       unsigned(q_c_shift) = (to_unsigned(SL*3-3, 8)) or                      
+                       unsigned(q_c_shift) = (to_unsigned(SL*5-3, 8)) or
+                       unsigned(q_c_shift) = (to_unsigned(SL*6-3, 8)) or
+                       unsigned(q_c_shift) = (to_unsigned(SL*7-3, 8))
+                       else '0';
+
+  flag_68 <= '1' when unsigned(q_c_shift) = (to_unsigned(SL*4-3, 8)) else '0';
+
+  voter_d <= p_out_samples(3)&p_out_samples(4)&p_out_samples(5);
+--flag for counter sh out, high when 4*Tbaud/. Used to sync from start
+--detention to first frame  
+  p_in    <= "11111111";
+  clear_rxfull_tmp <=  clear_c_rxfull;
+  clear_sh_tmp <=  clear_c_shift;
+
+end architecture str;
