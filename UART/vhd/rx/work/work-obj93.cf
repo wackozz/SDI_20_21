@@ -1,0 +1,4 @@
+v 4
+file "/home/wackoz/github/SDI_20_21/UART/vhd/rx/" "rx_cu.vhd" "53e4e7377220e8ae5cdd374cd95465215f4d632c" "20210107004635.230":
+  entity rx_cu at 24( 866) + 0 on 4;
+  architecture str of rx_cu at 57( 1942) + 0 on 4;

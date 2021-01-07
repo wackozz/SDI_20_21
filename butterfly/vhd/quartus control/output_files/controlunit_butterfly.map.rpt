@@ -1,28 +1,21 @@
-Analysis & Synthesis report for controlunit_butterfly
-Tue Jan 05 10:56:43 2021
-Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Analysis & Elaboration report for controlunit_butterfly
+Tue Jan  5 23:54:56 2021
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
 ---------------------
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: microROM:rom
- 11. Parameter Settings for User Entity Instance: reg:reguADr
- 12. Parameter Settings for User Entity Instance: reg27:reguIR
- 13. Port Connectivity Checks: "reg27:reguIR"
- 14. Port Connectivity Checks: "reg:reguADr"
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Parameter Settings for User Entity Instance: microROM:rom
+  5. Parameter Settings for User Entity Instance: reg:reguADr
+  6. Parameter Settings for User Entity Instance: reg27:reguIR
+  7. Analysis & Elaboration Settings
+  8. Port Connectivity Checks: "reg27:reguIR"
+  9. Port Connectivity Checks: "reg:reguADr"
+ 10. Analysis & Elaboration Messages
 
 
 
@@ -47,27 +40,73 @@ https://fpgasoftware.intel.com/eula.
 
 
 +----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
+; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jan 05 10:56:43 2021       ;
-; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Analysis & Elaboration Status      ; Successful - Tue Jan  5 23:54:56 2021       ;
+; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; controlunit_butterfly                       ;
 ; Top-level Entity Name              ; controlunit_butterfly                       ;
 ; Family                             ; Cyclone 10 LP                               ;
-; Total logic elements               ; 45                                          ;
-;     Total combinational functions  ; 40                                          ;
-;     Dedicated logic registers      ; 10                                          ;
-; Total registers                    ; 10                                          ;
-; Total pins                         ; 22                                          ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
-; Total PLLs                         ; 0                                           ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
 +------------------------------------+---------------------------------------------+
 
 
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: microROM:rom ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; n              ; 27    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: reg:reguADr ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 5     ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: reg27:reguIR ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; n              ; 27    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                    ;
+; Analysis & Elaboration Settings                                                                                  ;
 +------------------------------------------------------------------+-----------------------+-----------------------+
 ; Option                                                           ; Setting               ; Default Value         ;
 +------------------------------------------------------------------+-----------------------+-----------------------+
@@ -151,139 +190,6 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+-----------------------+-----------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.2%      ;
-+----------------------------+-------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                                         ; Library ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
-; microROM.vhd                     ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/microROM.vhd              ;         ;
-; mux2_to_1.vhd                    ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/mux2_to_1.vhd             ;         ;
-; pla_status.vhd                   ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/pla_status.vhd            ;         ;
-; mux2_to_1_rom.vhd                ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/mux2_to_1_rom.vhd         ;         ;
-; controlunit_butterfly.vhd        ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd ;         ;
-; reg.vhd                          ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/reg.vhd                   ;         ;
-; reg27.vhd                        ; yes             ; User VHDL File  ; C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/reg27.vhd                 ;         ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
-
-
-+----------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                    ;
-+---------------------------------------------+------------------+
-; Resource                                    ; Usage            ;
-+---------------------------------------------+------------------+
-; Estimated Total logic elements              ; 45               ;
-;                                             ;                  ;
-; Total combinational functions               ; 40               ;
-; Logic element usage by number of LUT inputs ;                  ;
-;     -- 4 input functions                    ; 22               ;
-;     -- 3 input functions                    ; 0                ;
-;     -- <=2 input functions                  ; 18               ;
-;                                             ;                  ;
-; Logic elements by mode                      ;                  ;
-;     -- normal mode                          ; 40               ;
-;     -- arithmetic mode                      ; 0                ;
-;                                             ;                  ;
-; Total registers                             ; 10               ;
-;     -- Dedicated logic registers            ; 10               ;
-;     -- I/O registers                        ; 0                ;
-;                                             ;                  ;
-; I/O pins                                    ; 22               ;
-;                                             ;                  ;
-; Embedded Multiplier 9-bit elements          ; 0                ;
-;                                             ;                  ;
-; Maximum fan-out node                        ; reg:reguADr|Q[0] ;
-; Maximum fan-out                             ; 22               ;
-; Total fan-out                               ; 188              ;
-; Average fan-out                             ; 2.00             ;
-+---------------------------------------------+------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+-----------------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                 ; Entity Name           ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+-----------------------+--------------+
-; |controlunit_butterfly     ; 40 (0)              ; 10 (0)                    ; 0           ; 0            ; 0       ; 0         ; 22   ; 0            ; |controlunit_butterfly              ; controlunit_butterfly ; work         ;
-;    |microROM:rom|          ; 40 (40)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |controlunit_butterfly|microROM:rom ; microROM              ; work         ;
-;    |reg27:reguIR|          ; 0 (0)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |controlunit_butterfly|reg27:reguIR ; reg27                 ; work         ;
-;    |reg:reguADr|           ; 0 (0)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |controlunit_butterfly|reg:reguADr  ; reg                   ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+-----------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; reg27:reguIR|Q[25,26]                 ; Lost fanout                            ;
-; reg27:reguIR|Q[0]                     ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 3 ;                                        ;
-+---------------------------------------+----------------------------------------+
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 10    ;
-; Number of registers using Synchronous Clear  ; 3     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-----------------------------------------------------------+
-; Parameter Settings for User Entity Instance: microROM:rom ;
-+----------------+-------+----------------------------------+
-; Parameter Name ; Value ; Type                             ;
-+----------------+-------+----------------------------------+
-; n              ; 27    ; Signed Integer                   ;
-+----------------+-------+----------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------+
-; Parameter Settings for User Entity Instance: reg:reguADr ;
-+----------------+-------+---------------------------------+
-; Parameter Name ; Value ; Type                            ;
-+----------------+-------+---------------------------------+
-; n              ; 5     ; Signed Integer                  ;
-+----------------+-------+---------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------+
-; Parameter Settings for User Entity Instance: reg27:reguIR ;
-+----------------+-------+----------------------------------+
-; Parameter Name ; Value ; Type                             ;
-+----------------+-------+----------------------------------+
-; n              ; 27    ; Signed Integer                   ;
-+----------------+-------+----------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +--------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "reg27:reguIR"                                                                           ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
@@ -305,98 +211,52 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+-------+----------+--------------+
 
 
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 22                          ;
-; cycloneiii_ff         ; 10                          ;
-;     SCLR              ; 3                           ;
-;     plain             ; 7                           ;
-; cycloneiii_lcell_comb ; 40                          ;
-;     normal            ; 40                          ;
-;         2 data inputs ; 18                          ;
-;         4 data inputs ; 22                          ;
-;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.69                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue Jan 05 10:56:29 2021
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off controlunit_butterfly -c controlunit_butterfly
+Info: Running Quartus Prime Analysis & Elaboration
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Tue Jan  5 23:54:50 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off controlunit_butterfly -c controlunit_butterfly --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Warning (12019): Can't analyze file -- file even_memory.vhd is missing
-Info (12021): Found 2 design units, including 1 entities, in source file microrom.vhd
-    Info (12022): Found design unit 1: microROM-behav File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/microROM.vhd Line: 14
-    Info (12023): Found entity 1: microROM File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/microROM.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file microROM.vhd
+    Info (12022): Found design unit 1: microROM-behav File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/microROM.vhd Line: 14
+    Info (12023): Found entity 1: microROM File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/microROM.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file mux2_to_1.vhd
-    Info (12022): Found design unit 1: mux_2_to_1-behav File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/mux2_to_1.vhd Line: 11
-    Info (12023): Found entity 1: mux_2_to_1 File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/mux2_to_1.vhd Line: 4
+    Info (12022): Found design unit 1: mux_2_to_1-behav File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/mux2_to_1.vhd Line: 11
+    Info (12023): Found entity 1: mux_2_to_1 File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/mux2_to_1.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file pla_status.vhd
-    Info (12022): Found design unit 1: PLA_status-behav File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/pla_status.vhd Line: 11
-    Info (12023): Found entity 1: PLA_status File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/pla_status.vhd Line: 4
+    Info (12022): Found design unit 1: PLA_status-behav File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/pla_status.vhd Line: 11
+    Info (12023): Found entity 1: PLA_status File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/pla_status.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file mux2_to_1_rom.vhd
-    Info (12022): Found design unit 1: mux_2_to_1_rom-behav File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/mux2_to_1_rom.vhd Line: 11
-    Info (12023): Found entity 1: mux_2_to_1_rom File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/mux2_to_1_rom.vhd Line: 4
+    Info (12022): Found design unit 1: mux_2_to_1_rom-behav File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/mux2_to_1_rom.vhd Line: 11
+    Info (12023): Found entity 1: mux_2_to_1_rom File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/mux2_to_1_rom.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file controlunit_butterfly.vhd
-    Info (12022): Found design unit 1: controlunit_butterfly-behav File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 11
-    Info (12023): Found entity 1: controlunit_butterfly File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 4
+    Info (12022): Found design unit 1: controlunit_butterfly-behav File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 11
+    Info (12023): Found entity 1: controlunit_butterfly File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file controlunit_butterfly_tb.vhd
-    Info (12022): Found design unit 1: controlunit_butterfly_tb-arch File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly_tb.vhd Line: 12
-    Info (12023): Found entity 1: controlunit_butterfly_tb File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly_tb.vhd Line: 6
+    Info (12022): Found design unit 1: controlunit_butterfly_tb-arch File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly_tb.vhd Line: 12
+    Info (12023): Found entity 1: controlunit_butterfly_tb File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly_tb.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file reg.vhd
-    Info (12022): Found design unit 1: reg-str File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/reg.vhd Line: 20
-    Info (12023): Found entity 1: reg File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/reg.vhd Line: 6
+    Info (12022): Found design unit 1: reg-str File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/reg.vhd Line: 20
+    Info (12023): Found entity 1: reg File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/reg.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file reg27.vhd
-    Info (12022): Found design unit 1: reg27-str File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/reg27.vhd Line: 20
-    Info (12023): Found entity 1: reg27 File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/reg27.vhd Line: 6
+    Info (12022): Found design unit 1: reg27-str File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/reg27.vhd Line: 20
+    Info (12023): Found entity 1: reg27 File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/reg27.vhd Line: 6
 Info (12127): Elaborating entity "controlunit_butterfly" for the top level hierarchy
-Info (12128): Elaborating entity "microROM" for hierarchy "microROM:rom" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 74
-Info (12128): Elaborating entity "mux_2_to_1_rom" for hierarchy "mux_2_to_1_rom:muxROM" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 77
-Info (12128): Elaborating entity "PLA_status" for hierarchy "PLA_status:late_status" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 80
-Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "PLA_status:late_status|mux_2_to_1:mux" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/pla_status.vhd Line: 40
-Info (12128): Elaborating entity "reg" for hierarchy "reg:reguADr" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 88
-Info (12128): Elaborating entity "reg27" for hierarchy "reg27:reguIR" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 91
-Info (276014): Found 2 instances of uninferred RAM logic
-    Info (276004): RAM logic "microROM:rom|rom_even" is uninferred due to inappropriate RAM size File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/microROM.vhd Line: 18
-    Info (276004): RAM logic "microROM:rom|rom_odd" is uninferred due to inappropriate RAM size File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/microROM.vhd Line: 39
-Warning (113028): 15 out of 32 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/db/controlunit_butterfly.ram0_microROM_ff1c6bdd.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 17 to 31 are not initialized File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/db/controlunit_butterfly.ram0_microROM_ff1c6bdd.hdl.mif Line: 1
-Warning (113028): 15 out of 32 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/db/controlunit_butterfly.ram1_microROM_ff1c6bdd.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 17 to 31 are not initialized File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/db/controlunit_butterfly.ram1_microROM_ff1c6bdd.hdl.mif Line: 1
-Info (286030): Timing-Driven Synthesis is running
-Info (17049): 2 registers lost all their fanouts during netlist optimizations.
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "status[1]" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 6
-    Warning (15610): No output dependent on input pin "status[0]" File: C:/Users/User/Dropbox/Il mio PC (LAPTOP-ALD2IQR5)/Documents/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 6
-Info (21057): Implemented 67 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 19 output pins
-    Info (21061): Implemented 45 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4782 megabytes
-    Info: Processing ended: Tue Jan 05 10:56:43 2021
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:29
+Info (12128): Elaborating entity "microROM" for hierarchy "microROM:rom" File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 74
+Info (12128): Elaborating entity "mux_2_to_1_rom" for hierarchy "mux_2_to_1_rom:muxROM" File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 77
+Info (12128): Elaborating entity "PLA_status" for hierarchy "PLA_status:late_status" File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 80
+Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "PLA_status:late_status|mux_2_to_1:mux" File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/pla_status.vhd Line: 40
+Info (12128): Elaborating entity "reg" for hierarchy "reg:reguADr" File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 88
+Info (12128): Elaborating entity "reg27" for hierarchy "reg27:reguIR" File: /home/wackoz/github/SDI_20_21/butterfly/vhd/quartus control/controlunit_butterfly.vhd Line: 91
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 727 megabytes
+    Info: Processing ended: Tue Jan  5 23:54:56 2021
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:17
 
 

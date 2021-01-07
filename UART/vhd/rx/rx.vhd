@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-17
--- Last update: 2020-12-31
+-- Last update: 2021-01-06
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -28,12 +28,12 @@ use ieee.numeric_std.all;
 entity rx is
 
   port (
-    clock   : in  std_logic;
-    reset   : in  std_logic;
-    rxd     : in  std_logic;
-    Pout    : out std_logic_vector(7 downto 0);
+    clock      : in  std_logic;
+    reset      : in  std_logic;
+    rxd        : in  std_logic;
+    Pout       : out std_logic_vector(7 downto 0);
     flag_error : out std_logic;
-    rx_full : out std_logic);
+    rx_full    : out std_logic);
 
 end entity rx;
 
@@ -49,6 +49,7 @@ architecture str of rx is
   signal flag_shift_data   : std_logic;
   signal flag_shift_sample : std_logic;
   signal flag_68           : std_logic;
+  signal ld_en             : std_logic;
   signal flag_rxfull       : std_logic;
   signal sh_en_samples     : std_logic;
   signal sh_en_data        : std_logic;
@@ -65,6 +66,7 @@ architecture str of rx is
   component rx_cu is
     port (
       clock             : in  std_logic;
+      ld_en             : out std_logic;
       reset             : in  std_logic;
       clr_start         : out std_logic;
       flag_error        : out std_logic;
@@ -89,6 +91,7 @@ architecture str of rx is
     port (
       clock             : in  std_logic;
       reset             : in  std_logic;
+      ld_en             : in  std_logic;
       clr_start         : in  std_logic;
       clear_c_shift     : in  std_logic;
       clear_c_rxfull    : in  std_logic;
@@ -118,6 +121,7 @@ begin  -- architecture str
   datapath : rx_dp
     port map (
       clock             => clock,
+      ld_en             => ld_en,
       reset             => reset,
       clr_start         => clr_start,
       clear_c_shift     => clear_c_shift,
@@ -141,6 +145,7 @@ begin  -- architecture str
   control_unit : rx_cu
     port map (
       clock             => clock,
+      ld_en             => ld_en,
       reset             => reset,
       clr_start         => clr_start,
       flag_error        => flag_error,

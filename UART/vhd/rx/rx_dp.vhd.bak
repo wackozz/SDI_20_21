@@ -40,7 +40,7 @@ entity rx_dp is
     sh_en_samples     : in  std_logic;  -- shift enable for samples
     sh_en_data        : in  std_logic;  -- shift enable for sr data
     start_en          : in  std_logic;
-    ld_en             : in  std_logic;
+    start_enabled     : out std_logic;
     start             : out std_logic;
     stop_en           : in  std_logic;
     stop              : out std_logic;
@@ -68,6 +68,7 @@ architecture str of rx_dp is
   signal s_out            : std_logic;                     -- unused
   signal p_in             : std_logic_vector(7 downto 0);  -- unused
   signal voter_d          : std_logic_vector(2 downto 0);
+  signal ld_en            : std_logic;
   signal clear_sh_tmp     : std_logic;
   signal clear_rxfull_tmp : std_logic;
 
@@ -217,7 +218,25 @@ begin  -- architecture str
   -----------------------------------------------------------------------------
   -- SIGNAL ASSIGNMENT
   -----------------------------------------------------------------------------
+  is_start_enabled : process (clock, reset) is
+  begin  -- process is_start_enabled
+    if reset = '0' then                     -- asynchronous reset (active low)
+      start_enabled <= '0';
+    elsif clock'event and clock = '1' then  -- rising clock edge
+      if start_en = '1' then
+        start_enabled = '0';
+      end if;
+    end if;
+  end process is_start_enabled;
 
+  shift_r_init : process (reset) is
+  begin  -- process shift_r_init
+    if reset = '0' then
+      ld_en <= '1';
+    else
+      ld_en <= '0';
+    end if;
+  end process shift_r_init;
   flag_shift_sample <= '1' when
                        unsigned(q_c_shift) = (to_unsigned(SL-3, 8)) or
                        unsigned(q_c_shift) = (to_unsigned(SL*2-3, 8)) or
