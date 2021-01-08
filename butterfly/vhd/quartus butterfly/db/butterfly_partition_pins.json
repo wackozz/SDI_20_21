@@ -328,7 +328,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "AI[0]",
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "start",
+					"strict" : false
+				},
+				{
+					"name" : "full_speed",
 					"strict" : false
 				},
 				{
@@ -336,7 +344,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "AI[1]",
+					"name" : "AI[0]",
 					"strict" : false
 				},
 				{
@@ -344,7 +352,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "AI[2]",
+					"name" : "AI[1]",
 					"strict" : false
 				},
 				{
@@ -352,7 +360,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "AI[3]",
+					"name" : "AI[2]",
 					"strict" : false
 				},
 				{
@@ -360,11 +368,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "AI[4]",
+					"name" : "AI[3]",
 					"strict" : false
 				},
 				{
 					"name" : "AR[4]",
+					"strict" : false
+				},
+				{
+					"name" : "AI[4]",
 					"strict" : false
 				},
 				{
@@ -464,15 +476,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "AI[17]",
-					"strict" : false
-				},
-				{
 					"name" : "AR[17]",
 					"strict" : false
 				},
 				{
-					"name" : "AI[18]",
+					"name" : "AI[17]",
 					"strict" : false
 				},
 				{
@@ -480,7 +488,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "AR[19]",
+					"name" : "AI[18]",
 					"strict" : false
 				},
 				{
@@ -488,11 +496,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "WI[0]",
+					"name" : "AR[19]",
 					"strict" : false
 				},
 				{
 					"name" : "WR[0]",
+					"strict" : false
+				},
+				{
+					"name" : "WI[0]",
 					"strict" : false
 				},
 				{
@@ -632,11 +644,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "WI[18]",
+					"name" : "WR[18]",
 					"strict" : false
 				},
 				{
-					"name" : "WR[18]",
+					"name" : "WI[18]",
 					"strict" : false
 				},
 				{

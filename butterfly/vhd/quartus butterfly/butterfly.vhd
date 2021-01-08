@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 
 entity butterfly is
 port ( start,full_speed : in std_logic;
-       clock : in std_logic;
+       clock,reset : in std_logic;
        done: buffer std_logic;
 		 AR,AI,BR,BI,WR,WI: in std_logic_vector(19 downto 0);
 		 AR_out,AI_out,BR_out,BI_out: out std_logic_vector(19 downto 0));
@@ -16,8 +16,9 @@ architecture behav of butterfly is
 component controlunit_butterfly is
 
 port ( status: in std_logic_vector ( 1 downto 0);
-       clock: in std_logic;
-		 datapath_commands : out std_logic_vector ( 18 downto 0));
+       clock,reset: in std_logic;
+		 datapath_commands : out std_logic_vector ( 16 downto 0);
+		 done: out std_logic);
 end component;
 
 
@@ -64,10 +65,10 @@ component butterfly_dp is
 end component;
 
 signal status_s,s_mux_a_mpy_s,s_mux_b_add_s: std_logic_vector (1 downto 0);
-signal datapath_commands_s : std_logic_vector( 18 downto 0);
+signal datapath_commands_s : std_logic_vector( 16 downto 0);
 signal s_mux_b_mpy_s,enable_Ar_out_s,enable_Ai_out_s,enable_Br_out_s,enable_Bi_out_s: std_logic;
 signal enable_AR_s,enable_Wi_s,enable_Wr_s,enable_Bi_s,enable_Br_s,enable_Ai_s : std_logic;
-signal sh_mpy_s,sub_add_s ,reset_s, done_s: std_logic;
+signal sh_mpy_s,sub_add_s , done_s: std_logic;
 
 
 begin
@@ -90,18 +91,17 @@ enable_Ar_out_s <= datapath_commands_s(13);
 enable_Ai_out_s <= datapath_commands_s(14);
 enable_Bi_out_s <= datapath_commands_s(15);
 enable_Br_out_s <= datapath_commands_s (16);
-reset_s <= datapath_commands_s(17);
-done_s <= datapath_commands_s(18);
 
 
-done_s <= done;
+
+
 
 controlunit:
-controlunit_butterfly port map ( status => status_s, clock => clock, datapath_commands => datapath_commands_s);
+controlunit_butterfly port map ( status => status_s, clock => clock, reset => reset, datapath_commands => datapath_commands_s);
 
 datapath:
 butterfly_dp port map (clock => clock,
-                       reset => reset_s,
+                       reset => reset,
 							  Wr => WR,
 							  Wj => WI,
 							  Aj_in => AI,

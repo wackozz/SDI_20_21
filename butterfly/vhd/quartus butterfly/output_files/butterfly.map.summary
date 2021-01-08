@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon Jan 04 15:19:19 2021
+Analysis & Synthesis Status : Successful - Wed Jan 06 17:08:28 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : butterfly
 Top-level Entity Name : butterfly
 Family : Cyclone 10 LP
-Total logic elements : 533
-    Total combinational functions : 314
-    Dedicated logic registers : 304
-Total registers : 304
-Total pins : 204
+Total logic elements : 570
+    Total combinational functions : 351
+    Dedicated logic registers : 310
+Total registers : 310
+Total pins : 205
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 7

@@ -15,7 +15,7 @@ architecture arch of butterfly_tb is
   signal start,full_speed ,done                            : std_logic;
   signal AR,AI,BR,BI,WR,WI                          : std_logic_vector (19 downto 0);
   signal AR_out,AI_out,BR_out,BI_out                              : std_logic_vector (19 downto 0);
-
+  signal reset  : std_logic;
   -- clock
   signal clock : std_logic := '1';
 
@@ -24,6 +24,7 @@ begin  -- architecture arch
   -- component instantiation
   DUT : entity work.butterfly
     port map (
+	 reset => reset,
 	 clock => clock,
       start => start,
 		full_speed => full_speed,
@@ -48,7 +49,9 @@ begin  -- architecture arch
   begin
     -- insert signal assignments here
 
-
+reset <='0';
+wait for 50 ns;
+reset <= '1';
 start <= '0';
 full_speed <= '0';
 wait for 50 ns;

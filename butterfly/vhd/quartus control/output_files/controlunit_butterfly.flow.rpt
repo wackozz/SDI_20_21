@@ -1,5 +1,5 @@
 Flow report for controlunit_butterfly
-Tue Jan 05 10:57:07 2021
+Fri Jan 08 12:54:12 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Jan 05 10:56:57 2021       ;
+; Flow Status                        ; Successful - Fri Jan 08 12:54:07 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; controlunit_butterfly                       ;
 ; Top-level Entity Name              ; controlunit_butterfly                       ;
 ; Family                             ; Cyclone 10 LP                               ;
-; Total logic elements               ; 40 / 6,272 ( < 1 % )                        ;
-;     Total combinational functions  ; 40 / 6,272 ( < 1 % )                        ;
-;     Dedicated logic registers      ; 10 / 6,272 ( < 1 % )                        ;
-; Total registers                    ; 10                                          ;
+; Total logic elements               ; 4 / 6,272 ( < 1 % )                         ;
+;     Total combinational functions  ; 3 / 6,272 ( < 1 % )                         ;
+;     Dedicated logic registers      ; 3 / 6,272 ( < 1 % )                         ;
+; Total registers                    ; 3                                           ;
 ; Total pins                         ; 22 / 89 ( 25 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 276,480 ( 0 % )                         ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+-----------------------+
 ; Option            ; Setting               ;
 +-------------------+-----------------------+
-; Start date & time ; 01/05/2021 10:56:30   ;
+; Start date & time ; 01/08/2021 12:53:38   ;
 ; Main task         ; Compilation           ;
 ; Revision Name     ; controlunit_butterfly ;
 +-------------------+-----------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 150461128790758.160984058914316        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 150461128790758.161010681711988        ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -89,11 +89,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 4782 MB             ; 00:00:28                           ;
-; Fitter               ; 00:00:08     ; 1.0                     ; 5231 MB             ; 00:00:07                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4678 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:08     ; 1.0                     ; 4745 MB             ; 00:00:03                           ;
-; Total                ; 00:00:32     ; --                      ; --                  ; 00:00:39                           ;
+; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 4775 MB             ; 00:00:27                           ;
+; Fitter               ; 00:00:11     ; 1.0                     ; 5228 MB             ; 00:00:06                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4678 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:03     ; 1.0                     ; 4743 MB             ; 00:00:02                           ;
+; Total                ; 00:00:28     ; --                      ; --                  ; 00:00:36                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
