@@ -1,5 +1,0 @@
-v 4
-file "/home/wackoz/github/SDI_20_21/labsRR/UART/rx/components/stop_det/" "stop_detector_tb.vhd" "e7f3542abc07160d1bba7058357c96feea92fe04" "20201216105426.980":
-  entity stop_detector_tb at 22( 882) + 0 on 4;
-  architecture arch of stop_detector_tb at 33( 1146) + 0 on 4;
-  configuration stop_detector_tb_arch_cfg at 73( 1985) + 0 on 4;

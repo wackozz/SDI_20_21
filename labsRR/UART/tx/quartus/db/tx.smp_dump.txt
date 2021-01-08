@@ -1,9 +1,0 @@
-
-State Machine - |tx|tx_cu:controlunit|present_state
-Name present_state.shift present_state.load present_state.force_0 present_state.idle present_state.res_cnt present_state.idle_start 
-present_state.idle_start 0 0 0 0 0 0 
-present_state.res_cnt 0 0 0 0 1 1 
-present_state.idle 0 0 0 1 0 1 
-present_state.force_0 0 0 1 0 0 1 
-present_state.load 0 1 0 0 0 1 
-present_state.shift 1 0 0 0 0 1 

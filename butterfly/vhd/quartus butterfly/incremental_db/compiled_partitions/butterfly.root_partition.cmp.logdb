@@ -1,6 +1,0 @@
-v1
-DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,butterfly_dp:datapath|mpy_sh:mpy_sh_1|lpm_mult:Mult0|mult_h5t:auto_generated|mac_out2,
-DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,butterfly_dp:datapath|mpy_sh:mpy_sh_1|lpm_mult:Mult0|mult_h5t:auto_generated|mac_out8,
-DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,butterfly_dp:datapath|mpy_sh:mpy_sh_1|lpm_mult:Mult0|mult_h5t:auto_generated|mac_out4,
-DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,butterfly_dp:datapath|mpy_sh:mpy_sh_1|lpm_mult:Mult0|mult_h5t:auto_generated|mac_out6,
-PORT_SWAPPING,PORT_SWAP_TYPE_DSPMULT,butterfly_dp:datapath|mpy_sh:mpy_sh_1|lpm_mult:Mult0|mult_h5t:auto_generated|mac_mult5,

@@ -1,4 +1,0 @@
-LA CARTELLA NON E' AGGIORNATA
-
-Ho spostato il contenuto nella cartella UART nella root della repo e l'ho riorganizata
-Fra

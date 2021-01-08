@@ -1,1 +1,0 @@
-vsim work.rx_tb -t 1ns
