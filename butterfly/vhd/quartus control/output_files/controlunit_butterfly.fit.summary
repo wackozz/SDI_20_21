@@ -1,0 +1,16 @@
+Fitter Status : Successful - Fri Jan 08 12:54:03 2021
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : controlunit_butterfly
+Top-level Entity Name : controlunit_butterfly
+Family : Cyclone 10 LP
+Device : 10CL006YE144C6G
+Timing Models : Final
+Total logic elements : 4 / 6,272 ( < 1 % )
+    Total combinational functions : 3 / 6,272 ( < 1 % )
+    Dedicated logic registers : 3 / 6,272 ( < 1 % )
+Total registers : 3
+Total pins : 22 / 89 ( 25 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

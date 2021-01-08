@@ -5,7 +5,7 @@ use ieee.std_logic_1164.all;
 
 entity reg is
 
-  generic (N : integer:= 5 );
+  generic (N : integer:= 6 );
 
   port (D : in std_logic_vector(N-1 downto 0);
 

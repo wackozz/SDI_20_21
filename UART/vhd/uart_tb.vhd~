@@ -1,0 +1,90 @@
+-------------------------------------------------------------------------------
+-- Title      : Testbench for design "uart"
+-- Project    : 
+-------------------------------------------------------------------------------
+-- File       : uart_tb.vhd
+-- Author     : wackoz  <wackoz@wT14s>
+-- Company    : 
+-- Created    : 2021-01-07
+-- Last update: 2021-01-07
+-- Platform   : 
+-- Standard   : VHDL'93/02
+-------------------------------------------------------------------------------
+-- Description: 
+-------------------------------------------------------------------------------
+-- Copyright (c) 2021 
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author  Description
+-- 2021-01-07  1.0      wackoz	Created
+-------------------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+-------------------------------------------------------------------------------
+
+entity uart_tb is
+
+end entity uart_tb;
+
+-------------------------------------------------------------------------------
+
+architecture arch of uart_tb is
+
+  -- component ports
+  signal clock  : std_logic;
+  signal reset  : std_logic;
+  signal RxD    : std_logic;
+  signal TxD    : std_logic;
+  signal Dout   : std_logic_vector(7 downto 0);
+  signal Din    : std_logic_vector(7 downto 0);
+  signal ATN    : std_logic;
+  signal ATNACK : std_logic;
+  signal ADD    : std_logic_vector(2 downto 0);
+  signal R_Wn   : std_logic;
+  signal CS     : std_logic;
+
+  -- clock
+  signal Clk : std_logic := '1';
+
+begin  -- architecture arch
+
+  -- component instantiation
+  DUT: entity work.uart
+    port map (
+      clock  => clock,
+      reset  => reset,
+      RxD    => RxD,
+      TxD    => TxD,
+      Dout   => Dout,
+      Din    => Din,
+      ATN    => ATN,
+      ATNACK => ATNACK,
+      ADD    => ADD,
+      R_Wn   => R_Wn,
+      CS     => CS);
+
+  -- clock generation
+  Clk <= not Clk after 10 ns;
+
+  -- waveform generation
+  WaveGen_Proc: process
+  begin
+    -- insert signal assignments here
+
+    wait until Clk = '1';
+  end process WaveGen_Proc;
+
+  
+
+end architecture arch;
+
+-------------------------------------------------------------------------------
+
+configuration uart_tb_arch_cfg of uart_tb is
+  for arch
+  end for;
+end uart_tb_arch_cfg;
+
+-------------------------------------------------------------------------------

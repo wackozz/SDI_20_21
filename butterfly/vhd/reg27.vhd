@@ -3,9 +3,9 @@ use ieee.std_logic_1164.all;
 
 -------------------------------------------------------------------------------
 
-entity reg is
+entity reg27 is
 
-  generic (N : integer:= 5 );
+  generic (N : integer := 27);
 
   port (D : in std_logic_vector(N-1 downto 0);
 
@@ -13,11 +13,11 @@ entity reg is
 
         Q : out std_logic_vector(N-1 downto 0));
 
-end reg;
+end reg27;
 
 -------------------------------------------------------------------------------
 
-architecture str of reg is
+architecture str of reg27 is
 
   -----------------------------------------------------------------------------
   -- Internal signal declarations
