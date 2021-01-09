@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-26
--- Last update: 2020-12-29
+-- Last update: 2021-01-09
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -42,21 +42,19 @@ end entity adder;
 -------------------------------------------------------------------------------
 
 architecture str of adder is
-
 begin
   sum : process (clock, reset) is
   begin  -- process sum
     if reset = '0' then                     -- asynchronous reset (active low)
       Y <= (others => '0');
     elsif clock'event and clock = '1' then  -- rising clock edge
-      if add_sub = '0' then
-        Y <= std_logic_vector(resize(signed(A),N+1)+resize(signed(B),N+1));
+      if(add_sub = '0') then
+        Y <= std_logic_vector(resize(signed(A), N+1)+resize(signed(B), N+1));
       else
-        Y <= std_logic_vector(resize(signed(A),N+1)-resize(signed(B),N+1));
+        Y <= std_logic_vector(resize(signed(A), N+1)-resize(signed(B), N+1));
       end if;
     end if;
   end process sum;
-
 end architecture str;
 
 -------------------------------------------------------------------------------

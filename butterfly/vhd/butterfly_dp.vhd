@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-23
--- Last update: 2021-01-02
+-- Last update: 2021-01-09
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -17,6 +17,7 @@
 -- Revisions  :
 -- Date        Version  Author  Description
 -- 2020-12-23  1.0      wackoz  Created
+-- 2021-01-09  2.0      wackoz  pipeline correction
 -------------------------------------------------------------------------------
 
 
@@ -29,43 +30,51 @@ use ieee.numeric_std.all;
 entity butterfly_dp is
 
   generic(
-    N : integer := 20);
+    N : integer := 20
+    );
   port (
-    clock       : in  std_logic;
-    reset       : in  std_logic;
+    clock            : in  std_logic;
+    reset            : in  std_logic;
 -- INPUT
-    Wr          : in  std_logic_vector(19 downto 0);
-    Wj          : in  std_logic_vector(19 downto 0);
-    Aj_in       : in  std_logic_vector(19 downto 0);
-    Ar_in       : in  std_logic_vector(19 downto 0);
-    Bj_in       : in  std_logic_vector(19 downto 0);
-    Br_in       : in  std_logic_vector(19 downto 0);
+    Wr               : in  std_logic_vector(19 downto 0);
+    Wj               : in  std_logic_vector(19 downto 0);
+    Aj_in            : in  std_logic_vector(19 downto 0);
+    Ar_in            : in  std_logic_vector(19 downto 0);
+    Bj_in            : in  std_logic_vector(19 downto 0);
+    Br_in            : in  std_logic_vector(19 downto 0);
 --OUTPUT
-    Aj_out      : out std_logic_vector(19 downto 0);
-    Ar_out      : out std_logic_vector(19 downto 0);
-    Bj_out      : out std_logic_vector(19 downto 0);
-    Br_out      : out std_logic_vector(19 downto 0);
+    Aj_out           : out std_logic_vector(19 downto 0);
+    Ar_out           : out std_logic_vector(19 downto 0);
+    Bj_out           : out std_logic_vector(19 downto 0);
+    Br_out           : out std_logic_vector(19 downto 0);
 -- MUX SEL SIGNALS
-    s_mux_B_mpy : in  std_logic;
-    s_mux_A_mpy : in  std_logic_vector(1 downto 0);
-    s_mux_B_add : in  std_logic_vector(1 downto 0);
+    s_mux_B_mpy      : in  std_logic;
+    s_mux_A_mpy      : in  std_logic_vector(1 downto 0);
+    s_mux_B_add_1    : in  std_logic;
+    s_mux_B_add_2    : in  std_logic;
+    s_mux_round_in   : in  std_logic;
 -- ADD/MPY CTRL
-    add_sub     : in  std_logic;
-    sh_mpy      : in  std_logic;
-	 
-	 -- EN
-   Wr_enable     :in std_logic;
-   Wj_enable     :in std_logic;
-   Br_enable     :in std_logic;
-   Bj_enable     :in std_logic;
-   Ar_enable     :in std_logic;
-   Aj_enable     :in std_logic;
-   Br_out_enable :in std_logic;
-   Bj_out_enable :in std_logic;
-   Ar_out_enable :in std_logic;
-   Aj_out_enable :in std_logic;
-	
-	done : out std_logic);
+    add_sub_1        : in  std_logic;
+    add_sub_2        : in  std_logic;
+    sh_mpy           : in  std_logic;
+-- EN
+    --IN
+    Wr_enable        : in  std_logic;
+    Wj_enable        : in  std_logic;
+    Br_enable        : in  std_logic;
+    Bj_enable        : in  std_logic;
+    Ar_enable        : in  std_logic;
+    Aj_enable        : in  std_logic;
+    --OUT
+    Br_out_enable    : in  std_logic;
+    Bj_out_enable    : in  std_logic;
+    Ar_out_enable    : in  std_logic;
+    Aj_out_enable    : in  std_logic;
+    --ADD REG
+    add_reg_1_enable : in  std_logic;
+    add_reg_2_enable : in  std_logic;
+    --MPY REG
+    mpy_reg_enable   : in  std_logic);
 end entity butterfly_dp;
 
 -------------------------------------------------------------------------------
@@ -77,32 +86,32 @@ architecture str of butterfly_dp is
   -----------------------------------------------------------------------------
 
 -- REGISTERS
-  -- D
-  signal Br_D : std_logic_vector(N-1 downto 0);
-  signal Bj_D : std_logic_vector(N-1 downto 0);
-  signal Ar_D : std_logic_vector(N-1 downto 0);
-  signal Aj_D : std_logic_vector(N-1 downto 0);
   -- Q
-  signal Br_Q : std_logic_vector(N-1 downto 0);
-  signal Bj_Q : std_logic_vector(N-1 downto 0);
-  signal Ar_Q : std_logic_vector(N-1 downto 0);
-  signal Aj_Q : std_logic_vector(N-1 downto 0);
-  signal Wj_Q : std_logic_vector(N-1 downto 0);
-  signal Wr_Q : std_logic_vector(N-1 downto 0);
+  signal Br_Q        : std_logic_vector(N-1 downto 0);
+  signal Bj_Q        : std_logic_vector(N-1 downto 0);
+  signal Ar_Q        : std_logic_vector(N-1 downto 0);
+  signal Aj_Q        : std_logic_vector(N-1 downto 0);
+  signal Wj_Q        : std_logic_vector(N-1 downto 0);
+  signal Wr_Q        : std_logic_vector(N-1 downto 0);
+  signal add_reg_1_Q : std_logic_vector(2*N+3 downto 0);  -- rivedere parallelismo
+  signal add_reg_2_Q : std_logic_vector(2*N+3 downto 0);  -- rivedere parallelismo
+  signal mpy_reg_Q   : std_logic_vector(2*N-1 downto 0);  -- rivedere parallelismo
 
 
 --MUX
-  signal temp_D1       : std_logic_vector(2*N+2 downto 0);
-  signal temp_D2       : std_logic_vector(2*N+2 downto 0);
+  signal temp_D1  : std_logic_vector(2*N+2 downto 0);
+  signal temp_D2  : std_logic_vector(2*N+2 downto 0);
 --MPY
-  signal mpy_in_A      : std_logic_vector(N-1 downto 0);
-  signal mpy_in_B      : std_logic_vector(N-1 downto 0);
-  signal mpy_out       : std_logic_vector(2*N-1 downto 0);
+  signal mpy_in_A : std_logic_vector(N-1 downto 0);
+  signal mpy_in_B : std_logic_vector(N-1 downto 0);
+  signal mpy_out  : std_logic_vector(2*N-1 downto 0);
 
 --ADDER
-  signal add_in_A : std_logic_vector(2*N+2 downto 0);
-  signal add_in_B : std_logic_vector(2*N+2 downto 0);
-  signal add_out  : std_logic_vector(2*N+3 downto 0);
+  signal add_in_A   : std_logic_vector(2*N+2 downto 0);
+  signal add_in_B_1 : std_logic_vector(2*N+2 downto 0);
+  signal add_in_B_2 : std_logic_vector(2*N+2 downto 0);
+  signal add_out_1  : std_logic_vector(2*N+3 downto 0);
+  signal add_out_2  : std_logic_vector(2*N+3 downto 0);
 
 --ROUND BLOCK
   signal round_in  : std_logic_vector(2*N+3 downto 0);
@@ -204,10 +213,24 @@ begin  -- architecture str
     port map (
       clock   => clock,
       reset   => reset,
-      add_sub => add_sub,
+      add_sub => add_sub_1,
       A       => add_in_A,
-      B       => add_in_B,
-      Y       => add_out);
+      B       => add_in_B_1,
+      Y       => add_out_1);
+
+
+  -- instance "adder_2"
+  adder_2 : adder
+    generic map (
+      N => 2*N+3)
+    port map (
+      clock   => clock,
+      reset   => reset,
+      add_sub => add_sub_2,
+      A       => add_in_A,
+      B       => add_in_B_2,
+      Y       => add_out_2);
+
 
 -- ROUND BLOCK
 
@@ -224,6 +247,41 @@ begin  -- architecture str
 
 -- REGISTERS
 
+
+  -- instance "reg_mpy"
+  reg_mpy : reg
+    generic map (
+      N => 2*N)
+    port map (
+      D      => mpy_out,
+      clock  => clock,
+      reset  => reset,
+      enable => mpy_reg_enable,
+      Q      => mpy_reg_Q);
+
+
+  -- instance "reg_add1"
+  reg_add_1 : reg
+    generic map (
+      N => 2*N+4)
+    port map (
+      D      => add_out_1,
+      clock  => clock,
+      reset  => reset,
+      enable => add_reg_1_enable,
+      Q      => add_reg_1_Q);
+
+  -- instance "reg_Wr"
+  reg_add_2 : reg
+    generic map (
+      N => 2*N+4)
+    port map (
+      D      => add_out_2,
+      clock  => clock,
+      reset  => reset,
+      enable => add_reg_2_enable,
+      Q      => add_reg_2_Q);
+
   -- instance "reg_Wr"
   reg_Wr : reg
     generic map (
@@ -235,8 +293,8 @@ begin  -- architecture str
       enable => Wr_enable,
       Q      => Wr_Q);
 
-  -- instance "reg_1"
-  reg_Wi : reg
+  -- instance "reg_Wj"
+  reg_Wj : reg
     generic map (
       N => N)
     port map (
@@ -303,7 +361,7 @@ begin  -- architecture str
       D      => round_out,
       clock  => clock,
       reset  => reset,
-      enable => Bj_out_enable,
+      enable => Br_out_enable,
       Q      => Br_out);
 
 
@@ -357,31 +415,21 @@ begin  -- architecture str
       D3 => Ar_Q,
       D4 => Aj_Q,
       Y  => mpy_in_A);
-
--- instance "mux4to1_1"
-  mux4to1_2 : mux4to1
-    generic map (
-      N => 43)
-    port map (
-      S  => s_mux_B_add,
-      D1 => temp_D1,
-      D2 => temp_D2,
-      D3 => add_out(2*N+2 downto 0),
-      D4 => add_out(2*N+2 downto 0),
-      Y  => add_in_B);
 -------------------------------------------------------------------------------
 -- SIGNAL ASSIGNMENT
 -------------------------------------------------------------------------------
 
-  temp_D1 <= std_logic_vector(resize(signed(Ar_Q), 43));
-  temp_D2 <= std_logic_vector(resize(signed(Aj_Q), 43));
+  temp_D1  <= std_logic_vector(resize(signed(Ar_Q), 43));
+  temp_D2  <= std_logic_vector(resize(signed(Aj_Q), 43));
+  add_in_A <= std_logic_vector(resize(signed(mpy_reg_Q), 43));
 --MUX2to1
 
   mpy_in_B <= Br_Q when s_mux_B_mpy = '0'else
               Bj_Q;
 
-  round_in <= add_out;
-  add_in_A <= std_logic_vector(resize(signed(mpy_out), 2*N+3));
+  round_in   <= add_reg_2_Q                 when s_mux_round_in = '1' else add_reg_1_Q;
+  add_in_B_1 <= add_reg_1_Q(2*N+2 downto 0) when s_mux_B_add_1 = '1'  else temp_D2;
+  add_in_B_2 <= add_reg_2_Q(2*N+2 downto 0) when s_mux_B_add_2 = '1'  else temp_D1;
 end architecture str;
 -------------------------------------------------------------------------------
 
