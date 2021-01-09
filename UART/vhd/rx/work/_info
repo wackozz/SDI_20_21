@@ -53,64 +53,64 @@ R12
 R13
 R14
 Erx_cu
-Z15 w1609980393
+Z15 w1610122057
 R3
 R4
-!i122 14
-R0
-Z16 8rx_cu.vhd
-Z17 Frx_cu.vhd
+!i122 18
+Z16 dc:/Users/Sabina/Desktop/universita/polito/SDI_20_21/UART/vhd/rx
+Z17 8rx_cu.vhd
+Z18 Frx_cu.vhd
 l0
-L29 1
-VUnj[]n80kYL6MO2SehPgg0
-!s100 4^4hAY_594lZ]SM??2U[i2
+L30 1
+V2Jj<;UkACIbgGF5QV>5:@0
+!s100 kQDATA;:[0I?g@^Aj_GjD0
 R8
 31
-Z18 !s110 1609980631
+Z19 !s110 1610122061
 !i10b 1
-Z19 !s108 1609980630.000000
-Z20 !s90 -93|-work|work|rx_cu.vhd|
-Z21 !s107 rx_cu.vhd|
+Z20 !s108 1610122061.000000
+Z21 !s90 -93|-work|work|rx_cu.vhd|
+Z22 !s107 rx_cu.vhd|
 !i113 1
 R13
 R14
 Astr
 R3
 R4
-Z22 DEx4 work 5 rx_cu 0 22 Unj[]n80kYL6MO2SehPgg0
-!i122 14
-l64
-L57 133
-VH0?0S5EBd:Xl0C1h<0>912
-!s100 kRVJZL]iTdz5n4D=9ITL50
+DEx4 work 5 rx_cu 0 22 2Jj<;UkACIbgGF5QV>5:@0
+!i122 18
+l65
+L58 133
+Vm6jm2:@<7E7fIe1MzHGe?3
+!s100 oKc3BK517nE8WBDC<^4173
 R8
 31
-R18
-!i10b 1
 R19
+!i10b 1
 R20
 R21
+R22
 !i113 1
 R13
 R14
 Erx_dp
-Z23 w1609947060
+Z23 w1610122247
 R4
 R3
 R2
-!i122 9
-R0
+!i122 19
+R16
 Z24 8rx_dp.vhd
 Z25 Frx_dp.vhd
 l0
 R7
-V7L4>_D;bel1?UOW2V@Snh2
-!s100 i9I5M_VSSD@EYADMh4eVz2
+Vhl`<5PF]SEI0Y=aBOji8A3
+!s100 n?M=Yn1o`P?Kg6@Pd_=]63
 R8
 31
-Z26 !s110 1609947062
+Z26 !s110 1610122251
 !i10b 1
-Z27 !s108 1609947062.000000
+Z27 !s108 1610122251.000000
 Z28 !s90 -93|-work|work|rx_dp.vhd|
 Z29 !s107 rx_dp.vhd|
 !i113 1
@@ -120,12 +120,12 @@ Astr
 R4
 R3
 R2
-DEx4 work 5 rx_dp 0 22 7L4>_D;bel1?UOW2V@Snh2
-!i122 9
+DEx4 work 5 rx_dp 0 22 hl`<5PF]SEI0Y=aBOji8A3
+!i122 19
 l132
 L55 185
-V_F7F<f?hFj;AoOzoMU8;63
-!s100 ]4W<[@LNhSQc16lc4bGM22
+VN=zNjbA3<Q07iV`S>E40Q1
+!s100 Y66YdzF<^DXW[gJ4=hGe_3
 R8
 31
 R26

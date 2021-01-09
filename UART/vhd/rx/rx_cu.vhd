@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-16
--- Last update: 2021-01-07
+-- Last update: 2021-01-08
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ entity rx_cu is
     flag_error        : out std_logic;
     clear_c_shift     : out std_logic;
     clear_c_rxfull    : out std_logic;
-    flag_rxfull       : in  std_logic;
+    flag_stop         : in  std_logic;
     rx_full           : out std_logic;
     ld_en             : out std_logic;  --load enable for shift_registers init.
     flag_shift_data   : in  std_logic;
@@ -91,7 +91,7 @@ begin  -- architecture str
             if flag_shift_data = '0' then
               next_state <= idle_start_off;
             else
-              if flag_rxfull = '0' then
+              if flag_stop = '0' then
                 next_state <= sh_data;
               else
                 next_state <= sh_smp_rxfull;

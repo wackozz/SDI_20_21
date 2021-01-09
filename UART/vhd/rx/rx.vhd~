@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-17
--- Last update: 2021-01-08
+-- Last update: 2021-01-06
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -50,7 +50,7 @@ architecture str of rx is
   signal flag_shift_sample : std_logic;
   signal flag_68           : std_logic;
   signal ld_en             : std_logic;
-  signal flag_stop         : std_logic;
+  signal flag_rxfull       : std_logic;
   signal sh_en_samples     : std_logic;
   signal sh_en_data        : std_logic;
   signal start_en          : std_logic;
@@ -72,7 +72,7 @@ architecture str of rx is
       flag_error        : out std_logic;
       clear_c_shift     : out std_logic;
       clear_c_rxfull    : out std_logic;
-      flag_stop         : in  std_logic;
+      flag_rxfull       : in  std_logic;
       rx_full           : out std_logic;
       flag_shift_data   : in  std_logic;
       flag_shift_sample : in  std_logic;
@@ -95,7 +95,7 @@ architecture str of rx is
       clr_start         : in  std_logic;
       clear_c_shift     : in  std_logic;
       clear_c_rxfull    : in  std_logic;
-      flag_stop         : out std_logic;
+      flag_rxfull       : out std_logic;
       flag_shift_data   : out std_logic;
       flag_shift_sample : out std_logic;
       flag_68           : out std_logic;
@@ -126,7 +126,7 @@ begin  -- architecture str
       clr_start         => clr_start,
       clear_c_shift     => clear_c_shift,
       clear_c_rxfull    => clear_c_rxfull,
-      flag_stop         => flag_stop,
+      flag_rxfull       => flag_rxfull,
       flag_shift_data   => flag_shift_data,
       flag_shift_sample => flag_shift_sample,
       flag_68           => flag_68,
@@ -151,7 +151,7 @@ begin  -- architecture str
       flag_error        => flag_error,
       clear_c_shift     => clear_c_shift,
       clear_c_rxfull    => clear_c_rxfull,
-      flag_stop         => flag_stop,
+      flag_rxfull       => flag_rxfull,
       rx_full           => rx_full,
       flag_shift_data   => flag_shift_data,
       flag_shift_sample => flag_shift_sample,

@@ -6,7 +6,7 @@
 -- Author     :   <Sabina@DESKTOP-IN9UA4D>
 -- Company    : 
 -- Created    : 2020-12-15
--- Last update: 2021-01-08
+-- Last update: 2021-01-06
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -32,10 +32,10 @@ entity rx_dp is
     clr_start         : in  std_logic;
     clear_c_shift     : in  std_logic;
     clear_c_rxfull    : in  std_logic;
+    flag_rxfull       : out std_logic;
     flag_shift_data   : out std_logic;
     flag_shift_sample : out std_logic;
     flag_68           : out std_logic;
-    flag_stop         : out std_logic;
     rxd               : in  std_logic;  -- input
     sh_en_samples     : in  std_logic;  -- shift enable for samples
     sh_en_data        : in  std_logic;  -- shift enable for sr data
@@ -205,8 +205,8 @@ begin  -- architecture str
     port map (
       clock   => clock,
       clear   => clear_rxfull_tmp,
-      tc      => std_logic_vector(to_unsigned(9, 4)),
-      tc_flag => flag_stop,
+      tc      => std_logic_vector(to_unsigned(8, 4)),
+      tc_flag => flag_rxfull,
       en      => count_en_rxfull,
       ld      => ld,
       d       => d_c_rxfull,
@@ -227,7 +227,7 @@ begin  -- architecture str
                        unsigned(q_c_shift) = (to_unsigned(SL*7-3, 8))
                        else '0';
 
-  flag_68        <= '1' when unsigned(q_c_shift) = (to_unsigned(SL*4-3, 8)) else '0';
+  flag_68 <= '1' when unsigned(q_c_shift) = (to_unsigned(SL*4-3, 8)) else '0';
 
   voter_d          <= p_out_samples(3)&p_out_samples(4)&p_out_samples(5);
 --flag for counter sh out, high when 4*Tbaud/. Used to sync from start

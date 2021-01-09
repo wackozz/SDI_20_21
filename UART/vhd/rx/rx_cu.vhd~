@@ -15,8 +15,9 @@
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
 -- Revisions  :
--- Date        Version  Author  Description
--- 2020-12-16  1.0      wackoz  Created
+-- Date        Version  Author          Description
+-- 2020-12-16  1.0      wackoz          Created
+-- 2021-01-07  2.0      wackoz,sabi     v2, rm interferred latches
 -------------------------------------------------------------------------------
 
 
