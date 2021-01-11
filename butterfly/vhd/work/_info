@@ -19,79 +19,376 @@ R0
 Z5 8adder.vhd
 Z6 Fadder.vhd
 l0
-L27 1
+Z7 L27 1
 VPam<cV2GT_iV4?X0TL<do2
 !s100 0YUN8Sb<EmkSIQBPBGg:I2
-Z7 OV;C;2020.1;71
+Z8 OV;C;2020.1;71
 31
-Z8 !s110 1610153085
+Z9 !s110 1610153085
 !i10b 1
-Z9 !s108 1610153085.000000
-Z10 !s90 -93|-work|work|adder.vhd|
-Z11 !s107 adder.vhd|
+Z10 !s108 1610153085.000000
+Z11 !s90 -93|-work|work|adder.vhd|
+Z12 !s107 adder.vhd|
 !i113 1
-Z12 o-93 -work work
-Z13 tExplicit 1 CvgOpt 0
+Z13 o-93 -work work
+Z14 tExplicit 1 CvgOpt 0
 Astr
 R2
 R3
 R4
-Z14 DEx4 work 5 adder 0 22 Pam<cV2GT_iV4?X0TL<do2
+DEx4 work 5 adder 0 22 Pam<cV2GT_iV4?X0TL<do2
 !i122 24
 l45
 L44 15
 VLgj=nO]E0Cij[fMSmkfMV3
 !s100 ^VB1iPK=GM5c6;mLhH@2F0
-R7
-31
 R8
-!i10b 1
+31
 R9
+!i10b 1
 R10
 R11
-!i113 1
 R12
+!i113 1
 R13
-Ebutterfly_dp
-Z15 w1610152058
+R14
+Ebutterfly
+Z15 w1610377326
 R2
 R3
 R4
-!i122 14
+!i122 31
 R0
-Z16 8butterfly_dp.vhd
-Z17 Fbutterfly_dp.vhd
+Z16 8butterfly.vhd
+Z17 Fbutterfly.vhd
 l0
-L30 1
-VEo`RM3FBOU7]n>AM4QVT32
-!s100 jE]dYOVBM7>JoO[Un;eel0
-R7
+Z18 L28 1
+V;@3fMnV7J;SRn=[`i>CiY0
+!s100 _=]QW?P1@iJMbXK2CgOUB1
+R8
 31
-Z18 !s110 1610152060
+Z19 !s110 1610377328
 !i10b 1
-Z19 !s108 1610152060.000000
-Z20 !s90 -93|-work|work|butterfly_dp.vhd|
-Z21 !s107 butterfly_dp.vhd|
+Z20 !s108 1610377328.000000
+Z21 !s90 -93|-work|work|butterfly.vhd|
+Z22 !s107 butterfly.vhd|
 !i113 1
-R12
 R13
+R14
 Astr
 R2
 R3
 R4
-DEx4 work 12 butterfly_dp 0 22 Eo`RM3FBOU7]n>AM4QVT32
-!i122 14
-l190
-L84 352
-V9dJ=41JC^9Wn^jA`?Mg0V3
-!s100 XBZ=PhVl3g?E_dCJ97FaT0
-R7
+Z23 DEx4 work 9 butterfly 0 22 ;@3fMnV7J;SRn=[`i>CiY0
+!i122 31
+l132
+L59 151
+V1<TNjNPm<BZN1QSFaYHJ>3
+!s100 HY:W@73LkDXezl^J3XOm50
+R8
 31
-R18
-!i10b 1
 R19
+!i10b 1
 R20
 R21
+R22
 !i113 1
-R12
 R13
+R14
+Ebutterfly_dp
+Z24 w1610386595
+R2
+R3
+R4
+!i122 47
+R0
+Z25 8butterfly_dp.vhd
+Z26 Fbutterfly_dp.vhd
+l0
+L30 1
+V2fmD:MT>d4?ce:m]CEiYB1
+!s100 kb9l4kc:WSDB=9]95;APR1
+R8
+31
+Z27 !s110 1610386597
+!i10b 1
+Z28 !s108 1610386597.000000
+Z29 !s90 -93|-work|work|butterfly_dp.vhd|
+Z30 !s107 butterfly_dp.vhd|
+!i113 1
+R13
+R14
+Astr
+R2
+R3
+R4
+DEx4 work 12 butterfly_dp 0 22 2fmD:MT>d4?ce:m]CEiYB1
+!i122 47
+l188
+L82 352
+Vz6P9eZM>F`F2E063FEeK:0
+!s100 ZYG[BMEGVBGT4TAS8Yo:_0
+R8
+31
+R27
+!i10b 1
+R28
+R29
+R30
+!i113 1
+R13
+R14
+Ebutterfly_tb
+Z31 w1610384226
+R3
+R4
+!i122 46
+R0
+Z32 8butterfly_tb.vhd
+Z33 Fbutterfly_tb.vhd
+l0
+R7
+VzX95k;l?1`^^CV1cARD0T0
+!s100 1OljUR?I=[jE?^e2CCeY[2
+R8
+31
+Z34 !s110 1610384230
+!i10b 1
+Z35 !s108 1610384229.000000
+Z36 !s90 -93|-work|work|butterfly_tb.vhd|
+Z37 !s107 butterfly_tb.vhd|
+!i113 1
+R13
+R14
+Astr
+R2
+R23
+R3
+R4
+DEx4 work 12 butterfly_tb 0 22 zX95k;l?1`^^CV1cARD0T0
+!i122 46
+l49
+L33 62
+V@5i8WN85b9_:QO4WFm^mU0
+!s100 k`k5Y]`=9Kc>9KHnmAoI00
+R8
+31
+R34
+!i10b 1
+R35
+R36
+R37
+!i113 1
+R13
+R14
+Econtrolunit_butterfly
+Z38 w1610378176
+R2
+R3
+R4
+!i122 34
+R0
+Z39 8controlunit_butterfly.vhd
+Z40 Fcontrolunit_butterfly.vhd
+l0
+L5 1
+VNaGe?KQ>I1RjQP<65O60e0
+!s100 z604Y0cC7;][9`Qah^=MZ2
+R8
+31
+Z41 !s110 1610378176
+!i10b 1
+Z42 !s108 1610378176.000000
+Z43 !s90 -93|-work|work|controlunit_butterfly.vhd|
+Z44 !s107 controlunit_butterfly.vhd|
+!i113 1
+R13
+R14
+Abehav
+R2
+R3
+R4
+DEx4 work 21 controlunit_butterfly 0 22 NaGe?KQ>I1RjQP<65O60e0
+!i122 34
+l59
+L13 90
+V;4eDE2f5=kj;09:HMmjij3
+!s100 fg^<IdEmFkQf0X[<;VQSK2
+R8
+31
+R41
+!i10b 1
+R42
+R43
+R44
+!i113 1
+R13
+R14
+Emicrorom
+Z45 w1610389624
+R2
+R3
+R4
+!i122 48
+R0
+Z46 8microROM.vhd
+Z47 FmicroROM.vhd
+l0
+L6 1
+VgDM1<VEM29M8_T3BOWjC70
+!s100 =KK6Zj<F]Mb_K846GfGG01
+R8
+31
+Z48 !s110 1610389663
+!i10b 1
+Z49 !s108 1610389663.000000
+Z50 !s90 -93|-work|work|microROM.vhd|
+!s107 microROM.vhd|
+!i113 1
+R13
+R14
+Abehav
+R2
+R3
+R4
+DEx4 work 8 microrom 0 22 gDM1<VEM29M8_T3BOWjC70
+!i122 48
+l63
+L14 62
+V[iRSB<eA4d5N[glfoim>`2
+!s100 2mCT2m0OcLjaX_Z93b2P^1
+R8
+31
+R48
+!i10b 1
+R49
+R50
+Z51 !s107 microROM.vhd|
+!i113 1
+R13
+R14
+Emux4to1
+Z52 w1610379040
+R3
+R4
+!i122 36
+R0
+Z53 8mux4to1.vhd
+Z54 Fmux4to1.vhd
+l0
+R7
+V]T=9BWGK6m]X=^do9]G^63
+!s100 JKI>K29SMGY@iiWMkAACh0
+R8
+31
+Z55 !s110 1610379040
+!i10b 1
+Z56 !s108 1610379040.000000
+Z57 !s90 -93|-work|work|mux4to1.vhd|
+Z58 !s107 mux4to1.vhd|
+!i113 1
+R13
+R14
+Astr
+R3
+R4
+DEx4 work 7 mux4to1 0 22 ]T=9BWGK6m]X=^do9]G^63
+!i122 36
+l51
+L46 21
+Vg8=2;W]@ko7mLiDU4_BBT0
+!s100 Q@N3To;W^5EP]l8WG?PZz2
+R8
+31
+R55
+!i10b 1
+R56
+R57
+R58
+!i113 1
+R13
+R14
+Ereg_neg_triggered
+Z59 w1610378046
+R3
+R4
+!i122 32
+R0
+Z60 8reg_neg_trigger.vhd
+Z61 Freg_neg_trigger.vhd
+l0
+L6 1
+Vk]@UFVR9kF71A;zYAUHK<1
+!s100 3lHE3XT2T4kJ2=]7n488z0
+R8
+31
+Z62 !s110 1610378050
+!i10b 1
+Z63 !s108 1610378050.000000
+Z64 !s90 -93|-work|work|reg_neg_trigger.vhd|
+Z65 !s107 reg_neg_trigger.vhd|
+!i113 1
+R13
+R14
+Astr
+R3
+R4
+DEx4 work 17 reg_neg_triggered 0 22 k]@UFVR9kF71A;zYAUHK<1
+!i122 32
+l26
+L20 20
+VN`2SSMP=32e_4TdR1K@aH2
+!s100 bnOkR<JF1d99iTf115zSk1
+R8
+31
+R62
+!i10b 1
+R63
+R64
+R65
+!i113 1
+R13
+R14
+Eround_block
+Z66 w1610380163
+R2
+R3
+R4
+!i122 42
+R0
+Z67 8round_block.vhd
+Z68 Fround_block.vhd
+l0
+R18
+VJSEODJ7dX8gV8ImV`zOfT1
+!s100 oIi[=9jF4F1]cAz;n[1zh3
+R8
+31
+Z69 !s110 1610380164
+!i10b 1
+Z70 !s108 1610380164.000000
+Z71 !s90 -93|-work|work|round_block.vhd|
+Z72 !s107 round_block.vhd|
+!i113 1
+R13
+R14
+Astr
+R2
+R3
+R4
+DEx4 work 11 round_block 0 22 JSEODJ7dX8gV8ImV`zOfT1
+!i122 42
+l49
+L44 25
+VhFXW1eXJ1gB<XJYK;Fkc`2
+!s100 J3=6h1B4EiO>S_l;9LCz`3
+R8
+31
+R69
+!i10b 1
+R70
+R71
+R72
+!i113 1
+R13
+R14

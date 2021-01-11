@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-30
--- Last update: 2020-12-30
+-- Last update: 2021-01-11
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -48,19 +48,20 @@ architecture str of mux4to1 is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
-
 begin  -- architecture str
 
-  with S select
-    Y <=
-    D1 when "00",
-    D2 when "01",
-    D3 when "10",
-    D4 when "11";
-  -----------------------------------------------------------------------------
-  -- Component instantiations
-  -----------------------------------------------------------------------------
+  process (D1, D2, D3, D4, S) is
+  begin
+    if (S(0) = '0' and S(1) = '0') then
+      Y <= D1;
+    elsif (S(0) = '0' and S(1) = '1') then
+      Y <= D2;
+    elsif (S(0) = '1' and S(1) = '0') then
+      Y <= D3;
+    else
+      Y <= D4;
+    end if;
 
+  end process;
 end architecture str;
-
 -------------------------------------------------------------------------------

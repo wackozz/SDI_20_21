@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-23
--- Last update: 2021-01-09
+-- Last update: 2021-01-11
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -424,7 +424,7 @@ begin  -- architecture str
   add_in_A <= std_logic_vector(resize(signed(mpy_reg_Q), 43));
 --MUX2to1
 
-  mpy_in_B <= Br_Q when s_mux_B_mpy = '0'else
+  mpy_in_B <= Br_Q when s_mux_B_mpy = '1' else
               Bj_Q;
 
   round_in   <= add_reg_2_Q                 when s_mux_round_in = '1' else add_reg_1_Q;

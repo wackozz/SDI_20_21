@@ -13,7 +13,7 @@ architecture arch of controlunit_butterfly_tb is
 
   -- component ports
  signal status:  std_logic_vector ( 1 downto 0);
- signal	datapath_commands :  std_logic_vector ( 16 downto 0);
+ signal	datapath_commands :  std_logic_vector (21 downto 0);
  signal reset : std_logic;
 signal done : std_logic;
   -- clock

@@ -1,3 +1,24 @@
+-------------------------------------------------------------------------------
+-- Title      : Testbench for design "butterfly"
+-- Project    : 
+-------------------------------------------------------------------------------
+-- File       : butterfly_tb.vhd
+-- Author     : wackoz  <wackoz@wT14s>
+-- Company    : 
+-- Created    : 2021-01-11
+-- Last update: 2021-01-11
+-- Platform   : 
+-- Standard   : VHDL'93/02
+-------------------------------------------------------------------------------
+-- Description: 
+-------------------------------------------------------------------------------
+-- Copyright (c) 2021 
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author  Description
+-- 2021-01-11  1.0      wackoz  Created
+-------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -9,36 +30,44 @@ end entity butterfly_tb;
 
 -------------------------------------------------------------------------------
 
-architecture arch of butterfly_tb is
+architecture str of butterfly_tb is
+
+  -- component generics
+  constant N : integer := 20;
 
   -- component ports
-  signal start,full_speed ,done                            : std_logic;
-  signal AR,AI,BR,BI,WR,WI                          : std_logic_vector (19 downto 0);
-  signal AR_out,AI_out,BR_out,BI_out                              : std_logic_vector (19 downto 0);
+  signal clock     : std_logic := '1';
+  signal reset     : std_logic;
+  signal start     : std_logic;
+  signal done      : std_logic;
+  signal fullspeed : std_logic;
+  signal Ar_out    : std_logic_vector(N-1 downto 0);
+  signal Aj_out    : std_logic_vector(N-1 downto 0);
+  signal Br_out    : std_logic_vector(N-1 downto 0);
+  signal Bj_out    : std_logic_vector(N-1 downto 0);
 
-  -- clock
-  signal clock : std_logic := '1';
-
-begin  -- architecture arch
+begin  -- architecture str
 
   -- component instantiation
   DUT : entity work.butterfly
+    generic map (
+      N => N)
     port map (
-	 clock => clock,
-      start => start,
-		full_speed => full_speed,
-		done => done,
-		AR => AR,
-		AI => AI,
-		BR => BR,
-		BI => BI,
-		WR => WR,
-		WI => WI,
-		AR_out => AR_out,
-		AI_out => AI_out,
-		BR_out => BR_out,
-		BI_out => BI_out
-     );
+      clock     => clock,
+      reset     => reset,
+      Ar_in     => "01101101010110101011",
+      Aj_in     => "01101100110101001001",
+      Br_in     => "00110101001101101000",
+      Bj_in     => "11011010011010100111",
+      Wr        => "01101101010010111010",
+      Wj        => "10011011010101001010",
+      start     => start,
+      done      => done,
+      fullspeed => fullspeed,
+      Ar_out    => Ar_out,
+      Aj_out    => Aj_out,
+      Br_out    => Br_out,
+      Bj_out    => Bj_out);
 
   -- clock generation
   clock <= not clock after 10 ns;
@@ -46,52 +75,20 @@ begin  -- architecture arch
   -- waveform generation
   WaveGen_Proc : process
   begin
+    start <=  '0';
+    fullspeed <= '0';
+    reset <= '1';
+             wait for 50 ns;
+    reset <= '0';
+             wait for 50 ns;
+    reset <= '1';
+    wait for 100 ns;
+    start <= '1';
     -- insert signal assignments here
 
-
-start <= '0';
-full_speed <= '0';
-wait for 50 ns;
-start <= '0';
-full_speed <= '0';
-WR <= "00000000000000000001";
-WI <= "00000000001000000000";
-AR <= "00000000000000000001";
-AI <= "00000000001000000000";
-BR <= "00000000000000000001";
-BI <= "00000000001000000000";
-
-wait for 50 ns;
-start <= '1';
-full_speed <= '0';
-WR <= "00000000000000000001";
-WI <= "00000000001000000000";
-AR <= "00000000000000000001";
-AI <= "00000000001000000000";
-BR <= "00000000000000000001";
-BI <= "00000000001000000000";
-wait for 50 ns;
-start <= '1';
-full_speed <= '0';
-WR <= "00000000000000000001";
-WI <= "00000000001000000000";
-AR <= "00000000000000000001";
-AI <= "00000000001000000000";
-BR <= "00000000000000000001";
-BI <= "00000000001000000000";
-wait for 50 ns;
-
-start <= '0';
-full_speed <= '0';
-WR <= "00000000000000000001";
-WI <= "00000000001000000000";
-AR <= "00000000000000000001";
-AI <= "00000000001000000000";
-BR <= "00000000000000000001";
-BI <= "00000000001000000000";
-wait;
+    wait;
   end process WaveGen_Proc;
 
 
 
-end architecture arch;
+end architecture str;

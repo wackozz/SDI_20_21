@@ -51,7 +51,7 @@ begin
   round_to_even : process (clock, reset) is
   begin  -- process round_to_even
     if reset = '0' then                 -- asynchronous reset (active low)
-      y_tmp <= (others => '0');
+      Y <= (others => '0');
     elsif clock'event and clock = '1' then  -- rising clock edge
       if A(M-3 downto 0) = zerofive then  --controllo se parte decimale è pari
                                           --a 0.5

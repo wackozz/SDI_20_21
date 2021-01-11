@@ -3,9 +3,9 @@ use ieee.std_logic_1164.all;
 
 -------------------------------------------------------------------------------
 
-entity reg27 is
+entity reg_neg_triggered is
 
-  generic (N : integer := 30);
+  generic (N : integer:= 5 );
 
   port (D : in std_logic_vector(N-1 downto 0);
 
@@ -13,11 +13,11 @@ entity reg27 is
 
         Q : out std_logic_vector(N-1 downto 0));
 
-end reg27;
+end reg_neg_triggered;
 
 -------------------------------------------------------------------------------
 
-architecture str of reg27 is
+architecture str of reg_neg_triggered is
 
   -----------------------------------------------------------------------------
   -- Internal signal declarations
@@ -29,7 +29,7 @@ begin  -- architecture str
   begin  -- process register_proc
     if reset = '0' then                     -- asynchronous reset (active low)
       Q <= (others => '0');
-    elsif clock'event and clock = '0' then  --  clock edge
+    elsif clock'event and clock = '0' then  -- rising clock edge
       if enable = '1' then
         Q <= D;
       end if;
