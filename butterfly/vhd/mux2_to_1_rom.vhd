@@ -3,9 +3,9 @@ use ieee.std_logic_1164.all;
 
 ENTITY mux_2_to_1_rom IS
 
-PORT ( x1,y1: in std_logic_vector (26 downto 0);
+PORT ( x1,y1: in std_logic_vector (30 downto 0);
        s: in std_logic;
-		 m1:out std_logic_vector(26 downto 0));
+		 m1:out std_logic_vector(30 downto 0));
 end mux_2_to_1_rom;
 
 architecture behav of mux_2_to_1_rom is
@@ -39,5 +39,10 @@ m1(23) <= (not(s) and x1(23)) or (s and y1(23));
 m1(24) <= (not(s) and x1(24)) or (s and y1(24));
 m1(25) <= (not(s) and x1(25)) or (s and y1(25));
 m1(26) <= (not(s) and x1(26)) or (s and y1(26));
+m1(27) <= (not(s) and x1(27)) or (s and y1(27));
+m1(28) <= (not(s) and x1(28)) or (s and y1(28));
+m1(29) <= (not(s) and x1(29)) or (s and y1(29));
+m1(30) <= (not(s) and x1(30)) or (s and y1(30));
+
 
 end behav;
