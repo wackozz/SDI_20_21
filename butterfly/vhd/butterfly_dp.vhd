@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-23
--- Last update: 2021-01-11
+-- Last update: 2021-01-12
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -418,10 +418,19 @@ begin  -- architecture str
 -------------------------------------------------------------------------------
 -- SIGNAL ASSIGNMENT
 -------------------------------------------------------------------------------
+temp_d1_pro: process (Ar_Q) is
+begin  -- process temp_d1_pro
+  temp_D1 <= (others => '0');
+  temp_D1(2*N+2 downto N+3) <=  Ar_Q;
+end process temp_d1_pro;
 
-  temp_D1  <= std_logic_vector(resize(signed(Ar_Q), 43));
-  temp_D2  <= std_logic_vector(resize(signed(Aj_Q), 43));
-  add_in_A <= std_logic_vector(resize(signed(mpy_reg_Q), 43));
+temp_d2_pro: process (Aj_Q) is
+begin  -- process temp_d1_pro
+  temp_D2 <= (others => '0');
+  temp_D2(2*N+2 downto N+3) <=  Aj_Q;
+end process temp_d2_pro;
+
+  add_in_A <= std_logic_vector(resize(signed(mpy_reg_Q), 2*N+3));
 --MUX2to1
 
   mpy_in_B <= Br_Q when s_mux_B_mpy = '1' else

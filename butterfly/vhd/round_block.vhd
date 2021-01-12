@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-29
--- Last update: 2021-01-11
+-- Last update: 2021-01-12
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -42,22 +42,23 @@ end entity round_block;
 -------------------------------------------------------------------------------
 
 architecture str of round_block is
-
   signal round_addend : std_logic_vector(M-1 downto 0);
   signal zerofive     : std_logic_vector(M-3 downto 0);  --solo bit dopo la virgola
   signal y_tmp        : std_logic_vector(N-1 downto 0);
 begin
 
   round_to_even : process (clock, reset) is
+    variable round : std_logic_vector(M-1 downto 0);
   begin  -- process round_to_even
     if reset = '0' then                 -- asynchronous reset (active low)
       y_tmp <= (others => '0');
     elsif clock'event and clock = '1' then  -- rising clock edge
       if A(M-3 downto 0) = zerofive then  --controllo se parte decimale è pari
                                           --a 0.5
-        y_tmp <= std_logic_vector(resize(signed(A), N));
+        y_tmp <= A(N-1 downto 0);
       else
-        y_tmp <= std_logic_vector(resize((signed(A) + signed(round_addend)), N));
+        round := std_logic_vector((signed(A) + signed(round_addend)));
+        y_tmp <= round(N-1 downto 0);
       end if;
     end if;
   end process round_to_even;
