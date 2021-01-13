@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-26
--- Last update: 2021-01-09
+-- Last update: 2021-01-12
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -51,7 +51,7 @@ begin
       if(add_sub = '0') then
         Y <= std_logic_vector(resize(signed(A), N+1)+resize(signed(B), N+1));
       else
-        Y <= std_logic_vector(resize(signed(A), N+1)-resize(signed(B), N+1));
+        Y <= std_logic_vector(resize(signed(B), N+1)-resize(signed(A), N+1));
       end if;
     end if;
   end process sum;

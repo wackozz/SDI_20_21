@@ -116,6 +116,7 @@ architecture str of butterfly_dp is
 --ROUND BLOCK
   signal round_in  : std_logic_vector(2*N+3 downto 0);
   signal round_out : std_logic_vector(N-1 downto 0);
+  signal round_out_neg : std_logic_vector(N-1 downto 0);
 
 
 -----------------------------------------------------------------------------
@@ -358,7 +359,7 @@ begin  -- architecture str
       N => N)
     port map (
 
-      D      => round_out,
+      D      => round_out_neg,
       clock  => clock,
       reset  => reset,
       enable => Br_out_enable,
@@ -371,7 +372,7 @@ begin  -- architecture str
       N => N)
     port map (
 
-      D      => round_out,
+      D      => round_out_neg,
       clock  => clock,
       reset  => reset,
       enable => Bj_out_enable,
@@ -418,16 +419,18 @@ begin  -- architecture str
 -------------------------------------------------------------------------------
 -- SIGNAL ASSIGNMENT
 -------------------------------------------------------------------------------
+round_out_neg <= std_logic_vector(-signed(round_out));
+  
 temp_d1_pro: process (Ar_Q) is
 begin  -- process temp_d1_pro
   temp_D1 <= (others => '0');
-  temp_D1(2*N+2 downto N+3) <=  Ar_Q;
+  temp_D1(2*N-2 downto N-1) <=  Ar_Q;
 end process temp_d1_pro;
 
 temp_d2_pro: process (Aj_Q) is
 begin  -- process temp_d1_pro
   temp_D2 <= (others => '0');
-  temp_D2(2*N+2 downto N+3) <=  Aj_Q;
+  temp_D2(2*N-2 downto N-1) <=  Aj_Q;
 end process temp_d2_pro;
 
   add_in_A <= std_logic_vector(resize(signed(mpy_reg_Q), 2*N+3));

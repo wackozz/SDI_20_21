@@ -10,11 +10,11 @@ z2
 cModel Technology
 Z0 d/home/wackoz/github/SDI_20_21/butterfly/vhd
 Eadder
-Z1 w1610153084
+Z1 w1610473516
 Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 24
+!i122 81
 R0
 Z5 8adder.vhd
 Z6 Fadder.vhd
@@ -24,9 +24,9 @@ VPam<cV2GT_iV4?X0TL<do2
 !s100 0YUN8Sb<EmkSIQBPBGg:I2
 Z8 OV;C;2020.1;71
 31
-Z9 !s110 1610153085
+Z9 !s110 1610473517
 !i10b 1
-Z10 !s108 1610153085.000000
+Z10 !s108 1610473517.000000
 Z11 !s90 -93|-work|work|adder.vhd|
 Z12 !s107 adder.vhd|
 !i113 1
@@ -37,11 +37,11 @@ R2
 R3
 R4
 DEx4 work 5 adder 0 22 Pam<cV2GT_iV4?X0TL<do2
-!i122 24
+!i122 81
 l45
 L44 15
-VLgj=nO]E0Cij[fMSmkfMV3
-!s100 ^VB1iPK=GM5c6;mLhH@2F0
+V2_P@77iN?f]0lE`c8Rb_23
+!s100 MM@lS<375LM:OSVDOM08z3
 R8
 31
 R9
@@ -96,11 +96,11 @@ R22
 R13
 R14
 Ebutterfly_dp
-Z24 w1610460281
+Z24 w1610489404
 R2
 R3
 R4
-!i122 58
+!i122 89
 R0
 Z25 8butterfly_dp.vhd
 Z26 Fbutterfly_dp.vhd
@@ -110,9 +110,9 @@ V2fmD:MT>d4?ce:m]CEiYB1
 !s100 kb9l4kc:WSDB=9]95;APR1
 R8
 31
-Z27 !s110 1610460283
+Z27 !s110 1610489405
 !i10b 1
-Z28 !s108 1610460282.000000
+Z28 !s108 1610489405.000000
 Z29 !s90 -93|-work|work|butterfly_dp.vhd|
 Z30 !s107 butterfly_dp.vhd|
 !i113 1
@@ -123,11 +123,11 @@ R2
 R3
 R4
 Z31 DEx4 work 12 butterfly_dp 0 22 2fmD:MT>d4?ce:m]CEiYB1
-!i122 58
-l188
-L82 361
-VBT7b;PIVXnUKY5L`^i_aE2
-!s100 [f^@aa[A8A3b_6L9jzZ>S3
+!i122 89
+l189
+L82 364
+V;`EjYEM0j[eXOC;iFoBcC2
+!s100 BcSR^zK4YFSeHa9a:9Ee23
 R8
 31
 R27
@@ -182,11 +182,11 @@ R38
 R13
 R14
 Econtrolunit_butterfly
-Z39 w1610378176
+Z39 w1610462839
 R2
 R3
 R4
-!i122 34
+!i122 59
 R0
 Z40 8controlunit_butterfly.vhd
 Z41 Fcontrolunit_butterfly.vhd
@@ -196,9 +196,9 @@ VNaGe?KQ>I1RjQP<65O60e0
 !s100 z604Y0cC7;][9`Qah^=MZ2
 R8
 31
-Z42 !s110 1610378176
+Z42 !s110 1610462839
 !i10b 1
-Z43 !s108 1610378176.000000
+Z43 !s108 1610462839.000000
 Z44 !s90 -93|-work|work|controlunit_butterfly.vhd|
 Z45 !s107 controlunit_butterfly.vhd|
 !i113 1
@@ -209,11 +209,11 @@ R2
 R3
 R4
 DEx4 work 21 controlunit_butterfly 0 22 NaGe?KQ>I1RjQP<65O60e0
-!i122 34
+!i122 59
 l59
 L13 90
-V;4eDE2f5=kj;09:HMmjij3
-!s100 fg^<IdEmFkQf0X[<;VQSK2
+VZSnCG90T`=0G9bncGN;iM2
+!s100 [HL^LXRWl]VJ18>c:VKnm3
 R8
 31
 R42
@@ -225,11 +225,11 @@ R45
 R13
 R14
 Emicrorom
-Z46 w1610389624
+Z46 w1610465635
 R2
 R3
 R4
-!i122 48
+!i122 64
 R0
 Z47 8microROM.vhd
 Z48 FmicroROM.vhd
@@ -239,9 +239,9 @@ VgDM1<VEM29M8_T3BOWjC70
 !s100 =KK6Zj<F]Mb_K846GfGG01
 R8
 31
-Z49 !s110 1610389663
+Z49 !s110 1610465637
 !i10b 1
-Z50 !s108 1610389663.000000
+Z50 !s108 1610465637.000000
 Z51 !s90 -93|-work|work|microROM.vhd|
 Z52 !s107 microROM.vhd|
 !i113 1
@@ -252,11 +252,11 @@ R2
 R3
 R4
 DEx4 work 8 microrom 0 22 gDM1<VEM29M8_T3BOWjC70
-!i122 48
-l63
-L14 62
-V[iRSB<eA4d5N[glfoim>`2
-!s100 2mCT2m0OcLjaX_Z93b2P^1
+!i122 64
+l69
+L14 68
+V18J?A0RzJWVa^TAFnTUIK0
+!s100 ll35JJgb]WzOblAMIGLV83
 R8
 31
 R49
@@ -267,25 +267,68 @@ R52
 !i113 1
 R13
 R14
+Empy_sh
+Z53 w1610471100
+R4
+R3
+R2
+!i122 80
+R0
+Z54 8mpy_sh.vhd
+Z55 Fmpy_sh.vhd
+l0
+R18
+V6iY6I<1EKFzE^_:k^gVzz1
+!s100 fV=L1B8Ed6UE1k1>ia@ib2
+R8
+31
+Z56 !s110 1610471100
+!i10b 1
+Z57 !s108 1610471100.000000
+Z58 !s90 -93|-work|work|mpy_sh.vhd|
+Z59 !s107 mpy_sh.vhd|
+!i113 1
+R13
+R14
+Astr
+R4
+R3
+R2
+DEx4 work 6 mpy_sh 0 22 6iY6I<1EKFzE^_:k^gVzz1
+!i122 80
+l54
+L48 25
+VhXe8cBXA3H3Mkcd<VREVP0
+!s100 I332f;VCRk8VegozWo[aA0
+R8
+31
+R56
+!i10b 1
+R57
+R58
+R59
+!i113 1
+R13
+R14
 Emux4to1
-Z53 w1610379040
+Z60 w1610379040
 R3
 R4
 !i122 36
 R0
-Z54 8mux4to1.vhd
-Z55 Fmux4to1.vhd
+Z61 8mux4to1.vhd
+Z62 Fmux4to1.vhd
 l0
 R7
 V]T=9BWGK6m]X=^do9]G^63
 !s100 JKI>K29SMGY@iiWMkAACh0
 R8
 31
-Z56 !s110 1610379040
+Z63 !s110 1610379040
 !i10b 1
-Z57 !s108 1610379040.000000
-Z58 !s90 -93|-work|work|mux4to1.vhd|
-Z59 !s107 mux4to1.vhd|
+Z64 !s108 1610379040.000000
+Z65 !s90 -93|-work|work|mux4to1.vhd|
+Z66 !s107 mux4to1.vhd|
 !i113 1
 R13
 R14
@@ -300,33 +343,33 @@ Vg8=2;W]@ko7mLiDU4_BBT0
 !s100 Q@N3To;W^5EP]l8WG?PZz2
 R8
 31
-R56
+R63
 !i10b 1
-R57
-R58
-R59
+R64
+R65
+R66
 !i113 1
 R13
 R14
 Ereg_neg_triggered
-Z60 w1610378046
+Z67 w1610378046
 R3
 R4
 !i122 32
 R0
-Z61 8reg_neg_trigger.vhd
-Z62 Freg_neg_trigger.vhd
+Z68 8reg_neg_trigger.vhd
+Z69 Freg_neg_trigger.vhd
 l0
 L6 1
 Vk]@UFVR9kF71A;zYAUHK<1
 !s100 3lHE3XT2T4kJ2=]7n488z0
 R8
 31
-Z63 !s110 1610378050
+Z70 !s110 1610378050
 !i10b 1
-Z64 !s108 1610378050.000000
-Z65 !s90 -93|-work|work|reg_neg_trigger.vhd|
-Z66 !s107 reg_neg_trigger.vhd|
+Z71 !s108 1610378050.000000
+Z72 !s90 -93|-work|work|reg_neg_trigger.vhd|
+Z73 !s107 reg_neg_trigger.vhd|
 !i113 1
 R13
 R14
@@ -341,34 +384,34 @@ VN`2SSMP=32e_4TdR1K@aH2
 !s100 bnOkR<JF1d99iTf115zSk1
 R8
 31
-R63
+R70
 !i10b 1
-R64
-R65
-R66
+R71
+R72
+R73
 !i113 1
 R13
 R14
 Eround_block
-Z67 w1610452016
+Z74 w1610478845
 R2
 R3
 R4
-!i122 55
+!i122 86
 R0
-Z68 8round_block.vhd
-Z69 Fround_block.vhd
+Z75 8round_block.vhd
+Z76 Fround_block.vhd
 l0
 R18
 VJSEODJ7dX8gV8ImV`zOfT1
 !s100 oIi[=9jF4F1]cAz;n[1zh3
 R8
 31
-Z70 !s110 1610452016
+Z77 !s110 1610478847
 !i10b 1
-Z71 !s108 1610452016.000000
-Z72 !s90 -93|-work|work|round_block.vhd|
-Z73 !s107 round_block.vhd|
+Z78 !s108 1610478847.000000
+Z79 !s90 -93|-work|work|round_block.vhd|
+Z80 !s107 round_block.vhd|
 !i113 1
 R13
 R14
@@ -377,18 +420,18 @@ R2
 R3
 R4
 DEx4 work 11 round_block 0 22 JSEODJ7dX8gV8ImV`zOfT1
-!i122 55
+!i122 86
 l48
-L44 26
-VbkC8]bWAmY8XkJaXX9m?U1
-!s100 B`IMY<fULW^D2k4iAOc[S3
+L44 25
+V;nzhC4f[[BmCDbOlhLAe90
+!s100 8^><WjK`N4oR_?P`7A7KA3
 R8
 31
-R70
+R77
 !i10b 1
-R71
-R72
-R73
+R78
+R79
+R80
 !i113 1
 R13
 R14

@@ -76,7 +76,7 @@ begin
 
 
   -- instance "reg_uAR"
-  reg_uAR : reg
+  reg_uAR : reg_neg_triggered
     generic map (
       N => 6)
     port map (
@@ -87,7 +87,7 @@ begin
       Q      => out_uAR);
 
   -- instance "reg_uIR"
-  reg_uIR : reg_neg_triggered
+  reg_uIR : reg
     generic map (
       N => 31)
     port map (

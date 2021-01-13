@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-30
--- Last update: 2021-01-11
+-- Last update: 2021-01-12
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -54,9 +54,9 @@ begin  -- architecture str
   begin
     if (S(0) = '0' and S(1) = '0') then
       Y <= D1;
-    elsif (S(0) = '0' and S(1) = '1') then
-      Y <= D2;
     elsif (S(0) = '1' and S(1) = '0') then
+      Y <= D2;
+    elsif (S(0) = '0' and S(1) = '1') then
       Y <= D3;
     else
       Y <= D4;

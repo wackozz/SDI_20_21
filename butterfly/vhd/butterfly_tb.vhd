@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-11
--- Last update: 2021-01-11
+-- Last update: 2021-01-12
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -76,7 +76,7 @@ begin  -- architecture str
   WaveGen_Proc : process
   begin
     start <=  '0';
-    fullspeed <= '0';
+    fullspeed <= '1';
     reset <= '1';
              wait for 50 ns;
     reset <= '0';
