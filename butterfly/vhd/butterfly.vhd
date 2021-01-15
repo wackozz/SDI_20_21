@@ -36,7 +36,6 @@ entity butterfly is
     reset : in std_logic;
     start     : in  std_logic;
     done      : out std_logic;
-    fullspeed : in  std_logic;
     --OUT
     Ar_out : out std_logic_vector(N-1 downto 0);
     Aj_out : out std_logic_vector(N-1 downto 0);
@@ -96,16 +95,16 @@ architecture str of butterfly is
   end component butterfly_dp;
 
   component controlunit_butterfly is
-    port (
-      status            : in  std_logic_vector (1 downto 0);
-      clock, reset      : in  std_logic;
-      datapath_commands : out std_logic_vector (21 downto 0);
-      done              : out std_logic);
+
+port ( start: in std_logic;
+       clock,reset: in std_logic;
+		 datapath_commands : out std_logic_vector ( 21 downto 0);
+		 done: out std_logic);
   end component controlunit_butterfly;
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
-  signal status            : std_logic_vector(1 downto 0);
+  
   signal datapath_commands : std_logic_vector(21 downto 0);
   signal s_mux_B_mpy       : std_logic;
   signal s_mux_A_mpy       : std_logic_vector(1 downto 0);
@@ -137,7 +136,7 @@ begin  -- architecture str
   -- instance "controlunit_butterfly_1"
   controlunit_butterfly_1 : controlunit_butterfly
     port map (
-      status            => status,
+      start            => start,
       clock             => clock,
       reset             => reset,
       datapath_commands => datapath_commands,
@@ -182,7 +181,7 @@ begin  -- architecture str
       add_reg_2_enable => add_reg_2_enable,
       mpy_reg_enable   => mpy_reg_enable
       );
-  status           <= start&fullspeed;
+  
   s_mux_B_mpy      <= datapath_commands(6);
   s_mux_A_mpy      <= datapath_commands(8 downto 7);
   s_mux_B_add_1    <= datapath_commands(17);

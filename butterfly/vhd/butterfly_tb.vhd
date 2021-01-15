@@ -40,7 +40,6 @@ architecture str of butterfly_tb is
   signal reset     : std_logic;
   signal start     : std_logic;
   signal done      : std_logic;
-  signal fullspeed : std_logic;
   signal Ar_out    : std_logic_vector(N-1 downto 0);
   signal Aj_out    : std_logic_vector(N-1 downto 0);
   signal Br_out    : std_logic_vector(N-1 downto 0);
@@ -63,7 +62,6 @@ begin  -- architecture str
       Wj        => "10011011010101001010",
       start     => start,
       done      => done,
-      fullspeed => fullspeed,
       Ar_out    => Ar_out,
       Aj_out    => Aj_out,
       Br_out    => Br_out,
@@ -76,14 +74,16 @@ begin  -- architecture str
   WaveGen_Proc : process
   begin
     start <=  '0';
-    fullspeed <= '1';
     reset <= '1';
              wait for 50 ns;
     reset <= '0';
              wait for 50 ns;
     reset <= '1';
+start <='1';
     wait for 100 ns;
     start <= '1';
+    wait for 100 ns;
+    start <='1';
     -- insert signal assignments here
 
     wait;

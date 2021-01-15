@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity PLA_status is
-port (full_speed,start,lsb_in: in std_logic;
+port (start,lsb_in: in std_logic;
       cc_validation : in std_logic_vector(1 downto 0);
 		LSB_out : out std_logic);
 end PLA_status;
@@ -17,7 +17,7 @@ port( x1,y1 : in std_logic;
 
 end component;
 
-signal full_speed_s,start_s,s_mux_int : std_logic;
+signal start_s1,start_s,s_mux_int : std_logic;
 signal cc_validation_s1,cc_validation_s2 : std_logic;
 signal lsb_in_s :std_logic;
 
@@ -25,11 +25,11 @@ begin
 cc_validation_s1 <= ((cc_validation(1)) AND (NOT(cc_validation(0))));
 cc_validation_s2 <= (cc_validation(1) AND (cc_validation(0)));
 
-full_speed_s <= (cc_validation_s2 AND full_speed);
+start_s1 <= (cc_validation_s2 AND start);
 start_s <= (cc_validation_s1 AND start);
 
 --mux interno al PLA
-s_mux_int <= full_speed_s OR start_s;
+s_mux_int <= start_s1 OR start_s;
 
 --selettore del mux esterno
 --s_mux_late <= ( cc_validation(0)) OR ((cc_validation(1)));
