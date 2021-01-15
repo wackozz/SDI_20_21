@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-11
--- Last update: 2021-01-11
+-- Last update: 2021-01-15
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -34,23 +34,22 @@ entity butterfly is
   port (
     clock : in std_logic;
     reset : in std_logic;
-    -- IN
-    Ar_in : in std_logic_vector(N-1 downto 0);
-    Aj_in : in std_logic_vector(N-1 downto 0);
-    Br_in : in std_logic_vector(N-1 downto 0);
-    Bj_in : in std_logic_vector(N-1 downto 0);
-    Wr    : in std_logic_vector(N-1 downto 0);
-    Wj    : in std_logic_vector(N-1 downto 0);
-
     start     : in  std_logic;
     done      : out std_logic;
     fullspeed : in  std_logic;
-    -- OUT
-
+    --OUT
     Ar_out : out std_logic_vector(N-1 downto 0);
     Aj_out : out std_logic_vector(N-1 downto 0);
     Br_out : out std_logic_vector(N-1 downto 0);
-    Bj_out : out std_logic_vector(N-1 downto 0));
+    Bj_out : out std_logic_vector(N-1 downto 0);
+    -- IN
+    Wr    : in std_logic_vector(N-1 downto 0);
+    Wj    : in std_logic_vector(N-1 downto 0);
+    Ar_in : in std_logic_vector(N-1 downto 0);
+    Aj_in : in std_logic_vector(N-1 downto 0);
+    Br_in : in std_logic_vector(N-1 downto 0);
+    Bj_in : in std_logic_vector(N-1 downto 0));
+    -- OUT
 
 end entity butterfly;
 

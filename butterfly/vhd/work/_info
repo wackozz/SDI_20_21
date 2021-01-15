@@ -53,23 +53,23 @@ R12
 R13
 R14
 Ebutterfly
-Z15 w1610377326
+Z15 w1610711823
 R2
 R3
 R4
-!i122 31
+!i122 90
 R0
 Z16 8butterfly.vhd
 Z17 Fbutterfly.vhd
 l0
 Z18 L28 1
-V;@3fMnV7J;SRn=[`i>CiY0
-!s100 _=]QW?P1@iJMbXK2CgOUB1
+VXN]OfUKMW>YjF;bf_HTFM3
+!s100 7SzaXCfU`3jfLg00NO>N92
 R8
 31
-Z19 !s110 1610377328
+Z19 !s110 1610711823
 !i10b 1
-Z20 !s108 1610377328.000000
+Z20 !s108 1610711823.000000
 Z21 !s90 -93|-work|work|butterfly.vhd|
 Z22 !s107 butterfly.vhd|
 !i113 1
@@ -79,12 +79,12 @@ Astr
 R2
 R3
 R4
-Z23 DEx4 work 9 butterfly 0 22 ;@3fMnV7J;SRn=[`i>CiY0
-!i122 31
-l132
-L59 151
-V1<TNjNPm<BZN1QSFaYHJ>3
-!s100 HY:W@73LkDXezl^J3XOm50
+DEx4 work 9 butterfly 0 22 XN]OfUKMW>YjF;bf_HTFM3
+!i122 90
+l131
+L58 151
+VA57j98?mb;`>X;ZJR4<8z1
+!s100 ijh9gE:im]jhjF:B`mUiX2
 R8
 31
 R19
@@ -96,25 +96,25 @@ R22
 R13
 R14
 Ebutterfly_dp
-Z24 w1610489404
+Z23 w1610489404
 R2
 R3
 R4
 !i122 89
 R0
-Z25 8butterfly_dp.vhd
-Z26 Fbutterfly_dp.vhd
+Z24 8butterfly_dp.vhd
+Z25 Fbutterfly_dp.vhd
 l0
 L30 1
 V2fmD:MT>d4?ce:m]CEiYB1
 !s100 kb9l4kc:WSDB=9]95;APR1
 R8
 31
-Z27 !s110 1610489405
+Z26 !s110 1610489405
 !i10b 1
-Z28 !s108 1610489405.000000
-Z29 !s90 -93|-work|work|butterfly_dp.vhd|
-Z30 !s107 butterfly_dp.vhd|
+Z27 !s108 1610489405.000000
+Z28 !s90 -93|-work|work|butterfly_dp.vhd|
+Z29 !s107 butterfly_dp.vhd|
 !i113 1
 R13
 R14
@@ -122,7 +122,7 @@ Astr
 R2
 R3
 R4
-Z31 DEx4 work 12 butterfly_dp 0 22 2fmD:MT>d4?ce:m]CEiYB1
+DEx4 work 12 butterfly_dp 0 22 2fmD:MT>d4?ce:m]CEiYB1
 !i122 89
 l189
 L82 364
@@ -130,39 +130,39 @@ V;`EjYEM0j[eXOC;iFoBcC2
 !s100 BcSR^zK4YFSeHa9a:9Ee23
 R8
 31
-R27
+R26
 !i10b 1
+R27
 R28
 R29
-R30
 !i113 1
 R13
 R14
 Ebutterfly_tb
-Z32 w1610384226
+Z30 w1610384226
 R3
 R4
 !i122 46
 R0
-Z33 8butterfly_tb.vhd
-Z34 Fbutterfly_tb.vhd
+Z31 8butterfly_tb.vhd
+Z32 Fbutterfly_tb.vhd
 l0
 R7
 VzX95k;l?1`^^CV1cARD0T0
 !s100 1OljUR?I=[jE?^e2CCeY[2
 R8
 31
-Z35 !s110 1610384230
+Z33 !s110 1610384230
 !i10b 1
-Z36 !s108 1610384229.000000
-Z37 !s90 -93|-work|work|butterfly_tb.vhd|
-Z38 !s107 butterfly_tb.vhd|
+Z34 !s108 1610384229.000000
+Z35 !s90 -93|-work|work|butterfly_tb.vhd|
+Z36 !s107 butterfly_tb.vhd|
 !i113 1
 R13
 R14
 Astr
 R2
-R23
+DEx4 work 9 butterfly 0 22 ;@3fMnV7J;SRn=[`i>CiY0
 R3
 R4
 DEx4 work 12 butterfly_tb 0 22 zX95k;l?1`^^CV1cARD0T0
@@ -173,34 +173,34 @@ V@5i8WN85b9_:QO4WFm^mU0
 !s100 k`k5Y]`=9Kc>9KHnmAoI00
 R8
 31
-R35
+R33
 !i10b 1
+R34
+R35
 R36
-R37
-R38
 !i113 1
 R13
 R14
 Econtrolunit_butterfly
-Z39 w1610462839
+Z37 w1610462839
 R2
 R3
 R4
 !i122 59
 R0
-Z40 8controlunit_butterfly.vhd
-Z41 Fcontrolunit_butterfly.vhd
+Z38 8controlunit_butterfly.vhd
+Z39 Fcontrolunit_butterfly.vhd
 l0
 L5 1
 VNaGe?KQ>I1RjQP<65O60e0
 !s100 z604Y0cC7;][9`Qah^=MZ2
 R8
 31
-Z42 !s110 1610462839
+Z40 !s110 1610462839
 !i10b 1
-Z43 !s108 1610462839.000000
-Z44 !s90 -93|-work|work|controlunit_butterfly.vhd|
-Z45 !s107 controlunit_butterfly.vhd|
+Z41 !s108 1610462839.000000
+Z42 !s90 -93|-work|work|controlunit_butterfly.vhd|
+Z43 !s107 controlunit_butterfly.vhd|
 !i113 1
 R13
 R14
@@ -216,34 +216,57 @@ VZSnCG90T`=0G9bncGN;iM2
 !s100 [HL^LXRWl]VJ18>c:VKnm3
 R8
 31
-R42
+R40
 !i10b 1
+R41
+R42
 R43
-R44
-R45
+!i113 1
+R13
+R14
+Efft
+w1610713983
+R2
+R3
+R4
+!i122 97
+R0
+8FFT.vhd
+FFFT.vhd
+l0
+R18
+V0Y>0l0<kRFo3YQ72RcmUl0
+!s100 HLiaTMTGe7b9QJGSjnQVb0
+R8
+31
+!s110 1610713989
+!i10b 1
+!s108 1610713989.000000
+!s90 -93|-work|work|FFT.vhd|
+!s107 FFT.vhd|
 !i113 1
 R13
 R14
 Emicrorom
-Z46 w1610465635
+Z44 w1610465635
 R2
 R3
 R4
 !i122 64
 R0
-Z47 8microROM.vhd
-Z48 FmicroROM.vhd
+Z45 8microROM.vhd
+Z46 FmicroROM.vhd
 l0
 L6 1
 VgDM1<VEM29M8_T3BOWjC70
 !s100 =KK6Zj<F]Mb_K846GfGG01
 R8
 31
-Z49 !s110 1610465637
+Z47 !s110 1610465637
 !i10b 1
-Z50 !s108 1610465637.000000
-Z51 !s90 -93|-work|work|microROM.vhd|
-Z52 !s107 microROM.vhd|
+Z48 !s108 1610465637.000000
+Z49 !s90 -93|-work|work|microROM.vhd|
+Z50 !s107 microROM.vhd|
 !i113 1
 R13
 R14
@@ -259,34 +282,34 @@ V18J?A0RzJWVa^TAFnTUIK0
 !s100 ll35JJgb]WzOblAMIGLV83
 R8
 31
-R49
+R47
 !i10b 1
+R48
+R49
 R50
-R51
-R52
 !i113 1
 R13
 R14
 Empy_sh
-Z53 w1610471100
+Z51 w1610471100
 R4
 R3
 R2
 !i122 80
 R0
-Z54 8mpy_sh.vhd
-Z55 Fmpy_sh.vhd
+Z52 8mpy_sh.vhd
+Z53 Fmpy_sh.vhd
 l0
 R18
 V6iY6I<1EKFzE^_:k^gVzz1
 !s100 fV=L1B8Ed6UE1k1>ia@ib2
 R8
 31
-Z56 !s110 1610471100
+Z54 !s110 1610471100
 !i10b 1
-Z57 !s108 1610471100.000000
-Z58 !s90 -93|-work|work|mpy_sh.vhd|
-Z59 !s107 mpy_sh.vhd|
+Z55 !s108 1610471100.000000
+Z56 !s90 -93|-work|work|mpy_sh.vhd|
+Z57 !s107 mpy_sh.vhd|
 !i113 1
 R13
 R14
@@ -302,33 +325,33 @@ VhXe8cBXA3H3Mkcd<VREVP0
 !s100 I332f;VCRk8VegozWo[aA0
 R8
 31
-R56
+R54
 !i10b 1
+R55
+R56
 R57
-R58
-R59
 !i113 1
 R13
 R14
 Emux4to1
-Z60 w1610379040
+Z58 w1610379040
 R3
 R4
 !i122 36
 R0
-Z61 8mux4to1.vhd
-Z62 Fmux4to1.vhd
+Z59 8mux4to1.vhd
+Z60 Fmux4to1.vhd
 l0
 R7
 V]T=9BWGK6m]X=^do9]G^63
 !s100 JKI>K29SMGY@iiWMkAACh0
 R8
 31
-Z63 !s110 1610379040
+Z61 !s110 1610379040
 !i10b 1
-Z64 !s108 1610379040.000000
-Z65 !s90 -93|-work|work|mux4to1.vhd|
-Z66 !s107 mux4to1.vhd|
+Z62 !s108 1610379040.000000
+Z63 !s90 -93|-work|work|mux4to1.vhd|
+Z64 !s107 mux4to1.vhd|
 !i113 1
 R13
 R14
@@ -343,33 +366,33 @@ Vg8=2;W]@ko7mLiDU4_BBT0
 !s100 Q@N3To;W^5EP]l8WG?PZz2
 R8
 31
-R63
+R61
 !i10b 1
+R62
+R63
 R64
-R65
-R66
 !i113 1
 R13
 R14
 Ereg_neg_triggered
-Z67 w1610378046
+Z65 w1610378046
 R3
 R4
 !i122 32
 R0
-Z68 8reg_neg_trigger.vhd
-Z69 Freg_neg_trigger.vhd
+Z66 8reg_neg_trigger.vhd
+Z67 Freg_neg_trigger.vhd
 l0
 L6 1
 Vk]@UFVR9kF71A;zYAUHK<1
 !s100 3lHE3XT2T4kJ2=]7n488z0
 R8
 31
-Z70 !s110 1610378050
+Z68 !s110 1610378050
 !i10b 1
-Z71 !s108 1610378050.000000
-Z72 !s90 -93|-work|work|reg_neg_trigger.vhd|
-Z73 !s107 reg_neg_trigger.vhd|
+Z69 !s108 1610378050.000000
+Z70 !s90 -93|-work|work|reg_neg_trigger.vhd|
+Z71 !s107 reg_neg_trigger.vhd|
 !i113 1
 R13
 R14
@@ -384,34 +407,34 @@ VN`2SSMP=32e_4TdR1K@aH2
 !s100 bnOkR<JF1d99iTf115zSk1
 R8
 31
-R70
+R68
 !i10b 1
+R69
+R70
 R71
-R72
-R73
 !i113 1
 R13
 R14
 Eround_block
-Z74 w1610478845
+Z72 w1610478845
 R2
 R3
 R4
 !i122 86
 R0
-Z75 8round_block.vhd
-Z76 Fround_block.vhd
+Z73 8round_block.vhd
+Z74 Fround_block.vhd
 l0
 R18
 VJSEODJ7dX8gV8ImV`zOfT1
 !s100 oIi[=9jF4F1]cAz;n[1zh3
 R8
 31
-Z77 !s110 1610478847
+Z75 !s110 1610478847
 !i10b 1
-Z78 !s108 1610478847.000000
-Z79 !s90 -93|-work|work|round_block.vhd|
-Z80 !s107 round_block.vhd|
+Z76 !s108 1610478847.000000
+Z77 !s90 -93|-work|work|round_block.vhd|
+Z78 !s107 round_block.vhd|
 !i113 1
 R13
 R14
@@ -427,11 +450,11 @@ V;nzhC4f[[BmCDbOlhLAe90
 !s100 8^><WjK`N4oR_?P`7A7KA3
 R8
 31
-R77
+R75
 !i10b 1
+R76
+R77
 R78
-R79
-R80
 !i113 1
 R13
 R14

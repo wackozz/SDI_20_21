@@ -1,0 +1,33 @@
+
+clock,reset,start,done,fullspeed,x0_I,x0j_I,x8_I,x8j_I,w0,w0j,x0,x0j,x8,x8j                         #1
+clock,reset,start,done,fullspeed,x1_I,x1j_I,x9_I,x9j_I,w0,w0j,x1,x1j,x9,x9j                     #2
+clock,reset,start,done,fullspeed,x2_I,x2j_I,x10_I,x10j_I,w0,w0j,x2,x2j,x10,x10j                     #3
+clock,reset,start,done,fullspeed,x3_I,x3j_I,x11_I,x11j_I,w0,w0j,x3,x3j,x11,x11j                 #4
+clock,reset,start,done,fullspeed,x4_I,x4j_I,x12_I,x12j_I,w0,w0j,x4,x4j,x12,x12j                 #5
+clock,reset,start,done,fullspeed,x5_I,x5j_I,x13_I,x13j_I,w0,w0j,x5,x5j,x13,x13j                      #6
+clock,reset,start,done,fullspeed,x6_I,x6j_I,x14_I,x14j_I,w0,w0j,x6,x6j,x14,x14j                 #7
+clock,reset,start,done,fullspeed,x7_I,x7j_I,x15_I,x15j_I,w0,w0j,x7,x7j,x15,x15j                     #8
+clock,reset,start,done,fullspeed,x0_II,x0j_II,x4_II,x4j_II,w0,w0j,x0_I,x0j_I,x4_I,x4j              #9
+clock,reset,start,done,fullspeed,x1_II,x1j_II,x5_II,x5j_II,w0,w0j,x1_I,x1j_I,x5_I,x5j              #10
+clock,reset,start,done,fullspeed,x2_II,x2j_II,x6_II,x6j_II,w0,w0j,x2_I,x2j_I,x6_I,x6j              #11
+clock,reset,start,done,fullspeed,x3_II,x3j_II,x7_II,x7j_II,w0,w0j,x3_I,x3j_I,x7_I,x7j              #12
+clock,reset,start,done,fullspeed,x8_II,x8j_II,x12_II,x12j_II,w4,w4j,x8_I,x8j_I,x12_I,x12j           #13
+clock,reset,start,done,fullspeed,x9_II,x9j_II,x13_II,x13j_II,w4,w4j,x9_I,x9j_I,x13_I,x13j                #14
+clock,reset,start,done,fullspeed,x10_II,xj10_II,x14_II,x14j_II,w4,w4j,x10_I,x10j_I,x14_I,x14j       #15
+clock,reset,start,done,fullspeed,x11_II,xj11_II,x15_II,x15j_II,w4,w4j,x11_I,x11j_I,x15_I,x15j           #16
+clock,reset,start,done,fullspeed,x0_III,x0j_III,x2_III,x2j_III,w0,w0j,x0_II,x0j_II,x2_II,x2j              #17
+clock,reset,start,done,fullspeed,x1_III,x1j_III,x3_III,x3j_III,w0,w0j,x1_II,x1j_II,x3_II,x3j#18
+clock,reset,start,done,fullspeed,x4_III,x4j_III,x6_III,x6j_III,w4,w4j,x4_II,x4j_II,x6_II,x6j              #19
+clock,reset,start,done,fullspeed,x5_III,x5j_III,x7_III,x7j_III,w4,w4j,x5_II,x5j_II,x7_II,x7j              #20
+clock,reset,start,done,fullspeed,x8_III,x8j_III,x10_III,x10j_III,w2,w2j,x8_II,x8j_II,x10_II,x10j          #21
+clock,reset,start,done,fullspeed,x9_III,x9j_III,x11_III,x11j_III,w2,w2j,x9_II,x9j_II,x11_II,x11j          #22
+clock,reset,start,done,fullspeed,x12_III,x12j_III,x14_III,x14j_III,w6,w6j,x12_II,x12j_II,x14_II,x14j      #23
+clock,reset,start,done,fullspeed,x13_III,x13j_III,x15_III,x15j_III,w6,w6j,x13_II,x13j_II,x15_II,x15j      #24
+clock,reset,start,done,fullspeed,x0_IV,x0j_IV,x1_IV,x1j_IV,w0,w0j,x0_III,x0j_III,x1_III,x1j              #25
+clock,reset,start,done,fullspeed,x2_IV,x2j_IV,x3_IV,x3j_IV,w4,w4,x2_III,x2j_III,x3_III,x3j              #26
+clock,reset,start,done,fullspeed,x4_IV,x4j_IV,x5_IV,x5j_IV,w2,w2j,x4_III,x4j_III,x5_III,x5j              #27
+clock,reset,start,done,fullspeed,x6_IV,x6j_IV,x7_IV,x7j_IV,w6,w6j,x6_III,x6j_III,x7_III,x7j              #28
+clock,reset,start,done,fullspeed,x8_IV,x8j_IV,x9_IV,x9j_IV,w1,w1j,x8_III,x8j_III,x9_III,x9j              #29
+clock,reset,start,done,fullspeed,x10_IV,x10j_IV,x11_IV,x11j_IV,w5,wj5,x10_III,x10j_III,x11_III,x11j      #30
+clock,reset,start,done,fullspeed,x12_IV,x12j_IV,x13_IV,x13j_IV,w3,w3j,x12_III,x12j_III,x13_III,x13j      #31
+clock,reset,start,done,fullspeed,x14_IV,x14j_IV,x15_IV,x15j_IV,w7,wj7,x14_III,x14j_III,x15_III,x15j      #32
