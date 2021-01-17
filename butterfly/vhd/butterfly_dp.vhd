@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-23
--- Last update: 2021-01-12
+-- Last update: 2021-01-16
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -423,14 +423,14 @@ round_out_neg <= std_logic_vector(-signed(round_out));
   
 temp_d1_pro: process (Ar_Q) is
 begin  -- process temp_d1_pro
-  temp_D1 <= (others => '0');
-  temp_D1(2*N-2 downto N-1) <=  Ar_Q;
+  temp_D1 <= std_logic_vector(shift_left((resize(signed(Ar_Q),temp_D1'length)),N-1));
+ -- temp_D1 <= (others => '0');
+ -- temp_D1(2*N-2 downto N-1) <=  Ar_Q;
 end process temp_d1_pro;
 
 temp_d2_pro: process (Aj_Q) is
 begin  -- process temp_d1_pro
-  temp_D2 <= (others => '0');
-  temp_D2(2*N-2 downto N-1) <=  Aj_Q;
+temp_D2 <= std_logic_vector(shift_left((resize(signed(Aj_Q),temp_D2'length)),N-1));
 end process temp_d2_pro;
 
   add_in_A <= std_logic_vector(resize(signed(mpy_reg_Q), 2*N+3));

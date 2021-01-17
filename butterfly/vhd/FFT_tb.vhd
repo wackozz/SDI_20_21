@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-15
--- Last update: 2021-01-16
+-- Last update: 2021-01-17
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -57,22 +57,22 @@ architecture arch of FFT_tb is
   signal x13, x13j         : sfixed(0 downto -19);
   signal x14, x14j         : sfixed(0 downto -19);
   signal x15, x15j         : sfixed(0 downto -19);
-  signal x0_out, x0j_out   : std_logic_vector(N-1 downto 0);
-  signal x1_out, x1j_out   : std_logic_vector(N-1 downto 0);
-  signal x2_out, x2j_out   : std_logic_vector(N-1 downto 0);
-  signal x3_out, x3j_out   : std_logic_vector(N-1 downto 0);
-  signal x4_out, x4j_out   : std_logic_vector(N-1 downto 0);
-  signal x5_out, x5j_out   : std_logic_vector(N-1 downto 0);
-  signal x6_out, x6j_out   : std_logic_vector(N-1 downto 0);
-  signal x7_out, x7j_out   : std_logic_vector(N-1 downto 0);
-  signal x8_out, x8j_out   : std_logic_vector(N-1 downto 0);
-  signal x9_out, x9j_out   : std_logic_vector(N-1 downto 0);
-  signal x10_out, x10j_out : std_logic_vector(N-1 downto 0);
-  signal x11_out, x11j_out : std_logic_vector(N-1 downto 0);
-  signal x12_out, x12j_out : std_logic_vector(N-1 downto 0);
-  signal x13_out, x13j_out : std_logic_vector(N-1 downto 0);
-  signal x14_out, x14j_out : std_logic_vector(N-1 downto 0);
-  signal x15_out, x15j_out : std_logic_vector(N-1 downto 0);
+  signal x0_out, x0j_out   : std_logic_vector(N+4 downto 0);
+  signal x1_out, x1j_out   : std_logic_vector(N+4 downto 0);
+  signal x2_out, x2j_out   : std_logic_vector(N+4 downto 0);
+  signal x3_out, x3j_out   : std_logic_vector(N+4 downto 0);
+  signal x4_out, x4j_out   : std_logic_vector(N+4 downto 0);
+  signal x5_out, x5j_out   : std_logic_vector(N+4 downto 0);
+  signal x6_out, x6j_out   : std_logic_vector(N+4 downto 0);
+  signal x7_out, x7j_out   : std_logic_vector(N+4 downto 0);
+  signal x8_out, x8j_out   : std_logic_vector(N+4 downto 0);
+  signal x9_out, x9j_out   : std_logic_vector(N+4 downto 0);
+  signal x10_out, x10j_out : std_logic_vector(N+4 downto 0);
+  signal x11_out, x11j_out : std_logic_vector(N+4 downto 0);
+  signal x12_out, x12j_out : std_logic_vector(N+4 downto 0);
+  signal x13_out, x13j_out : std_logic_vector(N+4 downto 0);
+  signal x14_out, x14j_out : std_logic_vector(N+4 downto 0);
+  signal x15_out, x15j_out : std_logic_vector(N+4 downto 0);
 
   -- clock
   signal Clk : std_logic := '1';
@@ -167,43 +167,45 @@ begin  -- architecture arch
     wait for 12 ns;
     reset <= '1';
     start <= '1';
+    wait for 100 ns;
+start <= '0';
     wait;
   end process WaveGen_Proc;
 
-  x0   <= To_sfixed(-0.99999, x0);
+  x0   <= To_sfixed(0.25, x0);
   x0j  <= to_sfixed(0, x0);
-  x1   <= To_sfixed(-0.99999, x0);
+  x1   <= To_sfixed(0.25, x0);
   x1j  <= to_sfixed(0, x0);
-  x2   <= To_sfixed(-0.99999, x0);
+  x2   <= To_sfixed(0.25, x0);
   x2j  <= to_sfixed(0, x0);
-  x3   <= To_sfixed(-0.99999, x0);
+  x3   <= To_sfixed(0.25, x0);
   x3j  <= to_sfixed(0, x0);
-  x4   <= To_sfixed(-0.99999, x0);
+  x4   <= To_sfixed(0.25, x0);
   x4j  <= to_sfixed(0, x0);
-  x5   <= To_sfixed(-0.99999, x0);
+  x5   <= To_sfixed(0.25, x0);
   x5j  <= to_sfixed(0, x0);
-  x6   <= To_sfixed(-0.99999, x0);
+  x6   <= To_sfixed(0.25, x0);
   x6j  <= to_sfixed(0, x0);
-  x7   <= To_sfixed(-0.99999, x0);
+  x7   <= To_sfixed(0.25, x0);
   x7j  <= to_sfixed(0, x0);
-  x8   <= To_sfixed(-0.99999, x0);
+  x8   <= To_sfixed(0.25, x0);
   x8j  <= to_sfixed(0, x0);
-  x9   <= To_sfixed(-0.99999, x0);
+  x9   <= To_sfixed(-0.25, x0);
   x9j  <= to_sfixed(0, x0);
-  x10  <= To_sfixed(-0.99999, x0);
+  x10  <= To_sfixed(-0.25, x0);
   x10j <= to_sfixed(0, x0);
-  x11  <= To_sfixed(-0.99999, x0);
+  x11  <= To_sfixed(-0.25, x0);
   x11j <= to_sfixed(0, x0);
-  x12  <= To_sfixed(-0.99999, x0);
+  x12  <= To_sfixed(-0.25, x0);
   x12j <= to_sfixed(0, x0);
-  x13  <= To_sfixed(-0.99999, x0);
+  x13  <= To_sfixed(-0.25, x0);
   x13j <= to_sfixed(0, x0);
-  x14  <= To_sfixed(-0.99999, x0);
+  x14  <= To_sfixed(-0.25, x0);
   x14j <= to_sfixed(0, x0);
-  x15  <= To_sfixed(-0.99999, x0);
+  x15  <= To_sfixed(-0.25, x0);
   x15j <= to_sfixed(0, x0);
 
 end architecture arch;
 
 
--------------------------------------------------------------------------------
+

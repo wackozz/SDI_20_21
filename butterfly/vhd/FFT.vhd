@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-15
--- Last update: 2021-01-16
+-- Last update: 2021-01-17
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -53,22 +53,22 @@ entity FFT is
     x14, x14j : in  std_logic_vector(N-1 downto 0);
     x15, x15j : in  std_logic_vector(N-1 downto 0);
 
-    x0_out, x0j_out   : out std_logic_vector(N-1 downto 0);
-    x1_out, x1j_out   : out std_logic_vector(N-1 downto 0);
-    x2_out, x2j_out   : out std_logic_vector(N-1 downto 0);
-    x3_out, x3j_out   : out std_logic_vector(N-1 downto 0);
-    x4_out, x4j_out   : out std_logic_vector(N-1 downto 0);
-    x5_out, x5j_out   : out std_logic_vector(N-1 downto 0);
-    x6_out, x6j_out   : out std_logic_vector(N-1 downto 0);
-    x7_out, x7j_out   : out std_logic_vector(N-1 downto 0);
-    x8_out, x8j_out   : out std_logic_vector(N-1 downto 0);
-    x9_out, x9j_out   : out std_logic_vector(N-1 downto 0);
-    x10_out, x10j_out : out std_logic_vector(N-1 downto 0);
-    x11_out, x11j_out : out std_logic_vector(N-1 downto 0);
-    x12_out, x12j_out : out std_logic_vector(N-1 downto 0);
-    x13_out, x13j_out : out std_logic_vector(N-1 downto 0);
-    x14_out, x14j_out : out std_logic_vector(N-1 downto 0);
-    x15_out, x15j_out : out std_logic_vector(N-1 downto 0)
+    x0_out, x0j_out   : out std_logic_vector(N+4 downto 0);
+    x1_out, x1j_out   : out std_logic_vector(N+4 downto 0);
+    x2_out, x2j_out   : out std_logic_vector(N+4 downto 0);
+    x3_out, x3j_out   : out std_logic_vector(N+4 downto 0);
+    x4_out, x4j_out   : out std_logic_vector(N+4 downto 0);
+    x5_out, x5j_out   : out std_logic_vector(N+4 downto 0);
+    x6_out, x6j_out   : out std_logic_vector(N+4 downto 0);
+    x7_out, x7j_out   : out std_logic_vector(N+4 downto 0);
+    x8_out, x8j_out   : out std_logic_vector(N+4 downto 0);
+    x9_out, x9j_out   : out std_logic_vector(N+4 downto 0);
+    x10_out, x10j_out : out std_logic_vector(N+4 downto 0);
+    x11_out, x11j_out : out std_logic_vector(N+4 downto 0);
+    x12_out, x12j_out : out std_logic_vector(N+4 downto 0);
+    x13_out, x13j_out : out std_logic_vector(N+4 downto 0);
+    x14_out, x14j_out : out std_logic_vector(N+4 downto 0);
+    x15_out, x15j_out : out std_logic_vector(N+4 downto 0)
     );
 
 end entity FFT;
@@ -201,7 +201,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"08005",
+      D      => x"7fffb",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -223,7 +223,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"89be5",
+      D      => x"7641b",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -234,7 +234,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"30fbc",
+      D      => x"cf044",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -245,7 +245,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"a57d8",
+      D      => x"5a828",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -256,7 +256,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"5a828",
+      D      => x"a57d8",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -267,7 +267,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"cf044",
+      D      => x"30fbc",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -278,7 +278,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"7641b",
+      D      => x"89be5",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -300,7 +300,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"7fffb",
+      D      => x"80005",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -311,7 +311,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"30fbc",
+      D      => x"cf044",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -322,7 +322,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"7641b",
+      D      => x"89be5",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -333,7 +333,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"5a828",
+      D      => x"a57d8",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -344,7 +344,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"5a828",
+      D      => x"a57d8",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -355,7 +355,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"7641b",
+      D      => x"89be5",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -367,7 +367,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"30fbc",
+      D      => x"cf044",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -379,7 +379,7 @@ begin  -- architecture str
   Butterfly_1 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start, done_I, x0_I, x0j_I, x8_I, x8j_I, w0, w0j, x0, x0j, x8, x8j);
+    port map (clock, reset, start, open, x0_I, x0j_I, x8_I, x8j_I, w0, w0j, x0, x0j, x8, x8j);
 
   -- instance "butterfly_1"
   Butterfly_2 : butterfly
@@ -415,12 +415,12 @@ begin  -- architecture str
   Butterfly_8 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start, open, x7_I, x7j_I, x15_I, x15j_I, w0, w0j, x7, x7j, x15, x15j);
+    port map (clock, reset, start, done_I, x7_I, x7j_I, x15_I, x15j_I, w0, w0j, x7, x7j, x15, x15j);
   -- instance "butterfly_1"
   Butterfly_9 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_II, done_II, x0_II, x0j_II, x4_II, x4j_II, w0, w0j, x0_I, x0j_I, x4_I, x4j);
+    port map (clock, reset, start_II, open, x0_II, x0j_II, x4_II, x4j_II, w0, w0j, x0_I, x0j_I, x4_I, x4j);
   -- instance "butterfly_1"
   Butterfly_10 : butterfly
     generic map (
@@ -455,12 +455,12 @@ begin  -- architecture str
   Butterfly_16 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_II, open, x11_II, x11j_II, x15_II, x15j_II, w4, w4j, x11_I, x11j_I, x15_I, x15j);
+    port map (clock, reset, start_II, done_II, x11_II, x11j_II, x15_II, x15j_II, w4, w4j, x11_I, x11j_I, x15_I, x15j);
   -- instance "butterfly_1"
   Butterfly_17 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, done_III, x0_III, x0j_III, x2_III, x2j_III, w0, w0j, x0_II, x0j_II, x2_II, x2j);
+    port map (clock, reset, start_III, open, x0_III, x0j_III, x2_III, x2j_III, w0, w0j, x0_II, x0j_II, x2_II, x2j);
   -- instance "butterfly_1"
   Butterfly_18 : butterfly
     generic map (
@@ -495,47 +495,47 @@ begin  -- architecture str
   Butterfly_24 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x13_III, x13j_III, x15_III, x15j_III, w6, w6j, x13_II, x13j_II, x15_II, x15j);
+    port map (clock, reset, start_III, done_III, x13_III, x13j_III, x15_III, x15j_III, w6, w6j, x13_II, x13j_II, x15_II, x15j);
   -- instance "butterfly_1"
   Butterfly_25 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x0_IV, x0j_IV, x1_IV, x1j_IV, w0, w0j, x0_III, x0j_III, x1_III, x1j);
+    port map (clock, reset, start_IV, open, x0_IV, x0j_IV, x1_IV, x1j_IV, w0, w0j, x0_III, x0j_III, x1_III, x1j);
   -- instance "butterfly_1"
   Butterfly_26 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x2_IV, x2j_IV, x3_IV, x3j_IV, w4, w4, x2_III, x2j_III, x3_III, x3j);
+    port map (clock, reset, start_IV, open, x2_IV, x2j_IV, x3_IV, x3j_IV, w4, w4j, x2_III, x2j_III, x3_III, x3j);
   -- instance "butterfly_1"
   Butterfly_27 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x4_IV, x4j_IV, x5_IV, x5j_IV, w2, w2j, x4_III, x4j_III, x5_III, x5j);
+    port map (clock, reset, start_IV, open, x4_IV, x4j_IV, x5_IV, x5j_IV, w2, w2j, x4_III, x4j_III, x5_III, x5j);
   -- instance "butterfly_1"
   Butterfly_28 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x6_IV, x6j_IV, x7_IV, x7j_IV, w6, w6j, x6_III, x6j_III, x7_III, x7j);
+    port map (clock, reset, start_IV, open, x6_IV, x6j_IV, x7_IV, x7j_IV, w6, w6j, x6_III, x6j_III, x7_III, x7j);
   -- instance "butterfly_1"
   Butterfly_29 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x8_IV, x8j_IV, x9_IV, x9j_IV, w1, w1j, x8_III, x8j_III, x9_III, x9j);
+    port map (clock, reset, start_IV, open, x8_IV, x8j_IV, x9_IV, x9j_IV, w1, w1j, x8_III, x8j_III, x9_III, x9j);
   -- instance "butterfly_1"
   Butterfly_30 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x10_IV, x10j_IV, x11_IV, x11j_IV, w5, w5j, x10_III, x10j_III, x11_III, x11j);
+    port map (clock, reset, start_IV, open, x10_IV, x10j_IV, x11_IV, x11j_IV, w5, w5j, x10_III, x10j_III, x11_III, x11j);
   -- instance "butterfly_1"
   Butterfly_31 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x12_IV, x12j_IV, x13_IV, x13j_IV, w3, w3j, x12_III, x12j_III, x13_III, x13j);
+    port map (clock, reset, start_IV, open, x12_IV, x12j_IV, x13_IV, x13j_IV, w3, w3j, x12_III, x12j_III, x13_III, x13j);
   -- instance "butterfly_1"
   Butterfly_32 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, done, x14_IV, x14j_IV, x15_IV, x15j_IV, w7, w7j, x14_III, x14j_III, x15_III, x15j);
+    port map (clock, reset, start_IV, done, x14_IV, x14j_IV, x15_IV, x15j_IV, w7, w7j, x14_III, x14j_III, x15_III, x15j);
 
 
   start_II  <= done_I;
@@ -543,38 +543,38 @@ begin  -- architecture str
   start_IV  <= done_III;
 
 
-  x0_out   <= std_logic_vector(shift_left(signed(x0_IV), 4));
-  x0j_out  <= std_logic_vector(shift_left(signed(x0j_IV), 4));
-  x1_out   <= std_logic_vector(shift_left(signed(x8_IV), 4));
-  x1j_out  <= std_logic_vector(shift_left(signed(x8j_IV), 4));
-  x2_out   <= std_logic_vector(shift_left(signed(x4_IV), 4));
-  x2j_out  <= std_logic_vector(shift_left(signed(x4j_IV), 4));
-  x3_out   <= std_logic_vector(shift_left(signed(x12_IV), 4));
-  x3j_out  <= std_logic_vector(shift_left(signed(x12j_IV), 4));
-  x4_out   <= std_logic_vector(shift_left(signed(x2_IV), 4));
-  x4j_out  <= std_logic_vector(shift_left(signed(x2j_IV), 4));
-  x5_out   <= std_logic_vector(shift_left(signed(x10_IV), 4));
-  x5j_out  <= std_logic_vector(shift_left(signed(x10j_IV), 4));
-  x6_out   <= std_logic_vector(shift_left(signed(x6_IV), 4));
-  x6j_out  <= std_logic_vector(shift_left(signed(x6j_IV), 4));
-  x7_out   <= std_logic_vector(shift_left(signed(x14_IV), 4));
-  x7j_out  <= std_logic_vector(shift_left(signed(x14j_IV), 4));
-  x8_out   <= std_logic_vector(shift_left(signed(x1_IV), 4));
-  x8j_out  <= std_logic_vector(shift_left(signed(x1j_IV), 4));
-  x9_out   <= std_logic_vector(shift_left(signed(x9_IV), 4));
-  x9j_out  <= std_logic_vector(shift_left(signed(x9j_IV), 4));
-  x10_out  <= std_logic_vector(shift_left(signed(x5_IV), 4));
-  x10j_out <= std_logic_vector(shift_left(signed(x5j_IV), 4));
-  x11_out  <= std_logic_vector(shift_left(signed(x13_IV), 4));
-  x11j_out <= std_logic_vector(shift_left(signed(x13j_IV), 4));
-  x12_out  <= std_logic_vector(shift_left(signed(x3_IV), 4));
-  x12j_out <= std_logic_vector(shift_left(signed(x3j_IV), 4));
-  x13_out  <= std_logic_vector(shift_left(signed(x11_IV), 4));
-  x13j_out <= std_logic_vector(shift_left(signed(x11j_IV), 4));
-  x14_out  <= std_logic_vector(shift_left(signed(x7_IV), 4));
-  x14j_out <= std_logic_vector(shift_left(signed(x7j_IV), 4));
-  x15_out  <= std_logic_vector(shift_left(signed(x15_IV), 4));
-  x15j_out <= std_logic_vector(shift_left(signed(x15j_IV), 4));
+  x0_out   <= x0_IV&"00000";
+  x0j_out  <= x0j_IV&"00000";
+  x1_out   <= x8_IV&"00000";
+  x1j_out  <= x8j_IV&"00000";
+  x2_out   <= x4_IV&"00000";
+  x2j_out  <= x4j_IV&"00000";
+  x3_out   <= x12_IV&"00000";
+  x3j_out  <= x12j_IV&"00000";
+  x4_out   <= x2_IV&"00000";
+  x4j_out  <= x2j_IV&"00000";
+  x5_out   <= x10_IV&"00000";
+  x5j_out  <= x10j_IV&"00000";
+  x6_out   <= x6_IV&"00000";
+  x6j_out  <= x6j_IV&"00000";
+  x7_out   <= x14_IV&"00000";
+  x7j_out  <= x14j_IV&"00000";
+  x8_out   <= x1_IV&"00000";
+  x8j_out  <= x1j_IV&"00000";
+  x9_out   <= x9_IV&"00000";
+  x9j_out  <= x9j_IV&"00000";
+  x10_out  <= x5_IV&"00000";
+  x10j_out <= x5j_IV&"00000";
+  x11_out  <= x13_IV&"00000";
+  x11j_out <= x13j_IV&"00000";
+  x12_out  <= x3_IV&"00000";
+  x12j_out <= x3j_IV&"00000";
+  x13_out  <= x11_IV&"00000";
+  x13j_out <= x11j_IV&"00000";
+  x14_out  <= x7_IV&"00000";
+  x14j_out <= x7j_IV&"00000";
+  x15_out  <= x15_IV&"00000";
+  x15j_out <= x15j_IV&"00000";
 end architecture str;
 
 -------------------------------------------------------------------------------

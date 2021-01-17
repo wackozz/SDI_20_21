@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-11
--- Last update: 2021-01-15
+-- Last update: 2021-01-16
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -32,23 +32,23 @@ entity butterfly is
     );
 
   port (
-    clock : in std_logic;
-    reset : in std_logic;
-    start     : in  std_logic;
-    done      : out std_logic;
+    clock  : in  std_logic;
+    reset  : in  std_logic;
+    start  : in  std_logic;
+    done   : out std_logic;
     --OUT
     Ar_out : out std_logic_vector(N-1 downto 0);
     Aj_out : out std_logic_vector(N-1 downto 0);
     Br_out : out std_logic_vector(N-1 downto 0);
     Bj_out : out std_logic_vector(N-1 downto 0);
     -- IN
-    Wr    : in std_logic_vector(N-1 downto 0);
-    Wj    : in std_logic_vector(N-1 downto 0);
-    Ar_in : in std_logic_vector(N-1 downto 0);
-    Aj_in : in std_logic_vector(N-1 downto 0);
-    Br_in : in std_logic_vector(N-1 downto 0);
-    Bj_in : in std_logic_vector(N-1 downto 0));
-    -- OUT
+    Wr     : in  std_logic_vector(N-1 downto 0);
+    Wj     : in  std_logic_vector(N-1 downto 0);
+    Ar_in  : in  std_logic_vector(N-1 downto 0);
+    Aj_in  : in  std_logic_vector(N-1 downto 0);
+    Br_in  : in  std_logic_vector(N-1 downto 0);
+    Bj_in  : in  std_logic_vector(N-1 downto 0));
+  -- OUT
 
 end entity butterfly;
 
@@ -96,15 +96,15 @@ architecture str of butterfly is
 
   component controlunit_butterfly is
 
-port ( start: in std_logic;
-       clock,reset: in std_logic;
-		 datapath_commands : out std_logic_vector ( 21 downto 0);
-		 done: out std_logic);
+    port (start             : in  std_logic;
+          clock, reset      : in  std_logic;
+          datapath_commands : out std_logic_vector (21 downto 0);
+          done              : out std_logic);
   end component controlunit_butterfly;
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
-  
+
   signal datapath_commands : std_logic_vector(21 downto 0);
   signal s_mux_B_mpy       : std_logic;
   signal s_mux_A_mpy       : std_logic_vector(1 downto 0);
@@ -136,7 +136,7 @@ begin  -- architecture str
   -- instance "controlunit_butterfly_1"
   controlunit_butterfly_1 : controlunit_butterfly
     port map (
-      start            => start,
+      start             => start,
       clock             => clock,
       reset             => reset,
       datapath_commands => datapath_commands,
@@ -181,7 +181,7 @@ begin  -- architecture str
       add_reg_2_enable => add_reg_2_enable,
       mpy_reg_enable   => mpy_reg_enable
       );
-  
+
   s_mux_B_mpy      <= datapath_commands(6);
   s_mux_A_mpy      <= datapath_commands(8 downto 7);
   s_mux_B_add_1    <= datapath_commands(17);
