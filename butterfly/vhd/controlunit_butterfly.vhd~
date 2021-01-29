@@ -54,7 +54,7 @@ architecture behav of controlunit_butterfly is
   -----------------------------------------------------------------------------
 
   signal mem_out1, mem_out2, mux_out, out_uIR : std_logic_vector (31 downto 0);
-  signal in_uAR_LSB                      : std_logic;
+  signal in2_mux, in_uAR_LSB                      : std_logic;
   signal out_uAR, D_uAR                       : std_logic_vector(4 downto 0);
   signal in_uAR_ADD                              : std_logic_vector(3 downto 0);
 
@@ -74,12 +74,12 @@ begin
               OUT_MEM_odd  => mem_out2);
 
 
-  mux2_to_1_microROM : process(mem_out1, mem_out2, out_uAR(0)) is
+  mux2_to_1_microROM : process(out_uAR(0)) is
   begin  -- process mux2_to_1_microROM
-    if out_uAR(0) = '1' then
-      mux_out <= mem_out2;
-    else
+    if out_uAR(0) = '0' then
       mux_out <= mem_out1;
+    else
+      mux_out <= mem_out2;
     end if;
   end process mux2_to_1_microROM;
 

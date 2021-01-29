@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-11
--- Last update: 2021-01-29
+-- Last update: 2021-01-26
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -82,7 +82,7 @@ begin  -- architecture str
    start <='1';
     wait for 50 ns;
     start <= '1';
-    wait for 100 ns;
+    wait for 50 ns;
     start <='0';
     -- insert signal assignments here
 

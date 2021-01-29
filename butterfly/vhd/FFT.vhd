@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-15
--- Last update: 2021-01-17
+-- Last update: 2021-01-28
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -201,7 +201,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"7fffb",
+      D      => x"7ffff",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -300,7 +300,7 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      D      => x"80005",
+      D      => x"80000",
       clock  => clock,
       reset  => reset,
       enable => '1',
@@ -420,122 +420,122 @@ begin  -- architecture str
   Butterfly_9 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_II, open, x0_II, x0j_II, x4_II, x4j_II, w0, w0j, x0_I, x0j_I, x4_I, x4j);
+    port map (clock, reset, start_II, open, x0_II, x0j_II, x4_II, x4j_II, w0, w0j, x0_I, x0j_I, x4_I, x4j_I);
   -- instance "butterfly_1"
   Butterfly_10 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_II, open, x1_II, x1j_II, x5_II, x5j_II, w0, w0j, x1_I, x1j_I, x5_I, x5j);
+    port map (clock, reset, start_II, open, x1_II, x1j_II, x5_II, x5j_II, w0, w0j, x1_I, x1j_I, x5_I, x5j_I);
   -- instance "butterfly_1"
   Butterfly_11 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_II, open, x2_II, x2j_II, x6_II, x6j_II, w0, w0j, x2_I, x2j_I, x6_I, x6j);
+    port map (clock, reset, start_II, open, x2_II, x2j_II, x6_II, x6j_II, w0, w0j, x2_I, x2j_I, x6_I, x6j_I);
   -- instance "butterfly_1"
   Butterfly_12 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_II, open, x3_II, x3j_II, x7_II, x7j_II, w0, w0j, x3_I, x3j_I, x7_I, x7j);
+    port map (clock, reset, start_II, open, x3_II, x3j_II, x7_II, x7j_II, w0, w0j, x3_I, x3j_I, x7_I, x7j_I);
   -- instance "butterfly_1"
   Butterfly_13 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_II, open, x8_II, x8j_II, x12_II, x12j_II, w4, w4j, x8_I, x8j_I, x12_I, x12j);
+    port map (clock, reset, start_II, open, x8_II, x8j_II, x12_II, x12j_II, w4, w4j, x8_I, x8j_I, x12_I, x12j_I);
   -- instance "butterfly_1"
   Butterfly_14 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_II, open, x9_II, x9j_II, x13_II, x13j_II, w4, w4j, x9_I, x9j_I, x13_I, x13j);
+    port map (clock, reset, start_II, open, x9_II, x9j_II, x13_II, x13j_II, w4, w4j, x9_I, x9j_I, x13_I, x13j_I);
   -- instance "butterfly_1"
   Butterfly_15 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_II, open, x10_II, x10j_II, x14_II, x14j_II, w4, w4j, x10_I, x10j_I, x14_I, x14j);
+    port map (clock, reset, start_II, open, x10_II, x10j_II, x14_II, x14j_II, w4, w4j, x10_I, x10j_I, x14_I, x14j_I);
   -- instance "butterfly_1"
   Butterfly_16 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_II, done_II, x11_II, x11j_II, x15_II, x15j_II, w4, w4j, x11_I, x11j_I, x15_I, x15j);
+    port map (clock, reset, start_II, done_II, x11_II, x11j_II, x15_II, x15j_II, w4, w4j, x11_I, x11j_I, x15_I, x15j_I);
   -- instance "butterfly_1"
   Butterfly_17 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x0_III, x0j_III, x2_III, x2j_III, w0, w0j, x0_II, x0j_II, x2_II, x2j);
+    port map (clock, reset, start_III, open, x0_III, x0j_III, x2_III, x2j_III, w0, w0j, x0_II, x0j_II, x2_II, x2j_II);
   -- instance "butterfly_1"
   Butterfly_18 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x1_III, x1j_III, x3_III, x3j_III, w0, w0j, x1_II, x1j_II, x3_II, x3j);
+    port map (clock, reset, start_III, open, x1_III, x1j_III, x3_III, x3j_III, w0, w0j, x1_II, x1j_II, x3_II, x3j_II);
   -- instance "butterfly_1"
   Butterfly_19 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x4_III, x4j_III, x6_III, x6j_III, w4, w4j, x4_II, x4j_II, x6_II, x6j);
+    port map (clock, reset, start_III, open, x4_III, x4j_III, x6_III, x6j_III, w4, w4j, x4_II, x4j_II, x6_II, x6j_II);
   -- instance "butterfly_1"
   Butterfly_20 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x5_III, x5j_III, x7_III, x7j_III, w4, w4j, x5_II, x5j_II, x7_II, x7j);
+    port map (clock, reset, start_III, open, x5_III, x5j_III, x7_III, x7j_III, w4, w4j, x5_II, x5j_II, x7_II, x7j_II);
   -- instance "butterfly_1"
   Butterfly_21 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x8_III, x8j_III, x10_III, x10j_III, w2, w2j, x8_II, x8j_II, x10_II, x10j);
+    port map (clock, reset, start_III, open, x8_III, x8j_III, x10_III, x10j_III, w2, w2j, x8_II, x8j_II, x10_II, x10j_II);
   -- instance "butterfly_1"
   Butterfly_22 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x9_III, x9j_III, x11_III, x11j_III, w2, w2j, x9_II, x9j_II, x11_II, x11j);
+    port map (clock, reset, start_III, open, x9_III, x9j_III, x11_III, x11j_III, w2, w2j, x9_II, x9j_II, x11_II, x11j_II);
   -- instance "butterfly_1"
   Butterfly_23 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, open, x12_III, x12j_III, x14_III, x14j_III, w6, w6j, x12_II, x12j_II, x14_II, x14j);
+    port map (clock, reset, start_III, open, x12_III, x12j_III, x14_III, x14j_III, w6, w6j, x12_II, x12j_II, x14_II, x14j_II);
   -- instance "butterfly_1"
   Butterfly_24 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_III, done_III, x13_III, x13j_III, x15_III, x15j_III, w6, w6j, x13_II, x13j_II, x15_II, x15j);
+    port map (clock, reset, start_III, done_III, x13_III, x13j_III, x15_III, x15j_III, w6, w6j, x13_II, x13j_II, x15_II, x15j_II);
   -- instance "butterfly_1"
   Butterfly_25 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_IV, open, x0_IV, x0j_IV, x1_IV, x1j_IV, w0, w0j, x0_III, x0j_III, x1_III, x1j);
+    port map (clock, reset, start_IV, open, x0_IV, x0j_IV, x1_IV, x1j_IV, w0, w0j, x0_III, x0j_III, x1_III, x1j_III);
   -- instance "butterfly_1"
   Butterfly_26 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_IV, open, x2_IV, x2j_IV, x3_IV, x3j_IV, w4, w4j, x2_III, x2j_III, x3_III, x3j);
+    port map (clock, reset, start_IV, open, x2_IV, x2j_IV, x3_IV, x3j_IV, w4, w4j, x2_III, x2j_III, x3_III, x3j_III);
   -- instance "butterfly_1"
   Butterfly_27 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_IV, open, x4_IV, x4j_IV, x5_IV, x5j_IV, w2, w2j, x4_III, x4j_III, x5_III, x5j);
+    port map (clock, reset, start_IV, open, x4_IV, x4j_IV, x5_IV, x5j_IV, w2, w2j, x4_III, x4j_III, x5_III, x5j_III);
   -- instance "butterfly_1"
   Butterfly_28 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_IV, open, x6_IV, x6j_IV, x7_IV, x7j_IV, w6, w6j, x6_III, x6j_III, x7_III, x7j);
+    port map (clock, reset, start_IV, open, x6_IV, x6j_IV, x7_IV, x7j_IV, w6, w6j, x6_III, x6j_III, x7_III, x7j_III);
   -- instance "butterfly_1"
   Butterfly_29 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_IV, open, x8_IV, x8j_IV, x9_IV, x9j_IV, w1, w1j, x8_III, x8j_III, x9_III, x9j);
+    port map (clock, reset, start_IV, open, x8_IV, x8j_IV, x9_IV, x9j_IV, w1, w1j, x8_III, x8j_III, x9_III, x9j_III);
   -- instance "butterfly_1"
   Butterfly_30 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_IV, open, x10_IV, x10j_IV, x11_IV, x11j_IV, w5, w5j, x10_III, x10j_III, x11_III, x11j);
+    port map (clock, reset, start_IV, open, x10_IV, x10j_IV, x11_IV, x11j_IV, w5, w5j, x10_III, x10j_III, x11_III, x11j_III);
   -- instance "butterfly_1"
   Butterfly_31 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_IV, open, x12_IV, x12j_IV, x13_IV, x13j_IV, w3, w3j, x12_III, x12j_III, x13_III, x13j);
+    port map (clock, reset, start_IV, open, x12_IV, x12j_IV, x13_IV, x13j_IV, w3, w3j, x12_III, x12j_III, x13_III, x13j_III);
   -- instance "butterfly_1"
   Butterfly_32 : butterfly
     generic map (
       N => N)
-    port map (clock, reset, start_IV, done, x14_IV, x14j_IV, x15_IV, x15j_IV, w7, w7j, x14_III, x14j_III, x15_III, x15j);
+    port map (clock, reset, start_IV, done, x14_IV, x14j_IV, x15_IV, x15j_IV, w7, w7j, x14_III, x14j_III, x15_III, x15j_III);
 
 
   start_II  <= done_I;

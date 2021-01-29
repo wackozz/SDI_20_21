@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-15
--- Last update: 2021-01-17
+-- Last update: 2021-01-28
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -172,37 +172,37 @@ start <= '0';
     wait;
   end process WaveGen_Proc;
 
-  x0   <= To_sfixed(0.25, x0);
+  x0   <= To_sfixed(0, x0);
   x0j  <= to_sfixed(0, x0);
-  x1   <= To_sfixed(0.25, x0);
+  x1   <= To_sfixed(0, x0);
   x1j  <= to_sfixed(0, x0);
-  x2   <= To_sfixed(0.25, x0);
+  x2   <= To_sfixed(0, x0);
   x2j  <= to_sfixed(0, x0);
-  x3   <= To_sfixed(0.25, x0);
+  x3   <= To_sfixed(0, x0);
   x3j  <= to_sfixed(0, x0);
-  x4   <= To_sfixed(0.25, x0);
+  x4   <= To_sfixed(0, x0);
   x4j  <= to_sfixed(0, x0);
-  x5   <= To_sfixed(0.25, x0);
+  x5   <= To_sfixed(0, x0);
   x5j  <= to_sfixed(0, x0);
-  x6   <= To_sfixed(0.25, x0);
+  x6   <= To_sfixed(0, x0);
   x6j  <= to_sfixed(0, x0);
-  x7   <= To_sfixed(0.25, x0);
+  x7   <= To_sfixed(0, x0);
   x7j  <= to_sfixed(0, x0);
-  x8   <= To_sfixed(0.25, x0);
+  x8   <= To_sfixed(0.375, x0);
   x8j  <= to_sfixed(0, x0);
-  x9   <= To_sfixed(-0.25, x0);
+  x9   <= To_sfixed(-0, x0);
   x9j  <= to_sfixed(0, x0);
-  x10  <= To_sfixed(-0.25, x0);
+  x10  <= To_sfixed(-0, x0);
   x10j <= to_sfixed(0, x0);
-  x11  <= To_sfixed(-0.25, x0);
+  x11  <= To_sfixed(-0, x0);
   x11j <= to_sfixed(0, x0);
-  x12  <= To_sfixed(-0.25, x0);
+  x12  <= To_sfixed(-0, x0);
   x12j <= to_sfixed(0, x0);
-  x13  <= To_sfixed(-0.25, x0);
+  x13  <= To_sfixed(-0, x0);
   x13j <= to_sfixed(0, x0);
-  x14  <= To_sfixed(-0.25, x0);
+  x14  <= To_sfixed(-0, x0);
   x14j <= to_sfixed(0, x0);
-  x15  <= To_sfixed(-0.25, x0);
+  x15  <= To_sfixed(-0, x0);
   x15j <= to_sfixed(0, x0);
 
 end architecture arch;

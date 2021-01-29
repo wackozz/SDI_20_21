@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-23
--- Last update: 2021-01-16
+-- Last update: 2021-01-29
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -54,8 +54,8 @@ entity butterfly_dp is
     s_mux_B_add_2    : in  std_logic;
     s_mux_round_in   : in  std_logic;
 -- ADD/MPY CTRL
-    add_sub_1        : in  std_logic;
-    add_sub_2        : in  std_logic;
+    add_sub_1        : in  std_logic_vector(1 downto 0);
+    add_sub_2        : in  std_logic_vector(1 downto 0);
     sh_mpy           : in  std_logic;
 -- EN
     --IN
@@ -116,7 +116,6 @@ architecture str of butterfly_dp is
 --ROUND BLOCK
   signal round_in  : std_logic_vector(2*N+3 downto 0);
   signal round_out : std_logic_vector(N-1 downto 0);
-  signal round_out_neg : std_logic_vector(N-1 downto 0);
 
 
 -----------------------------------------------------------------------------
@@ -166,7 +165,7 @@ architecture str of butterfly_dp is
     port (
       clock   : in  std_logic;
       reset   : in  std_logic;
-      add_sub : in  std_logic;
+      add_sub : in  std_logic_vector(1 downto 0);
       A       : in  std_logic_vector(N-1 downto 0);
       B       : in  std_logic_vector(N-1 downto 0);
       Y       : out std_logic_vector(N downto 0));
@@ -359,7 +358,7 @@ begin  -- architecture str
       N => N)
     port map (
 
-      D      => round_out_neg,
+      D      => round_out,
       clock  => clock,
       reset  => reset,
       enable => Br_out_enable,
@@ -372,7 +371,7 @@ begin  -- architecture str
       N => N)
     port map (
 
-      D      => round_out_neg,
+      D      => round_out,
       clock  => clock,
       reset  => reset,
       enable => Bj_out_enable,
@@ -419,7 +418,6 @@ begin  -- architecture str
 -------------------------------------------------------------------------------
 -- SIGNAL ASSIGNMENT
 -------------------------------------------------------------------------------
-round_out_neg <= std_logic_vector(-signed(round_out));
   
 temp_d1_pro: process (Ar_Q) is
 begin  -- process temp_d1_pro
