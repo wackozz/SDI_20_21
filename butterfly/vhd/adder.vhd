@@ -79,8 +79,8 @@ begin
       Y  => Y_tmp);
 
       D1 <=  std_logic_vector(resize(signed(A), N+1)+resize(signed(B), N+1));
-      D2 <=  std_logic_vector(resize(signed(A), N+1)+resize(signed(B), N+1));
-      D3 <=  std_logic_vector(resize(signed(A), N+1)+resize(signed(B), N+1));
+      D2 <=  std_logic_vector(resize(signed(B), N+1)-resize(signed(A), N+1));
+      D3 <=  std_logic_vector(resize(signed(A), N+1)-resize(signed(B), N+1));
 end architecture str;
 
 
