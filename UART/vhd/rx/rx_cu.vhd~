@@ -160,6 +160,7 @@ begin  -- architecture str
     rx_full         <= '0';
 
     case next_state is
+          
       when idle_start_on =>
         count_en_sh <= '1';
         start_en    <= '1';

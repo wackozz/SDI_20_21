@@ -60,30 +60,30 @@ begin  -- architecture arch
   begin
     reset <=  '0';
     rxd <= '1';
-    wait for 50 ns;
+    wait for 40 ns;
     reset <= '1';
-    wait for 50 ns;
+    wait for 60 ns;
     rxd <= '0';                         --
-    wait for 8695 ns;
+    wait for 8.6956 us;
     
     rxd <= '1';                         -- D0
-    wait for 8695 ns;
+    wait for 8.6956 us;
     rxd <= '0';                         -- D1
-    wait for 8695 ns;
+    wait for 8.6956 us;
     rxd <= '0';                         --D2
-    wait for 8695 ns;
+    wait for 8.6956 us;
     rxd <= '1';                         --D3
-    wait for 8695 ns;
+    wait for 8.6956 us;
     rxd <= '0';                         --D4
-    wait for 8695 ns;
+    wait for 8.6956 us;
     rxd <= '1';                         --D5
-    wait for 8695 ns;
+    wait for 8.6956 us;
     rxd <= '0';                         --D6
-    wait for 8695 ns;
+    wait for 8.6956 us;
     rxd <= '0';                         --D7
-    wait for 8695 ns;
+    wait for 8.6956 us;
     rxd <= '1';                         --end
-    wait for 8695 ns;
+    wait for 8.6956 us;
     wait;
   end process WaveGen_Proc;
 

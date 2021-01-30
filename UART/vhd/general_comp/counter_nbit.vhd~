@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-08
--- Last update: 2021-01-31
+-- Last update: 2020-12-12
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ use ieee.numeric_std.all;
 entity counter_nbit is
 
   generic (
-    N : integer := 5
+    N : integer := 3
     );                                  --
 
   port (

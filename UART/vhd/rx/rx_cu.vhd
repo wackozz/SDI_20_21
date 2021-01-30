@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-16
--- Last update: 2021-01-16
+-- Last update: 2021-01-31
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -33,6 +33,7 @@ entity rx_cu is
     clock             : in  std_logic;
     reset             : in  std_logic;
     rx_enable         : in  std_logic;
+    rx_ack            : in  std_logic;
     clr_start         : out std_logic;
     flag_error        : out std_logic;
     clear_c_shift     : out std_logic;
@@ -133,9 +134,9 @@ begin  -- architecture str
             end if;
           end if;
 
-        when error_s => next_state <= reset_s;
+        when error_s => next_state <= wait_enable;
 
-        when rxfull_s => next_state <= reset_s;
+        when rxfull_s => next_state <= wait_enable;
 
         when others => null;
       end case;
@@ -152,52 +153,101 @@ begin  -- architecture str
     clear_c_shift   <= '0';
     sh_en_data      <= '0';
     sh_en_samples   <= '0';
-    flag_error      <= '0';
-    clr_start       <= '0';
-    ld_en           <= '0';
-    stop_en         <= '1';
-    start_en        <= '0';
-    rx_full         <= '0';
+
+    clr_start <= '0';
+    ld_en     <= '0';
+    stop_en   <= '1';
+    start_en  <= '0';
+
 
     case next_state is
-          
+
       when idle_start_on =>
         count_en_sh <= '1';
         start_en    <= '1';
+        if rx_ack = '1' then
+          rx_full    <= '0';
+          flag_error <= '0';
+        end if;
       when idle_start_off =>
         count_en_sh <= '1';
         start_en    <= '0';
+        if rx_ack = '1' then
+          rx_full    <= '0';
+          flag_error <= '0';
+        end if;
+      when wait_enable =>
+         ld_en          <= '1';
+        clear_c_shift  <= '1';
+        clear_c_rxfull <= '1';
+         start_en       <= '1';
+          if rx_ack = '1' then
+          rx_full    <= '0';
+          flag_error <= '0';
+        end if;
+        
       when reset_s =>
         ld_en          <= '1';
         clear_c_shift  <= '1';
         clear_c_rxfull <= '1';
         start_en       <= '1';
+        rx_full        <= '0';
+        flag_error     <= '0';
       when wait_tc_flag_68 =>
         count_en_sh <= '1';
+        if rx_ack = '1' then
+          rx_full    <= '0';
+          flag_error <= '0';
+        end if;
       when sh_data =>
         sh_en_data      <= '1';
         count_en_rxfull <= '1';
         sh_en_samples   <= '1';
+        if rx_ack = '1' then
+          rx_full    <= '0';
+          flag_error <= '0';
+        end if;
       when sh_sample_start_off =>
         sh_en_samples <= '1';
+        if rx_ack = '1' then
+          rx_full    <= '0';
+          flag_error <= '0';
+        end if;
       when sh_sample_start_on =>
         sh_en_samples <= '1';
         start_en      <= '1';
+        if rx_ack = '1' then
+          rx_full    <= '0';
+          flag_error <= '0';
+        end if;
       when sh_smp_rxfull =>
-        count_en_sh <= '1';
+        count_en_sh   <= '1';
         sh_en_samples <= '1';
+        if rx_ack = '1' then
+          rx_full    <= '0';
+          flag_error <= '0';
+        end if;
       when start_en_off =>
         start_en      <= '0';
         clear_c_shift <= '1';
+        if rx_ack = '1' then
+          rx_full    <= '0';
+          flag_error <= '0';
+        end if;
       when res_cnt =>
         clear_c_rxfull <= '1';
         clear_c_shift  <= '1';
         clr_start      <= '1';
+        if rx_ack = '1' then
+          rx_full    <= '0';
+          flag_error <= '0';
+        end if;
+        
       when rxfull_s =>
         rx_full <= '1';
       when error_s =>
         flag_error <= '1';
-    
+
       when others => null;
     end case;
 

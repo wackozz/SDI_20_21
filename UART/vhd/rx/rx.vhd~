@@ -51,6 +51,7 @@ architecture str of rx is
   signal flag_shift_sample : std_logic;
   signal flag_68           : std_logic;
   signal ld_en             : std_logic;
+ 
   signal flag_delay : std_logic;
   signal flag_stop         : std_logic;
   signal sh_en_samples     : std_logic;
@@ -127,6 +128,7 @@ begin  -- architecture str
     port map (
       clock             => clock,
       ld_en             => ld_en,
+     
       reset             => reset,
       clr_start         => clr_start,
       clear_c_shift     => clear_c_shift,
@@ -152,6 +154,7 @@ begin  -- architecture str
     port map (
       clock             => clock,
       ld_en             => ld_en,
+    
       reset             => reset,
       rx_enable         => rx_enable,
       clr_start         => clr_start,

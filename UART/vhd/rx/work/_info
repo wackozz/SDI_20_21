@@ -53,22 +53,22 @@ R12
 R13
 R14
 Erx_cu
-Z15 w1610547889
+Z15 w1612046770
 R2
 R3
-!i122 22
+!i122 29
 R4
 Z16 8rx_cu.vhd
 Z17 Frx_cu.vhd
 l0
 L30 1
-VRdXi6FKl2ci?D]<@1<ijY3
-!s100 R2iUeQ?^o9?j?BHa[5lV10
+Vj>lPLFF[:;2@TWCYY[ald2
+!s100 c`JO<zN`VZ?3Il_A7J8E;1
 R8
 31
-Z18 !s110 1610547889
+Z18 !s110 1612046773
 !i10b 1
-Z19 !s108 1610547889.000000
+Z19 !s108 1612046773.000000
 Z20 !s90 -93|-work|work|rx_cu.vhd|
 Z21 !s107 rx_cu.vhd|
 !i113 1
@@ -77,12 +77,12 @@ R14
 Astr
 R2
 R3
-DEx4 work 5 rx_cu 0 22 RdXi6FKl2ci?D]<@1<ijY3
-!i122 22
-l66
-L59 140
-VYU_j;Gdh5VBX^PPRV0VXa3
-!s100 0Bh<h8PD:5^fCeDX@X2lb2
+DEx4 work 5 rx_cu 0 22 j>lPLFF[:;2@TWCYY[ald2
+!i122 29
+l68
+L61 185
+VOCl4mg0V9SIV_:h0P4_AT1
+!s100 ^013A1IXWSYdLNjdg0BJP3
 R8
 31
 R18
@@ -133,6 +133,29 @@ R25
 R26
 R27
 R28
+!i113 1
+R13
+R14
+Erx_tb
+w1612047816
+R1
+R2
+R3
+!i122 41
+R4
+8rx_tb.vhd
+Frx_tb.vhd
+l0
+R7
+V`AiHfF@NzOJ^EhWXfEMP?1
+!s100 z9Q:i22da]oFKM6aGj_3o2
+R8
+31
+!s110 1612047821
+!i10b 1
+!s108 1612047821.000000
+!s90 -93|-work|work|rx_tb.vhd|
+!s107 rx_tb.vhd|
 !i113 1
 R13
 R14

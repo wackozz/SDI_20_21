@@ -69,6 +69,7 @@ architecture str of rx_dp is
   signal vote             : std_logic;
   signal s_out            : std_logic;                     -- unused
   signal p_in             : std_logic_vector(7 downto 0);  -- unused
+  signal ld_en_byte : std_logic;
   signal voter_d          : std_logic_vector(2 downto 0);
   signal clear_sh_tmp     : std_logic;
   signal clear_rxfull_tmp : std_logic;
@@ -193,7 +194,7 @@ begin  -- architecture str
   shift_reg_data : shift_register_8bit
     port map (
       clock => clock,
-      ld_en => ld_en,
+      ld_en => ld_en_byte,
       sh_en => sh_en_data,
       s_in  => vote,
       s_out => s_out,
