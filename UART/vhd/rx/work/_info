@@ -8,40 +8,40 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/home/wackoz/github/SDI_20_21/UART/vhd/rx
+d/home/wackoz/github/SDI_20_21/UART/vhd/rx
 Erx
-Z1 w1609947217
-Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
-Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 11
-R0
+Z0 w1610547945
+Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 23
+Z4 dc:/Users/Sabina/Desktop/universita/polito/SDI_20_21/UART/vhd/rx
 Z5 8rx.vhd
 Z6 Frx.vhd
 l0
 Z7 L28 1
-V?K^oCM@lhGS8n_i>R@Oli1
-!s100 OHAC7c1FObK^o@QcG94Eh2
+V1bk==Dd8cPAQIW]9OI@k^3
+!s100 Xbmkl@AHZb5TzBWoDQljB3
 Z8 OV;C;2020.1;71
 31
-Z9 !s110 1609947217
+Z9 !s110 1610547945
 !i10b 1
-Z10 !s108 1609947217.000000
+Z10 !s108 1610547945.000000
 Z11 !s90 -93|-work|work|rx.vhd|
 Z12 !s107 rx.vhd|
 !i113 1
 Z13 o-93 -work work
 Z14 tExplicit 1 CvgOpt 0
 Astr
+R1
 R2
 R3
-R4
-DEx4 work 2 rx 0 22 ?K^oCM@lhGS8n_i>R@Oli1
-!i122 11
-l114
-L42 127
-V^U^dM=V]Szei1NniP;Gh70
-!s100 H56RG@20_U:Pe2fhK;nG:3
+DEx4 work 2 rx 0 22 1bk==Dd8cPAQIW]9OI@k^3
+!i122 23
+l116
+L43 129
+V[h1Tl9k2`l7WfC2?9QC0A1
+!s100 e=1?gKZgC=KPN[F^O?fDB3
 R8
 31
 R9
@@ -53,86 +53,86 @@ R12
 R13
 R14
 Erx_cu
-Z15 w1610122057
+Z15 w1610547889
+R2
 R3
+!i122 22
 R4
-!i122 18
-Z16 dc:/Users/Sabina/Desktop/universita/polito/SDI_20_21/UART/vhd/rx
-Z17 8rx_cu.vhd
-Z18 Frx_cu.vhd
+Z16 8rx_cu.vhd
+Z17 Frx_cu.vhd
 l0
 L30 1
-V2Jj<;UkACIbgGF5QV>5:@0
-!s100 kQDATA;:[0I?g@^Aj_GjD0
+VRdXi6FKl2ci?D]<@1<ijY3
+!s100 R2iUeQ?^o9?j?BHa[5lV10
 R8
 31
-Z19 !s110 1610122061
+Z18 !s110 1610547889
 !i10b 1
-Z20 !s108 1610122061.000000
-Z21 !s90 -93|-work|work|rx_cu.vhd|
-Z22 !s107 rx_cu.vhd|
+Z19 !s108 1610547889.000000
+Z20 !s90 -93|-work|work|rx_cu.vhd|
+Z21 !s107 rx_cu.vhd|
 !i113 1
 R13
 R14
 Astr
+R2
 R3
-R4
-DEx4 work 5 rx_cu 0 22 2Jj<;UkACIbgGF5QV>5:@0
-!i122 18
-l65
-L58 133
-Vm6jm2:@<7E7fIe1MzHGe?3
-!s100 oKc3BK517nE8WBDC<^4173
+DEx4 work 5 rx_cu 0 22 RdXi6FKl2ci?D]<@1<ijY3
+!i122 22
+l66
+L59 140
+VYU_j;Gdh5VBX^PPRV0VXa3
+!s100 0Bh<h8PD:5^fCeDX@X2lb2
 R8
 31
-R19
+R18
 !i10b 1
+R19
 R20
 R21
-R22
 !i113 1
 R13
 R14
 Erx_dp
-Z23 w1610122247
-R4
+Z22 w1610548027
 R3
 R2
-!i122 19
-R16
-Z24 8rx_dp.vhd
-Z25 Frx_dp.vhd
+R1
+!i122 24
+R4
+Z23 8rx_dp.vhd
+Z24 Frx_dp.vhd
 l0
 R7
 Vhl`<5PF]SEI0Y=aBOji8A3
 !s100 n?M=Yn1o`P?Kg6@Pd_=]63
 R8
 31
-Z26 !s110 1610122251
+Z25 !s110 1610548029
 !i10b 1
-Z27 !s108 1610122251.000000
-Z28 !s90 -93|-work|work|rx_dp.vhd|
-Z29 !s107 rx_dp.vhd|
+Z26 !s108 1610548029.000000
+Z27 !s90 -93|-work|work|rx_dp.vhd|
+Z28 !s107 rx_dp.vhd|
 !i113 1
 R13
 R14
 Astr
-R4
 R3
 R2
+R1
 DEx4 work 5 rx_dp 0 22 hl`<5PF]SEI0Y=aBOji8A3
-!i122 19
-l132
-L55 185
-VN=zNjbA3<Q07iV`S>E40Q1
-!s100 Y66YdzF<^DXW[gJ4=hGe_3
+!i122 24
+l133
+L55 187
+V:zKV@k?R>?mgHh^U>PVGG2
+!s100 KTo^0BczFaz1hEn?eo[aZ0
 R8
 31
-R26
+R25
 !i10b 1
+R26
 R27
 R28
-R29
 !i113 1
 R13
 R14

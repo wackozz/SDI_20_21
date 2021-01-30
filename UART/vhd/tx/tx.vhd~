@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2021-01-15
+-- Last update: 2021-01-13
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -71,6 +71,7 @@ architecture str of tx is
       term_count       : out std_logic;
       p_in             : in  std_logic_vector(7 downto 0);
       ld_en            : in  std_logic;
+      tx_enable : in std_logic;
       sh_en            : in  std_logic;
       TxD              : out std_logic);
   end component tx_dp;
@@ -85,7 +86,6 @@ architecture str of tx is
       count_en_tc      : out std_logic;
       count_en_txempty : out std_logic;
       term_count       : in  std_logic;
-      tx_enable : in std_logic;
       tx_empty_ack     : in  std_logic;
       tx_empty_dp      : in  std_logic;
       tx_empty         : out std_logic;
@@ -105,11 +105,11 @@ begin
     count_en_txempty => count_en_txempty,
     count_en_tc      => count_en_tc,
     tx_empty_dp      => tx_empty_dp,
-    tc_flag_txempty =>  tc_flag_txempty,
+     tc_flag_txempty =>  tc_flag_txempty,
     term_count => term_count,
     p_in       => p_in,
     ld_en      => ld_en,
-   
+    tx_enable => tx_enable,
     sh_en      => sh_en,
     TxD        => TxD);
 
@@ -121,7 +121,6 @@ begin
     force_zero       => force_zero,
     count_en_tc      => count_en_tc,
     count_en_txempty => count_en_txempty,
-     tx_enable => tx_enable,
     tx_empty         => tx_empty,
      tc_flag_txempty =>  tc_flag_txempty,
     tx_empty_dp      => tx_empty_dp,

@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-07
--- Last update: 2021-01-07
+-- Last update: 2021-01-16
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -64,40 +64,89 @@ begin  -- architecture arch
       CS     => CS);
 
   -- clock generation
-  clock <= not Clk after 10 ns;
+  clock <= not clock after 31.25 ns;
 
   -- waveform generation
   WaveGen_Proc : process
   begin
-    reset   <= '0';
-    wait for 50 ns;
-    reset   <= '1';                     --SCRIVO SUL REGISTRO DI CONTROLLO
-    ADD     <= "011";
-    R_Wn    <= '0';
-    CS      <= '1';
-    DIN     <= "00000010";
-    wait for 50 ns;
-    ADD     <= "010";  -- VADO A LEGGERE NEL REGISTRO DI STATO E LEGGO TX EMPTY ALTO
-    R_Wn    <= '1';
-    CS      <= '1';
-    FF_IN_B <= "010";
-    RX_in   <= "00000000";
-    wait for 50 ns;
-    FF_IN_B <= "010";  --POICHE TX EMPTY ALTO VADO A SCRIVERE NEL REGISTRO DI TRASMISSIONE
-    RX_in   <= "00000000";
-    din     <= "00000111";
-    ADD     <= "000";
-    R_Wn    <= '0';
-    CS      <= '1';
-    RX_in   <= "00000000";
-    ATNack  <= '0';
-    wait for 50 ns;
-    FF_IN_B <= "001";  --PER FORZA DALLO STATO WRITE_TXDATA PASSO A NEXT STATE
-    --NOTO CHE CLRATN E ZERO E ALLORA PER ABBASSAE ATN ASPETTO ATN ACK NELLO STATO
-    --ATNack MA NEL FRATTEMPO CONTROLLO SE HO RX FULL O X EMPTY
-    --QUI MI ARRIVA UN RX FULL E ALLORA PASSO ALLO STATO READ_RXDATA    -- insert signal assignments here
+    reset <= '0';
+    wait for 62.5 ns;
+    reset <= '1';
+    ADD   <= "011";  -- VADO A SCRIVERE NEL REG DI CONTROLLO
+    R_Wn  <= '0';
+    CS    <= '1';
+    wait for 62.5 ns;
+    Din <= "00000010";
+    ADD   <= "000";
+    R_Wn  <= '0';
+    CS    <= '1';
+     wait for 62.5 ns;
+    Din   <= "10011000";   -- trasmetto la parola a TXDATA
+    wait for 62.5 ns;
+    ADD   <= "010";   --leggo lo stato
+    R_Wn  <= '1';
+    CS    <= '1';
+    wait for 86.875 us;
+    ATNack <= '1';
+    ADD  <= "010";
+    CS   <= '1';
+    R_Wn <= '1';  --leggo lo stato e controllo se rxfull è alto e se il
+    --trasmettitore ha concluso la trasmissione
+    wait for 62.5 ns;
+    ATNACK <='1';
+    ADD <= "011";    --ABILITO RX e spengo TX
+    CS <= '1';
+    R_Wn <= '0';
+    wait for 62.5 ns;
+    Din <= "00000001";
+    wait for 62.5 ns;
+    --affronto il caso in cui sia avvenuta una ricezione corretta
+    rxd <= '0';                         --
+    wait for 8.6956 us;
+    rxd <= '1';                         -- D0
+    wait for 8.6956 us;
+    rxd <= '0';                         -- D1
+    wait for 8.6956 us;
+    rxd <= '0';                         --D2
+    wait for 8.6956 us;
+    rxd <= '1';                         --D3
+    wait for 8.6956 us;
+    rxd <= '0';                         --D4
+    wait for 8.6956 us;
+    rxd <= '1';                         --D5
+    wait for 8.6956 us;
+    rxd <= '0';                         --D6
+    wait for 8.6956 us;
+    rxd <= '0';                         --D7
+    wait for 8.6956 us;
+    rxd <= '1';                         --corretta
+    wait for 8.9456 us; --tempo necessario per trasmettere ultimo simbolo(139Tclk)+t
+                        --di delay(3Tclk)+tempo di risposta esterno(1Tclk)
 
+    ADD  <= "010";
+    CS   <= '1';
+    R_Wn <= '1';  --leggo lo stato e controllo se rxfull è alto
+    wait for 62.5 ns;
+    ADD <= "001";
+    CS <= '1';
+    R_Wn <= '1';
+    wait for 62.5 ns; -- parola ricevuta in uscita READ_RXDATA
+    --spengo ricevitore e trasmettitore
+
+    ADD  <= "011";
+    CS   <= '1';
+    R_Wn <= '0';
+    Din  <= "00000001";
+    wait for 50 ns;
+    ADD  <= "011";
+    CS   <= '1';
+    R_Wn <= '0';
+    Din  <= "00000000";
+    wait for 50 ns;
     wait;
+
+
+
   end process WaveGen_Proc;
 
 end architecture arch;

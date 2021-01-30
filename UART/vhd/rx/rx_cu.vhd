@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-16
--- Last update: 2021-01-08
+-- Last update: 2021-01-16
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -32,6 +32,7 @@ entity rx_cu is
   port (
     clock             : in  std_logic;
     reset             : in  std_logic;
+    rx_enable         : in  std_logic;
     clr_start         : out std_logic;
     flag_error        : out std_logic;
     clear_c_shift     : out std_logic;
@@ -39,6 +40,7 @@ entity rx_cu is
     flag_stop         : in  std_logic;
     rx_full           : out std_logic;
     ld_en             : out std_logic;  --load enable for shift_registers init.
+    flag_delay        : in  std_logic;
     flag_shift_data   : in  std_logic;
     flag_shift_sample : in  std_logic;
     flag_68           : in  std_logic;
@@ -60,7 +62,7 @@ architecture str of rx_cu is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
-  type State_type is (idle_start_on, idle_start_off, reset_s, wait_tc_flag_68, sh_data, sh_sample_start_on, sh_sample_start_off, sh_smp_rxfull, start_en_off, res_cnt, rxfull_s, error_s);
+  type State_type is (wait_enable, idle_start_on, idle_start_off, reset_s, wait_tc_flag_68, sh_data, sh_sample_start_on, sh_sample_start_off, sh_smp_rxfull, start_en_off, res_cnt, rxfull_s, error_s);
   signal next_state : State_type;
 begin  -- architecture str
 
@@ -73,7 +75,14 @@ begin  -- architecture str
     elsif clock'event and clock = '1' then  -- rising clock edge
 
       case next_state is
-        when reset_s => next_state <= idle_start_on;
+        when reset_s => next_state <= wait_enable;
+
+        when wait_enable =>
+          if rx_enable = '1' then
+            next_state <= idle_start_on;
+          else
+            next_state <= wait_enable;
+          end if;
 
         when idle_start_on =>
           if start = '0' then
@@ -116,11 +125,14 @@ begin  -- architecture str
         when sh_sample_start_off => next_state <= idle_start_off;
         when sh_data             => next_state <= idle_start_off;
         when sh_smp_rxfull =>
-          if stop = '0' then
-            next_state <= error_s;
-          else
-            next_state <= rxfull_s;
+          if flag_delay = '1' then
+            if stop = '0' then
+              next_state <= error_s;
+            else
+              next_state <= rxfull_s;
+            end if;
           end if;
+
         when error_s => next_state <= reset_s;
 
         when rxfull_s => next_state <= reset_s;
@@ -148,6 +160,7 @@ begin  -- architecture str
     rx_full         <= '0';
 
     case next_state is
+          
       when idle_start_on =>
         count_en_sh <= '1';
         start_en    <= '1';
@@ -171,6 +184,7 @@ begin  -- architecture str
         sh_en_samples <= '1';
         start_en      <= '1';
       when sh_smp_rxfull =>
+        count_en_sh <= '1';
         sh_en_samples <= '1';
       when start_en_off =>
         start_en      <= '0';
@@ -183,6 +197,7 @@ begin  -- architecture str
         rx_full <= '1';
       when error_s =>
         flag_error <= '1';
+    
       when others => null;
     end case;
 

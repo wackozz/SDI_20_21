@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2021-01-15
+-- Last update: 2021-01-13
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -40,6 +40,7 @@ entity tx_dp is
     --shift r
     p_in             : in  std_logic_vector(7 downto 0);  --input (SR)
     ld_en            : in  std_logic;   -- paraellel load shift reg
+    tx_enable        : in  std_logic;
     sh_en            : in  std_logic;   -- shift reg shift en
     TxD              : out std_logic    --output
     );
@@ -102,7 +103,7 @@ begin  -- architecture arch
   shift_reg : shift_register_8bit
     port map (
       clock => clock,
-      ld_en => ld_en,
+      ld_en => can_load,
       sh_en => sh_en,
       s_in  => s_in,
       s_out => s_out,
@@ -146,6 +147,6 @@ begin  -- architecture arch
   TxD <= not(force_zero) and (s_out or force_one);
 
   reset_tmp <= not(reset) or clear;
-
+  can_load  <= (ld_en) and (tx_enable);
 
 end architecture arch;

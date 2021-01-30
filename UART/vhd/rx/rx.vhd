@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-17
--- Last update: 2021-01-08
+-- Last update: 2021-01-16
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -30,6 +30,7 @@ entity rx is
   port (
     clock      : in  std_logic;
     reset      : in  std_logic;
+    rx_enable  : in  std_logic;
     rxd        : in  std_logic;
     Pout       : out std_logic_vector(7 downto 0);
     flag_error : out std_logic;
@@ -50,6 +51,8 @@ architecture str of rx is
   signal flag_shift_sample : std_logic;
   signal flag_68           : std_logic;
   signal ld_en             : std_logic;
+ 
+  signal flag_delay : std_logic;
   signal flag_stop         : std_logic;
   signal sh_en_samples     : std_logic;
   signal sh_en_data        : std_logic;
@@ -68,12 +71,14 @@ architecture str of rx is
       clock             : in  std_logic;
       ld_en             : out std_logic;
       reset             : in  std_logic;
+      rx_enable         : in  std_logic;
       clr_start         : out std_logic;
       flag_error        : out std_logic;
       clear_c_shift     : out std_logic;
       clear_c_rxfull    : out std_logic;
       flag_stop         : in  std_logic;
       rx_full           : out std_logic;
+      flag_delay : in std_logic;
       flag_shift_data   : in  std_logic;
       flag_shift_sample : in  std_logic;
       flag_68           : in  std_logic;
@@ -95,6 +100,7 @@ architecture str of rx is
       clr_start         : in  std_logic;
       clear_c_shift     : in  std_logic;
       clear_c_rxfull    : in  std_logic;
+      flag_delay : out std_logic;
       flag_stop         : out std_logic;
       flag_shift_data   : out std_logic;
       flag_shift_sample : out std_logic;
@@ -122,10 +128,12 @@ begin  -- architecture str
     port map (
       clock             => clock,
       ld_en             => ld_en,
+     
       reset             => reset,
       clr_start         => clr_start,
       clear_c_shift     => clear_c_shift,
       clear_c_rxfull    => clear_c_rxfull,
+      flag_delay => flag_delay,
       flag_stop         => flag_stop,
       flag_shift_data   => flag_shift_data,
       flag_shift_sample => flag_shift_sample,
@@ -146,8 +154,11 @@ begin  -- architecture str
     port map (
       clock             => clock,
       ld_en             => ld_en,
+    
       reset             => reset,
+      rx_enable         => rx_enable,
       clr_start         => clr_start,
+         flag_delay => flag_delay,
       flag_error        => flag_error,
       clear_c_shift     => clear_c_shift,
       clear_c_rxfull    => clear_c_rxfull,

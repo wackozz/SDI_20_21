@@ -6,7 +6,7 @@
 -- Author     :   <Sabina@DESKTOP-IN9UA4D>
 -- Company    : 
 -- Created    : 2020-12-15
--- Last update: 2021-01-08
+-- Last update: 2021-01-16
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -32,6 +32,7 @@ entity rx_dp is
     clr_start         : in  std_logic;
     clear_c_shift     : in  std_logic;
     clear_c_rxfull    : in  std_logic;
+    flag_delay        : out std_logic;
     flag_shift_data   : out std_logic;
     flag_shift_sample : out std_logic;
     flag_68           : out std_logic;
@@ -57,6 +58,7 @@ architecture str of rx_dp is
   -----------------------------------------------------------------------------
   -- INTERNAL SIGNAL DECLARATION
   -----------------------------------------------------------------------------
+
   signal SL               : integer := 17;                 -- sample length
   signal p_out_samples    : std_logic_vector(7 downto 0);  --out for samples sr
   signal d_c_shift        : std_logic_vector(7 downto 0);  --unused
@@ -67,6 +69,7 @@ architecture str of rx_dp is
   signal vote             : std_logic;
   signal s_out            : std_logic;                     -- unused
   signal p_in             : std_logic_vector(7 downto 0);  -- unused
+  signal ld_en_byte : std_logic;
   signal voter_d          : std_logic_vector(2 downto 0);
   signal clear_sh_tmp     : std_logic;
   signal clear_rxfull_tmp : std_logic;
@@ -191,7 +194,7 @@ begin  -- architecture str
   shift_reg_data : shift_register_8bit
     port map (
       clock => clock,
-      ld_en => ld_en,
+      ld_en => ld_en_byte,
       sh_en => sh_en_data,
       s_in  => vote,
       s_out => s_out,
@@ -205,7 +208,7 @@ begin  -- architecture str
     port map (
       clock   => clock,
       clear   => clear_rxfull_tmp,
-      tc      => std_logic_vector(to_unsigned(9, 4)),
+      tc      => std_logic_vector(to_unsigned(8, 4)),
       tc_flag => flag_stop,
       en      => count_en_rxfull,
       ld      => ld,
@@ -218,6 +221,9 @@ begin  -- architecture str
   -- SIGNAL ASSIGNMENT
   -----------------------------------------------------------------------------
 
+  flag_delay <= '1' when
+                unsigned (q_c_shift) = (to_unsigned (2, 8))
+                else '0';
   flag_shift_sample <= '1' when
                        unsigned(q_c_shift) = (to_unsigned(SL-3, 8)) or
                        unsigned(q_c_shift) = (to_unsigned(SL*2-3, 8)) or
@@ -227,7 +233,7 @@ begin  -- architecture str
                        unsigned(q_c_shift) = (to_unsigned(SL*7-3, 8))
                        else '0';
 
-  flag_68        <= '1' when unsigned(q_c_shift) = (to_unsigned(SL*4-3, 8)) else '0';
+  flag_68 <= '1' when unsigned(q_c_shift) = (to_unsigned(SL*4-3, 8)) else '0';
 
   voter_d          <= p_out_samples(3)&p_out_samples(4)&p_out_samples(5);
 --flag for counter sh out, high when 4*Tbaud/. Used to sync from start
@@ -235,5 +241,6 @@ begin  -- architecture str
   p_in             <= "11111111";
   clear_rxfull_tmp <= clear_c_rxfull;
   clear_sh_tmp     <= clear_c_shift;
+
 
 end architecture str;
