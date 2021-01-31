@@ -8,7 +8,7 @@ entity BUS_INTERFACE is
         CLOCK, RESET         : in  std_logic;
         RX_ENABLE, TX_ENABLE : out std_logic;
         ATNack               : in  std_logic;
-        ATN, TX_ACK, RX_ACK          : out std_logic;
+        ATN, TX_ACK          : out std_logic;
         FF_IN_B              : in  std_logic_vector (2 downto 0);
         ADD                  : in  std_logic_vector (2 downto 0);
         R_Wn, CS             : in  std_logic);
@@ -37,7 +37,7 @@ architecture STR of BUS_INTERFACE is
       EN_STATE                                                   : out std_logic_vector (2 downto 0);
       ADD_cu                                                     : in  std_logic_vector (2 downto 0);
       SEL_mux_cu, ATN_cu, EN_regCTRL, EN_regDATARX, EN_regDATATX : out std_logic;
-      TX_ack_cu, RX_ack_cu                                                  : out std_logic;
+      TX_ack_cu                                                  : out std_logic;
       CLRatn_cu                                                  : in  std_logic;
       RX_FULL_cu, TX_EMPTY_cu, ERROR_cu, ATNack_cu               : in  std_logic);
   end component;
@@ -64,8 +64,7 @@ begin
                                           R_Wn_cu      => R_Wn, EN_STATE => ENABLE_FF_s, ADD_cu => ADD,
                                           SEL_MUX_cu   => SEL_MUX_s, ATN_cu => ATN, EN_regCTRL => EN_CTRL_s,
                                           EN_regDATARX => EN_DATARX_s, EN_regDATATX => EN_DATATX_s,
-                                           TX_ack_cu    => TX_ACK,
-                                           RX_ack_cu => RX_ack,
+                                          TX_ack_cu    => TX_ACK,
                                           CLRatn_cu    => CLRatn_s, RX_FULL_cu => FF_IN_B(0),
                                           TX_EMPTY_cu  => FF_IN_B(1), ERROR_cu => FF_IN_B(2),
                                           ATNack_cu    => ATNack);

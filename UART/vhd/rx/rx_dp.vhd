@@ -62,9 +62,9 @@ architecture str of rx_dp is
   signal SL               : integer := 17;                 -- sample length
   signal p_out_samples    : std_logic_vector(7 downto 0);  --out for samples sr
   signal d_c_shift        : std_logic_vector(7 downto 0);  --unused
-  signal d_c_rxfull       : std_logic_vector(4 downto 0);  --unused
+  signal d_c_rxfull       : std_logic_vector(3 downto 0);  --unused
   signal q_c_shift        : std_logic_vector(7 downto 0);
-  signal q_c_rxfull       : std_logic_vector(4 downto 0);
+  signal q_c_rxfull       : std_logic_vector(3 downto 0);
   signal ld               : std_logic;                     -- unusued
   signal vote             : std_logic;
   signal s_out            : std_logic;                     -- unused
@@ -204,11 +204,11 @@ begin  -- architecture str
   -- port map: counter
 
   counter_rxfull : counter_nbit
-    generic map (N => 5)
+    generic map (N => 4)
     port map (
       clock   => clock,
       clear   => clear_rxfull_tmp,
-      tc      => std_logic_vector(to_unsigned(9, 5)),
+      tc      => std_logic_vector(to_unsigned(8, 4)),
       tc_flag => flag_stop,
       en      => count_en_rxfull,
       ld      => ld,
@@ -222,7 +222,7 @@ begin  -- architecture str
   -----------------------------------------------------------------------------
 
   flag_delay <= '1' when
-                unsigned (q_c_shift) = (to_unsigned (2, 8))
+                unsigned (q_c_shift) = (to_unsigned (3, 8))
                 else '0';
   flag_shift_sample <= '1' when
                        unsigned(q_c_shift) = (to_unsigned(SL-3, 8)) or

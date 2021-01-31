@@ -63,7 +63,7 @@ architecture str of rx_cu is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
-  type State_type is (wait_enable, idle_start_on, idle_start_off, reset_s, wait_tc_flag_68, sh_data, sh_sample_start_on, sh_sample_start_off, sh_smp_rxfull, start_en_off, res_cnt, rxfull_s, error_s);
+  type State_type is (wait_enable, ack_state, idle_start_on, idle_start_off, reset_s, wait_tc_flag_68, sh_data, sh_sample_start_on, sh_sample_start_off, sh_smp_rxfull, start_en_off, res_cnt, rxfull_s, error_s);
   signal next_state : State_type;
 begin  -- architecture str
 
@@ -85,8 +85,13 @@ begin  -- architecture str
             next_state <= wait_enable;
           end if;
 
+        when ack_state =>
+          next_state <= idle_start_on;
+
         when idle_start_on =>
-          if start = '0' then
+          if rx_ack = '1' then
+            next_state <= ack_state;
+          elsif start = '0' then
             if flag_shift_sample = '0' then
               next_state <= idle_start_on;
             else
@@ -165,10 +170,11 @@ begin  -- architecture str
       when idle_start_on =>
         count_en_sh <= '1';
         start_en    <= '1';
-        if rx_ack = '1' then
-          rx_full    <= '0';
-          flag_error <= '0';
-        end if;
+
+      when ack_state =>
+        rx_full    <= '0';
+        flag_error <= '0';
+
       when idle_start_off =>
         count_en_sh <= '1';
         start_en    <= '0';
@@ -177,15 +183,15 @@ begin  -- architecture str
           flag_error <= '0';
         end if;
       when wait_enable =>
-         ld_en          <= '1';
+        ld_en          <= '1';
         clear_c_shift  <= '1';
         clear_c_rxfull <= '1';
-         start_en       <= '1';
-          if rx_ack = '1' then
+        start_en       <= '1';
+        if rx_ack = '1' then
           rx_full    <= '0';
           flag_error <= '0';
         end if;
-        
+
       when reset_s =>
         ld_en          <= '1';
         clear_c_shift  <= '1';
@@ -242,7 +248,7 @@ begin  -- architecture str
           rx_full    <= '0';
           flag_error <= '0';
         end if;
-        
+
       when rxfull_s =>
         rx_full <= '1';
       when error_s =>

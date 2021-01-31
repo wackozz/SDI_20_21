@@ -8,7 +8,7 @@ entity bus_interface_cu is
         ADD_cu                                                     : in  std_logic_vector (2 downto 0);
         SEL_mux_cu, ATN_cu, EN_regCTRL, EN_regDATARX, EN_regDATATX : out std_logic;
         TX_ack_cu                                                  : out std_logic;
-        RX_ack_cu                                                  : out std_logic;
+        RX_ack_cu : out std_logic;
         CLRatn_cu                                                  : in  std_logic;
         RX_FULL_cu, TX_EMPTY_cu, ERROR_cu, ATNack_cu               : in  std_logic);
 end bus_interface_cu;
@@ -19,7 +19,6 @@ architecture behav of bus_interface_cu is
 
   type state_type is (IDLE,
                       WRITE_CTRL,
-                      WAIT_s,
                       WRITE_CTRL_ATN,
                       READ_STATUS,
                       WRITE_TXdata,
@@ -47,39 +46,31 @@ begin
       case present_state is
 
         when IDLE =>
-          if((TX_EMPTY_cu = '1') and (RX_FULL_cu = '1') and (ERROR_cu = '1')) then present_state          <= ATN_OVERRUNandTX_S;
-          elsif (TX_EMPTY_cu = '1') and (RX_FULL_cu = '1') then present_state                             <= ATN_TXandRX_s;
-          elsif (TX_EMPTY_cu = '1') and (ERROR_cu = '1') then present_state                               <= ATN_TXandERROR_s;
-          elsif (RX_FULL_cu = '1') and(ERROR_cu = '1') then present_state                                 <= ATN_OVERRUN_s;
-          elsif (TX_EMPTY_cu = '1') then present_state                                                    <= ATN_TX_s;
-          elsif (RX_FULL_cu = '1') then present_state                                                     <= ATN_RX_s;
-          elsif (ERROR_cu = '1') then present_state                                                       <= ATN_ERROR_s;
-          elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state                     <= WRITE_CTRL;
-          elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "000") then present_state                     <= WRITE_TXdata;
-          elsif (RX_FULL_cu = '1'and CS_cu = '1' and R_Wn_cu = '1' and ADD_cu = "001") then present_state <= READ_RXdata;
-          else present_state                                                                              <= IDLE;
+          if(TX_EMPTY_cu and RX_FULL_cu and ERROR_cu = '1') then present_state        <= ATN_OVERRUNandTX_S;
+          elsif (TX_EMPTY_cu and RX_FULL_cu = '1') then present_state                 <= ATN_TXandRX_s;
+          elsif (TX_EMPTY_cu and ERROR_cu = '1') then present_state                   <= ATN_TXandERROR_s;
+          elsif (RX_FULL_cu and ERROR_cu = '1') then present_state                    <= ATN_OVERRUN_s;
+          elsif (TX_EMPTY_cu = '1') then present_state                                <= ATN_TX_s;
+          elsif (RX_FULL_cu = '1') then present_state                                 <= ATN_RX_s;
+          elsif (ERROR_cu = '1') then present_state                                   <= ATN_ERROR_s;
+          elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state <= WRITE_CTRL;
+          elsif (CS_cu = '1' and R_Wn_cu = '1' and ADD_cu = "010") then present_state <= READ_STATUS;
+          else present_state                                                          <= IDLE;
           end if;
 
         when WRITE_CTRL =>
           if (CS_cu = '1' and R_Wn_cu = '1' and ADD_cu = "010") then present_state    <= READ_STATUS;
           elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "000") then present_state <= WRITE_TXdata;
-          else present_state                                                          <= WAIT_s;
+          else present_state                                                          <= IDLE;
           end if;
-
-        when WAIT_s => present_state <= IDLE;
 
 
         when READ_STATUS =>
-          if (RX_FULL_cu = '1') then
-            if (CS_cu = '1') then
-              if (R_Wn_cu = '1') then
-                if (ADD_cu = "001") then present_state <= READ_RXdata; end if;
-              end if;
-            end if;
-
-          elsif (TX_EMPTY_cu = '1' and CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "000") then present_state <= WRITE_TXdata;
-          elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state                       <= WRITE_CTRL;
-          else present_state                                                                                <= IDLE;
+          if (RX_FULL_cu = '1'and CS_cu = '1' and R_Wn_cu = '1' and ADD_cu = "001") then present_state   <= READ_RXdata;
+          end if;
+          if (TX_EMPTY_cu = '1' and CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "000") then present_state <= WRITE_TXdata;
+          end if;
+          if (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state                       <= WRITE_CTRL;
           end if;
 
 
@@ -98,55 +89,55 @@ begin
           end if;
 
         when ATN_TX_s =>
-          if (RX_FULL_cu = '1') and (ERROR_cu = '1') then present_state               <= ATN_OVERRUNandTX_s;
+          if (RX_FULL_cu and ERROR_cu = '1') then present_state                       <= ATN_OVERRUNandTX_s;
           elsif (RX_FULL_cu = '1') then present_state                                 <= ATN_TXandRX_s;
           elsif (ERROR_cu = '1') then present_state                                   <= ATN_TXandERROR_s;
-          elsif (CLRatn_cu = '1' or ATNack_cu = '1') then present_state               <= CLEAR_s;
+          elsif (CLRatn_cu or ATNack_cu = '1') then present_state                     <= CLEAR_s;
           elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state <= WRITE_CTRL_ATN;
           else present_state                                                          <= ATN_TX_s;
           end if;
 
         when ATN_RX_S =>
-          if (TX_EMPTY_cu = '1' and ERROR_cu = '1' and RX_FULL_cu = '1') then present_state <= ATN_OVERRUNandTX_s;
-          elsif (TX_EMPTY_cu = '1') then present_state                                      <= ATN_TXandRX_s;
-          elsif (RX_FULL_cu = '1' and ERROR_cu = '1') then present_state                    <= ATN_OVERRUN_s;
-          elsif (CLRatn_cu = '1' or ATNack_cu = '1') then present_state                     <= CLEAR_s;
-          elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state       <= WRITE_CTRL_ATN;
-          else present_state                                                                <= ATN_RX_s;
+          if (TX_EMPTY_cu and ERROR_cu and RX_FULL_cu = '1') then present_state       <= ATN_OVERRUNandTX_s;
+          elsif (TX_EMPTY_cu = '1') then present_state                                <= ATN_TXandRX_s;
+          elsif (RX_FULL_cu and ERROR_cu = '1') then present_state ATN_OVERRUN_s;
+          elsif (CLRatn_cu or ATNack_cu = '1') then present_state                     <= CLEAR_s;
+          elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state <= WRITE_CTRL_ATN;
+          else present_state                                                          <= ATN_RX_s;
           end if;
 
         when ATN_ERROR_S =>
-          if (TX_EMPTY_cu = '1' and ERROR_cu = '1' and RX_FULL_cu = '1') then present_state <= ATN_OVERRUNandTX_s;
-          elsif (ERROR_cu = '1' and RX_FULL_cu = '1') then present_state                    <= ATN_OVERRUN_s;
-          elsif (TX_EMPTY_cu = '1') then present_state                                      <= ATN_TXandERROR_s;
-          elsif (CLRatn_cu = '1' or ATNack_cu = '1') then present_state                     <= CLEAR_s;
-          elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state       <= WRITE_CTRL_ATN;
-          else present_state                                                                <= ATN_ERROR_s;
+          if (TX_EMPTY_cu and ERROR_cu and RX_FULL_cu = '1') then present_state       <= ATN_OVERRUNandTX_s;
+          elsif (ERROR_cu and RX_FULL_cu = '1') then present_state                    <= ATN_OVERRUN_s;
+          elsif (TX_EMPTY_cu = '1') then present_state                                <= ATN_TXandERROR_s;
+          elsif (CLRatn_cu or ATNack_cu = '1') then present_state                     <= CLEAR_s;
+          elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state <= WRITE_CTRL_ATN;
+          else present_state                                                          <= ATN_ERROR_s;
           end if;
 
         when ATN_TXandRX_s =>
-          if (TX_EMPTY_cu = '1' and RX_FULL_cu = '1' and ERROR_cu = '1') then present_state <= ATN_OVERRUNandTX_s;
-          elsif (CLRatn_cu = '1' or ATNack_cu = '1') then present_state                     <= CLEAR_s;
-          elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state       <= WRITE_CTRL_ATN;
-          else present_state                                                                <= ATN_TXandRX_s;
+          if (TX_EMPTY_cu and RX_FULL_cu and ERROR_cu = '1') then present_state       <= ATN_OVERRUNandTX_s;
+          elsif (CLRatn_cu or ATNack_cu = '1') then present_state                     <= CLEAR_s;
+          elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state <= WRITE_CTRL_ATN;
+          else present_state                                                          <= ATN_TXandRX_s;
           end if;
 
         when ATN_TXandERROR_s =>
-          if (TX_EMPTY_cu = '1' and RX_FULL_cu = '1' and ERROR_cu = '1') then present_state <= ATN_OVERRUNandTX_s;
-          elsif (CLRatn_cu = '1' or ATNack_cu = '1') then present_state                     <= CLEAR_s;
-          elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state       <= WRITE_CTRL_ATN;
-          else present_state                                                                <= ATN_TXandERROR_s;
+          if (TX_EMPTY_cu and RX_FULL_cu and ERROR_cu = '1') then present_state       <= ATN_OVERRUNandTX_s;
+          elsif (CLRatn_cu or ATNack_cu = '1') then present_state                     <= CLEAR_s;
+          elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state <= WRITE_CTRL_ATN;
+          else present_state                                                          <= ATN_TXandERROR_s;
           end if;
 
         when ATN_OVERRUN_s =>
           if (TX_EMPTY_cu = '1') then present_state                                   <= ATN_OVERRUNandTX_s;
-          elsif (CLRatn_cu = '1' or ATNack_cu = '1') then present_state               <= CLEAR_s;
+          elsif (CLRatn_cu or ATNack_cu = '1') then present_state                     <= CLEAR_s;
           elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state <= WRITE_CTRL_ATN;
           else present_state                                                          <= ATN_OVERRUN_s;
           end if;
 
         when ATN_OVERRUNandTX_s =>
-          if (CLRatn_cu = '1' or ATNack_cu = '1') then present_state                  <= CLEAR_s;
+          if (CLRatn_cu or ATNack_cu = '1') then present_state                        <= CLEAR_s;
           elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state <= WRITE_CTRL_ATN;
           else present_state                                                          <= ATN_OVERRUNandTX_s;
           end if;
@@ -179,21 +170,18 @@ begin
     case present_state is
       when IDLE =>
         SEL_mux_cu <= '0';
-        ATN_cu     <= '0';
+        ATN        <= '0';
 
       when WRITE_CTRL =>
         EN_regCTRL <= '1';
         ATN_cu     <= '0';
-
-      when WAIT_s =>
-        ATN_cu <= '0';
 
       when WRITE_CTRL_ATN =>
         EN_regCTRL <= '1';
         ATN_cu     <= '1';
 
       when READ_STATUS =>
-        SEL_MUX_cu <= '1';
+        SEL_MUX_cu <= '0';
         ATN_cu     <= '0';
 
       when READ_RXdata =>               -- LEGGO RX_DATA
