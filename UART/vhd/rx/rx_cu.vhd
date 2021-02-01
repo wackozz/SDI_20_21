@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-16
--- Last update: 2021-01-31
+-- Last update: 2021-02-01
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -36,11 +36,14 @@ entity rx_cu is
     rx_ack            : in  std_logic;
     clr_start         : out std_logic;
     flag_error        : out std_logic;
+    clear_c_overrun   : out std_logic;
     clear_c_shift     : out std_logic;
     clear_c_rxfull    : out std_logic;
     flag_stop         : in  std_logic;
     rx_full           : out std_logic;
     ld_en             : out std_logic;  --load enable for shift_registers init.
+    ld_overrun        : out std_logic;
+    flag_overrun      : in  std_logic;
     flag_delay        : in  std_logic;
     flag_shift_data   : in  std_logic;
     flag_shift_sample : in  std_logic;
@@ -51,6 +54,7 @@ entity rx_cu is
     start             : in  std_logic;
     stop_en           : out std_logic;
     stop              : in  std_logic;
+    count_en_overrun  : out std_logic;
     count_en_sh       : out std_logic;
     count_en_rxfull   : out std_logic);
 
@@ -63,7 +67,7 @@ architecture str of rx_cu is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
-  type State_type is (wait_enable, ack_state, idle_start_on, idle_start_off, reset_s, wait_tc_flag_68, sh_data, sh_sample_start_on, sh_sample_start_off, sh_smp_rxfull, start_en_off, res_cnt, rxfull_s, error_s);
+  type State_type is (wait_enable, overrun_s, ack_state, idle_start_on, idle_start_off, reset_s, wait_tc_flag_68, sh_data, sh_sample_start_on, sh_sample_start_off, sh_smp_rxfull, start_en_off, res_cnt, rxfull_s, error_s);
   signal next_state : State_type;
 begin  -- architecture str
 
@@ -80,17 +84,24 @@ begin  -- architecture str
 
         when wait_enable =>
           if rx_enable = '1' then
-            next_state <= idle_start_on;
+            if flag_overrun = '1' then
+              next_state <= overrun_s;
+            else
+              next_state <= idle_start_on;
+            end if;
           else
             next_state <= wait_enable;
           end if;
 
-        when ack_state =>
-          next_state <= idle_start_on;
+        when overrun_s => next_state <= idle_start_on;
+
+        when ack_state => next_state <= wait_enable;
 
         when idle_start_on =>
           if rx_ack = '1' then
             next_state <= ack_state;
+          elsif rx_enable = '0' then
+            next_state <= wait_enable;
           elsif start = '0' then
             if flag_shift_sample = '0' then
               next_state <= idle_start_on;
@@ -143,6 +154,7 @@ begin  -- architecture str
 
         when rxfull_s => next_state <= wait_enable;
 
+
         when others => null;
       end case;
     end if;
@@ -159,10 +171,13 @@ begin  -- architecture str
     sh_en_data      <= '0';
     sh_en_samples   <= '0';
 
-    clr_start <= '0';
-    ld_en     <= '0';
-    stop_en   <= '1';
-    start_en  <= '0';
+    clr_start        <= '0';
+    ld_en            <= '0';
+    stop_en          <= '1';
+    start_en         <= '0';
+    clear_c_overrun  <= '0';
+    count_en_overrun <= '0';
+    ld_overrun       <= '0';
 
 
     case next_state is
@@ -171,9 +186,15 @@ begin  -- architecture str
         count_en_sh <= '1';
         start_en    <= '1';
 
+      when overrun_s =>
+        rx_full    <= '1';
+        flag_error <= '1';
+        ld_overrun <= '1';
+
       when ack_state =>
-        rx_full    <= '0';
-        flag_error <= '0';
+        rx_full         <= '0';
+        flag_error      <= '0';
+        clear_c_overrun <= '1';
 
       when idle_start_off =>
         count_en_sh <= '1';
@@ -182,6 +203,7 @@ begin  -- architecture str
           rx_full    <= '0';
           flag_error <= '0';
         end if;
+
       when wait_enable =>
         ld_en          <= '1';
         clear_c_shift  <= '1';
@@ -193,6 +215,7 @@ begin  -- architecture str
         end if;
 
       when reset_s =>
+        clear_c_overrun <= '1';
         ld_en          <= '1';
         clear_c_shift  <= '1';
         clear_c_rxfull <= '1';
@@ -250,9 +273,11 @@ begin  -- architecture str
         end if;
 
       when rxfull_s =>
-        rx_full <= '1';
+        rx_full          <= '1';
+        count_en_overrun <= '1';
       when error_s =>
-        flag_error <= '1';
+        flag_error       <= '1';
+        count_en_overrun <= '1';
 
       when others => null;
     end case;

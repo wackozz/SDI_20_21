@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-09
--- Last update: 2021-01-15
+-- Last update: 2021-01-31
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -117,7 +117,7 @@ begin  -- architecture str
 
       when stop =>
         if tc_flag_txempty='1' then
-          next_state <= reset_s;
+          next_state <= idle_start;
         elsif term_count = '1' then
           next_state <= shift_stop;
         else

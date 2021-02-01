@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-07
--- Last update: 2021-01-16
+-- Last update: 2021-01-31
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -86,19 +86,23 @@ begin  -- architecture arch
     ADD   <= "010";   --leggo lo stato
     R_Wn  <= '1';
     CS    <= '1';
+    wait for 62.5 ns;
+    CS <= '0';
     wait for 86.875 us;
     ATNack <= '1';
+    wait for 62.5 ns;
     ADD  <= "010";
     CS   <= '1';
     R_Wn <= '1';  --leggo lo stato e controllo se rxfull è alto e se il
     --trasmettitore ha concluso la trasmissione
     wait for 62.5 ns;
-    ATNACK <='1';
+    ATNACK <='0';
     ADD <= "011";    --ABILITO RX e spengo TX
     CS <= '1';
     R_Wn <= '0';
     wait for 62.5 ns;
     Din <= "00000001";
+    CS <= '0';
     wait for 62.5 ns;
     --affronto il caso in cui sia avvenuta una ricezione corretta
     rxd <= '0';                         --
@@ -123,16 +127,18 @@ begin  -- architecture arch
     wait for 8.9456 us; --tempo necessario per trasmettere ultimo simbolo(139Tclk)+t
                         --di delay(3Tclk)+tempo di risposta esterno(1Tclk)
 
+    ATNack <= '1';
+    wait for 62.5 ns;
     ADD  <= "010";
     CS   <= '1';
     R_Wn <= '1';  --leggo lo stato e controllo se rxfull è alto
     wait for 62.5 ns;
+    ATNack <= '0';
     ADD <= "001";
     CS <= '1';
     R_Wn <= '1';
     wait for 62.5 ns; -- parola ricevuta in uscita READ_RXDATA
     --spengo ricevitore e trasmettitore
-
     ADD  <= "011";
     CS   <= '1';
     R_Wn <= '0';
@@ -143,6 +149,7 @@ begin  -- architecture arch
     R_Wn <= '0';
     Din  <= "00000000";
     wait for 50 ns;
+    CS <= '0';
     wait;
 
 

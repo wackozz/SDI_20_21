@@ -55,8 +55,6 @@ begin
           elsif (RX_FULL_cu = '1') then present_state                                                     <= ATN_RX_s;
           elsif (ERROR_cu = '1') then present_state                                                       <= ATN_ERROR_s;
           elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state                     <= WRITE_CTRL;
-          elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "000") then present_state                     <= WRITE_TXdata;
-          elsif (RX_FULL_cu = '1'and CS_cu = '1' and R_Wn_cu = '1' and ADD_cu = "001") then present_state <= READ_RXdata;
           else present_state                                                                              <= IDLE;
           end if;
 
@@ -64,6 +62,7 @@ begin
           if (CS_cu = '1' and R_Wn_cu = '1' and ADD_cu = "010") then present_state    <= READ_STATUS;
           elsif (CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "000") then present_state <= WRITE_TXdata;
           else present_state                                                          <= WAIT_s;
+--per gestire ritardo nella risposta tra tx e bus
           end if;
 
         when WAIT_s => present_state <= IDLE;

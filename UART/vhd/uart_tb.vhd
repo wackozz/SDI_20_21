@@ -143,12 +143,12 @@ begin  -- architecture arch
     CS   <= '1';
     R_Wn <= '0';
     Din  <= "00000001";
-    wait for 50 ns;
+    wait for 62.5 ns;
     ADD  <= "011";
     CS   <= '1';
     R_Wn <= '0';
     Din  <= "00000000";
-    wait for 50 ns;
+    wait for 62.5 ns;
     CS <= '0';
     wait;
 

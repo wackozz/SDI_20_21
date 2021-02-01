@@ -32,6 +32,8 @@ entity rx_dp is
     clr_start         : in  std_logic;
     clear_c_shift     : in  std_logic;
     clear_c_rxfull    : in  std_logic;
+    clear_c_overrun   : in  std_logic;
+    flag_overrun      : out std_logic;
     flag_delay        : out std_logic;
     flag_shift_data   : out std_logic;
     flag_shift_sample : out std_logic;
@@ -42,11 +44,13 @@ entity rx_dp is
     sh_en_data        : in  std_logic;  -- shift enable for sr data
     start_en          : in  std_logic;
     ld_en             : in  std_logic;
+    ld_overrun        : in  std_logic;
     start             : out std_logic;
     stop_en           : in  std_logic;
     stop              : out std_logic;
     count_en_sh       : in  std_logic;
     count_en_rxfull   : in  std_logic;
+    count_en_overrun  : in  std_logic;
     Pout              : out std_logic_vector(7 downto 0));  -- output
 
 end entity rx_dp;
@@ -59,17 +63,19 @@ architecture str of rx_dp is
   -- INTERNAL SIGNAL DECLARATION
   -----------------------------------------------------------------------------
 
-  signal SL               : integer := 17;                 -- sample length
+  signal SL               : integer                      := 17;  -- sample length
   signal p_out_samples    : std_logic_vector(7 downto 0);  --out for samples sr
   signal d_c_shift        : std_logic_vector(7 downto 0);  --unused
-  signal d_c_rxfull       : std_logic_vector(4 downto 0);  --unused
+  signal d_c_rxfull       : std_logic_vector(3 downto 0);  --unused
   signal q_c_shift        : std_logic_vector(7 downto 0);
-  signal q_c_rxfull       : std_logic_vector(4 downto 0);
-  signal ld               : std_logic;                     -- unusued
+  signal q_c_rxfull       : std_logic_vector(3 downto 0);
+  signal q_c_overrun      : std_logic_vector (1 downto 0);
+  signal d_c_overrun      : std_logic_vector(1 downto 0) := "01";
+  signal ld               : std_logic;  -- unusued
   signal vote             : std_logic;
-  signal s_out            : std_logic;                     -- unused
+  signal s_out            : std_logic;  -- unused
   signal p_in             : std_logic_vector(7 downto 0);  -- unused
-  signal ld_en_byte : std_logic;
+  signal ld_en_byte       : std_logic;
   signal voter_d          : std_logic_vector(2 downto 0);
   signal clear_sh_tmp     : std_logic;
   signal clear_rxfull_tmp : std_logic;
@@ -204,16 +210,29 @@ begin  -- architecture str
   -- port map: counter
 
   counter_rxfull : counter_nbit
-    generic map (N => 5)
+    generic map (N => 4)
     port map (
       clock   => clock,
       clear   => clear_rxfull_tmp,
-      tc      => std_logic_vector(to_unsigned(9, 5)),
+      tc      => std_logic_vector(to_unsigned(8, 4)),
       tc_flag => flag_stop,
       en      => count_en_rxfull,
       ld      => ld,
       d       => d_c_rxfull,
       q       => q_c_rxfull
+      );
+
+  counter_overrun : counter_nbit
+    generic map (N => 2)
+    port map (
+      clock   => clock,
+      clear   => clear_c_overrun,
+      tc      => std_logic_vector(to_unsigned(2, 2)),
+      tc_flag => flag_overrun,
+      en      => count_en_overrun,
+      ld      => ld_overrun,
+      d       => d_c_overrun,
+      q       => q_c_overrun
       );
 
 
@@ -222,7 +241,7 @@ begin  -- architecture str
   -----------------------------------------------------------------------------
 
   flag_delay <= '1' when
-                unsigned (q_c_shift) = (to_unsigned (2, 8))
+                unsigned (q_c_shift) = (to_unsigned (3, 8))
                 else '0';
   flag_shift_sample <= '1' when
                        unsigned(q_c_shift) = (to_unsigned(SL-3, 8)) or
