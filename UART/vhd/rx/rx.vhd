@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-17
--- Last update: 2021-01-31
+-- Last update: 2021-02-02
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -28,14 +28,14 @@ use ieee.numeric_std.all;
 entity rx is
 
   port (
-    clock      : in  std_logic;
-    reset      : in  std_logic;
-    rx_enable  : in  std_logic;
-    rx_ack     : in  std_logic;
-    rxd        : in  std_logic;
-    Pout       : out std_logic_vector(7 downto 0);
-    flag_error : out std_logic;
-    rx_full    : out std_logic);
+    clock             : in  std_logic;
+    reset             : in  std_logic;
+    rx_enable         : in  std_logic;
+    rx_ack            : in  std_logic;
+    rxd               : in  std_logic;
+    Pout              : out std_logic_vector(7 downto 0);
+    status_flag_error : out std_logic;
+    status_rx_full    : out std_logic);
 
 end entity rx;
 
@@ -57,6 +57,10 @@ architecture str of rx is
   signal clear_c_overrun  : std_logic;
   signal flag_overrun     : std_logic;
   signal count_en_overrun : std_logic;
+  signal rx_full : std_logic;
+  signal flag_error: std_logic;
+
+  signal ENABLE_FF : std_logic_vector(1 downto 0);
 
   signal flag_delay      : std_logic;
   signal flag_stop       : std_logic;
@@ -77,6 +81,9 @@ architecture str of rx is
       clock             : in  std_logic;
       ld_en             : out std_logic;
       ld_overrun        : out std_logic;
+
+      ENABLE_FF : out std_logic_vector(1 downto 0);
+      
       reset             : in  std_logic;
       rx_enable         : in  std_logic;
       rx_ack            : in  std_logic;
@@ -109,6 +116,12 @@ architecture str of rx is
       reset             : in  std_logic;
       ld_en             : in  std_logic;
       ld_overrun        : in  std_logic;
+
+      FF_OUT    : out std_logic_vector(1 downto 0);
+    FF_IN     : in  std_logic_vector(1 downto 0);
+    RESET_FF  : in  std_logic;
+    ENABLE_FF : in  std_logic_vector(1 downto 0);
+      
       clr_start         : in  std_logic;
       clear_c_overrun   : in  std_logic;
       clear_c_shift     : in  std_logic;
@@ -145,6 +158,12 @@ begin  -- architecture str
       ld_en             => ld_en,
       ld_overrun        => ld_overrun,
       reset             => reset,
+      FF_IN(0)          => rx_full,
+      FF_IN(1)          => flag_error,
+      FF_OUT(0)         => status_rx_full,
+      FF_OUT(1)         => status_flag_error,
+      ENABLE_FF         => ENABLE_FF,
+      RESET_FF          => rx_ack,
       clr_start         => clr_start,
       clear_c_overrun   => clear_c_overrun,
       clear_c_shift     => clear_c_shift,
@@ -176,6 +195,7 @@ begin  -- architecture str
       reset             => reset,
       rx_enable         => rx_enable,
       rx_ack            => rx_ack,
+      ENABLE_FF         => ENABLE_FF,
       clr_start         => clr_start,
       clear_c_overrun   => clear_c_overrun,
       flag_overrun      => flag_overrun,

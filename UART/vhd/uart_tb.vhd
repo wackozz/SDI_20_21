@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-07
--- Last update: 2021-01-31
+-- Last update: 2021-02-02
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -134,6 +134,7 @@ begin  -- architecture arch
     R_Wn <= '1';  --leggo lo stato e controllo se rxfull è alto
     wait for 62.5 ns;
     ATNack <= '0';
+    wait for 375 ns;
     ADD <= "001";
     CS <= '1';
     R_Wn <= '1';

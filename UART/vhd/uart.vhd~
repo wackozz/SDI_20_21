@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-07
--- Last update: 2021-01-14
+-- Last update: 2021-01-31
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -16,7 +16,7 @@
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author  Description
--- 2021-01-07  1.0      wackoz	Created
+-- 2021-01-07  1.0      wackoz  Created
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------
@@ -57,23 +57,24 @@ architecture str of uart is
   -- Internal signal declarations
   -----------------------------------------------------------------------------
 
-  signal p_in         : std_logic_vector(7 downto 0);
-  signal tx_empty_ack : std_logic;
-  signal rx_full      : std_logic;
-  signal flag_error   : std_logic;
-  signal Pout         : std_logic_vector(7 downto 0);
-  signal TX_out       : std_logic_vector(7 downto 0);
-  signal RX_in        : std_logic_vector(7 downto 0);
-  signal tx_empty     : std_logic;
-  signal TX_ACK       : std_logic;
-  signal RX_ENABLE    : std_logic;
-  signal TX_ENABLE    : std_logic;
-  signal CLRatn       : std_logic;
-  signal SEL_MUX      : std_logic;
-  signal FF_IN        : std_logic_vector(2 downto 0);
-  signal FF_OUT       : std_logic_vector(2 downto 0);
-  signal ENABLE_FF    : std_logic_vector(2 downto 0);
-  signal FF_IN_tmp    : std_logic_vector(2 downto 0);
+  signal p_in          : std_logic_vector(7 downto 0);
+  signal tx_empty_ack  : std_logic;
+  signal rx_full       : std_logic;
+  signal flag_error    : std_logic;
+  signal Pout          : std_logic_vector(7 downto 0);
+  signal TX_out        : std_logic_vector(7 downto 0);
+  signal RX_in         : std_logic_vector(7 downto 0);
+  signal tx_empty      : std_logic;
+  signal TX_ACK        : std_logic;
+  signal RX_ACK        : std_logic;
+  signal RX_ENABLE     : std_logic;
+  signal TX_ENABLE     : std_logic;
+  signal CLRatn        : std_logic;
+  signal SEL_MUX       : std_logic;
+  signal FF_IN         : std_logic_vector(2 downto 0);
+  signal FF_OUT        : std_logic_vector(2 downto 0);
+  signal ENABLE_FF     : std_logic_vector(2 downto 0);
+  signal FF_IN_tmp     : std_logic_vector(2 downto 0);
   signal rx_enable_tmp : std_logic;
 
 
@@ -81,7 +82,7 @@ architecture str of uart is
     port (
       clock        : in  std_logic;
       reset        : in  std_logic;
-      tx_enable : in std_logic;
+      tx_enable    : in  std_logic;
       p_in         : in  std_logic_vector(7 downto 0);
       TxD          : out std_logic;
       tx_empty     : out std_logic;
@@ -94,7 +95,8 @@ architecture str of uart is
     port (
       clock      : in  std_logic;
       reset      : in  std_logic;
-      rx_enable : in std_logic;
+      rx_enable  : in  std_logic;
+      rx_ack     : in  std_logic;
       rxD        : in  std_logic;
       rx_full    : out std_logic;
       flag_error : out std_logic;
@@ -109,7 +111,7 @@ architecture str of uart is
       CLOCK, RESET         : in  std_logic;
       RX_ENABLE, TX_ENABLE : out std_logic;
       ATNack               : in  std_logic;
-      ATN, TX_ACK          : out std_logic;
+      ATN, TX_ACK, RX_ACK  : out std_logic;
       FF_IN_B              : in  std_logic_vector (2 downto 0);
       ADD                  : in  std_logic_vector (2 downto 0);
       R_Wn, CS             : in  std_logic);
@@ -121,7 +123,7 @@ begin
   trasmettitore : tx port map (
     clock        => clock,
     reset        => reset,
-    tx_enable => TX_ENABLE,
+    tx_enable    => TX_ENABLE,
     p_in         => TX_out,
     tx_empty_ack => TX_ACK,             --vedi bene
     tx_empty     => tx_empty,
@@ -130,7 +132,8 @@ begin
   ricevitore : rx port map (
     clock      => clock,
     reset      => reset,
-    rx_enable => RX_ENABLE,
+    rx_enable  => RX_ENABLE,
+    rx_ack     => rx_ack,
     rxD        => RxD,
     rx_full    => rx_full,
     flag_error => flag_error,
@@ -138,7 +141,7 @@ begin
 
 
   -- instance "BUS_INTERFACE_1"
-  BUS_INTERFACE_1: BUS_INTERFACE
+  BUS_INTERFACE_1 : BUS_INTERFACE
     port map (
       Dout      => Dout,
       TX_out    => TX_out,
@@ -151,6 +154,7 @@ begin
       ATNack    => ATNack,
       ATN       => ATN,
       TX_ACK    => TX_ACK,
+      rx_ack    => rx_ack,
       FF_IN_B   => FF_IN_tmp,
       ADD       => ADD,
       R_Wn      => R_Wn,
@@ -158,7 +162,7 @@ begin
 
   FF_IN_tmp <= (flag_error)&(tx_empty)&(rx_full);
 
-  
+
 
 end architecture str;
 

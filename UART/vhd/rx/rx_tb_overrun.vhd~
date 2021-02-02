@@ -6,7 +6,7 @@
 -- Author     : sab
 -- Company    : 
 -- Created    :
--- Last update: 2021-01-31
+-- Last update: 2021-02-01
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -102,8 +102,12 @@ begin  -- architecture arch
     wait for 8.6956 us;
     rxd <= '0';                         -- D1
     wait for 8.6956 us;
+    rx_ack <= '1';
     rxd <= '0';                         --D2
-    wait for 8.6956 us;
+    wait for 62.5 ns;
+    rx_ack <='0';
+    rxd <= '0';
+    wait for 8.5706 us;
     rxd <= '1';                         --D3
     wait for 8.6956 us;
     rxd <= '0';                         --D4

@@ -69,8 +69,8 @@ architecture str of rx_dp is
   signal d_c_rxfull       : std_logic_vector(3 downto 0);  --unused
   signal q_c_shift        : std_logic_vector(7 downto 0);
   signal q_c_rxfull       : std_logic_vector(3 downto 0);
-  signal q_c_overrun      : std_logic_vector (1 downto 0);
-  signal d_c_overrun      : std_logic_vector(1 downto 0) := "01";
+  signal q_c_overrun      : std_logic_vector (2 downto 0);
+  signal d_c_overrun      : std_logic_vector(2 downto 0) := "001";
   signal ld               : std_logic;  -- unusued
   signal vote             : std_logic;
   signal s_out            : std_logic;  -- unused
@@ -223,11 +223,11 @@ begin  -- architecture str
       );
 
   counter_overrun : counter_nbit
-    generic map (N => 2)
+    generic map (N => 3)
     port map (
       clock   => clock,
       clear   => clear_c_overrun,
-      tc      => std_logic_vector(to_unsigned(2, 2)),
+      tc      => std_logic_vector(to_unsigned(2, 3)),
       tc_flag => flag_overrun,
       en      => count_en_overrun,
       ld      => ld_overrun,

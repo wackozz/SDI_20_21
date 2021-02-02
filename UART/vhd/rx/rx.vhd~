@@ -53,6 +53,11 @@ architecture str of rx is
   signal flag_68           : std_logic;
   signal ld_en             : std_logic;
 
+  signal ld_overrun       : std_logic;
+  signal clear_c_overrun  : std_logic;
+  signal flag_overrun     : std_logic;
+  signal count_en_overrun : std_logic;
+
   signal flag_delay      : std_logic;
   signal flag_stop       : std_logic;
   signal sh_en_samples   : std_logic;
@@ -71,11 +76,14 @@ architecture str of rx is
     port (
       clock             : in  std_logic;
       ld_en             : out std_logic;
+      ld_overrun        : out std_logic;
       reset             : in  std_logic;
       rx_enable         : in  std_logic;
       rx_ack            : in  std_logic;
       clr_start         : out std_logic;
       flag_error        : out std_logic;
+      flag_overrun      : in  std_logic;
+      clear_c_overrun   : out std_logic;
       clear_c_shift     : out std_logic;
       clear_c_rxfull    : out std_logic;
       flag_stop         : in  std_logic;
@@ -90,6 +98,7 @@ architecture str of rx is
       start             : in  std_logic;
       stop_en           : out std_logic;
       stop              : in  std_logic;
+      count_en_overrun  : out std_logic;
       count_en_sh       : out std_logic;
       count_en_rxfull   : out std_logic);
   end component rx_cu;
@@ -99,9 +108,12 @@ architecture str of rx is
       clock             : in  std_logic;
       reset             : in  std_logic;
       ld_en             : in  std_logic;
+      ld_overrun        : in  std_logic;
       clr_start         : in  std_logic;
+      clear_c_overrun   : in  std_logic;
       clear_c_shift     : in  std_logic;
       clear_c_rxfull    : in  std_logic;
+      flag_overrun      : out std_logic;
       flag_delay        : out std_logic;
       flag_stop         : out std_logic;
       flag_shift_data   : out std_logic;
@@ -114,6 +126,7 @@ architecture str of rx is
       start             : out std_logic;
       stop_en           : in  std_logic;
       stop              : out std_logic;
+      count_en_overrun  : in  std_logic;
       count_en_sh       : in  std_logic;
       count_en_rxfull   : in  std_logic;
       Pout              : out std_logic_vector(7 downto 0));
@@ -128,13 +141,15 @@ begin  -- architecture str
   -- instance "datapath"
   datapath : rx_dp
     port map (
-      clock => clock,
-      ld_en => ld_en,
-
+      clock             => clock,
+      ld_en             => ld_en,
+      ld_overrun        => ld_overrun,
       reset             => reset,
       clr_start         => clr_start,
+      clear_c_overrun   => clear_c_overrun,
       clear_c_shift     => clear_c_shift,
       clear_c_rxfull    => clear_c_rxfull,
+      flag_overrun      => flag_overrun,
       flag_delay        => flag_delay,
       flag_stop         => flag_stop,
       flag_shift_data   => flag_shift_data,
@@ -147,6 +162,7 @@ begin  -- architecture str
       start             => start,
       stop_en           => stop_en,
       stop              => stop,
+      count_en_overrun  => count_en_overrun,
       count_en_sh       => count_en_sh,
       count_en_rxfull   => count_en_rxfull,
       Pout              => Pout);
@@ -154,13 +170,15 @@ begin  -- architecture str
   -- instance "control unit"
   control_unit : rx_cu
     port map (
-      clock => clock,
-      ld_en => ld_en,
-
+      clock             => clock,
+      ld_en             => ld_en,
+      ld_overrun        => ld_overrun,
       reset             => reset,
       rx_enable         => rx_enable,
       rx_ack            => rx_ack,
       clr_start         => clr_start,
+      clear_c_overrun   => clear_c_overrun,
+      flag_overrun      => flag_overrun,
       flag_delay        => flag_delay,
       flag_error        => flag_error,
       clear_c_shift     => clear_c_shift,
@@ -176,6 +194,7 @@ begin  -- architecture str
       start             => start,
       stop_en           => stop_en,
       stop              => stop,
+      count_en_overrun  => count_en_overrun,
       count_en_sh       => count_en_sh,
       count_en_rxfull   => count_en_rxfull);
 

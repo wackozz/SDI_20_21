@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-07
--- Last update: 2021-01-31
+-- Last update: 2021-02-02
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -59,8 +59,8 @@ architecture str of uart is
 
   signal p_in          : std_logic_vector(7 downto 0);
   signal tx_empty_ack  : std_logic;
-  signal rx_full       : std_logic;
-  signal flag_error    : std_logic;
+  signal status_rx_full       : std_logic;
+  signal status_flag_error    : std_logic;
   signal Pout          : std_logic_vector(7 downto 0);
   signal TX_out        : std_logic_vector(7 downto 0);
   signal RX_in         : std_logic_vector(7 downto 0);
@@ -98,8 +98,8 @@ architecture str of uart is
       rx_enable  : in  std_logic;
       rx_ack     : in  std_logic;
       rxD        : in  std_logic;
-      rx_full    : out std_logic;
-      flag_error : out std_logic;
+      status_rx_full    : out std_logic;
+      status_flag_error : out std_logic;
       Pout       : out std_logic_vector(7 downto 0));
   end component rx;
 
@@ -135,8 +135,8 @@ begin
     rx_enable  => RX_ENABLE,
     rx_ack     => rx_ack,
     rxD        => RxD,
-    rx_full    => rx_full,
-    flag_error => flag_error,
+    status_rx_full    => status_rx_full,
+    status_flag_error => status_flag_error,
     Pout       => Pout);
 
 
@@ -160,7 +160,7 @@ begin
       R_Wn      => R_Wn,
       CS        => CS);
 
-  FF_IN_tmp <= (flag_error)&(tx_empty)&(rx_full);
+  FF_IN_tmp <= (status_flag_error)&(tx_empty)&(status_rx_full);
 
 
 

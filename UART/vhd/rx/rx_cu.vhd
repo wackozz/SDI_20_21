@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-16
--- Last update: 2021-02-01
+-- Last update: 2021-02-02
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -30,10 +30,13 @@ use ieee.std_logic_1164.all;
 entity rx_cu is
 
   port (
-    clock             : in  std_logic;
-    reset             : in  std_logic;
-    rx_enable         : in  std_logic;
-    rx_ack            : in  std_logic;
+    clock     : in std_logic;
+    reset     : in std_logic;
+    rx_enable : in std_logic;
+    rx_ack    : in std_logic;
+
+    ENABLE_FF : out std_logic_vector(1 downto 0);
+
     clr_start         : out std_logic;
     flag_error        : out std_logic;
     clear_c_overrun   : out std_logic;
@@ -170,6 +173,8 @@ begin  -- architecture str
     clear_c_shift   <= '0';
     sh_en_data      <= '0';
     sh_en_samples   <= '0';
+    rx_full         <= '0';
+    flag_error      <= '0';
 
     clr_start        <= '0';
     ld_en            <= '0';
@@ -183,99 +188,98 @@ begin  -- architecture str
     case next_state is
 
       when idle_start_on =>
-        count_en_sh <= '1';
-        start_en    <= '1';
+        count_en_sh  <= '1';
+        start_en     <= '1';
+        ENABLE_FF(0) <= '0';
+        ENABLE_FF(1) <= '0';
 
       when overrun_s =>
-        rx_full    <= '1';
-        flag_error <= '1';
-        ld_overrun <= '1';
+        rx_full      <= '1';
+        ENABLE_FF(0) <= '1';
+        ENABLE_FF(1) <= '1';
+        flag_error   <= '1';
+        ld_overrun   <= '1';
 
       when ack_state =>
         rx_full         <= '0';
+        ENABLE_FF(0)    <= '1';
         flag_error      <= '0';
         clear_c_overrun <= '1';
 
       when idle_start_off =>
-        count_en_sh <= '1';
-        start_en    <= '0';
-        if rx_ack = '1' then
-          rx_full    <= '0';
-          flag_error <= '0';
-        end if;
+        count_en_sh  <= '1';
+        start_en     <= '0';
+        ENABLE_FF(0) <= '0';
+        ENABLE_FF(1) <= '0';
+
 
       when wait_enable =>
         ld_en          <= '1';
         clear_c_shift  <= '1';
         clear_c_rxfull <= '1';
         start_en       <= '1';
-        if rx_ack = '1' then
-          rx_full    <= '0';
-          flag_error <= '0';
-        end if;
+        ENABLE_FF(0)   <= '0';
+        ENABLE_FF(1)   <= '0';
+
 
       when reset_s =>
         clear_c_overrun <= '1';
-        ld_en          <= '1';
-        clear_c_shift  <= '1';
-        clear_c_rxfull <= '1';
-        start_en       <= '1';
-        rx_full        <= '0';
-        flag_error     <= '0';
+        ld_en           <= '1';
+        clear_c_shift   <= '1';
+        clear_c_rxfull  <= '1';
+        start_en        <= '1';
+        ENABLE_FF(0)    <= '0';
+        ENABLE_FF(1)    <= '0';
+
       when wait_tc_flag_68 =>
-        count_en_sh <= '1';
-        if rx_ack = '1' then
-          rx_full    <= '0';
-          flag_error <= '0';
-        end if;
+        count_en_sh  <= '1';
+        ENABLE_FF(0) <= '0';
+        ENABLE_FF(1) <= '0';
+
       when sh_data =>
         sh_en_data      <= '1';
         count_en_rxfull <= '1';
         sh_en_samples   <= '1';
-        if rx_ack = '1' then
-          rx_full    <= '0';
-          flag_error <= '0';
-        end if;
+        ENABLE_FF(0)    <= '0';
+        ENABLE_FF(1)    <= '0';
+
       when sh_sample_start_off =>
         sh_en_samples <= '1';
-        if rx_ack = '1' then
-          rx_full    <= '0';
-          flag_error <= '0';
-        end if;
+        ENABLE_FF(0)  <= '0';
+        ENABLE_FF(1)  <= '0';
+
       when sh_sample_start_on =>
         sh_en_samples <= '1';
         start_en      <= '1';
-        if rx_ack = '1' then
-          rx_full    <= '0';
-          flag_error <= '0';
-        end if;
+        ENABLE_FF(0)  <= '0';
+        ENABLE_FF(1)  <= '0';
+
       when sh_smp_rxfull =>
         count_en_sh   <= '1';
         sh_en_samples <= '1';
-        if rx_ack = '1' then
-          rx_full    <= '0';
-          flag_error <= '0';
-        end if;
+        ENABLE_FF(0)  <= '0';
+        ENABLE_FF(1)  <= '0';
+
       when start_en_off =>
         start_en      <= '0';
         clear_c_shift <= '1';
-        if rx_ack = '1' then
-          rx_full    <= '0';
-          flag_error <= '0';
-        end if;
+        ENABLE_FF(0)  <= '0';
+        ENABLE_FF(1)  <= '0';
+
       when res_cnt =>
         clear_c_rxfull <= '1';
         clear_c_shift  <= '1';
         clr_start      <= '1';
-        if rx_ack = '1' then
-          rx_full    <= '0';
-          flag_error <= '0';
-        end if;
+        ENABLE_FF(0)   <= '0';
+        ENABLE_FF(1)   <= '0';
+
 
       when rxfull_s =>
+        ENABLE_FF(0)     <= '1';
         rx_full          <= '1';
         count_en_overrun <= '1';
       when error_s =>
+        ENABLE_FF(1)     <= '1';
         flag_error       <= '1';
         count_en_overrun <= '1';
 

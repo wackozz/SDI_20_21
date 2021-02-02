@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-16
--- Last update: 2021-01-31
+-- Last update: 2021-02-01
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -203,6 +203,7 @@ begin  -- architecture str
           rx_full    <= '0';
           flag_error <= '0';
         end if;
+
       when wait_enable =>
         ld_en          <= '1';
         clear_c_shift  <= '1';
