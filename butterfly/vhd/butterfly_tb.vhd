@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-11
--- Last update: 2021-01-29
+-- Last update: 2021-02-01
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -36,14 +36,18 @@ architecture str of butterfly_tb is
   constant N : integer := 20;
 
   -- component ports
-  signal clock     : std_logic := '1';
-  signal reset     : std_logic;
-  signal start     : std_logic;
-  signal done      : std_logic;
-  signal Ar_out    : std_logic_vector(N-1 downto 0);
-  signal Aj_out    : std_logic_vector(N-1 downto 0);
-  signal Br_out    : std_logic_vector(N-1 downto 0);
-  signal Bj_out    : std_logic_vector(N-1 downto 0);
+  signal clock  : std_logic := '1';
+  signal reset  : std_logic;
+  signal start  : std_logic;
+  signal done   : std_logic;
+  signal Ar_in  : std_logic_vector(N-1 downto 0);
+  signal Aj_in  : std_logic_vector(N-1 downto 0);
+  signal Br_in  : std_logic_vector(N-1 downto 0);
+  signal Bj_in  : std_logic_vector(N-1 downto 0);
+  signal Ar_out : std_logic_vector(N-1 downto 0);
+  signal Aj_out : std_logic_vector(N-1 downto 0);
+  signal Br_out : std_logic_vector(N-1 downto 0);
+  signal Bj_out : std_logic_vector(N-1 downto 0);
 
 begin  -- architecture str
 
@@ -52,20 +56,20 @@ begin  -- architecture str
     generic map (
       N => N)
     port map (
-      clock     => clock,
-      reset     => reset,
-      Ar_in     => "01000000000000000000",
-      Aj_in     => "01000000000000000000",
-      Br_in     => "01000000000000000000",
-      Bj_in     => "01000000000000000000",
-      Wr        => X"7641b",
-      Wj        => X"cf044",
-      start     => start,
-      done      => done,
-      Ar_out    => Ar_out,
-      Aj_out    => Aj_out,
-      Br_out    => Br_out,
-      Bj_out    => Bj_out);
+      clock  => clock,
+      reset  => reset,
+      Ar_in  => Ar_in,
+      Aj_in  => Aj_in,
+      Br_in  => Br_in,
+      Bj_in  => Bj_in,
+      Wr     => X"7641b",
+      Wj     => X"cf044",
+      start  => start,
+      done   => done,
+      Ar_out => Ar_out,
+      Aj_out => Aj_out,
+      Br_out => Br_out,
+      Bj_out => Bj_out);
 
   -- clock generation
   clock <= not clock after 10 ns;
@@ -73,21 +77,32 @@ begin  -- architecture str
   -- waveform generation
   WaveGen_Proc : process
   begin
-    start <=  '0';
+    start <= '0';
     reset <= '1';
-             wait for 50 ns;
-    reset <= '0';
-             wait for 50 ns;
-    reset <= '1';
-   start <='1';
     wait for 50 ns;
+    reset <= '0';
+    wait for 50 ns;
+    reset <= '1';
     start <= '1';
-    wait for 100 ns;
-    start <='0';
+    wait for 500 ns;
+    start <= '0';
     -- insert signal assignments here
-
     wait;
   end process WaveGen_Proc;
+
+  input_pro : process is
+  begin  -- process input_pro
+    Aj_in <= X"40000";
+    Ar_in <= X"0D000";
+    Bj_in <= X"00F00";
+    Br_in <= X"000D0";
+    wait for 37 ns;
+    Aj_in <= X"40000";
+    Ar_in <= X"00000";
+    Bj_in <= X"00000";
+    Br_in <= X"00000";
+    wait for 37 ns;
+  end process input_pro;
 
 
 

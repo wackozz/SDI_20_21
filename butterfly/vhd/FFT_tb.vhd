@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-15
--- Last update: 2021-01-28
+-- Last update: 2021-02-01
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ architecture arch of FFT_tb is
   constant N : integer := 20;
 
   -- component ports
-  signal clock             : std_logic :='1';
+  signal clock             : std_logic := '1';
   signal reset             : std_logic;
   signal start             : std_logic;
   signal done              : std_logic;
@@ -88,7 +88,7 @@ begin  -- architecture arch
       reset    => reset,
       start    => start,
       done     => done,
-      x0       => to_slv(x1),
+      x0       => to_slv(x0),
       x0j      => to_slv(x0j),
       x1       => to_slv(x1),
       x1j      => to_slv(x1j),
@@ -162,17 +162,54 @@ begin  -- architecture arch
   begin
     -- insert signal assignments here
     reset <= '1';
+    start <= '0';
     wait for 15 ns;
     reset <= '0';
     wait for 12 ns;
     reset <= '1';
-    start <= '1';
     wait for 100 ns;
-start <= '0';
+    start <= '1';
+    wait for 5000 ns;
+    start <= '0';
     wait;
   end process WaveGen_Proc;
 
-  x0   <= To_sfixed(0, x0);
+  input_pro: process is
+  begin  -- process input_pro
+      x0   <= to_sfixed(0.5, 0,-19);
+  x0j  <= to_sfixed(0, x0);
+  x1   <= To_sfixed(0, x0);
+  x1j  <= to_sfixed(0, x0);
+  x2   <= To_sfixed(0, x0);
+  x2j  <= to_sfixed(0, x0);
+  x3   <= To_sfixed(0, x0);
+  x3j  <= to_sfixed(0, x0);
+  x4   <= To_sfixed(0, x0);
+  x4j  <= to_sfixed(0, x0);
+  x5   <= To_sfixed(0, x0);
+  x5j  <= to_sfixed(0, x0);
+  x6   <= To_sfixed(0, x0);
+  x6j  <= to_sfixed(0, x0);
+  x7   <= To_sfixed(0, x0);
+  x7j  <= to_sfixed(0, x0);
+  x8   <= To_sfixed(0, x0);
+  x8j  <= to_sfixed(0, x0);
+  x9   <= To_sfixed(-0, x0);
+  x9j  <= to_sfixed(0, x0);
+  x10  <= To_sfixed(-0, x0);
+  x10j <= to_sfixed(0, x0);
+  x11  <= To_sfixed(-0, x0);
+  x11j <= to_sfixed(0, x0);
+  x12  <= To_sfixed(-0, x0);
+  x12j <= to_sfixed(0, x0);
+  x13  <= To_sfixed(-0, x0);
+  x13j <= to_sfixed(0, x0);
+  x14  <= To_sfixed(-0, x0);
+  x14j <= to_sfixed(0, x0);
+  x15  <= To_sfixed(-0, x0);
+      x15j <= to_sfixed(0, x0);
+      wait for 350 ns;
+        x0   <= to_sfixed(0, 0,-19);
   x0j  <= to_sfixed(0, x0);
   x1   <= To_sfixed(0, x0);
   x1j  <= to_sfixed(0, x0);
@@ -190,7 +227,7 @@ start <= '0';
   x7j  <= to_sfixed(0, x0);
   x8   <= To_sfixed(0.375, x0);
   x8j  <= to_sfixed(0, x0);
-  x9   <= To_sfixed(-0, x0);
+  x9   <= To_sfixed(0, x0);
   x9j  <= to_sfixed(0, x0);
   x10  <= To_sfixed(-0, x0);
   x10j <= to_sfixed(0, x0);
@@ -203,7 +240,44 @@ start <= '0';
   x14  <= To_sfixed(-0, x0);
   x14j <= to_sfixed(0, x0);
   x15  <= To_sfixed(-0, x0);
-  x15j <= to_sfixed(0, x0);
+      x15j <= to_sfixed(0, x0);
+      wait for 100 ns;
+  x0   <= to_sfixed(-0.5, 0,-19);
+  x0j  <= to_sfixed(0, x0);
+  x1   <= To_sfixed(-0.5, x0);
+  x1j  <= to_sfixed(0, x0);
+  x2   <= To_sfixed(-0.5, x0);
+  x2j  <= to_sfixed(0, x0);
+  x3   <= To_sfixed(-0.5, x0);
+  x3j  <= to_sfixed(0, x0);
+  x4   <= To_sfixed(-0.5, x0);
+  x4j  <= to_sfixed(0, x0);
+  x5   <= To_sfixed(-0.5, x0);
+  x5j  <= to_sfixed(0, x0);
+  x6   <= To_sfixed(-0.5, x0);
+  x6j  <= to_sfixed(0, x0);
+  x7   <= To_sfixed(-0.5, x0);
+  x7j  <= to_sfixed(0, x0);
+  x8   <= To_sfixed(-0.5, x0);
+  x8j  <= to_sfixed(0, x0);
+  x9   <= To_sfixed(-0.5, x0);
+  x9j  <= to_sfixed(0, x0);
+  x10  <= To_sfixed(-0.5, x0);
+  x10j <= to_sfixed(0, x0);
+  x11  <= To_sfixed(-0.5, x0);
+  x11j <= to_sfixed(0, x0);
+  x12  <= To_sfixed(-0.5, x0);
+  x12j <= to_sfixed(0, x0);
+  x13  <= To_sfixed(-0.5, x0);
+  x13j <= to_sfixed(0, x0);
+  x14  <= To_sfixed(-0.5, x0);
+  x14j <= to_sfixed(0, x0);
+  x15  <= To_sfixed(-0.5, x0);
+      x15j <= to_sfixed(0, x0);
+      wait for 100 ns;
+      
+  end process input_pro;
+
 
 end architecture arch;
 
