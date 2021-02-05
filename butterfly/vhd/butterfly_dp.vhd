@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-23
--- Last update: 2021-01-29
+-- Last update: 2021-02-02
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -93,28 +93,28 @@ architecture str of butterfly_dp is
   signal Aj_Q        : std_logic_vector(N-1 downto 0);
   signal Wj_Q        : std_logic_vector(N-1 downto 0);
   signal Wr_Q        : std_logic_vector(N-1 downto 0);
-  signal add_reg_1_Q : std_logic_vector(2*N+3 downto 0);  -- rivedere parallelismo
-  signal add_reg_2_Q : std_logic_vector(2*N+3 downto 0);  -- rivedere parallelismo
+  signal add_reg_1_Q : std_logic_vector(2*N downto 0);  -- rivedere parallelismo
+  signal add_reg_2_Q : std_logic_vector(2*N downto 0);  -- rivedere parallelismo
   signal mpy_reg_Q   : std_logic_vector(2*N-1 downto 0);  -- rivedere parallelismo
 
 
 --MUX
-  signal temp_D1  : std_logic_vector(2*N+2 downto 0);
-  signal temp_D2  : std_logic_vector(2*N+2 downto 0);
+  signal temp_D1  : std_logic_vector(2*N-1 downto 0);
+  signal temp_D2  : std_logic_vector(2*N-1 downto 0);
 --MPY
   signal mpy_in_A : std_logic_vector(N-1 downto 0);
   signal mpy_in_B : std_logic_vector(N-1 downto 0);
   signal mpy_out  : std_logic_vector(2*N-1 downto 0);
 
 --ADDER
-  signal add_in_A   : std_logic_vector(2*N+2 downto 0);
-  signal add_in_B_1 : std_logic_vector(2*N+2 downto 0);
-  signal add_in_B_2 : std_logic_vector(2*N+2 downto 0);
-  signal add_out_1  : std_logic_vector(2*N+3 downto 0);
-  signal add_out_2  : std_logic_vector(2*N+3 downto 0);
+  signal add_in_A   : std_logic_vector(2*N-1 downto 0);
+  signal add_in_B_1 : std_logic_vector(2*N-1 downto 0);
+  signal add_in_B_2 : std_logic_vector(2*N-1 downto 0);
+  signal add_out_1  : std_logic_vector(2*N downto 0);
+  signal add_out_2  : std_logic_vector(2*N downto 0);
 
 --ROUND BLOCK
-  signal round_in  : std_logic_vector(2*N+3 downto 0);
+  signal round_in  : std_logic_vector(2*N downto 0);
   signal round_out : std_logic_vector(N-1 downto 0);
 
 
@@ -209,7 +209,7 @@ begin  -- architecture str
   -- instance "adder_1"
   adder_1 : adder
     generic map (
-      N => 2*N+3)
+      N => 2*N)
     port map (
       clock   => clock,
       reset   => reset,
@@ -222,7 +222,7 @@ begin  -- architecture str
   -- instance "adder_2"
   adder_2 : adder
     generic map (
-      N => 2*N+3)
+      N => 2*N)
     port map (
       clock   => clock,
       reset   => reset,
@@ -238,7 +238,7 @@ begin  -- architecture str
   round_block_1 : round_block
     generic map (
       N => N,
-      M => 2*N+4)
+      M => 2*N+1)
     port map (
       reset => reset,
       clock => clock,
@@ -263,7 +263,7 @@ begin  -- architecture str
   -- instance "reg_add1"
   reg_add_1 : reg
     generic map (
-      N => 2*N+4)
+      N => 2*N+1)
     port map (
       D      => add_out_1,
       clock  => clock,
@@ -274,7 +274,7 @@ begin  -- architecture str
   -- instance "reg_Wr"
   reg_add_2 : reg
     generic map (
-      N => 2*N+4)
+      N => 2*N+1)
     port map (
       D      => add_out_2,
       clock  => clock,
@@ -422,8 +422,6 @@ begin  -- architecture str
 temp_d1_pro: process (Ar_Q) is
 begin  -- process temp_d1_pro
   temp_D1 <= std_logic_vector(shift_left((resize(signed(Ar_Q),temp_D1'length)),N-1));
- -- temp_D1 <= (others => '0');
- -- temp_D1(2*N-2 downto N-1) <=  Ar_Q;
 end process temp_d1_pro;
 
 temp_d2_pro: process (Aj_Q) is
@@ -431,15 +429,15 @@ begin  -- process temp_d1_pro
 temp_D2 <= std_logic_vector(shift_left((resize(signed(Aj_Q),temp_D2'length)),N-1));
 end process temp_d2_pro;
 
-  add_in_A <= std_logic_vector(resize(signed(mpy_reg_Q), 2*N+3));
+  add_in_A <= std_logic_vector(resize(signed(mpy_reg_Q), 2*N));
 --MUX2to1
 
   mpy_in_B <= Br_Q when s_mux_B_mpy = '1' else
               Bj_Q;
 
   round_in   <= add_reg_2_Q                 when s_mux_round_in = '1' else add_reg_1_Q;
-  add_in_B_1 <= add_reg_1_Q(2*N+2 downto 0) when s_mux_B_add_1 = '1'  else temp_D2;
-  add_in_B_2 <= add_reg_2_Q(2*N+2 downto 0) when s_mux_B_add_2 = '1'  else temp_D1;
+  add_in_B_1 <= add_reg_1_Q(2*N-1 downto 0) when s_mux_B_add_1 = '1'  else temp_D2;
+  add_in_B_2 <= add_reg_2_Q(2*N-1 downto 0) when s_mux_B_add_2 = '1'  else temp_D1;
 end architecture str;
 -------------------------------------------------------------------------------
 

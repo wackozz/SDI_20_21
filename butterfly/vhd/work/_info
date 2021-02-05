@@ -96,11 +96,11 @@ R22
 R13
 R14
 Ebutterfly_dp
-Z24 w1611918260
+Z24 w1612255730
 R2
 R3
 R4
-!i122 161
+!i122 179
 R0
 Z25 8butterfly_dp.vhd
 Z26 Fbutterfly_dp.vhd
@@ -110,9 +110,9 @@ VG_bAEk1Gf_6m7>lI_Gj8c1
 !s100 bP[;;cTd3Cn=2kLWkLY;d1
 R8
 31
-Z27 !s110 1611918300
+Z27 !s110 1612255730
 !i10b 1
-Z28 !s108 1611918300.000000
+Z28 !s108 1612255730.000000
 Z29 !s90 -93|-work|work|butterfly_dp.vhd|
 Z30 !s107 butterfly_dp.vhd|
 !i113 1
@@ -122,12 +122,12 @@ Astr
 R2
 R3
 R4
-DEx4 work 12 butterfly_dp 0 22 G_bAEk1Gf_6m7>lI_Gj8c1
-!i122 161
+Z31 DEx4 work 12 butterfly_dp 0 22 G_bAEk1Gf_6m7>lI_Gj8c1
+!i122 179
 l188
-L82 362
-V]k1S;[3CGTJM>oKjTIkSd0
-!s100 iG2TUD;j3V?FB58X168Nc3
+Z32 L82 362
+Vn8<4TMMKcLC`jco@oefk12
+!s100 NN]=KdLni[jZd[2KV4K?b0
 R8
 31
 R27
@@ -139,24 +139,24 @@ R30
 R13
 R14
 Ebutterfly_tb
-Z31 w1612136270
+Z33 w1612136270
 R3
 R4
 !i122 173
 R0
-Z32 8butterfly_tb.vhd
-Z33 Fbutterfly_tb.vhd
+Z34 8butterfly_tb.vhd
+Z35 Fbutterfly_tb.vhd
 l0
 R7
 VzX95k;l?1`^^CV1cARD0T0
 !s100 1OljUR?I=[jE?^e2CCeY[2
 R8
 31
-Z34 !s110 1612136270
+Z36 !s110 1612136270
 !i10b 1
-Z35 !s108 1612136270.000000
-Z36 !s90 -93|-work|work|butterfly_tb.vhd|
-Z37 !s107 butterfly_tb.vhd|
+Z37 !s108 1612136270.000000
+Z38 !s90 -93|-work|work|butterfly_tb.vhd|
+Z39 !s107 butterfly_tb.vhd|
 !i113 1
 R13
 R14
@@ -173,34 +173,34 @@ V]6SAQ13cYX2G:h0@DKO5<1
 !s100 R3`6N]nlKdmMj[Y4PC0Wn2
 R8
 31
-R34
-!i10b 1
-R35
 R36
+!i10b 1
 R37
+R38
+R39
 !i113 1
 R13
 R14
 Econtrolunit_butterfly
-Z38 w1611918057
+Z40 w1611918057
 R2
 R3
 R4
 !i122 160
 R0
-Z39 8controlunit_butterfly.vhd
-Z40 Fcontrolunit_butterfly.vhd
+Z41 8controlunit_butterfly.vhd
+Z42 Fcontrolunit_butterfly.vhd
 l0
 L5 1
 VE[aSnZ:@RePMM73]WX`^_3
 !s100 jc`Ch_^`?RKIPHG1cjZJc0
 R8
 31
-Z41 !s110 1611918059
+Z43 !s110 1611918059
 !i10b 1
-Z42 !s108 1611918059.000000
-Z43 !s90 -93|-work|work|controlunit_butterfly.vhd|
-Z44 !s107 controlunit_butterfly.vhd|
+Z44 !s108 1611918059.000000
+Z45 !s90 -93|-work|work|controlunit_butterfly.vhd|
+Z46 !s107 controlunit_butterfly.vhd|
 !i113 1
 R13
 R14
@@ -216,34 +216,34 @@ VaglmkBQGUIV^?[b?R]Nmd2
 !s100 KXE@`;4VnX1Wz5b8?dL4i0
 R8
 31
-R41
-!i10b 1
-R42
 R43
+!i10b 1
 R44
+R45
+R46
 !i113 1
 R13
 R14
 Efft
-Z45 w1610839535
+Z47 w1610839535
 R2
 R3
 R4
 !i122 149
 R0
-Z46 8FFT.vhd
-Z47 FFFT.vhd
+Z48 8FFT.vhd
+Z49 FFFT.vhd
 l0
 R18
 VP@g=06X_=of7gTc<W<eGZ0
 !s100 O>Oai>zlF1P6nCn37Az461
 R8
 31
-Z48 !s110 1610839535
+Z50 !s110 1610839535
 !i10b 1
-Z49 !s108 1610839535.000000
-Z50 !s90 -93|-work|work|FFT.vhd|
-Z51 !s107 FFT.vhd|
+Z51 !s108 1610839535.000000
+Z52 !s90 -93|-work|work|FFT.vhd|
+Z53 !s107 FFT.vhd|
 !i113 1
 R13
 R14
@@ -251,7 +251,7 @@ Astr
 R2
 R3
 R4
-Z52 DEx4 work 3 fft 0 22 P@g=06X_=of7gTc<W<eGZ0
+Z54 DEx4 work 3 fft 0 22 P@g=06X_=of7gTc<W<eGZ0
 !i122 149
 l192
 L78 501
@@ -259,49 +259,49 @@ V7jRRNS7bfkTVo`8hS4dcO0
 !s100 l[NH?^2_f[OzWU;GOJJ]W0
 R8
 31
-R48
-!i10b 1
-R49
 R50
+!i10b 1
 R51
+R52
+R53
 !i113 1
 R13
 R14
 Efft_tb
-Z53 w1612139754
-Z54 DPx4 ieee 17 fixed_float_types 0 22 j<WD5SZ6`I4KC;8P]h@_10
+Z55 w1612139754
+Z56 DPx4 ieee 17 fixed_float_types 0 22 j<WD5SZ6`I4KC;8P]h@_10
 R2
 R4
 R3
-Z55 DPx4 ieee 17 fixed_generic_pkg 0 22 Rl?j<5:i_L<aE9]<7A]V?0
-Z56 DPx4 ieee 9 fixed_pkg 0 22 c`b>2Shb`ic5KAcV=K;Co1
+Z57 DPx4 ieee 17 fixed_generic_pkg 0 22 Rl?j<5:i_L<aE9]<7A]V?0
+Z58 DPx4 ieee 9 fixed_pkg 0 22 c`b>2Shb`ic5KAcV=K;Co1
 !i122 178
 R0
-Z57 8FFT_tb.vhd
-Z58 FFFT_tb.vhd
+Z59 8FFT_tb.vhd
+Z60 FFFT_tb.vhd
 l0
 R18
 VDRMdi9D4geNT:d`159[b20
 !s100 =[7]7gn>^JZ]RU<namH;C1
 R8
 31
-Z59 !s110 1612139757
+Z61 !s110 1612139757
 !i10b 1
-Z60 !s108 1612139757.000000
-Z61 !s90 -93|-work|work|FFT_tb.vhd|
-Z62 !s107 FFT_tb.vhd|
+Z62 !s108 1612139757.000000
+Z63 !s90 -93|-work|work|FFT_tb.vhd|
+Z64 !s107 FFT_tb.vhd|
 !i113 1
 R13
 R14
 Aarch
-R52
 R54
+R56
 R2
 R4
 R3
-R55
-R56
-Z63 DEx4 work 6 fft_tb 0 22 DRMdi9D4geNT:d`159[b20
+R57
+R58
+DEx4 work 6 fft_tb 0 22 DRMdi9D4geNT:d`159[b20
 !i122 178
 l80
 L34 248
@@ -309,11 +309,11 @@ VC9o_S4i1@BE9@9OJU9f4Y3
 !s100 c^7hKR?I0V7?A1P`fCHGh1
 R8
 31
-R59
-!i10b 1
-R60
 R61
+!i10b 1
 R62
+R63
+R64
 !i113 1
 R13
 R14
@@ -322,18 +322,18 @@ eFFT_tb
 aarch
 DEx4 work 3 fft 0 22 n7N>Q1ajc_P:2VCL4SQ853
 DAx4 work 6 fft_tb 4 arch 22 Ba7liVAP8K8NA]fm[;d;N2
-R54
+R56
 R2
 R4
 R3
-R55
-R56
+R57
+R58
 DEx4 work 6 fft_tb 0 22 0ARlJGP6cKPhFEQZeA=>93
 !i122 127
 w1610752283
 R0
-R57
-R58
+R59
+R60
 l0
 L210 1
 Vb@Q>EO:P77T6`nfceR3M_2
@@ -344,29 +344,29 @@ R8
 !i10b 0
 !s108 1610752286.000000
 !s90 FFT_tb.vhd|
-R62
+R64
 !i113 1
 R14
 Emicrorom
-Z64 w1611917052
+Z65 w1611917052
 R2
 R3
 R4
 !i122 157
 R0
-Z65 8microROM.vhd
-Z66 FmicroROM.vhd
+Z66 8microROM.vhd
+Z67 FmicroROM.vhd
 l0
 L6 1
 VW:9O:K?ER3FNSVP37<?O_1
 !s100 =BPIRf?3NBhjkWW39C@R=2
 R8
 31
-Z67 !s110 1611917053
+Z68 !s110 1611917053
 !i10b 1
-Z68 !s108 1611917053.000000
-Z69 !s90 -93|-work|work|microROM.vhd|
-Z70 !s107 microROM.vhd|
+Z69 !s108 1611917053.000000
+Z70 !s90 -93|-work|work|microROM.vhd|
+Z71 !s107 microROM.vhd|
 !i113 1
 R13
 R14
@@ -382,34 +382,34 @@ VQf219E?QAj_94SPEZUDNQ2
 !s100 UL7zW0E;n[GA`X=nnKBIb2
 R8
 31
-R67
-!i10b 1
 R68
+!i10b 1
 R69
 R70
+R71
 !i113 1
 R13
 R14
 Empy_sh
-Z71 w1610471100
+Z72 w1610471100
 R4
 R3
 R2
 !i122 80
 R0
-Z72 8mpy_sh.vhd
-Z73 Fmpy_sh.vhd
+Z73 8mpy_sh.vhd
+Z74 Fmpy_sh.vhd
 l0
 R18
 V6iY6I<1EKFzE^_:k^gVzz1
 !s100 fV=L1B8Ed6UE1k1>ia@ib2
 R8
 31
-Z74 !s110 1610471100
+Z75 !s110 1610471100
 !i10b 1
-Z75 !s108 1610471100.000000
-Z76 !s90 -93|-work|work|mpy_sh.vhd|
-Z77 !s107 mpy_sh.vhd|
+Z76 !s108 1610471100.000000
+Z77 !s90 -93|-work|work|mpy_sh.vhd|
+Z78 !s107 mpy_sh.vhd|
 !i113 1
 R13
 R14
@@ -425,33 +425,33 @@ VhXe8cBXA3H3Mkcd<VREVP0
 !s100 I332f;VCRk8VegozWo[aA0
 R8
 31
-R74
-!i10b 1
 R75
+!i10b 1
 R76
 R77
+R78
 !i113 1
 R13
 R14
 Emux4to1
-Z78 w1610379040
+Z79 w1610379040
 R3
 R4
 !i122 36
 R0
-Z79 8mux4to1.vhd
-Z80 Fmux4to1.vhd
+Z80 8mux4to1.vhd
+Z81 Fmux4to1.vhd
 l0
 R7
 V]T=9BWGK6m]X=^do9]G^63
 !s100 JKI>K29SMGY@iiWMkAACh0
 R8
 31
-Z81 !s110 1610379040
+Z82 !s110 1610379040
 !i10b 1
-Z82 !s108 1610379040.000000
-Z83 !s90 -93|-work|work|mux4to1.vhd|
-Z84 !s107 mux4to1.vhd|
+Z83 !s108 1610379040.000000
+Z84 !s90 -93|-work|work|mux4to1.vhd|
+Z85 !s107 mux4to1.vhd|
 !i113 1
 R13
 R14
@@ -466,33 +466,33 @@ Vg8=2;W]@ko7mLiDU4_BBT0
 !s100 Q@N3To;W^5EP]l8WG?PZz2
 R8
 31
-R81
-!i10b 1
 R82
+!i10b 1
 R83
 R84
+R85
 !i113 1
 R13
 R14
 Epla_status
-Z85 w1612135435
+Z86 w1612135435
 R3
 R4
 !i122 171
 R0
-Z86 8pla_status.vhd
-Z87 Fpla_status.vhd
+Z87 8pla_status.vhd
+Z88 Fpla_status.vhd
 l0
 L4 1
 VmkigbMihb@XU906cPR[H92
 !s100 74gPcNRe;]TK_=PGbl1bf2
 R8
 31
-Z88 !s110 1612135436
+Z89 !s110 1612135436
 !i10b 1
-Z89 !s108 1612135436.000000
-Z90 !s90 -93|-work|work|pla_status.vhd|
-Z91 !s107 pla_status.vhd|
+Z90 !s108 1612135436.000000
+Z91 !s90 -93|-work|work|pla_status.vhd|
+Z92 !s107 pla_status.vhd|
 !i113 1
 R13
 R14
@@ -507,33 +507,33 @@ VV[;M]`V4:L:b^Q><IKCbI2
 !s100 IRPg>W<[1noY;g@9QUdRX0
 R8
 31
-R88
-!i10b 1
 R89
+!i10b 1
 R90
 R91
+R92
 !i113 1
 R13
 R14
 Ereg_neg_triggered
-Z92 w1610378046
+Z93 w1610378046
 R3
 R4
 !i122 32
 R0
-Z93 8reg_neg_trigger.vhd
-Z94 Freg_neg_trigger.vhd
+Z94 8reg_neg_trigger.vhd
+Z95 Freg_neg_trigger.vhd
 l0
 L6 1
 Vk]@UFVR9kF71A;zYAUHK<1
 !s100 3lHE3XT2T4kJ2=]7n488z0
 R8
 31
-Z95 !s110 1610378050
+Z96 !s110 1610378050
 !i10b 1
-Z96 !s108 1610378050.000000
-Z97 !s90 -93|-work|work|reg_neg_trigger.vhd|
-Z98 !s107 reg_neg_trigger.vhd|
+Z97 !s108 1610378050.000000
+Z98 !s90 -93|-work|work|reg_neg_trigger.vhd|
+Z99 !s107 reg_neg_trigger.vhd|
 !i113 1
 R13
 R14
@@ -548,34 +548,34 @@ VN`2SSMP=32e_4TdR1K@aH2
 !s100 bnOkR<JF1d99iTf115zSk1
 R8
 31
-R95
-!i10b 1
 R96
+!i10b 1
 R97
 R98
+R99
 !i113 1
 R13
 R14
 Eround_block
-Z99 w1610478845
+Z100 w1610478845
 R2
 R3
 R4
 !i122 86
 R0
-Z100 8round_block.vhd
-Z101 Fround_block.vhd
+Z101 8round_block.vhd
+Z102 Fround_block.vhd
 l0
 R18
 VJSEODJ7dX8gV8ImV`zOfT1
 !s100 oIi[=9jF4F1]cAz;n[1zh3
 R8
 31
-Z102 !s110 1610478847
+Z103 !s110 1610478847
 !i10b 1
-Z103 !s108 1610478847.000000
-Z104 !s90 -93|-work|work|round_block.vhd|
-Z105 !s107 round_block.vhd|
+Z104 !s108 1610478847.000000
+Z105 !s90 -93|-work|work|round_block.vhd|
+Z106 !s107 round_block.vhd|
 !i113 1
 R13
 R14
@@ -591,11 +591,11 @@ V;nzhC4f[[BmCDbOlhLAe90
 !s100 8^><WjK`N4oR_?P`7A7KA3
 R8
 31
-R102
-!i10b 1
 R103
+!i10b 1
 R104
 R105
+R106
 !i113 1
 R13
 R14
