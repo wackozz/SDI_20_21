@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-11
--- Last update: 2021-02-01
+-- Last update: 2021-02-02
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -93,15 +93,10 @@ begin  -- architecture str
   input_pro : process is
   begin  -- process input_pro
     Aj_in <= X"40000";
-    Ar_in <= X"0D000";
-    Bj_in <= X"00F00";
-    Br_in <= X"000D0";
-    wait for 37 ns;
-    Aj_in <= X"40000";
     Ar_in <= X"00000";
     Bj_in <= X"00000";
     Br_in <= X"00000";
-    wait for 37 ns;
+    wait;
   end process input_pro;
 
 
