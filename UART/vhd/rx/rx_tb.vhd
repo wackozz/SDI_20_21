@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-17
--- Last update: 2021-01-31
+-- Last update: 2021-02-05
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -39,8 +39,8 @@ architecture arch of rx_tb is
   signal rxd        : std_logic;
   signal rx_enable  : std_logic;
   signal rx_ack   : std_logic;
-  signal rx_full    : std_logic;
-  signal flag_error : std_logic;
+  signal status_rx_full : std_logic;
+  signal status_flag_error : std_logic;
   signal Pout       : std_logic_vector(7 downto 0);
 
 begin  -- architecture arch
@@ -54,8 +54,8 @@ begin  -- architecture arch
       rx_ack     => rx_ack,
       rxd        => rxd,
       Pout       => Pout,
-      flag_error => flag_error,
-      rx_full    => rx_full);
+      status_flag_error => status_flag_error,
+     status_rx_full => status_rx_full);
 
 
   -- clock generation
@@ -66,16 +66,15 @@ begin  -- architecture arch
   begin
     reset <= '0';
     rx_enable <='0';
+    rx_ack <= '0';
     rxd       <= '1';
     wait for 40 ns;
     reset     <= '1';
     wait for 62.5 ns;
     rx_enable <= '1';
     wait for 62.5 ns;
-    rx_enable <= '0';
     rxd       <= '0';                   --
     wait for 8.6956 us;
-
     rxd <= '1';                         -- D0
     wait for 8.6956 us;
     rxd <= '0';                         -- D1
@@ -94,6 +93,13 @@ begin  -- architecture arch
     wait for 8.6956 us;
     rxd <= '1';                         --end
     wait for 8.6956 us;
+    rxd <= '0';
+    wait for 1.0625 us;
+    rxd <= '0';
+    rx_ack <= '1';
+    wait for 62.5 ns;
+    rx_ack <= '0';
+    rxd <= '0';
     wait;
   end process WaveGen_Proc;
 

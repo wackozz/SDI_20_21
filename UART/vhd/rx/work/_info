@@ -10,11 +10,11 @@ z2
 cModel Technology
 d/home/wackoz/github/SDI_20_21/UART/vhd/rx
 Erx
-Z0 w1612276407
+Z0 w1612282047
 Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 61
+!i122 62
 Z4 dc:/Users/Sabina/Desktop/universita/polito/SDI_20_21/UART/vhd/rx
 Z5 8rx.vhd
 Z6 Frx.vhd
@@ -24,9 +24,9 @@ V[;m94Bm=TG8bf5d6SM0ea2
 !s100 5f<mEHQ1JQ[mVo[FBVC353
 Z8 OV;C;2020.1;71
 31
-Z9 !s110 1612276408
+Z9 !s110 1612282168
 !i10b 1
-Z10 !s108 1612276407.000000
+Z10 !s108 1612282168.000000
 Z11 !s90 -93|-work|work|rx.vhd|
 Z12 !s107 rx.vhd|
 !i113 1
@@ -36,12 +36,12 @@ Astr
 R1
 R2
 R3
-DEx4 work 2 rx 0 22 [;m94Bm=TG8bf5d6SM0ea2
-!i122 61
-l150
-L44 180
-VU]<?j8n2KehLVf<eReSPM3
-!s100 0mRaM]aXR@E>:8]m8W=RS1
+Z15 DEx4 work 2 rx 0 22 [;m94Bm=TG8bf5d6SM0ea2
+!i122 62
+l148
+L44 176
+VbJ@MedV`8C[MP2QCXR2=I2
+!s100 zI4c4SNY0=4_@U[IEBO_N1
 R8
 31
 R9
@@ -53,24 +53,24 @@ R12
 R13
 R14
 Erx_cu
-Z15 w1612275662
+Z16 w1612275662
 R2
 R3
 !i122 55
 R4
-Z16 8rx_cu.vhd
-Z17 Frx_cu.vhd
+Z17 8rx_cu.vhd
+Z18 Frx_cu.vhd
 l0
 L30 1
 VnUfb8:]5aE6MDI>8]39?Y2
 !s100 4R>k?OQ6bV`cgCWkgNOnY0
 R8
 31
-Z18 !s110 1612276081
+Z19 !s110 1612276081
 !i10b 1
-Z19 !s108 1612276080.000000
-Z20 !s90 -93|-work|work|rx_cu.vhd|
-Z21 !s107 rx_cu.vhd|
+Z20 !s108 1612276080.000000
+Z21 !s90 -93|-work|work|rx_cu.vhd|
+Z22 !s107 rx_cu.vhd|
 !i113 1
 R13
 R14
@@ -85,34 +85,34 @@ V67O=cH63GIQS0QJ]KX9e72
 !s100 a52SBZ[3D_]kenFAAU]iz0
 R8
 31
-R18
-!i10b 1
 R19
+!i10b 1
 R20
 R21
+R22
 !i113 1
 R13
 R14
 Erx_dp
-Z22 w1612276065
+Z23 w1612276065
 R3
 R2
 R1
 !i122 54
 R4
-Z23 8rx_dp.vhd
-Z24 Frx_dp.vhd
+Z24 8rx_dp.vhd
+Z25 Frx_dp.vhd
 l0
 R7
 VU3[N2gX:18[AH6NiMok]81
 !s100 9knoGk?d[cXhbE0_RCVUi3
 R8
 31
-Z25 !s110 1612276065
+Z26 !s110 1612276065
 !i10b 1
-Z26 !s108 1612276065.000000
-Z27 !s90 -93|-work|work|rx_dp.vhd|
-Z28 !s107 rx_dp.vhd|
+Z27 !s108 1612276065.000000
+Z28 !s90 -93|-work|work|rx_dp.vhd|
+Z29 !s107 rx_dp.vhd|
 !i113 1
 R13
 R14
@@ -128,155 +128,155 @@ VM0UHDGIa0O]b]4fCoHl`62
 !s100 >KaYoG9k5D1I?Vn]0TcAi3
 R8
 31
-R25
-!i10b 1
 R26
+!i10b 1
 R27
 R28
+R29
 !i113 1
 R13
 R14
 Erx_tb
-Z29 w1612131149
+Z30 w1612131149
 R1
 R2
 R3
 !i122 48
 R4
-Z30 8rx_tb_overrun.vhd
-Z31 Frx_tb_overrun.vhd
+Z31 8rx_tb_overrun.vhd
+Z32 Frx_tb_overrun.vhd
 l0
 R7
 V`AiHfF@NzOJ^EhWXfEMP?1
 !s100 z9Q:i22da]oFKM6aGj_3o2
 R8
 31
-Z32 !s110 1612131159
+Z33 !s110 1612131159
 !i10b 1
-Z33 !s108 1612131159.000000
-Z34 !s90 -93|-work|work|rx_tb_overrun.vhd|
-Z35 !s107 rx_tb_overrun.vhd|
+Z34 !s108 1612131159.000000
+Z35 !s90 -93|-work|work|rx_tb_overrun.vhd|
+Z36 !s107 rx_tb_overrun.vhd|
 !i113 1
 R13
 R14
 Aarch
-Z36 DEx4 work 2 rx 0 22 Gk;>iGBDMm9mZa;CMcZkn2
+Z37 DEx4 work 2 rx 0 22 Gk;>iGBDMm9mZa;CMcZkn2
 R1
 R2
 R3
-Z37 DEx4 work 5 rx_tb 0 22 `AiHfF@NzOJ^EhWXfEMP?1
+Z38 DEx4 work 5 rx_tb 0 22 `AiHfF@NzOJ^EhWXfEMP?1
 !i122 48
 l46
-Z38 L34 93
+Z39 L34 93
 V;L6aYo[Kizi?a]iC]fdj90
 !s100 kP]5Vi2^mkB@V7aOFfWNG2
 R8
 31
-R32
-!i10b 1
 R33
+!i10b 1
 R34
 R35
+R36
 !i113 1
 R13
 R14
 Crx_tb_arch_cfg
 erx_tb
-Z39 aarch
-R36
+Z40 aarch
+R37
 DAx4 work 5 rx_tb 4 arch 22 ;L6aYo[Kizi?a]iC]fdj90
 R1
 R2
 R3
-R37
+R38
 !i122 48
-R29
-R4
 R30
+R4
 R31
+R32
 l0
-Z40 L130 1
+Z41 L130 1
 VFfjRFgSmHD7a2X]@g2O`g3
 !s100 <7JN9=]AHakYi64nK1NF[2
 R8
 31
-R32
-!i10b 0
 R33
+!i10b 0
 R34
 R35
+R36
 !i113 1
 R13
 R14
 Erx_tb_overrun
-Z41 w1612131550
+Z42 w1612131550
 R1
 R2
 R3
 !i122 52
 R4
-R30
 R31
+R32
 l0
 R7
 V@i0R?J[JcVRfXb7?Mz>1a0
 !s100 B?g:_52QHLN[n[<_nLlJo0
 R8
 31
-Z42 !s110 1612131553
+Z43 !s110 1612131553
 !i10b 1
-Z43 !s108 1612131553.000000
-R34
+Z44 !s108 1612131553.000000
 R35
+R36
 !i113 1
 R13
 R14
 Aarch
-R36
+R37
 R1
 R2
 R3
-Z44 DEx4 work 13 rx_tb_overrun 0 22 @i0R?J[JcVRfXb7?Mz>1a0
+Z45 DEx4 work 13 rx_tb_overrun 0 22 @i0R?J[JcVRfXb7?Mz>1a0
 !i122 52
 l46
-R38
+R39
 VD>T[^[n85_1nk;lzcFc<Q2
 !s100 IMZabHb76>RgdL@kgb^>B0
 R8
 31
-R42
-!i10b 1
 R43
-R34
+!i10b 1
+R44
 R35
+R36
 !i113 1
 R13
 R14
 Crx_tb_overrun_arch_cfg
 erx_tb_overrun
-R39
-R36
+R40
+R37
 DAx4 work 13 rx_tb_overrun 4 arch 22 D>T[^[n85_1nk;lzcFc<Q2
 R1
 R2
 R3
-R44
+R45
 !i122 52
-R41
+R42
 R4
-R30
 R31
+R32
 l0
-R40
+R41
 VWQ[PBd_Oh__6ZWi218B?`3
 !s100 `ZhjRk3F4@282l1943T540
 R8
 31
-R42
-!i10b 0
 R43
-R34
+!i10b 0
+R44
 R35
+R36
 !i113 1
 R13
 R14

@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-07
--- Last update: 2021-02-02
+-- Last update: 2021-02-06
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -125,7 +125,7 @@ begin
     reset        => reset,
     tx_enable    => TX_ENABLE,
     p_in         => TX_out,
-    tx_empty_ack => TX_ACK,             --vedi bene
+    tx_empty_ack => TX_ACK,            
     tx_empty     => tx_empty,
     TxD          => TxD);
 

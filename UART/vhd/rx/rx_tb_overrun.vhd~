@@ -6,7 +6,7 @@
 -- Author     : sab
 -- Company    : 
 -- Created    :
--- Last update: 2021-02-01
+-- Last update: 2021-02-02
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -39,8 +39,8 @@ architecture arch of rx_tb_overrun is
   signal rxd        : std_logic;
   signal rx_enable  : std_logic;
   signal rx_ack     : std_logic;
-  signal rx_full    : std_logic;
-  signal flag_error : std_logic;
+  signal status_rx_full    : std_logic;
+  signal status_flag_error : std_logic;
   signal Pout       : std_logic_vector(7 downto 0);
 
 begin  -- architecture arch
@@ -54,8 +54,8 @@ begin  -- architecture arch
       rx_ack     => rx_ack,
       rxd        => rxd,
       Pout       => Pout,
-      flag_error => flag_error,
-      rx_full    => rx_full);
+      status_flag_error => status_flag_error,
+      status_rx_full    => status_rx_full);
 
 
   -- clock generation
@@ -65,9 +65,11 @@ begin  -- architecture arch
   WaveGen_Proc : process
   begin
     reset     <= '0';
+    rx_ack <= '1';
     rx_enable <= '0';
     rxd       <= '1';
-    wait for 40 ns;
+    wait for 62.5 ns;
+    rx_ack <= '0';
     reset     <= '1';
     wait for 62.5 ns;
     rx_enable <= '1';
@@ -96,13 +98,19 @@ begin  -- architecture arch
     rx_enable <= '1';
     wait for 62.5 ns;
     rxd       <= '0';
-    wait for 8.6956 us;                 --
+    wait for 8.5706 us;
+    rxd <= '0';
+    rx_ack <= '1';
+    wait for 62.5 ns;
+    rxd <= '0';
+    rx_ack <= '0';
+wait for 62.5 ns;--
+    
 
     rxd <= '1';                         -- D0
     wait for 8.6956 us;
     rxd <= '0';                         -- D1
     wait for 8.6956 us;
-    rx_ack <= '1';
     rxd <= '0';                         --D2
     wait for 62.5 ns;
     rx_ack <='0';

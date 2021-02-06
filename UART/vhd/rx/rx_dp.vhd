@@ -6,7 +6,7 @@
 -- Author     :   <Sabina@DESKTOP-IN9UA4D>
 -- Company    : 
 -- Created    : 2020-12-15
--- Last update: 2021-02-02
+-- Last update: 2021-02-05
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -49,6 +49,7 @@ entity rx_dp is
     sh_en_samples     : in  std_logic;  -- shift enable for samples
     sh_en_data        : in  std_logic;  -- shift enable for sr data
     start_en          : in  std_logic;
+    ld_en_data : in std_logic;
     ld_en             : in  std_logic;
     ld_overrun        : in  std_logic;
     start             : out std_logic;
@@ -81,7 +82,6 @@ architecture str of rx_dp is
   signal vote             : std_logic;
   signal s_out            : std_logic;  -- unused
   signal p_in             : std_logic_vector(7 downto 0);  -- unused
-  signal ld_en_byte       : std_logic;
   signal voter_d          : std_logic_vector(2 downto 0);
   signal clear_sh_tmp     : std_logic;
   signal clear_rxfull_tmp : std_logic;
@@ -160,6 +160,7 @@ begin  -- architecture str
         if ENABLE_FF(1) = '1' then
           FF_OUT(1) <= FF_IN(1);
         end if;
+        
 
       end if;
     end if;
@@ -225,7 +226,7 @@ begin  -- architecture str
   shift_reg_data : shift_register_8bit
     port map (
       clock => clock,
-      ld_en => ld_en_byte,
+      ld_en => ld_en_data,
       sh_en => sh_en_data,
       s_in  => vote,
       s_out => s_out,

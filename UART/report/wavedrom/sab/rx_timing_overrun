@@ -1,0 +1,18 @@
+{signal: [
+  {name: 'clock',	wave: 'P....', period:2},
+  {name: 'RESET', 	wave: '1.........', phase:0.5},
+  {name: 'rx_ack', wave:'0....',period:2},
+  {name: 'ld_overrun', 	wave: '0..10', period:2},
+  {name:'flag_overrun', wave:'0.10.', period:2},
+  {name:'flag_error', wave:'0..1.', period:2},
+  {name:'rx_full', wave:'01...', period:2},
+  {name:'status_flag_error', wave:'0...1', period:2},
+  {name:'status_rx_full', wave:'0.1..', period:2},
+  {name: 'ENABLE_FF', wave:'x222.', data:['11','11','00'],period:2},
+  
+  	],
+ head:{
+   text:'Overrun',
+   tick:0,
+ },
+}

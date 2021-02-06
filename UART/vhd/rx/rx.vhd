@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2020-12-17
--- Last update: 2021-02-02
+-- Last update: 2021-02-05
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -54,6 +54,7 @@ architecture str of rx is
   signal ld_en             : std_logic;
 
   signal ld_overrun       : std_logic;
+  signal ld_en_data : std_logic;
   signal clear_c_overrun  : std_logic;
   signal flag_overrun     : std_logic;
   signal count_en_overrun : std_logic;
@@ -61,6 +62,7 @@ architecture str of rx is
   signal flag_error: std_logic;
 
   signal ENABLE_FF : std_logic_vector(1 downto 0);
+  signal reset_ff : std_logic;
 
   signal flag_delay      : std_logic;
   signal flag_stop       : std_logic;
@@ -80,9 +82,11 @@ architecture str of rx is
     port (
       clock             : in  std_logic;
       ld_en             : out std_logic;
+      ld_en_data : out std_logic;
       ld_overrun        : out std_logic;
 
       ENABLE_FF : out std_logic_vector(1 downto 0);
+      reset_ff : out std_logic;
       
       reset             : in  std_logic;
       rx_enable         : in  std_logic;
@@ -90,9 +94,9 @@ architecture str of rx is
       clr_start         : out std_logic;
       flag_error        : out std_logic;
       flag_overrun      : in  std_logic;
-      clear_c_overrun   : out std_logic;
       clear_c_shift     : out std_logic;
       clear_c_rxfull    : out std_logic;
+      clear_c_overrun : out std_logic;
       flag_stop         : in  std_logic;
       rx_full           : out std_logic;
       flag_delay        : in  std_logic;
@@ -114,6 +118,7 @@ architecture str of rx is
     port (
       clock             : in  std_logic;
       reset             : in  std_logic;
+      ld_en_data : in std_logic;
       ld_en             : in  std_logic;
       ld_overrun        : in  std_logic;
 
@@ -156,6 +161,7 @@ begin  -- architecture str
     port map (
       clock             => clock,
       ld_en             => ld_en,
+      ld_en_data => ld_en_data,
       ld_overrun        => ld_overrun,
       reset             => reset,
       FF_IN(0)          => rx_full,
@@ -163,7 +169,7 @@ begin  -- architecture str
       FF_OUT(0)         => status_rx_full,
       FF_OUT(1)         => status_flag_error,
       ENABLE_FF         => ENABLE_FF,
-      RESET_FF          => rx_ack,
+      RESET_FF          => reset_ff,
       clr_start         => clr_start,
       clear_c_overrun   => clear_c_overrun,
       clear_c_shift     => clear_c_shift,
@@ -191,18 +197,20 @@ begin  -- architecture str
     port map (
       clock             => clock,
       ld_en             => ld_en,
+       ld_en_data => ld_en_data,
       ld_overrun        => ld_overrun,
       reset             => reset,
       rx_enable         => rx_enable,
       rx_ack            => rx_ack,
       ENABLE_FF         => ENABLE_FF,
+      reset_ff => reset_ff,
       clr_start         => clr_start,
-      clear_c_overrun   => clear_c_overrun,
       flag_overrun      => flag_overrun,
       flag_delay        => flag_delay,
       flag_error        => flag_error,
       clear_c_shift     => clear_c_shift,
-      clear_c_rxfull    => clear_c_rxfull,
+      clear_c_rxfull => clear_c_rxfull,
+      clear_c_overrun => clear_c_overrun,
       flag_stop         => flag_stop,
       rx_full           => rx_full,
       flag_shift_data   => flag_shift_data,

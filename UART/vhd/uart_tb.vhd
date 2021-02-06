@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-07
--- Last update: 2021-02-02
+-- Last update: 2021-02-06
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -70,6 +70,11 @@ begin  -- architecture arch
   WaveGen_Proc : process
   begin
     reset <= '0';
+    ADD <="000";
+    R_Wn <= '0';
+    CS <= '0';
+    Din <= "00000000";
+    ATNack<='0';
     wait for 62.5 ns;
     reset <= '1';
     ADD   <= "011";  -- VADO A SCRIVERE NEL REG DI CONTROLLO
@@ -79,15 +84,14 @@ begin  -- architecture arch
     Din <= "00000010";
     ADD   <= "000";
     R_Wn  <= '0';
-    CS    <= '1';
-     wait for 62.5 ns;
+    wait for 62.5 ns;
     Din   <= "10011000";   -- trasmetto la parola a TXDATA
     wait for 62.5 ns;
     ADD   <= "010";   --leggo lo stato
     R_Wn  <= '1';
-    CS    <= '1';
     wait for 62.5 ns;
     CS <= '0';
+    ADD <="000";
     wait for 86.875 us;
     ATNack <= '1';
     wait for 62.5 ns;
@@ -103,6 +107,7 @@ begin  -- architecture arch
     wait for 62.5 ns;
     Din <= "00000001";
     CS <= '0';
+    ADD <="000";
     wait for 62.5 ns;
     --affronto il caso in cui sia avvenuta una ricezione corretta
     rxd <= '0';                         --
@@ -126,18 +131,14 @@ begin  -- architecture arch
     rxd <= '1';                         --corretta
     wait for 8.9456 us; --tempo necessario per trasmettere ultimo simbolo(139Tclk)+t
                         --di delay(3Tclk)+tempo di risposta esterno(1Tclk)
-
+    CS <='1';
     ATNack <= '1';
     wait for 62.5 ns;
+    ATNack <= '0';
     ADD  <= "010";
-    CS   <= '1';
     R_Wn <= '1';  --leggo lo stato e controllo se rxfull è alto
     wait for 62.5 ns;
-    ATNack <= '0';
-    wait for 375 ns;
     ADD <= "001";
-    CS <= '1';
-    R_Wn <= '1';
     wait for 62.5 ns; -- parola ricevuta in uscita READ_RXDATA
     --spengo ricevitore e trasmettitore
     ADD  <= "011";
