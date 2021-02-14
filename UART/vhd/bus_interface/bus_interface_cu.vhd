@@ -78,8 +78,9 @@ begin
           present_state <= IDLE;
 
         when READ_RXdata =>
-          if(TX_EMPTY_cu = '1' and CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "000") then present_state <= WRITE_TXdata;
-          else present_state                                                                            <= IDLE;
+          if(TX_EMPTY_cu = '1' and CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "000") then present_state     <= WRITE_TXdata;
+          elsif (TX_EMPTY_cu = '1' and CS_cu = '1' and R_Wn_cu = '0' and ADD_cu = "011") then present_state <= WRITE_CTRL;
+          else present_state                                                                                <= IDLE;
           end if;
 
         when WRITE_CTRL_ATN => present_state <= CLEAR_s;

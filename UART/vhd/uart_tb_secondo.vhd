@@ -24,13 +24,13 @@ use ieee.std_logic_1164.all;
 
 -------------------------------------------------------------------------------
 
-entity uart_tb is
+entity uart_tb_secondo is
 
-end entity uart_tb;
+end entity uart_tb_secondo;
 
 -------------------------------------------------------------------------------
 
-architecture arch of uart_tb is
+architecture arch of uart_tb_secondo is
 
   -- component ports
   signal clock  : std_logic := '1';
@@ -53,7 +53,7 @@ begin  -- architecture arch
     port map (
       clock  => clock,
       reset  => reset,
-      RxD    => RxD,
+      RxD    => TxD,
       TxD    => TxD,
       Dout   => Dout,
       Din    => Din,
@@ -82,7 +82,7 @@ begin  -- architecture arch
     R_Wn  <= '0';
     CS    <= '1';
     wait for 62.5 ns;
-    Din <= "00000010";
+    Din <= "00000011";
     ADD   <= "000";
     R_Wn  <= '0';
     wait for 62.5 ns;
@@ -90,69 +90,29 @@ begin  -- architecture arch
     wait for 62.5 ns;
     ADD   <= "010";   --leggo lo stato
     R_Wn  <= '1';
+    Din <= "00000000";
     wait for 62.5 ns;
     CS <= '0';
+    R_Wn <='0';
     ADD <="000";
-    wait for 86.875 us;
+    wait for 86.9375 us;
     ATNack <= '1';
-    wait for 62.5 ns;
+    wait for 125 ns;
+    ATNACK <='0';
     ADD  <= "010";
     CS   <= '1';
     R_Wn <= '1';  --leggo lo stato e controllo se rxfull è alto e se il
-    --trasmettitore ha concluso la trasmissione
+    --trasmettitore ha concluso la trasmissione;
     wait for 62.5 ns;
-    ATNACK <='0';
-    ADD <= "011";    --ABILITO RX e spengo TX
+    ADD <= "001";
+    wait for 62.5 ns;
+    ADD <= "011";    --DISABILITO RX E TX.
     CS <= '1';
     R_Wn <= '0';
     wait for 62.5 ns;
-    Din <= "00000001";
+    Din <= "00000000";
     CS <= '0';
     ADD <="000";
-    wait for 62.5 ns;
-    --affronto il caso in cui sia avvenuta una ricezione corretta
-    rxd <= '0';                         --
-    wait for 8.6956 us;
-    rxd <= '1';                         -- D0
-    wait for 8.6956 us;
-    rxd <= '0';                         -- D1
-    wait for 8.6956 us;
-    rxd <= '0';                         --D2
-    wait for 8.6956 us;
-    rxd <= '1';                         --D3
-    wait for 8.6956 us;
-    rxd <= '0';                         --D4
-    wait for 8.6956 us;
-    rxd <= '1';                         --D5
-    wait for 8.6956 us;
-    rxd <= '0';                         --D6
-    wait for 8.6956 us;
-    rxd <= '0';                         --D7
-    wait for 8.6956 us;
-    rxd <= '1';                         --corretta
-    wait for 8.9456 us; --tempo necessario per trasmettere ultimo simbolo(139Tclk)+t
-                        --di delay(3Tclk)+tempo di risposta esterno(1Tclk)
-    CS <='1';
-    ATNack <= '1';
-    wait for 62.5 ns;
-    ATNack <= '0';
-    ADD  <= "010";
-    R_Wn <= '1';  --leggo lo stato e controllo se rxfull è alto
-    wait for 62.5 ns;
-    ADD <= "001";
-    wait for 62.5 ns; -- parola ricevuta in uscita READ_RXDATA
-    --spengo ricevitore e trasmettitore
-    ADD  <= "011";
-    CS   <= '1';
-    R_Wn <= '0';
-    Din  <= "00000001";
-    wait for 62.5 ns;
-    ADD  <= "011";
-    CS   <= '1';
-    R_Wn <= '0';
-    Din  <= "00000000";
-    wait for 62.5 ns;
-    CS <= '0';
     wait;
 
 
@@ -163,9 +123,9 @@ end architecture arch;
 
 -------------------------------------------------------------------------------
 
-configuration uart_tb_arch_cfg of uart_tb is
+configuration uart_tb_secondo_arch_cfg of uart_tb_secondo is
   for arch
   end for;
-end uart_tb_arch_cfg;
+end uart_tb_secondo_arch_cfg;
 
 -------------------------------------------------------------------------------

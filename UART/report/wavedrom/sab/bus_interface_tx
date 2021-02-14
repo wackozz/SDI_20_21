@@ -1,0 +1,22 @@
+{signal: [
+  {name: 'clock',	wave: 'P...|...|......', period:2},
+  {name:'reset', wave:'1.......................',},
+  {name:'CS', wave: '0.1....0.|....1......', phase:0.5},
+  {name:'ADD', wave:'2.2.2....|......2....', data:["000", "011", "000","010"], phase:0.5},
+  {name:'R_Wn',wave:'0........|......1....', phase:0.5},
+  {name: 'Din', wave:'x...2.2.x|...........', data:["00000010", "01010110"], node:'....*.+',phase:0.5},
+  {name: 'Dout',wave:'xxxx|xxx.2', data:["00000010"], period:2},
+  {name: 'Tx_out', wave:'2..2|xxx..', data:["00000000", "01010110"], node:'...1', period:2},
+  {name: 'tx_enable' ,wave:'0.1.|.....', node:'..^', period:2},
+  {name:'ATN' ,wave:'0...|.1.0.', period:2},
+  {name:'ATNack',wave:'0........|....1.0....', phase:0.5},
+  {name: 'TX_ack',wave:'0.10|.....', node:'..2', period:2},
+  {name: 'FF_IN_B',wave:'2........|2..........', data:["000", "010"], phase:0.5},
+],
+   edge: [
+    '*~^', '+~1', '*~2'
+  ]
+}
+  
+
+

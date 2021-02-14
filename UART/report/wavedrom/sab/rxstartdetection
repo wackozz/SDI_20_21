@@ -1,12 +1,12 @@
 {signal: [
   {name: 'clock',	wave: 'P|...|....|....', period:2},
   {name: 'RxD', 	wave: '10.|.......|.........|.....2..', data: ['D0', 'body', 'tail', 'data'], phase:0.5},
-  {name: 'sh_en_sample', 	wave: '0|.10|.10.|....', period:2},
+  {name: 'sh_en_sample', 	wave: '0|.10|.10.|....', node:'.......1', period:2},
   {name: 'start_en', wave:'1|...|..0.|....', period:2},
-  {name: 'START_comb', 	wave: '0|...|.1.x|..x.', period:2 },
-  {name: 'START', 	wave: '0|...|.1.x|....', period:2},
+  {name: 'START_comb', 	wave: '0..|.......|...1..x..|......x.', node:'...............2', phase:0.5 },
+  {name: 'START', 	wave:  '0..|.......|...1..x..|......x.', node:'...............3', phase:0.5},
   {name: 'flag_68', 	wave: '0|...|....|10..', period:2  },
-  {name: 'flag_shift_sample', 	wave: '0|10.|10..|....', period:2},
+  {name: 'flag_shift_sample', 	wave: '0..|10.....|10.......|........', phase:0.5},
   {name: 'count_en_shift', 	wave: '1|.01|.0.1|.0.1', period:2  },
   {name: 'clear_c_shift', 	wave: '0|...|..10|.10.', period:2  },
   {name: 'clr_start', 	wave: '0|...|....|.10.', period:2  },
@@ -16,7 +16,7 @@
   
   	],
   edge: [
-	'a~>t', 'b~>t', 's~>t', '1~>2', '3~>4', '5~>6', '7~>9', '8~>9'
+	'a~>t', 'b~>t', 's~>t', '1~>2', '2~>3', '5~>6', '7~>9', '8~>9'
 ],
  
 foot:{
@@ -24,5 +24,3 @@ foot:{
    tock:0
  },
 }
-
-
