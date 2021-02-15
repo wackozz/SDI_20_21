@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-11
--- Last update: 2021-01-29
+-- Last update: 2021-02-10
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -75,7 +75,7 @@ architecture str of butterfly is
       s_mux_A_mpy      : in  std_logic_vector(1 downto 0);
       s_mux_B_add_1    : in  std_logic;
       s_mux_B_add_2    : in  std_logic;
-      s_mux_round_in   : in  std_logic;
+      s_mux_add        : in  std_logic;
       add_sub_1        : in  std_logic_vector(1 downto 0);
       add_sub_2        : in  std_logic_vector(1 downto 0);
       sh_mpy           : in  std_logic;
@@ -88,29 +88,26 @@ architecture str of butterfly is
       Br_out_enable    : in  std_logic;
       Bj_out_enable    : in  std_logic;
       Ar_out_enable    : in  std_logic;
-      Aj_out_enable    : in  std_logic;
-      add_reg_1_enable : in  std_logic;
-      add_reg_2_enable : in  std_logic;
-      mpy_reg_enable   : in  std_logic);
+      Aj_out_enable    : in  std_logic);
   end component butterfly_dp;
 
   component controlunit_butterfly is
 
     port (start             : in  std_logic;
           clock, reset      : in  std_logic;
-          datapath_commands : out std_logic_vector (23 downto 0);
+          datapath_commands : out std_logic_vector (15 downto 0);
           done              : out std_logic);
   end component controlunit_butterfly;
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
 
-  signal datapath_commands : std_logic_vector(23 downto 0);
+  signal datapath_commands : std_logic_vector(15 downto 0);
   signal s_mux_B_mpy       : std_logic;
   signal s_mux_A_mpy       : std_logic_vector(1 downto 0);
   signal s_mux_B_add_1     : std_logic;
   signal s_mux_B_add_2     : std_logic;
-  signal s_mux_round_in    : std_logic;
+  signal s_mux_add         : std_logic;
   signal add_sub_1         : std_logic_vector(1 downto 0);
   signal add_sub_2         : std_logic_vector(1 downto 0);
   signal sh_mpy            : std_logic;
@@ -124,9 +121,6 @@ architecture str of butterfly is
   signal Bj_out_enable     : std_logic;
   signal Ar_out_enable     : std_logic;
   signal Aj_out_enable     : std_logic;
-  signal add_reg_1_enable  : std_logic;
-  signal add_reg_2_enable  : std_logic;
-  signal mpy_reg_enable    : std_logic;
 begin  -- architecture str
 
   -----------------------------------------------------------------------------
@@ -163,7 +157,7 @@ begin  -- architecture str
       s_mux_A_mpy      => s_mux_A_mpy,
       s_mux_B_add_1    => s_mux_B_add_1,
       s_mux_B_add_2    => s_mux_B_add_2,
-      s_mux_round_in   => s_mux_round_in,
+      s_mux_add        => s_mux_add,
       add_sub_1        => add_sub_1,
       add_sub_2        => add_sub_2,
       sh_mpy           => sh_mpy,
@@ -176,33 +170,26 @@ begin  -- architecture str
       Br_out_enable    => Br_out_enable,
       Bj_out_enable    => Bj_out_enable,
       Ar_out_enable    => Ar_out_enable,
-      Aj_out_enable    => Aj_out_enable,
-      add_reg_1_enable => add_reg_1_enable,
-      add_reg_2_enable => add_reg_2_enable,
-      mpy_reg_enable   => mpy_reg_enable
-      );
+      Aj_out_enable    => Aj_out_enable);
 
-  s_mux_B_mpy      <= datapath_commands(6);
-  s_mux_A_mpy      <= datapath_commands(8 downto 7);
-  s_mux_B_add_1    <= datapath_commands(18);
-  s_mux_B_add_2    <= datapath_commands(10);
-  s_mux_round_in   <= datapath_commands(23);
-  add_sub_1        <= datapath_commands(20 downto 19);
-  add_sub_2        <= datapath_commands(13 downto 12);
-  sh_mpy           <= datapath_commands(9);
-  Wr_enable        <= datapath_commands(2);
+  s_mux_B_mpy      <= datapath_commands(2);
+  s_mux_A_mpy      <= datapath_commands(4 downto 3);
+  s_mux_B_add_1    <= datapath_commands(13);
+  s_mux_B_add_2    <= datapath_commands(6);
+  s_mux_add        <= datapath_commands(15);
+  add_sub_1        <= datapath_commands(14)&datapath_commands(14);
+  add_sub_2        <= datapath_commands(8 downto 7);
+  sh_mpy           <= datapath_commands(5);
+  Wr_enable        <= datapath_commands(1);
   Wj_enable        <= datapath_commands(1);
-  Br_enable        <= datapath_commands(4);
-  Bj_enable        <= datapath_commands(3);
+  Br_enable        <= datapath_commands(0);
+  Bj_enable        <= datapath_commands(0);
   Ar_enable        <= datapath_commands(0);
-  Aj_enable        <= datapath_commands(5);
-  Br_out_enable    <= datapath_commands(17);
-  Bj_out_enable    <= datapath_commands(16);
-  Ar_out_enable    <= datapath_commands(14);
-  Aj_out_enable    <= datapath_commands(15);
-  add_reg_1_enable <= datapath_commands(21);
-  add_reg_2_enable <= datapath_commands(22);
-  mpy_reg_enable   <= datapath_commands(11);
+  Aj_enable        <= datapath_commands(0);
+  Br_out_enable    <= datapath_commands(12);
+  Bj_out_enable    <= datapath_commands(11);
+  Ar_out_enable    <= datapath_commands(9);
+  Aj_out_enable    <= datapath_commands(10);
 
 end architecture str;
 

@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-15
--- Last update: 2021-02-01
+-- Last update: 2021-02-13
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -88,38 +88,38 @@ begin  -- architecture arch
       reset    => reset,
       start    => start,
       done     => done,
-      x0       => to_slv(x0),
-      x0j      => to_slv(x0j),
-      x1       => to_slv(x1),
-      x1j      => to_slv(x1j),
-      x2       => to_slv(x2),
-      x2j      => to_slv(x2j),
-      x3       => to_slv(x3),
-      x3j      => to_slv(x3j),
-      x4       => to_slv(x4),
-      x4j      => to_slv(x4j),
-      x5       => to_slv(x5),
-      x5j      => to_slv(x5j),
-      x6       => to_slv(x6),
-      x6j      => to_slv(x6j),
-      x7       => to_slv(x7),
-      x7j      => to_slv(x7j),
-      x8       => to_slv(x8),
-      x8j      => to_slv(x8j),
-      x9       => to_slv(x9),
-      x9j      => to_slv(x9j),
-      x10      => to_slv(x10),
-      x10j     => to_slv(x10j),
-      x11      => to_slv(x11),
-      x11j     => to_slv(x11j),
-      x12      => to_slv(x12),
-      x12j     => to_slv(x12j),
-      x13      => to_slv(x13),
-      x13j     => to_slv(x13j),
-      x14      => to_slv(x14),
-      x14j     => to_slv(x14j),
-      x15      => to_slv(x15),
-      x15j     => to_slv(x15j),
+      x0_in    => to_slv(x0),
+      x0j_in   => to_slv(x0j),
+      x1_in    => to_slv(x1),
+      x1j_in   => to_slv(x1j),
+      x2_in    => to_slv(x2),
+      x2j_in   => to_slv(x2j),
+      x3_in    => to_slv(x3),
+      x3j_in   => to_slv(x3j),
+      x4_in    => to_slv(x4),
+      x4j_in   => to_slv(x4j),
+      x5_in    => to_slv(x5),
+      x5j_in   => to_slv(x5j),
+      x6_in    => to_slv(x6),
+      x6j_in   => to_slv(x6j),
+      x7_in    => to_slv(x7),
+      x7j_in   => to_slv(x7j),
+      x8_in    => to_slv(x8),
+      x8j_in   => to_slv(x8j),
+      x9_in    => to_slv(x9),
+      x9j_in   => to_slv(x9j),
+      x10_in   => to_slv(x10),
+      x10j_in  => to_slv(x10j),
+      x11_in   => to_slv(x11),
+      x11j_in  => to_slv(x11j),
+      x12_in   => to_slv(x12),
+      x12j_in  => to_slv(x12j),
+      x13_in   => to_slv(x13),
+      x13j_in  => to_slv(x13j),
+      x14_in   => to_slv(x14),
+      x14j_in  => to_slv(x14j),
+      x15_in   => to_slv(x15),
+      x15j_in  => to_slv(x15j),
       x0_out   => x0_out,
       x0j_out  => x0j_out,
       x1_out   => x1_out,
@@ -169,113 +169,131 @@ begin  -- architecture arch
     reset <= '1';
     wait for 100 ns;
     start <= '1';
-    wait for 5000 ns;
+    wait for 2500 ns;
     start <= '0';
     wait;
   end process WaveGen_Proc;
 
-  input_pro: process is
+  input_pro : process is
   begin  -- process input_pro
-      x0   <= to_sfixed(0.5, 0,-19);
-  x0j  <= to_sfixed(0, x0);
-  x1   <= To_sfixed(0, x0);
-  x1j  <= to_sfixed(0, x0);
-  x2   <= To_sfixed(0, x0);
-  x2j  <= to_sfixed(0, x0);
-  x3   <= To_sfixed(0, x0);
-  x3j  <= to_sfixed(0, x0);
-  x4   <= To_sfixed(0, x0);
-  x4j  <= to_sfixed(0, x0);
-  x5   <= To_sfixed(0, x0);
-  x5j  <= to_sfixed(0, x0);
-  x6   <= To_sfixed(0, x0);
-  x6j  <= to_sfixed(0, x0);
-  x7   <= To_sfixed(0, x0);
-  x7j  <= to_sfixed(0, x0);
-  x8   <= To_sfixed(0, x0);
-  x8j  <= to_sfixed(0, x0);
-  x9   <= To_sfixed(-0, x0);
-  x9j  <= to_sfixed(0, x0);
-  x10  <= To_sfixed(-0, x0);
-  x10j <= to_sfixed(0, x0);
-  x11  <= To_sfixed(-0, x0);
-  x11j <= to_sfixed(0, x0);
-  x12  <= To_sfixed(-0, x0);
-  x12j <= to_sfixed(0, x0);
-  x13  <= To_sfixed(-0, x0);
-  x13j <= to_sfixed(0, x0);
-  x14  <= To_sfixed(-0, x0);
-  x14j <= to_sfixed(0, x0);
-  x15  <= To_sfixed(-0, x0);
-      x15j <= to_sfixed(0, x0);
-      wait for 350 ns;
-        x0   <= to_sfixed(0, 0,-19);
-  x0j  <= to_sfixed(0, x0);
-  x1   <= To_sfixed(0, x0);
-  x1j  <= to_sfixed(0, x0);
-  x2   <= To_sfixed(0, x0);
-  x2j  <= to_sfixed(0, x0);
-  x3   <= To_sfixed(0, x0);
-  x3j  <= to_sfixed(0, x0);
-  x4   <= To_sfixed(0, x0);
-  x4j  <= to_sfixed(0, x0);
-  x5   <= To_sfixed(0, x0);
-  x5j  <= to_sfixed(0, x0);
-  x6   <= To_sfixed(0, x0);
-  x6j  <= to_sfixed(0, x0);
-  x7   <= To_sfixed(0, x0);
-  x7j  <= to_sfixed(0, x0);
-  x8   <= To_sfixed(0.375, x0);
-  x8j  <= to_sfixed(0, x0);
-  x9   <= To_sfixed(0, x0);
-  x9j  <= to_sfixed(0, x0);
-  x10  <= To_sfixed(-0, x0);
-  x10j <= to_sfixed(0, x0);
-  x11  <= To_sfixed(-0, x0);
-  x11j <= to_sfixed(0, x0);
-  x12  <= To_sfixed(-0, x0);
-  x12j <= to_sfixed(0, x0);
-  x13  <= To_sfixed(-0, x0);
-  x13j <= to_sfixed(0, x0);
-  x14  <= To_sfixed(-0, x0);
-  x14j <= to_sfixed(0, x0);
-  x15  <= To_sfixed(-0, x0);
-      x15j <= to_sfixed(0, x0);
-      wait for 100 ns;
-  x0   <= to_sfixed(-0.5, 0,-19);
-  x0j  <= to_sfixed(0, x0);
-  x1   <= To_sfixed(-0.5, x0);
-  x1j  <= to_sfixed(0, x0);
-  x2   <= To_sfixed(-0.5, x0);
-  x2j  <= to_sfixed(0, x0);
-  x3   <= To_sfixed(-0.5, x0);
-  x3j  <= to_sfixed(0, x0);
-  x4   <= To_sfixed(-0.5, x0);
-  x4j  <= to_sfixed(0, x0);
-  x5   <= To_sfixed(-0.5, x0);
-  x5j  <= to_sfixed(0, x0);
-  x6   <= To_sfixed(-0.5, x0);
-  x6j  <= to_sfixed(0, x0);
-  x7   <= To_sfixed(-0.5, x0);
-  x7j  <= to_sfixed(0, x0);
-  x8   <= To_sfixed(-0.5, x0);
-  x8j  <= to_sfixed(0, x0);
-  x9   <= To_sfixed(-0.5, x0);
-  x9j  <= to_sfixed(0, x0);
-  x10  <= To_sfixed(-0.5, x0);
-  x10j <= to_sfixed(0, x0);
-  x11  <= To_sfixed(-0.5, x0);
-  x11j <= to_sfixed(0, x0);
-  x12  <= To_sfixed(-0.5, x0);
-  x12j <= to_sfixed(0, x0);
-  x13  <= To_sfixed(-0.5, x0);
-  x13j <= to_sfixed(0, x0);
-  x14  <= To_sfixed(-0.5, x0);
-  x14j <= to_sfixed(0, x0);
-  x15  <= To_sfixed(-0.5, x0);
-      x15j <= to_sfixed(0, x0);
-      wait for 100 ns;
-      
+    x0   <= to_sfixed(-1, x0);
+    x0j  <= to_sfixed(0, x0);
+    x1   <= To_sfixed(-1, x0);
+    x1j  <= to_sfixed(0, x0);
+    x2   <= To_sfixed(-1, x0);
+    x2j  <= to_sfixed(0, x0);
+    x3   <= To_sfixed(-1, x0);
+    x3j  <= to_sfixed(0, x0);
+    x4   <= To_sfixed(-1, x0);
+    x4j  <= to_sfixed(0, x0);
+    x5   <= To_sfixed(-1, x0);
+    x5j  <= to_sfixed(0, x0);
+    x6   <= To_sfixed(-1, x0);
+    x6j  <= to_sfixed(0, x0);
+    x7   <= To_sfixed(-1, x0);
+    x7j  <= to_sfixed(0, x0);
+    x8   <= To_sfixed(-1, x0);
+    x8j  <= to_sfixed(0, x0);
+    x9   <= To_sfixed(-1, x0);
+    x9j  <= to_sfixed(0, x0);
+    x10  <= To_sfixed(-1, x0);
+    x10j <= to_sfixed(0, x0);
+    x11  <= To_sfixed(-1, x0);
+    x11j <= to_sfixed(0, x0);
+    x12  <= To_sfixed(-1, x0);
+    x12j <= to_sfixed(0, x0);
+    x13  <= To_sfixed(-1, x0);
+    x13j <= to_sfixed(0, x0);
+    x14  <= To_sfixed(-1, x0);
+    x14j <= to_sfixed(0, x0);
+    x15  <= To_sfixed(-1, x0);
+    x15j <= to_sfixed(0, x0);
+    wait for 350 ns;
+    x0   <= to_sfixed(-1, x0);
+    x1   <= To_sfixed(0, x0);
+    x2   <= To_sfixed(1, x0);
+    x3   <= To_sfixed(0, x0);
+    x4   <= To_sfixed(-1, x0);
+    x5   <= To_sfixed(0, x0);
+    x6   <= To_sfixed(1, x0);
+    x7   <= To_sfixed(0, x0);
+    x8   <= To_sfixed(-1, x0);
+    x9   <= To_sfixed(0, x0);
+    x10  <= To_sfixed(1, x0);
+    x11  <= To_sfixed(0, x0);
+    x12  <= To_sfixed(-1, x0);
+    x13  <= To_sfixed(0, x0);
+    x14  <= To_sfixed(1, x0);
+    x15  <= To_sfixed(0, x0);
+    wait for 350 ns;
+    x0   <= to_sfixed(1, x0);
+    x1   <= To_sfixed(0, x0);
+    x2   <= To_sfixed(0, x0);
+    x3   <= To_sfixed(0, x0);
+    x4   <= To_sfixed(0, x0);
+    x5   <= To_sfixed(0, x0);
+    x6   <= To_sfixed(0, x0);
+    x7   <= To_sfixed(0, x0);
+    x8   <= To_sfixed(0, x0);
+    x9   <= To_sfixed(0, x0);
+    x10  <= To_sfixed(0, x0);
+    x11  <= To_sfixed(0, x0);
+    x12  <= To_sfixed(0, x0);
+    x13  <= To_sfixed(0, x0);
+    x14  <= To_sfixed(0, x0);
+    x15  <= To_sfixed(0, x0);
+    wait for 350 ns;
+    x0   <= to_sfixed(-1, x0);
+    x1   <= To_sfixed(-1, x0);
+    x2   <= To_sfixed(0.99999999, x0);
+    x3   <= To_sfixed(0.99999999, x0);
+    x4   <= To_sfixed(-1, x0);
+    x5   <= To_sfixed(-1, x0);
+    x6   <= To_sfixed(0.99999999, x0);
+    x7   <= To_sfixed(0.99999999, x0);
+    x8   <= To_sfixed(-1, x0);
+    x9   <= To_sfixed(-1, x0);
+    x10  <= To_sfixed(0.99999999, x0);
+    x11  <= To_sfixed(0.99999999, x0);
+    x12  <= To_sfixed(-1, x0);
+    x13  <= To_sfixed(-1, x0);
+    x14  <= To_sfixed(0.99999999, x0);
+    x15  <= To_sfixed(0.99999999, x0);
+    wait for 350 ns;
+    x0   <= to_sfixed(0.5, x0);
+    x1   <= To_sfixed(0.5, x0);
+    x2   <= To_sfixed(0.5, x0);
+    x3   <= To_sfixed(0.5, x0);
+    x4   <= To_sfixed(0.5, x0);
+    x5   <= To_sfixed(0.5, x0);
+    x6   <= To_sfixed(0.5, x0);
+    x7   <= To_sfixed(0.5, x0);
+    x8   <= To_sfixed(0.5, x0);
+    x9   <= To_sfixed(-0.5, x0);
+    x10  <= To_sfixed(-0.5, x0);
+    x11  <= To_sfixed(-0.5, x0);
+    x12  <= To_sfixed(-0.5, x0);
+    x13  <= To_sfixed(-0.5, x0);
+    x14  <= To_sfixed(-0.5, x0);
+    x15  <= To_sfixed(-0.5, x0);
+    wait for 250 ns;
+    x0   <= to_sfixed(0, x0);
+    x1   <= To_sfixed(0, x0);
+    x2   <= To_sfixed(0, x0);
+    x3   <= To_sfixed(0, x0);
+    x4   <= To_sfixed(0, x0);
+    x5   <= To_sfixed(0, x0);
+    x6   <= To_sfixed(0, x0);
+    x7   <= To_sfixed(0, x0);
+    x8   <= To_sfixed(0.75, x0);
+    x9   <= To_sfixed(0, x0);
+    x10  <= To_sfixed(0, x0);
+    x11  <= To_sfixed(0, x0);
+    x12  <= To_sfixed(0, x0);
+    x13  <= To_sfixed(0, x0);
+    x14  <= To_sfixed(0, x0);
+   x15  <= To_sfixed(0, x0);
+    wait;
   end process input_pro;
 
 

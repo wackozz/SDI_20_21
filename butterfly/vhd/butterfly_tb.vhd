@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-11
--- Last update: 2021-02-02
+-- Last update: 2021-02-11
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -40,6 +40,8 @@ architecture str of butterfly_tb is
   signal reset  : std_logic;
   signal start  : std_logic;
   signal done   : std_logic;
+  signal Wj_in  : std_logic_vector(N-1 downto 0);
+  signal Wr_in  : std_logic_vector(N-1 downto 0);
   signal Ar_in  : std_logic_vector(N-1 downto 0);
   signal Aj_in  : std_logic_vector(N-1 downto 0);
   signal Br_in  : std_logic_vector(N-1 downto 0);
@@ -62,8 +64,8 @@ begin  -- architecture str
       Aj_in  => Aj_in,
       Br_in  => Br_in,
       Bj_in  => Bj_in,
-      Wr     => X"7641b",
-      Wj     => X"cf044",
+      Wr     => Wr_in,
+      Wj     => Wj_in,
       start  => start,
       done   => done,
       Ar_out => Ar_out,
@@ -83,8 +85,9 @@ begin  -- architecture str
     reset <= '0';
     wait for 50 ns;
     reset <= '1';
+    wait for 100 ns;
     start <= '1';
-    wait for 500 ns;
+    wait for 1000 ns;
     start <= '0';
     -- insert signal assignments here
     wait;
@@ -92,10 +95,27 @@ begin  -- architecture str
 
   input_pro : process is
   begin  -- process input_pro
-    Aj_in <= X"40000";
-    Ar_in <= X"00000";
-    Bj_in <= X"00000";
-    Br_in <= X"00000";
+    Wr_in <= X"7fffb";
+    Wj_in <= X"0A0D0";
+    Ar_in <= X"40070";
+    Aj_in <= X"13000";
+    Br_in <= X"F0020";
+    Bj_in <= X"0D100";
+    wait for 220ns;
+    Ar_in <= X"70006";
+    Aj_in <= X"D3B00";
+    Br_in <= X"C0020";
+    Bj_in <= X"0010D";
+    wait for 280ns;
+    Ar_in <= X"80400";
+    Aj_in <= X"93040";
+    Br_in <= X"0F020";
+    Bj_in <= X"A0100";
+    wait for 280ns;
+    Ar_in <= X"40070";
+    Aj_in <= X"13000";
+    Br_in <= X"F0020";
+    Bj_in <= X"0D100";
     wait;
   end process input_pro;
 

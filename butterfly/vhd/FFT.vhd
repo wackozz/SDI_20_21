@@ -6,7 +6,7 @@
 -- Author     : wackoz  <wackoz@wT14s>
 -- Company    : 
 -- Created    : 2021-01-15
--- Last update: 2021-01-28
+-- Last update: 2021-02-13
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -32,26 +32,26 @@ entity FFT is
     );
 
   port (
-    clock     : in  std_logic;
-    reset     : in  std_logic;
-    start     : in  std_logic;
-    done      : out std_logic;
-    x0, x0j   : in  std_logic_vector(N-1 downto 0);
-    x1, x1j   : in  std_logic_vector(N-1 downto 0);
-    x2, x2j   : in  std_logic_vector(N-1 downto 0);
-    x3, x3j   : in  std_logic_vector(N-1 downto 0);
-    x4, x4j   : in  std_logic_vector(N-1 downto 0);
-    x5, x5j   : in  std_logic_vector(N-1 downto 0);
-    x6, x6j   : in  std_logic_vector(N-1 downto 0);
-    x7, x7j   : in  std_logic_vector(N-1 downto 0);
-    x8, x8j   : in  std_logic_vector(N-1 downto 0);
-    x9, x9j   : in  std_logic_vector(N-1 downto 0);
-    x10, x10j : in  std_logic_vector(N-1 downto 0);
-    x11, x11j : in  std_logic_vector(N-1 downto 0);
-    x12, x12j : in  std_logic_vector(N-1 downto 0);
-    x13, x13j : in  std_logic_vector(N-1 downto 0);
-    x14, x14j : in  std_logic_vector(N-1 downto 0);
-    x15, x15j : in  std_logic_vector(N-1 downto 0);
+    clock           : in  std_logic;
+    reset           : in  std_logic;
+    start           : in  std_logic;
+    done            : out std_logic;
+    x0_in, x0j_in   : in  std_logic_vector(N-1 downto 0);
+    x1_in, x1j_in   : in  std_logic_vector(N-1 downto 0);
+    x2_in, x2j_in   : in  std_logic_vector(N-1 downto 0);
+    x3_in, x3j_in   : in  std_logic_vector(N-1 downto 0);
+    x4_in, x4j_in   : in  std_logic_vector(N-1 downto 0);
+    x5_in, x5j_in   : in  std_logic_vector(N-1 downto 0);
+    x6_in, x6j_in   : in  std_logic_vector(N-1 downto 0);
+    x7_in, x7j_in   : in  std_logic_vector(N-1 downto 0);
+    x8_in, x8j_in   : in  std_logic_vector(N-1 downto 0);
+    x9_in, x9j_in   : in  std_logic_vector(N-1 downto 0);
+    x10_in, x10j_in : in  std_logic_vector(N-1 downto 0);
+    x11_in, x11j_in : in  std_logic_vector(N-1 downto 0);
+    x12_in, x12j_in : in  std_logic_vector(N-1 downto 0);
+    x13_in, x13j_in : in  std_logic_vector(N-1 downto 0);
+    x14_in, x14j_in : in  std_logic_vector(N-1 downto 0);
+    x15_in, x15j_in : in  std_logic_vector(N-1 downto 0);
 
     x0_out, x0j_out   : out std_logic_vector(N+4 downto 0);
     x1_out, x1j_out   : out std_logic_vector(N+4 downto 0);
@@ -79,6 +79,23 @@ architecture str of FFT is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
+
+  signal x0, x0j   : std_logic_vector(N-1 downto 0);
+  signal x1, x1j   : std_logic_vector(N-1 downto 0);
+  signal x2, x2j   : std_logic_vector(N-1 downto 0);
+  signal x3, x3j   : std_logic_vector(N-1 downto 0);
+  signal x4, x4j   : std_logic_vector(N-1 downto 0);
+  signal x5, x5j   : std_logic_vector(N-1 downto 0);
+  signal x6, x6j   : std_logic_vector(N-1 downto 0);
+  signal x7, x7j   : std_logic_vector(N-1 downto 0);
+  signal x8, x8j   : std_logic_vector(N-1 downto 0);
+  signal x9, x9j   : std_logic_vector(N-1 downto 0);
+  signal x10, x10j : std_logic_vector(N-1 downto 0);
+  signal x11, x11j : std_logic_vector(N-1 downto 0);
+  signal x12, x12j : std_logic_vector(N-1 downto 0);
+  signal x13, x13j : std_logic_vector(N-1 downto 0);
+  signal x14, x14j : std_logic_vector(N-1 downto 0);
+  signal x15, x15j : std_logic_vector(N-1 downto 0);
 
   signal x0_I, x0j_I   : std_logic_vector(N-1 downto 0);
   signal x1_I, x1j_I   : std_logic_vector(N-1 downto 0);
@@ -537,12 +554,52 @@ begin  -- architecture str
       N => N)
     port map (clock, reset, start_IV, done, x14_IV, x14j_IV, x15_IV, x15j_IV, w7, w7j, x14_III, x14j_III, x15_III, x15j_III);
 
+-------------------------------------------------------------------------------
+-- INPUT MAPPING
+-------------------------------------------------------------------------------
+  x0   <= x0_in(19)&x0_in(19 downto 1);
+  x0j  <= x0j_in(19)&x0j_in(19 downto 1);
+  x1   <= x1_in(19)&x1_in(19 downto 1);
+  x1j  <= x1j_in(19)&x1j_in(19 downto 1);
+  x2   <= x2_in(19)&x2_in(19 downto 1);
+  x2j  <= x2j_in(19)&x2j_in(19 downto 1);
+  x3   <= x3_in(19)&x3_in(19 downto 1);
+  x3j  <= x3j_in(19)&x3j_in(19 downto 1);
+  x4   <= x4_in(19)&x4_in(19 downto 1);
+  x4j  <= x4j_in(19)&x4j_in(19 downto 1);
+  x5   <= x5_in(19)&x5_in(19 downto 1);
+  x5j  <= x5j_in(19)&x5j_in(19 downto 1);
+  x6   <= x6_in(19)&x6_in(19 downto 1);
+  x6j  <= x6j_in(19)&x6j_in(19 downto 1);
+  x7   <= x7_in(19)&x7_in(19 downto 1);
+  x7j  <= x7j_in(19)&x7j_in(19 downto 1);
+  x8   <= x8_in(19)&x8_in(19 downto 1);
+  x8j  <= x8j_in(19)&x8j_in(19 downto 1);
+  x9   <= x9_in(19)&x9_in(19 downto 1);
+  x9j  <= x9j_in(19)&x9j_in(19 downto 1);
+  x10  <= x10_in(19)&x10_in(19 downto 1);
+  x10j <= x10j_in(19)&x10j_in(19 downto 1);
+  x11  <= x11_in(19)&x11_in(19 downto 1);
+  x11j <= x11j_in(19)&x11j_in(19 downto 1);
+  x12  <= x12_in(19)&x12_in(19 downto 1);
+  x12j <= x12j_in(19)&x12j_in(19 downto 1);
+  x13  <= x13_in(19)&x13_in(19 downto 1);
+  x13j <= x13j_in(19)&x13j_in(19 downto 1);
+  x14  <= x14_in(19)&x14_in(19 downto 1);
+  x14j <= x14j_in(19)&x14j_in(19 downto 1);
+  x15  <= x15_in(19)&x15_in(19 downto 1);
+  x15j <= x15j_in(19)&x15j_in(19 downto 1);
 
+-------------------------------------------------------------------------------
+-- START/DONE MAPPING
+-------------------------------------------------------------------------------
   start_II  <= done_I;
   start_III <= done_II;
   start_IV  <= done_III;
 
-
+-------------------------------------------------------------------------------
+-- OUTPUT
+-------------------------------------------------------------------------------
   x0_out   <= x0_IV&"00000";
   x0j_out  <= x0j_IV&"00000";
   x1_out   <= x8_IV&"00000";

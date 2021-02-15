@@ -6,7 +6,7 @@ entity controlunit_butterfly is
 
   port (start             : in  std_logic;
         clock, reset      : in  std_logic;
-        datapath_commands : out std_logic_vector (23 downto 0);
+        datapath_commands : out std_logic_vector (15 downto 0);
         done              : out std_logic);
 end controlunit_butterfly;
 
@@ -20,7 +20,7 @@ architecture behav of controlunit_butterfly is
 
   component microROM is
 
-    generic (constant N : integer := 32);
+    generic (constant N : integer := 24);
     port (ADDRESS                   : in  std_logic_vector (3 downto 0);
           OUT_MEM_even, OUT_MEM_odd : out std_logic_vector (N-1 downto 0));
   end component;
@@ -53,7 +53,7 @@ architecture behav of controlunit_butterfly is
   -- SIGNALS
   -----------------------------------------------------------------------------
 
-  signal mem_out1, mem_out2, mux_out, out_uIR : std_logic_vector (31 downto 0);
+  signal mem_out1, mem_out2, mux_out, out_uIR : std_logic_vector (23 downto 0);
   signal in_uAR_LSB                      : std_logic;
   signal out_uAR, D_uAR                       : std_logic_vector(4 downto 0);
   signal in_uAR_ADD                              : std_logic_vector(3 downto 0);
@@ -61,8 +61,9 @@ architecture behav of controlunit_butterfly is
 -------------------------------------------------------------------------------
 begin
 
-  datapath_commands <= out_uIR(28 downto 5);
-  done              <= out_uIR(29);
+  --microIR fields:
+  datapath_commands <= out_uIR(20 downto 5);
+  done              <= out_uIR(21);
   in_uAR_ADD        <= out_uIR(4 downto 1);
   D_uAR             <= in_uAr_ADD & in_uAR_LSB;
 
@@ -87,7 +88,7 @@ begin
   late_status : PLA_status
     port map (start         => start,
               lsb_in        => out_uIR(0),
-              cc_validation => out_uIR(31 downto 30),
+              cc_validation => out_uIR(23 downto 22),
               LSB_out       => in_uAR_LSB);
 
 
@@ -105,7 +106,7 @@ begin
   -- instance "reg_uIR"
   reg_uIR : reg
     generic map (
-      N => 32)
+      N => 24)
     port map (
       D      => mux_out,
       clock  => clock,
